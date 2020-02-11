@@ -32,6 +32,8 @@
             this.erdőkKezeléseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.értékesítésreVáróFákToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vevőkKezeléseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.erdőgazdálkodókKezeléseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.számlaÍrásToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -40,7 +42,9 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.erdőkKezeléseToolStripMenuItem,
             this.értékesítésreVáróFákToolStripMenuItem,
-            this.vevőkKezeléseToolStripMenuItem});
+            this.vevőkKezeléseToolStripMenuItem,
+            this.erdőgazdálkodókKezeléseToolStripMenuItem,
+            this.számlaÍrásToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(20, 60);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1106, 24);
@@ -65,6 +69,18 @@
             this.vevőkKezeléseToolStripMenuItem.Size = new System.Drawing.Size(97, 20);
             this.vevőkKezeléseToolStripMenuItem.Text = "Vevők kezelése";
             // 
+            // erdőgazdálkodókKezeléseToolStripMenuItem
+            // 
+            this.erdőgazdálkodókKezeléseToolStripMenuItem.Name = "erdőgazdálkodókKezeléseToolStripMenuItem";
+            this.erdőgazdálkodókKezeléseToolStripMenuItem.Size = new System.Drawing.Size(156, 20);
+            this.erdőgazdálkodókKezeléseToolStripMenuItem.Text = "Erdőgazdálkodók kezelése";
+            // 
+            // számlaÍrásToolStripMenuItem
+            // 
+            this.számlaÍrásToolStripMenuItem.Name = "számlaÍrásToolStripMenuItem";
+            this.számlaÍrásToolStripMenuItem.Size = new System.Drawing.Size(108, 20);
+            this.számlaÍrásToolStripMenuItem.Text = "Számlák kezelése";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -87,6 +103,8 @@
         private System.Windows.Forms.ToolStripMenuItem erdőkKezeléseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem értékesítésreVáróFákToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem vevőkKezeléseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem erdőgazdálkodókKezeléseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem számlaÍrásToolStripMenuItem;
     }
 }
 
