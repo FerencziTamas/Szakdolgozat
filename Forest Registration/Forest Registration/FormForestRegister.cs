@@ -10,13 +10,13 @@ using System.Windows.Forms;
 
 namespace Forest_Registration
 {
-    public partial class Form1 : MetroFramework.Forms.MetroForm
+    public partial class FormForestRegister : Form
     {
-        public Form1()
+        public FormForestRegister()
         {
             InitializeComponent();
         }
 
-
+        
     }
 }
