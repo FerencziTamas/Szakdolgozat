@@ -66,6 +66,7 @@
     <Compile Include="modell\Erdogazdalkodo.cs" />
     <Compile Include="modell\Fafaj.cs" />
     <Compile Include="modell\Fa_hasznalat_modja.cs" />
+    <Compile Include="modell\Szamlak.cs" />
     <Compile Include="modell\Vevo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
