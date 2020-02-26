@@ -22,9 +22,19 @@ namespace Forest_Registration.modell
             this.fafajId = fafajId;
         }
 
-        public void setMegevezes(string megnevezes)
+        public void setMegnevezes(string megnevezes)
         {
             this.megnevezes = megnevezes;
+        }
+        
+        public int getFafajId()
+        {
+            return fafajId;
+        }
+
+        public string getMegnevezes()
+        {
+            return megnevezes;
         }
     }
 }
