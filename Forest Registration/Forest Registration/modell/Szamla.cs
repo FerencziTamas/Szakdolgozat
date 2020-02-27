@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Forest_Registration.modell
 {
-    class Szamlak
+    class Szamla
     {
         private string szamlaszam;
         private string vevonev;

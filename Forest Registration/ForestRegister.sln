@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.852
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29728.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forest Register", "Forest Registration\Forest Register.csproj", "{621368C5-5A7F-4B1D-BCAC-7C65EA5E3B26}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForestRegister", "Forest Registration\ForestRegister.csproj", "{621368C5-5A7F-4B1D-BCAC-7C65EA5E3B26}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
