@@ -17,6 +17,9 @@ namespace Forest_Registration
             InitializeComponent();
         }
 
+        private void metroTabPage1_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }
