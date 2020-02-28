@@ -65,6 +65,9 @@
             this.metroTextBoxTerulet = new MetroFramework.Controls.MetroTextBox();
             this.metroTextBoxErdogazNev = new MetroFramework.Controls.MetroTextBox();
             this.metroTextBoxFahasznalatModja = new MetroFramework.Controls.MetroTextBox();
+            this.metroButtonHozzaad = new MetroFramework.Controls.MetroButton();
+            this.htmlToolTip1 = new MetroFramework.Drawing.Html.HtmlToolTip();
+            this.metroButtonMegse = new MetroFramework.Controls.MetroButton();
             this.menuStrip1.SuspendLayout();
             this.metroTabPageErdok.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -294,6 +297,8 @@
             // 
             // metroPanelUjModositErdo
             // 
+            this.metroPanelUjModositErdo.Controls.Add(this.metroButtonMegse);
+            this.metroPanelUjModositErdo.Controls.Add(this.metroButtonHozzaad);
             this.metroPanelUjModositErdo.Controls.Add(this.metroTextBoxFahasznalatModja);
             this.metroPanelUjModositErdo.Controls.Add(this.metroTextBoxErdogazNev);
             this.metroPanelUjModositErdo.Controls.Add(this.metroTextBoxTerulet);
@@ -528,6 +533,28 @@
             this.metroTextBoxFahasznalatModja.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.metroTextBoxFahasznalatModja.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
+            // metroButtonHozzaad
+            // 
+            this.metroButtonHozzaad.Location = new System.Drawing.Point(289, 252);
+            this.metroButtonHozzaad.Name = "metroButtonHozzaad";
+            this.metroButtonHozzaad.Size = new System.Drawing.Size(110, 23);
+            this.metroButtonHozzaad.TabIndex = 14;
+            this.metroButtonHozzaad.Text = "Új hozzáadása";
+            this.metroButtonHozzaad.UseSelectable = true;
+            // 
+            // htmlToolTip1
+            // 
+            this.htmlToolTip1.OwnerDraw = true;
+            // 
+            // metroButtonMegse
+            // 
+            this.metroButtonMegse.Location = new System.Drawing.Point(289, 282);
+            this.metroButtonMegse.Name = "metroButtonMegse";
+            this.metroButtonMegse.Size = new System.Drawing.Size(110, 23);
+            this.metroButtonMegse.TabIndex = 15;
+            this.metroButtonMegse.Text = "Mégse";
+            this.metroButtonMegse.UseSelectable = true;
+            // 
             // FormForestRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -591,5 +618,8 @@
         private System.Windows.Forms.NumericUpDown numericUpDownErdoKor;
         private MetroFramework.Controls.MetroTextBox metroTextBoxHelyrajziSzam;
         private MetroFramework.Controls.MetroTextBox metroTextBoxErdeszetiAzon;
+        private MetroFramework.Controls.MetroButton metroButtonMegse;
+        private MetroFramework.Controls.MetroButton metroButtonHozzaad;
+        private MetroFramework.Drawing.Html.HtmlToolTip htmlToolTip1;
     }
 }
