@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Forest_Registration.repository
 {
     /// <summary>
-    /// Külön osztály az listák példányosításához
+    /// Ebben az osztályban megy végbe a listák példányosítása
     /// </summary>
     partial class Repository
     {
@@ -17,6 +17,7 @@ namespace Forest_Registration.repository
             erdok = new List<Erdo>();
             erdogazdalkodok = new List<Erdogazdalkodo>();
             szamlak = new List<Szamla>();
+            vevok = new List<Vevo>();
         }
     }
 }

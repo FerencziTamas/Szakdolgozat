@@ -12,19 +12,21 @@ namespace Forest_Registration.modell
         private string helyrajziSzam;
         private int kor;
         private int terulet;
-        private string erdogazdalkodo;
         private string fahasznalat;
+        private string erdogazdalkodo;
 
-        public Erdo(string erdeszetiAzon, string helyrajziSzam, int kor, int terulet, string erdogazdalkodo, string fahasznalat)
+
+        public Erdo(string erdeszetiAzon, string helyrajziSzam, int kor, int terulet, string fahasznalat, string erdogazdalkodo)
         {
             this.erdeszetiAzon = erdeszetiAzon;
             this.helyrajziSzam = helyrajziSzam;
             this.kor = kor;
             this.terulet = terulet;
-            this.erdogazdalkodo = erdogazdalkodo;
             this.fahasznalat = fahasznalat;
+            this.erdogazdalkodo = erdogazdalkodo;
         }
 
+        
         public void setErdeszetiAzon(string erdeszetiAzon)
         {
             this.erdeszetiAzon = erdeszetiAzon;
@@ -44,15 +46,14 @@ namespace Forest_Registration.modell
         {
             this.terulet = terulet;
         }
+        public void setFahasznalat(string fahasznalat) 
+        {
+            this.fahasznalat = fahasznalat;
+        }
 
         public void setErdogazdalkodo(string erdogazdalkodo)
         {
             this.erdogazdalkodo = erdogazdalkodo;
-        }
-
-        public void setFahasznalat(string fahasznalat) 
-        {
-            this.fahasznalat = fahasznalat;
         }
 
         public string getErdeszetiAzon()
@@ -74,15 +75,16 @@ namespace Forest_Registration.modell
         {
             return terulet;
         }
+        public string getFahasznalat()
+        {
+            return fahasznalat;
+        }
 
         public string getErdogazdalkodo()
         {
             return erdogazdalkodo;
         }
 
-        public string getFahasznalat()
-        {
-            return fahasznalat;
-        }
+
     }
 }

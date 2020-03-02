@@ -55,6 +55,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormErdok.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormForestRegister.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,6 +66,7 @@
     </Compile>
     <Compile Include="modell\ConnectionString.cs" />
     <Compile Include="modell\Erdo.cs" />
+    <Compile Include="modell\ErdoAdatbazis.cs" />
     <Compile Include="modell\Erdogazdalkodo.cs" />
     <Compile Include="modell\Fafaj.cs" />
     <Compile Include="modell\Fa_hasznalat_modja.cs" />
@@ -74,6 +78,7 @@
     <Compile Include="repository\Erdok\ErdokRepository.cs" />
     <Compile Include="repository\Repository.cs" />
     <Compile Include="repository\Szamlak\SzamlakRepository.cs" />
+    <Compile Include="repository\Vevok\VevokRepository.cs" />
     <EmbeddedResource Include="FormForestRegister.resx">
       <DependentUpon>FormForestRegister.cs</DependentUpon>
     </EmbeddedResource>
@@ -102,6 +107,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="diagram\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="sql\erdoSql.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -20,5 +20,15 @@ namespace Forest_Registration.repository
         {
             return erdogazdalkodok;
         }
+
+        public List<string> getErdogazdalkodoNev()
+        {
+            List<string> erdogazdalkodoNev = new List<string>();
+            foreach (Erdogazdalkodo erdogazdalkodo in erdogazdalkodok)
+            {
+                erdogazdalkodoNev.Add(erdogazdalkodo.getErdogazNev());
+            }
+            return erdogazdalkodoNev;
+        }
     }
 }

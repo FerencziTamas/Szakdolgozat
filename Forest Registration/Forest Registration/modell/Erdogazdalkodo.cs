@@ -12,41 +12,63 @@ namespace Forest_Registration.modell
     class Erdogazdalkodo
     {
         private string kod;
-        private string nev;
-        private string cim;
+        private string erdogazNev;
+        private string erdogazCim;
 
         /// <summary>
         /// Konstruktor
         /// </summary>
         /// <param name="kod"></param>
-        /// <param name="nev"></param>
-        /// <param name="cim"></param>
-        public Erdogazdalkodo(string kod, string nev, string cim)
+        /// <param name="erdogazNev"></param>
+        /// <param name="erdogazCim"></param>
+        public Erdogazdalkodo(string kod, string erdogazNev, string erdogazCim)
         {
             this.kod = kod;
-            this.nev = nev;
-            this.cim = cim;
+            this.erdogazNev = erdogazNev;
+            this.erdogazCim = erdogazCim;
+        }
+
+        public bool nevEllenorzes(string erdogazNev)
+        {
+            if (erdogazNev == string.Empty)
+            {
+                return false;
+            }
+
+            if (!char.IsUpper(erdogazNev.ElementAt(0)))
+            {
+                return false;
+            }
+
+            for (int i = 1; i < erdogazNev.Length; i++)
+            {
+                if ((!char.IsLetter(erdogazNev.ElementAt(i))) && (!char.IsWhiteSpace(erdogazNev.ElementAt(i))))
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
         /// <summary>
         /// kod, nev, cim adatoknak értékadás
         /// </summary>
         /// <param name="kod"></param>
-        /// <param name="nev"></param>
-        /// <param name="cim"></param>
         public void setKod(string kod)
         {
             this.kod = kod;
         }
 
-        public void setNev(string nev)
+        /// <param name="erdogazNev"></param>
+        public void setErdogazNev(string erdogazNev)
         {
-            this.nev = nev;
+            this.erdogazNev = erdogazNev;
         }
 
-        public void setCim(string cim)
+        /// <param name="erdogazCim"></param>
+        public void setErdogazCim(string erdogazCim)
         {
-            this.cim = cim;
+            this.erdogazCim = erdogazCim;
         }
 
         /// <summary>
@@ -58,14 +80,14 @@ namespace Forest_Registration.modell
             return kod;
         }
 
-        public string getNev()
+        public string getErdogazNev()
         {
-            return nev;
+            return erdogazNev;
         }
 
-        public string getCim()
+        public string getErdogazCim()
         {
-            return cim;
+            return erdogazCim;
         }
     }
 }

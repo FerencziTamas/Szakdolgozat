@@ -6,61 +6,84 @@ using System.Threading.Tasks;
 
 namespace Forest_Registration.modell
 {
+    /// <summary>
+    /// Vevő osztály
+    /// </summary>
     class Vevo
     {
         private int vevoId;
-        private string nev;
-        private string cim;
+        private string vevoNev;
+        private string vevoCim;
         private string technikaiAzonosito;
         private int adoszam;
 
-        public Vevo(int vevoId, string nev, string cim, string technikaiAzonosito, int adoszam)
+        /// <summary>
+        /// Konstruktor
+        /// </summary>
+        /// <param name="vevoId"></param>
+        /// <param name="vevoNev"></param>
+        /// <param name="vevoCim"></param>
+        /// <param name="technikaiAzonosito"></param>
+        /// <param name="adoszam"></param>
+        public Vevo(int vevoId, string vevoNev, string vevoCim, string technikaiAzonosito, int adoszam)
         {
             this.vevoId = vevoId;
-            this.nev = nev;
-            this.cim = cim;
+            this.vevoNev = vevoNev;
+            this.vevoCim = vevoCim;
             this.technikaiAzonosito = technikaiAzonosito;
             this.adoszam = adoszam;
         }
 
+        /// <summary>
+        /// vevoId, vevoNev, vevoCim, technikaiAzonosito és adoszam adatoknak értékadás
+        /// </summary>
+        /// <param name="vevoId"></param>
         public void setVevoId(int vevoId)
         {
             this.vevoId = vevoId;
         }
 
-        public void setNev(string nev)
+        /// <param name="vevoNev"></param>
+        public void setVevoNev(string vevoNev)
         {
-            this.nev = nev;
+            this.vevoNev = vevoNev;
         }
 
-        public void setCim(string cim)
+        /// <param name="vevoCim"></param>
+        public void setVevoCim(string vevoCim)
         {
-            this.cim = cim;
+            this.vevoCim = vevoCim;
         }
 
+        /// <param name="technikaiAzonosito"></param>
         public void setTechnikaiAzonosito(string technikaiAzonosito)
         {
             this.technikaiAzonosito = technikaiAzonosito;
         }
 
+        /// <param name="adoszam"></param>
         public void setAdoszam(int adoszam)
         {
             this.adoszam = adoszam;
         }
 
+        /// <summary>
+        /// vevoId, vevoNev, vevoCim, technikaiAzonosito és adoszam adatok lekérdezése
+        /// </summary>
+        /// <returns>vevoId, vevoNev, vevoCim, technikaiAzonosito, adoszam</returns>
         public int getVevoId()
         {
             return vevoId;
         }
 
-        public string getNev()
+        public string getVevoNev()
         {
-            return nev;
+            return vevoNev;
         }
 
-        public string getCim()
+        public string getVevoCim()
         {
-            return cim;
+            return vevoCim;
         }
 
         public string getTechnikaiAzonosito()
