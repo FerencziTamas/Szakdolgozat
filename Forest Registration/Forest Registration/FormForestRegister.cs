@@ -23,5 +23,30 @@ namespace Forest_Registration
         {
 
         }
+
+        private void erdőkKiírtatásaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            metroTabControlErdok.SelectTab("metroTabPageErdok");
+        }
+
+        private void erdőToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            metroTabControlErdok.SelectTab("metroTabPageErGaz");
+        }
+
+        private void számlákKiíratásaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            metroTabControlErdok.SelectTab("metroTabPageSzamlak");
+        }
+
+        private void vevőkKiíratásaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            metroTabControlErdok.SelectTab("metroTabPageVevok");
+        }
+
+        private void aProgramInformációiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            metroTabControlErdok.SelectTab("metroTabPageProgram");
+        }
     }
 }

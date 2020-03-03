@@ -65,7 +65,7 @@
             this.metroButtoneErdoTorles = new MetroFramework.Controls.MetroButton();
             this.dataGridViewErdok = new System.Windows.Forms.DataGridView();
             this.metroButtonBetoltErdok = new MetroFramework.Controls.MetroButton();
-            this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
+            this.metroTabControlErdok = new MetroFramework.Controls.MetroTabControl();
             this.metroTabPageErGaz = new MetroFramework.Controls.MetroTabPage();
             this.metroPaneErGaz = new MetroFramework.Controls.MetroPanel();
             this.metroButtonErGazMegse = new MetroFramework.Controls.MetroButton();
@@ -172,7 +172,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownErdoKor)).BeginInit();
             this.metroPanelErdoTorlesModositas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewErdok)).BeginInit();
-            this.metroTabControl1.SuspendLayout();
+            this.metroTabControlErdok.SuspendLayout();
             this.metroTabPageErGaz.SuspendLayout();
             this.metroPaneErGaz.SuspendLayout();
             this.metroPanelErdoGazTorolModosit.SuspendLayout();
@@ -236,12 +236,14 @@
             this.erdőkKiírtatásaToolStripMenuItem.Name = "erdőkKiírtatásaToolStripMenuItem";
             this.erdőkKiírtatásaToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
             this.erdőkKiírtatásaToolStripMenuItem.Text = "Erdők kiíratása";
+            this.erdőkKiírtatásaToolStripMenuItem.Click += new System.EventHandler(this.erdőkKiírtatásaToolStripMenuItem_Click);
             // 
             // erdőToolStripMenuItem
             // 
             this.erdőToolStripMenuItem.Name = "erdőToolStripMenuItem";
             this.erdőToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
             this.erdőToolStripMenuItem.Text = "Erdőgazdálkodók kiíratása";
+            this.erdőToolStripMenuItem.Click += new System.EventHandler(this.erdőToolStripMenuItem_Click);
             // 
             // számlákToolStripMenuItem
             // 
@@ -256,26 +258,29 @@
             this.számlákKiíratásaToolStripMenuItem.Name = "számlákKiíratásaToolStripMenuItem";
             this.számlákKiíratásaToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.számlákKiíratásaToolStripMenuItem.Text = "Számlák kiíratása";
+            this.számlákKiíratásaToolStripMenuItem.Click += new System.EventHandler(this.számlákKiíratásaToolStripMenuItem_Click);
             // 
             // vevőkToolStripMenuItem
             // 
             this.vevőkToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.vevőkKiíratásaToolStripMenuItem});
             this.vevőkToolStripMenuItem.Name = "vevőkToolStripMenuItem";
-            this.vevőkToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
+            this.vevőkToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.vevőkToolStripMenuItem.Text = "Vevők";
             // 
             // vevőkKiíratásaToolStripMenuItem
             // 
             this.vevőkKiíratásaToolStripMenuItem.Name = "vevőkKiíratásaToolStripMenuItem";
-            this.vevőkKiíratásaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.vevőkKiíratásaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.vevőkKiíratásaToolStripMenuItem.Text = "Vevők kiíratása";
+            this.vevőkKiíratásaToolStripMenuItem.Click += new System.EventHandler(this.vevőkKiíratásaToolStripMenuItem_Click);
             // 
             // aProgramInformációiToolStripMenuItem
             // 
             this.aProgramInformációiToolStripMenuItem.Name = "aProgramInformációiToolStripMenuItem";
             this.aProgramInformációiToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
             this.aProgramInformációiToolStripMenuItem.Text = "A programról";
+            this.aProgramInformációiToolStripMenuItem.Click += new System.EventHandler(this.aProgramInformációiToolStripMenuItem_Click);
             // 
             // metroTabPageErdok
             // 
@@ -683,21 +688,21 @@
             this.metroButtonBetoltErdok.UseSelectable = true;
             this.metroButtonBetoltErdok.Click += new System.EventHandler(this.metroButtonBetoltErdok_Click);
             // 
-            // metroTabControl1
+            // metroTabControlErdok
             // 
-            this.metroTabControl1.Controls.Add(this.metroTabPageErdok);
-            this.metroTabControl1.Controls.Add(this.metroTabPageErGaz);
-            this.metroTabControl1.Controls.Add(this.metroTabPageSzamlak);
-            this.metroTabControl1.Controls.Add(this.metroTabPageVevok);
-            this.metroTabControl1.Controls.Add(this.metroTabPageProgram);
-            this.metroTabControl1.Location = new System.Drawing.Point(20, 87);
-            this.metroTabControl1.Multiline = true;
-            this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 3;
-            this.metroTabControl1.Size = new System.Drawing.Size(1101, 553);
-            this.metroTabControl1.Style = MetroFramework.MetroColorStyle.Green;
-            this.metroTabControl1.TabIndex = 1;
-            this.metroTabControl1.UseSelectable = true;
+            this.metroTabControlErdok.Controls.Add(this.metroTabPageErdok);
+            this.metroTabControlErdok.Controls.Add(this.metroTabPageErGaz);
+            this.metroTabControlErdok.Controls.Add(this.metroTabPageSzamlak);
+            this.metroTabControlErdok.Controls.Add(this.metroTabPageVevok);
+            this.metroTabControlErdok.Controls.Add(this.metroTabPageProgram);
+            this.metroTabControlErdok.Location = new System.Drawing.Point(20, 87);
+            this.metroTabControlErdok.Multiline = true;
+            this.metroTabControlErdok.Name = "metroTabControlErdok";
+            this.metroTabControlErdok.SelectedIndex = 3;
+            this.metroTabControlErdok.Size = new System.Drawing.Size(1101, 553);
+            this.metroTabControlErdok.Style = MetroFramework.MetroColorStyle.Green;
+            this.metroTabControlErdok.TabIndex = 1;
+            this.metroTabControlErdok.UseSelectable = true;
             // 
             // metroTabPageErGaz
             // 
@@ -1187,7 +1192,7 @@
             // metroDateTimeKifizetesNapja
             // 
             this.metroDateTimeKifizetesNapja.Location = new System.Drawing.Point(152, 280);
-            this.metroDateTimeKifizetesNapja.MinimumSize = new System.Drawing.Size(0, 29);
+            this.metroDateTimeKifizetesNapja.MinimumSize = new System.Drawing.Size(4, 29);
             this.metroDateTimeKifizetesNapja.Name = "metroDateTimeKifizetesNapja";
             this.metroDateTimeKifizetesNapja.Size = new System.Drawing.Size(228, 29);
             this.metroDateTimeKifizetesNapja.TabIndex = 21;
@@ -1204,7 +1209,7 @@
             // metroDateTimeSzamlaKel
             // 
             this.metroDateTimeSzamlaKel.Location = new System.Drawing.Point(152, 242);
-            this.metroDateTimeSzamlaKel.MinimumSize = new System.Drawing.Size(0, 29);
+            this.metroDateTimeSzamlaKel.MinimumSize = new System.Drawing.Size(4, 29);
             this.metroDateTimeSzamlaKel.Name = "metroDateTimeSzamlaKel";
             this.metroDateTimeSzamlaKel.Size = new System.Drawing.Size(228, 29);
             this.metroDateTimeSzamlaKel.TabIndex = 19;
@@ -1221,7 +1226,7 @@
             // metroDateTimeTeljesitesNap
             // 
             this.metroDateTimeTeljesitesNap.Location = new System.Drawing.Point(152, 204);
-            this.metroDateTimeTeljesitesNap.MinimumSize = new System.Drawing.Size(0, 29);
+            this.metroDateTimeTeljesitesNap.MinimumSize = new System.Drawing.Size(4, 29);
             this.metroDateTimeTeljesitesNap.Name = "metroDateTimeTeljesitesNap";
             this.metroDateTimeTeljesitesNap.Size = new System.Drawing.Size(228, 29);
             this.metroDateTimeTeljesitesNap.TabIndex = 17;
@@ -1980,7 +1985,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1142, 693);
             this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.metroTabControl1);
+            this.Controls.Add(this.metroTabControlErdok);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormForestRegister";
@@ -1996,7 +2001,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownErdoKor)).EndInit();
             this.metroPanelErdoTorlesModositas.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewErdok)).EndInit();
-            this.metroTabControl1.ResumeLayout(false);
+            this.metroTabControlErdok.ResumeLayout(false);
             this.metroTabPageErGaz.ResumeLayout(false);
             this.metroPaneErGaz.ResumeLayout(false);
             this.metroPaneErGaz.PerformLayout();
@@ -2057,7 +2062,7 @@
         private MetroFramework.Controls.MetroButton metroButtoneErdoTorles;
         private System.Windows.Forms.DataGridView dataGridViewErdok;
         private MetroFramework.Controls.MetroButton metroButtonBetoltErdok;
-        private MetroFramework.Controls.MetroTabControl metroTabControl1;
+        private MetroFramework.Controls.MetroTabControl metroTabControlErdok;
         private MetroFramework.Controls.MetroPanel metroPaneljErdo;
         private MetroFramework.Controls.MetroButton metroButtonUjErdo;
         private MetroFramework.Controls.MetroLabel metroLabelHelySzam;
