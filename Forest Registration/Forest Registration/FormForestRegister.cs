@@ -1,4 +1,4 @@
-﻿using Forest_Registration.repository;
+﻿using Forest_Register.repository;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Forest_Registration
+namespace Forest_Register
 {
     public partial class FormForestRegister : MetroFramework.Forms.MetroForm
     {

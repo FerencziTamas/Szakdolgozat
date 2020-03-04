@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Forest_Registration.modell
+namespace Forest_Register.modell
 {
     partial class Erdo
     {
@@ -85,6 +85,13 @@ namespace Forest_Registration.modell
             return erdogazdalkodo;
         }
 
-
+        public void modosit(Erdo modified)
+        {
+            this.helyrajziSzam = modified.getHelyrajziSzam();
+            this.kor = modified.getKor();
+            this.terulet = modified.getTerulet();
+            this.fahasznalat = modified.getFahasznalat();
+            this.erdogazdalkodo = modified.getErdogazdalkodo();
+        }
     }
 }

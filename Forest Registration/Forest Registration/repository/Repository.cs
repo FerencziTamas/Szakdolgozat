@@ -1,11 +1,11 @@
-﻿using Forest_Registration.modell; //modell osztály meghívva
+﻿using Forest_Register.modell; //modell osztály meghívva
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Forest_Registration.repository
+namespace Forest_Register.repository
 {
     /// <summary>
     /// Ebben az osztályban megy végbe a listák példányosítása

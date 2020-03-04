@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Forest_Registration
+namespace Forest_Register
 {
     public partial class FormForestRegister : MetroFramework.Forms.MetroForm
     {

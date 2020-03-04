@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Forest_Registration.Properties
+namespace Forest_Register.Properties
 {
 
 

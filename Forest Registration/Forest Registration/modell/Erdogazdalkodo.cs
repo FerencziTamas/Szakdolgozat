@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Forest_Registration.modell
+namespace Forest_Register.modell
 {
     /// <summary>
     /// Erdőgazdálkodók osztály
     /// </summary>
-    class Erdogazdalkodo
+    partial class Erdogazdalkodo
     {
         private string kod;
         private string erdogazNev;

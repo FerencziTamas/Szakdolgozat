@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Forest_Registration.modell
+namespace Forest_Register.modell
 {
     class ConnectionString
     {

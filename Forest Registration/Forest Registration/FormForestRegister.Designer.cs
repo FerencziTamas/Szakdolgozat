@@ -1,4 +1,4 @@
-﻿namespace Forest_Registration
+﻿namespace Forest_Register
 {
     partial class FormForestRegister
     {

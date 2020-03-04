@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Forest_Registration
+namespace Forest_Register
 {
     static class Program
     {
