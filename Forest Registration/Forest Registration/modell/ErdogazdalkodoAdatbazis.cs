@@ -28,5 +28,7 @@ namespace Forest_Register.modell
         {
             return "INSERT INTO `erdogazdalkodok`(`egKod`, `nev`, `cim`) VALUES ('"+getKod()+"', '"+getErdogazNev()+"', '"+getErdogazCim()+"');";
         }
+
+
     }
 }

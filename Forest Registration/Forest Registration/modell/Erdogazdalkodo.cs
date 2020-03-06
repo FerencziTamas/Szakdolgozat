@@ -89,5 +89,10 @@ namespace Forest_Register.modell
         {
             return erdogazCim;
         }
+
+        internal void modosit()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

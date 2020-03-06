@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -111,10 +112,20 @@ namespace Forest_Register
                 }
 
                 //Hozzáadás adatbázishoz
-                ErdogazdalkodoRepositoryAdatbazisTabla egrat = new ErdogazdalkodoRepositoryAdatbazisTabla();
+                ErdogazdalkodokRepositoryAdatbazisTabla egrat = new ErdogazdalkodokRepositoryAdatbazisTabla();
                 try
                 {
                     egrat.ErdogazdalkodoAdatbazisbaIllesztese(ujErdogazdalkodo);
+                }
+                catch (Exception ex)
+                {
+                    HibaUzenetKiirasa(ex.Message);
+                }
+
+                //DataGridView frissítése
+                if (dataGridViewErdogazdalkodok.SelectedRows.Count == 1)
+                {
+                    dataGridViewErdogazdalkodokBeallit();
                 }
             }
             catch (Exception)
@@ -125,7 +136,43 @@ namespace Forest_Register
 
         private void metroButtonEdGazTorol_Click(object sender, EventArgs e)
         {
+            HibauzenetTorlese();
+            if ((dataGridViewErdogazdalkodok.Rows == null) || (dataGridViewErdogazdalkodok.Rows.Count == 0))
+                return;
 
+            string kod = dataGridViewErdogazdalkodok.SelectedRows[0].Index.ToString();
+            if (MessageBox.Show(
+                "Valóban törölni akarja a sort?",
+                "Törlés",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Exclamation) == DialogResult.Yes)
+            {
+                //Törlés a listából
+                try
+                {
+                    repo.erdogazdakodoTorleseListabol(kod);
+                }
+                catch (RepositoryExceptionNemTudTorolni rentt)
+                {
+                    HibaUzenetKiirasa(rentt.Message);
+                    Debug.WriteLine("Az erdőgazdálkodó törlése nem sikerült, nincs a listába!");
+                }
+
+                //Törlés az adatbázisból
+                ErdogazdalkodokRepositoryAdatbazisTabla egrat = new ErdogazdalkodokRepositoryAdatbazisTabla();
+                try
+                {
+                    egrat.erdogazdalkodoTorleseAdatbazisbol(kod);
+                }
+                catch (Exception ex)
+                {
+                    HibaUzenetKiirasa(ex.Message);
+                }
+
+                //DataGridView frissítése
+                DataGridViewFrissitese();
+                dataGridViewErdogazdalkodokBeallit();
+            }
         }
 
         private void metroButtonErGazModosit_Click(object sender, EventArgs e)
@@ -140,7 +187,9 @@ namespace Forest_Register
 
         private void metroButtonErGazMegse_Click(object sender, EventArgs e)
         {
-
+            metroTextBoxErGazKod.Text = string.Empty;
+            metroTextBoxErGazNev.Text = string.Empty;
+            metroTextBoxErGazCim.Text = string.Empty;
         }
     }
 }
