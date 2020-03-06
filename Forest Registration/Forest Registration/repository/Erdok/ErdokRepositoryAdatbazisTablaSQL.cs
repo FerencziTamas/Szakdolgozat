@@ -18,7 +18,7 @@ namespace Forest_Register.repository
             try
             {
                 connection.Open();
-                string query = Erdo.osszesErdo();
+                string query = Erdo.OsszesErdo();
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 MySqlDataReader dr;
                 dr = cmd.ExecuteReader();
@@ -79,7 +79,7 @@ namespace Forest_Register.repository
             try
             {
                 connection.Open();
-                string query = modified.erdoModositas(erdeszetiAzon);
+                string query = modified.ErdoModositas(erdeszetiAzon);
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
                 connection.Close();
@@ -99,7 +99,7 @@ namespace Forest_Register.repository
             try
             {
                 connection.Open();
-                string query = ujErdo.erdoHozzaadas();
+                string query = ujErdo.ErdoHozzaadas();
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
                 connection.Close();
@@ -109,7 +109,7 @@ namespace Forest_Register.repository
                 connection.Close();
                 Debug.WriteLine(e.Message);
                 Debug.WriteLine(ujErdo + " erdő beszúrása adatbázisba nem sikerült.");
-                throw new RepositoryException("Sikertelen beszúrás az adatbázisból.");
+                throw new RepositoryException("Sikertelen beszúrás az adatbázisba.");
             }
         }
     }

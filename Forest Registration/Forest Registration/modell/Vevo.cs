@@ -9,7 +9,7 @@ namespace Forest_Register.modell
     /// <summary>
     /// Vevő osztály
     /// </summary>
-    class Vevo
+    partial class Vevo
     {
         private int vevoId;
         private string vevoNev;
@@ -29,9 +29,39 @@ namespace Forest_Register.modell
         {
             this.vevoId = vevoId;
             this.vevoNev = vevoNev;
+            if (!HelyesNev(vevoNev))
+            {
+                throw new HibasVevoNevException("A név nem megfelelő");
+            }
+
+            if(!HelyesCim(vevoCim))
             this.vevoCim = vevoCim;
             this.technikaiAzonosito = technikaiAzonosito;
             this.adoszam = adoszam;
+        }
+
+        private bool HelyesNev(string vevoNev)
+        {
+            if (vevoNev == string.Empty)
+                return false;
+            if (!char.IsUpper(vevoNev.ElementAt(0)))
+                return false;
+            for (int i = 1; i < vevoNev.Length; i = i + 1)
+                if (!char.IsLetter(vevoNev.ElementAt(i)))
+                    return false;
+            return true;
+        }
+
+        private bool HelyesCim(string vevoCim)
+        {
+            if (vevoCim == string.Empty)
+                return false;
+            if (!char.IsUpper(vevoCim.ElementAt(0)))
+                return false;
+            for (int i = 1; i < vevoCim.Length; i = i + 1)
+                if (!char.IsLetter(vevoCim[i]))
+                    return false;
+            return true;
         }
 
         /// <summary>

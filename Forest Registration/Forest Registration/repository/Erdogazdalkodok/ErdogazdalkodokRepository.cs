@@ -1,6 +1,7 @@
 ﻿using Forest_Register.modell;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +22,19 @@ namespace Forest_Register.repository
             return erdogazdalkodok;
         }
 
+        public DataTable ErdogazdalkodoAdatokListabol()
+        {
+            DataTable erdogazdalkodoDt = new DataTable();
+            erdogazdalkodoDt.Columns.Add("egKod", typeof(string));
+            erdogazdalkodoDt.Columns.Add("nev", typeof(string));
+            erdogazdalkodoDt.Columns.Add("cim", typeof(string));
+            foreach (Erdogazdalkodo eg in erdogazdalkodok)
+            {
+                erdogazdalkodoDt.Rows.Add(eg.getKod(), eg.getErdogazNev(), eg.getErdogazCim());
+            }
+            return erdogazdalkodoDt;
+        }
+
         public List<string> getErdogazdalkodoNev()
         {
             List<string> erdogazdalkodoNev = new List<string>();
@@ -29,6 +43,18 @@ namespace Forest_Register.repository
                 erdogazdalkodoNev.Add(erdogazdalkodo.getErdogazNev());
             }
             return erdogazdalkodoNev;
+        }
+
+        public void erdogazdalkodoHozzadasaListahoz(Erdogazdalkodo ujErdogazdalkodo)
+        {
+            try
+            {
+                erdogazdalkodok.Add(ujErdogazdalkodo);
+            }
+            catch (Exception ex)
+            {
+                throw new RepositoryExceptionNemTudHozzaadni("Az erdőgazdálkodó hozzáadása nem sikerült");
+            }
         }
     }
 }

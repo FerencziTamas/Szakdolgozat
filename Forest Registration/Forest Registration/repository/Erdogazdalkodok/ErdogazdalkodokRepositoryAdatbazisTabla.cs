@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace Forest_Register.repository
 {
-    partial class ErdogazdalkodoRepositoryAdatbazisTabla
+    partial class ErdogazdalkodokRepositoryAdatbazisTabla
     {
         private readonly string connectionString;
 
         /// <summary>
         /// Konstruktor - kezdőértékadások
         /// </summary>
-        public ErdogazdalkodoRepositoryAdatbazisTabla()
+        public ErdogazdalkodokRepositoryAdatbazisTabla()
         {
             ConnectionString cs = new ConnectionString();
             connectionString = cs.getConnectionString();

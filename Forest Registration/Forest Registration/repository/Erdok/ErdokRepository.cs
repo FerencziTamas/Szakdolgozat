@@ -62,11 +62,11 @@ namespace Forest_Register.repository
                 throw new RepositoryExceptionNemTudTorolni("Az erdőt nem lehetett törölni.");
         }
 
-        public void erdoModositasaListaban(string erdeszetiAzon, Erdo modified)
+        public void erdoModositasaListaban(string erdeszetiAzon, Erdo modosult)
         {
             Erdo e = erdok.Find(x => x.getErdeszetiAzon() == erdeszetiAzon);
             if (e != null)
-                e.modosit(modified);
+                e.modosit(modosult);
             else
                 throw new RepositoryExceptionNemTudModositani("Az erdő módosítása nem sikerült");
         }

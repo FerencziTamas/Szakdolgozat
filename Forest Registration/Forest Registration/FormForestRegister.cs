@@ -48,5 +48,25 @@ namespace Forest_Register
         {
             metroTabControlErdok.SelectTab("metroTabPageProgram");
         }
+
+        private void HibauzenetTorlese()
+        {
+            toolStripLabelHibauzenet.ForeColor = Color.Black;
+            toolStripLabelHibauzenet.Text = "";
+        }
+        private void HibaUzenetKiirasa(string hibauzenet)
+        {
+            toolStripLabelHibauzenet.ForeColor = Color.Red;
+            toolStripLabelHibauzenet.Text = hibauzenet;
+            
+        }
+
+        private void DataGridViewFrissitese()
+        {
+            erdokDt = repo.ErdoAdatokListabol();
+            erdogazdalkodokDt = repo.ErdogazdalkodoAdatokListabol();
+        }
+
+
     }
 }

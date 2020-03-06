@@ -2,44 +2,35 @@
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Forest_Register.repository
 {
-    class ErdogazdalkodokRepositoryAdatbazisTablaSQL
+    partial class ErdogazdalkodokRepositoryAdatbazisTabla
     {
-        /*public List<Erdogazdalkodo> getErdokAdatbazisbol()
+        public List<Erdogazdalkodo> getErdogazdalkodokAdatbazisbol()
         {
-            List<Erdo> erdok = new List<Erdo>();
+            List<Erdogazdalkodo> erdogazdalkodok = new List<Erdogazdalkodo>();
             MySqlConnection connection = new MySqlConnection(connectionString);
             try
             {
                 connection.Open();
-                string query = Erdo.osszesErdo();
+                string query = Erdogazdalkodo.OsszesErdogazdalkodo();
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 MySqlDataReader dr;
                 dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
-                    string erdeszetiAzon = dr["erdeszeti_azonosito"].ToString();
-                    string helyrajziSzam = dr["helyrajzi_szam"].ToString();
-                    string fahasznalat = dr["hasznalatId"].ToString();
-                    string erdogazdalkodo = dr["egKod"].ToString();
-                    bool joEredmeny = false;
-                    int kor = -1;
-                    joEredmeny = int.TryParse(dr["kor"].ToString(), out kor);
-                    if (joEredmeny)
-                    {
-                        int terulet = -1;
-                        joEredmeny = int.TryParse(dr["terulet"].ToString(), out terulet);
-                        if (joEredmeny)
-                        {
-                            Erdo e = new Erdo(erdeszetiAzon, helyrajziSzam, kor, terulet, fahasznalat, erdogazdalkodo);
-                            erdok.Add(e);
-                        }
-                    }
+                    string kod = dr["egKod"].ToString();
+                    string nev = dr["helyrajzi_szam"].ToString();
+                    string cim = dr["hasznalatId"].ToString();
+
+                    Erdogazdalkodo eg = new Erdogazdalkodo(kod, nev, cim);
+                    erdogazdalkodok.Add(eg);
+
                 }
                 connection.Close();
             }
@@ -47,18 +38,18 @@ namespace Forest_Register.repository
             {
                 connection.Close();
                 Debug.WriteLine(e.Message);
-                throw new RepositoryException("Az erdő adatainak beolvasása az adatbázisból nem sikerült!");
+                throw new RepositoryException("Az erdőgazdálkodó adatainak beolvasása az adatbázisból nem sikerült!");
             }
-            return erdok;
+            return erdogazdalkodok;
         }
 
-        public void erdoTorleseAdatbazisbol(string erdeszetiAzon)
+        public void erdogazdalkodoTorleseAdatbazisbol(string kod)
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
             try
             {
                 connection.Open();
-                string query = "DELETE FROM `erdok` WHERE `erdeszeti_azonosito` = " + erdeszetiAzon;
+                string query = "DELETE FROM `erdogazdalkodok` WHERE `egKod` = " + kod;
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
                 connection.Close();
@@ -67,18 +58,18 @@ namespace Forest_Register.repository
             {
                 connection.Close();
                 Debug.WriteLine(e.Message);
-                Debug.WriteLine(erdeszetiAzon + " azonosítójú erdő törlése nem sikerült.");
+                Debug.WriteLine(kod + " kodú erdőgazdálkodó törlése nem sikerült.");
                 throw new RepositoryException("Sikertelen törlés az adatbázisból.");
             }
         }
 
-        public void ErdoModositasaAdatbazisban(string erdeszetiAzon, Erdo modified)
+        public void ErdogazdalkodoModositasaAdatbazisban(string kod, Erdogazdalkodo modified)
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
             try
             {
                 connection.Open();
-                string query = modified.erdoModositas(erdeszetiAzon);
+                string query = modified.ErdogazdalkodoModositas(kod);
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
                 connection.Close();
@@ -87,18 +78,18 @@ namespace Forest_Register.repository
             {
                 connection.Close();
                 Debug.WriteLine(e.Message);
-                Debug.WriteLine(erdeszetiAzon + " azonosítójú erdő módosítása nem sikerült.");
+                Debug.WriteLine(kod + " kodú erdőgazdalkodó módosítása nem sikerült.");
                 throw new RepositoryException("Sikertelen módosítás az adatbázisból.");
             }
         }
 
-        public void ErdoAdatbazisbaIllesztese(Erdo ujErdo)
+        public void ErdogazdalkodoAdatbazisbaIllesztese(Erdogazdalkodo ujErdogazdalkodo)
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
             try
             {
                 connection.Open();
-                string query = ujErdo.erdoHozzaadas();
+                string query = ujErdogazdalkodo.ErdogazdalkodoHozzaadas();
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
                 connection.Close();
@@ -107,9 +98,9 @@ namespace Forest_Register.repository
             {
                 connection.Close();
                 Debug.WriteLine(e.Message);
-                Debug.WriteLine(ujErdo + " erdő beszúrása adatbázisba nem sikerült.");
-                throw new RepositoryException("Sikertelen beszúrás az adatbázisból.");
+                Debug.WriteLine(ujErdogazdalkodo + " erdőgazdalkodó beszúrása adatbázisba nem sikerült.");
+                throw new RepositoryException("Sikertelen beszúrás az adatbázisba.");
             }
-        }*/
+        }
     }
 }
