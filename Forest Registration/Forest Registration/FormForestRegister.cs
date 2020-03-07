@@ -67,6 +67,9 @@ namespace Forest_Register
             erdogazdalkodokDt = repo.ErdogazdalkodoAdatokListabol();
         }
 
+        private void metroButton6_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }

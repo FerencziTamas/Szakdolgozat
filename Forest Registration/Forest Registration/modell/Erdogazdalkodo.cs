@@ -90,9 +90,11 @@ namespace Forest_Register.modell
             return erdogazCim;
         }
 
-        internal void modosit()
+        public void modosit(Erdogazdalkodo modify)
         {
-            throw new NotImplementedException();
+            this.kod = modify.getKod();
+            this.erdogazNev = modify.getErdogazNev();
+            this.erdogazCim = modify.getErdogazCim();
         }
     }
 }

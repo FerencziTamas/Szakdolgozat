@@ -177,12 +177,96 @@ namespace Forest_Register
 
         private void metroButtonErGazModosit_Click(object sender, EventArgs e)
         {
+            HibauzenetTorlese();
+            ErrorProviderekTorleseErdogazdalkodok();
+            try
+            {
+                Erdogazdalkodo modosult = new Erdogazdalkodo(
+                    metroTextBoxErGazNev.Text,
+                    metroTextBoxErGazNev.Text,
+                    metroTextBoxErGazCim.Text
+                    );
 
+                string kod = metroTextBoxErGazKod.Text;
+
+                //Módosítás listában
+                try
+                {
+                    repo.erdogazdalkodoModositasaListaban(kod, modosult);
+                }
+                catch (Exception ex)
+                {
+                    HibaUzenetKiirasa(ex.Message);
+                    return;
+                }
+
+                //Módosítás adatbázisban
+                ErdogazdalkodokRepositoryAdatbazisTabla egrat = new ErdogazdalkodokRepositoryAdatbazisTabla();
+                try
+                {
+                    egrat.ErdogazdalkodoModositasaAdatbazisban(kod, modosult);
+                }
+                catch (Exception ex)
+                {
+                    HibaUzenetKiirasa(ex.Message);
+                }
+
+                //DataGridView frissítése
+                DataGridViewFrissitese();
+            }
+            catch (RepositoryExceptionNemTudModositani rentm)
+            {
+                HibaUzenetKiirasa(rentm.Message);
+                Debug.WriteLine("A módosítás nem sikerült, az erdőgazdálkodó nincs a listában!");
+            }
+            catch (Exception)
+            {
+
+            }
         }
 
         private void metroButtonUjErGazHozzaad_Click(object sender, EventArgs e)
         {
+            HibauzenetTorlese();
+            ErrorProviderekTorleseErdogazdalkodok();
+            try
+            {
+                Erdogazdalkodo ujErdogazdalkodo = new Erdogazdalkodo(
+                    metroTextBoxErGazKod.Text,
+                    metroTextBoxErGazNev.Text,
+                    metroTextBoxErGazCim.Text
+                    );
+                //Hozzáadás a listához
+                try
+                {
+                    repo.erdogazdalkodoHozzadasaListahoz(ujErdogazdalkodo);
+                }
+                catch (Exception ex)
+                {
+                    HibaUzenetKiirasa(ex.Message);
+                }
 
+                //Hozzáadás adatbázishoz
+                ErdogazdalkodokRepositoryAdatbazisTabla egrat = new ErdogazdalkodokRepositoryAdatbazisTabla();
+                try
+                {
+                    egrat.ErdogazdalkodoAdatbazisbaIllesztese(ujErdogazdalkodo);
+                }
+                catch (Exception ex)
+                {
+                    HibaUzenetKiirasa(ex.Message);
+                }
+
+                //DataGridView Frissítése
+                if (dataGridViewErdogazdalkodok.SelectedRows.Count == 1)
+                {
+                    dataGridViewErdogazdalkodokBeallit();
+                }
+            }
+            catch (Exception)
+            {
+                
+            }
         }
 
         private void metroButtonErGazMegse_Click(object sender, EventArgs e)

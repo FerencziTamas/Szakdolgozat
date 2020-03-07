@@ -96,15 +96,7 @@ namespace Forest_Register
             ErrorProviderekTorleseErdo();
         }
 
-        private void ErrorProviderekTorleseErdo()
-        {
-            errorProviderErdeszetiAzon.Clear();
-            errorProviderHelyrajziSzam.Clear();
-            errorProviderKor.Clear();
-            errorProviderTerulet.Clear();
-            errorProviderErgazNev.Clear();
-            errorProviderFaHaszMod.Clear();
-        }
+
 
         /// <summary>
         /// Erdő panel megjelenítése
@@ -297,6 +289,14 @@ namespace Forest_Register
             metroTextBoxFahasznalatModja.Text = string.Empty;
         }
 
-
+        private void ErrorProviderekTorleseErdo()
+        {
+            errorProviderErdeszetiAzon.Clear();
+            errorProviderHelyrajziSzam.Clear();
+            errorProviderKor.Clear();
+            errorProviderTerulet.Clear();
+            errorProviderErgazNev.Clear();
+            errorProviderFaHaszMod.Clear();
+        }
     }
 }

@@ -61,9 +61,18 @@ namespace Forest_Register.repository
         {
             Erdogazdalkodo eg = erdogazdalkodok.Find(x => x.getKod() == kod);
             if (eg != null)
-                erdogazdalkodok.Remove(modosult);
+                erdogazdalkodok.Remove(eg);
             else
                 throw new RepositoryExceptionNemTudTorolni("Az erdőgazdalkodót nem lehet törölni!");
+        }
+
+        internal void erdogazdalkodoModositasaListaban(string kod, Erdogazdalkodo modosult)
+        {
+            Erdogazdalkodo eg = erdogazdalkodok.Find(x => x.getKod() == kod);
+            if (eg != null)
+                eg.modosit(modosult);
+            else
+                throw new RepositoryExceptionNemTudModositani("Az erdőgazdálkodó módosítása nem sikerült");
         }
     }
 }

@@ -708,7 +708,7 @@
             this.metroTabControlErdok.Location = new System.Drawing.Point(20, 87);
             this.metroTabControlErdok.Multiline = true;
             this.metroTabControlErdok.Name = "metroTabControlErdok";
-            this.metroTabControlErdok.SelectedIndex = 1;
+            this.metroTabControlErdok.SelectedIndex = 2;
             this.metroTabControlErdok.Size = new System.Drawing.Size(1101, 553);
             this.metroTabControlErdok.Style = MetroFramework.MetroColorStyle.Green;
             this.metroTabControlErdok.TabIndex = 1;
@@ -1209,7 +1209,7 @@
             // metroDateTimeKifizetesNapja
             // 
             this.metroDateTimeKifizetesNapja.Location = new System.Drawing.Point(152, 280);
-            this.metroDateTimeKifizetesNapja.MinimumSize = new System.Drawing.Size(4, 29);
+            this.metroDateTimeKifizetesNapja.MinimumSize = new System.Drawing.Size(0, 29);
             this.metroDateTimeKifizetesNapja.Name = "metroDateTimeKifizetesNapja";
             this.metroDateTimeKifizetesNapja.Size = new System.Drawing.Size(228, 29);
             this.metroDateTimeKifizetesNapja.TabIndex = 21;
@@ -1226,7 +1226,7 @@
             // metroDateTimeSzamlaKel
             // 
             this.metroDateTimeSzamlaKel.Location = new System.Drawing.Point(152, 242);
-            this.metroDateTimeSzamlaKel.MinimumSize = new System.Drawing.Size(4, 29);
+            this.metroDateTimeSzamlaKel.MinimumSize = new System.Drawing.Size(0, 29);
             this.metroDateTimeSzamlaKel.Name = "metroDateTimeSzamlaKel";
             this.metroDateTimeSzamlaKel.Size = new System.Drawing.Size(228, 29);
             this.metroDateTimeSzamlaKel.TabIndex = 19;
@@ -1243,7 +1243,7 @@
             // metroDateTimeTeljesitesNap
             // 
             this.metroDateTimeTeljesitesNap.Location = new System.Drawing.Point(152, 204);
-            this.metroDateTimeTeljesitesNap.MinimumSize = new System.Drawing.Size(4, 29);
+            this.metroDateTimeTeljesitesNap.MinimumSize = new System.Drawing.Size(0, 29);
             this.metroDateTimeTeljesitesNap.Name = "metroDateTimeTeljesitesNap";
             this.metroDateTimeTeljesitesNap.Size = new System.Drawing.Size(228, 29);
             this.metroDateTimeTeljesitesNap.TabIndex = 17;
@@ -1497,6 +1497,7 @@
             this.metroButton6.TabIndex = 6;
             this.metroButton6.Text = "Számlák betöltése";
             this.metroButton6.UseSelectable = true;
+            this.metroButton6.Click += new System.EventHandler(this.metroButton6_Click);
             // 
             // metroPanelSzamlaTorolModosit
             // 
