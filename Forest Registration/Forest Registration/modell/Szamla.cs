@@ -15,16 +15,16 @@ namespace Forest_Register.modell
         private int bruttoar;
         private int mennyiseg;
         private string felhasznalasModja;
-        private int teljesitesNapja;
-        private int szamlaKeletkezese;
-        private int kifizetesNapja;
+        private string teljesitesNapja;
+        private string szamlaKeletkezese;
+        private string kifizetesNapja;
         private string lerakodasiHely;
         private string felrakasiHely;
         private string erdogazdalkodo;
         private string muveletiLapSorszam;
         private string szallitojegySorszam;
 
-        public Szamla(string szamlaszam, string fafaj, string vevonev, int nettoar, int bruttoar, int mennyiseg, string felhasznalasModja, int teljesitesNapja, int szamlaKeletkezese, int kifizetesNapja, string lerakodasiHely, string felrakasiHely,string erdogazdalkodo, string muveletiLapSorszam, string szallitojegySorszam)
+        public Szamla(string szamlaszam, string fafaj, string vevonev, int mennyiseg, string felhasznalasModja, int nettoar, int bruttoar,  string teljesitesNapja, string szamlaKeletkezese, string kifizetesNapja, string lerakodasiHely, string felrakasiHely, string muveletiLapSorszam, string szallitojegySorszam)
         {
             this.szamlaszam = szamlaszam;
             this.fafaj = fafaj;
@@ -38,7 +38,6 @@ namespace Forest_Register.modell
             this.kifizetesNapja = kifizetesNapja;
             this.lerakodasiHely = lerakodasiHely;
             this.felrakasiHely = felrakasiHely;
-            this.erdogazdalkodo = erdogazdalkodo;
             this.muveletiLapSorszam = muveletiLapSorszam;
             this.szallitojegySorszam = szallitojegySorszam;
         }
@@ -46,6 +45,11 @@ namespace Forest_Register.modell
         public void setSzamlaSzam(string szamlaszam)
         {
             this.szamlaszam = szamlaszam;
+        }
+
+        public void setFafaj(string fafaj)
+        {
+            this.fafaj = fafaj;
         }
 
         public void setVevoNev(string vevonev)
@@ -73,17 +77,17 @@ namespace Forest_Register.modell
             this.felhasznalasModja = felhasznalasModja;
         }
         
-        public void setTeljesitesNapja(int teljesitesNapja)
+        public void setTeljesitesNapja(string teljesitesNapja)
         {
             this.teljesitesNapja = teljesitesNapja;
         }
 
-        public void setSzamlaKeletkezese(int szamlaKeletkezese)
+        public void setSzamlaKeletkezese(string szamlaKeletkezese)
         {
             this.szamlaKeletkezese = szamlaKeletkezese;
         }
 
-        public void setKifizetesNapja(int kifizetesNapja)
+        public void setKifizetesNapja(string kifizetesNapja)
         {
             this.kifizetesNapja = kifizetesNapja;
         }
@@ -96,11 +100,6 @@ namespace Forest_Register.modell
         public void setFelrakasiHely(string felrakasiHely)
         {
             this.felrakasiHely = felrakasiHely;
-        }
-
-        public void setErdogazdalkodoSzamla(string erdogazdalkodo)
-        {
-            this.erdogazdalkodo = erdogazdalkodo;
         }
 
         public void setMuveletiLapSorszam(string muveletiLapSorszam)
@@ -116,6 +115,11 @@ namespace Forest_Register.modell
         public string getSzamlaSzam()
         {
             return szamlaszam;
+        }
+
+        public string getFafaj()
+        {
+            return fafaj;
         }
 
         public string getVevoNev()
@@ -143,17 +147,17 @@ namespace Forest_Register.modell
             return felhasznalasModja;
         }
 
-        public int getTeljesitesNapja()
+        public string getTeljesitesNapja()
         {
             return teljesitesNapja;
         }
 
-        public int getSzamlaKeletkezese()
+        public string getSzamlaKeletkezese()
         {
             return szamlaKeletkezese;
         }
 
-        public int getKifizetesNapja()
+        public string getKifizetesNapja()
         {
             return kifizetesNapja;
         }
@@ -166,11 +170,6 @@ namespace Forest_Register.modell
         public string getFelrakasiHely()
         {
             return felrakasiHely;
-        }
-
-        public string getErdogazdalkodoSzamla()
-        {
-            return erdogazdalkodo;
         }
 
         public string getMuveletiLapSorszam()

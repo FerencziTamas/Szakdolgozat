@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Forest_Register.modell
 {
-    partial class Erdo
+    partial class Szamla
     {
         private string erdeszetiAzon;
         private string helyrajziSzam;
@@ -16,7 +16,7 @@ namespace Forest_Register.modell
         private string erdogazdalkodo;
 
 
-        public Erdo(string erdeszetiAzon, string helyrajziSzam, int kor, int terulet, string fahasznalat, string erdogazdalkodo)
+        public Szamla(string erdeszetiAzon, string helyrajziSzam, int kor, int terulet, string fahasznalat, string erdogazdalkodo)
         {
             this.erdeszetiAzon = erdeszetiAzon;
             this.helyrajziSzam = helyrajziSzam;
@@ -85,7 +85,7 @@ namespace Forest_Register.modell
             return erdogazdalkodo;
         }
 
-        public void modosit(Erdo modified)
+        public void modosit(Szamla modified)
         {
             this.helyrajziSzam = modified.getHelyrajziSzam();
             this.kor = modified.getKor();

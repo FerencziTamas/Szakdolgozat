@@ -11,14 +11,14 @@ namespace Forest_Register.repository
 {
     partial class ErdokRepositoryAdatbazisTabla
     {
-        public List<Erdo> getErdokAdatbazisbol()
+        public List<Szamla> getErdokAdatbazisbol()
         {
-            List<Erdo> erdok = new List<Erdo>();
+            List<Szamla> erdok = new List<Szamla>();
             MySqlConnection connection = new MySqlConnection(connectionString);
             try
             {
                 connection.Open();
-                string query = Erdo.OsszesErdo();
+                string query = Szamla.OsszesErdo();
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 MySqlDataReader dr;
                 dr = cmd.ExecuteReader();
@@ -37,7 +37,7 @@ namespace Forest_Register.repository
                         joEredmeny = int.TryParse(dr["terulet"].ToString(), out terulet);
                         if (joEredmeny)
                         {
-                            Erdo e = new Erdo(erdeszetiAzon, helyrajziSzam, kor, terulet, fahasznalat, erdogazdalkodo);
+                            Szamla e = new Szamla(erdeszetiAzon, helyrajziSzam, kor, terulet, fahasznalat, erdogazdalkodo);
                             erdok.Add(e);
                         }
                     }
@@ -73,7 +73,7 @@ namespace Forest_Register.repository
             }
         }
 
-        public void ErdoModositasaAdatbazisban(string erdeszetiAzon, Erdo modified)
+        public void ErdoModositasaAdatbazisban(string erdeszetiAzon, Szamla modified)
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
             try
@@ -93,7 +93,7 @@ namespace Forest_Register.repository
             }
         }
 
-        public void ErdoAdatbazisbaIllesztese(Erdo ujErdo)
+        public void ErdoAdatbazisbaIllesztese(Szamla ujErdo)
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
             try

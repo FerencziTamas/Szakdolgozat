@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Forest_Register.modell
 {
-    partial class Erdo
+    partial class Szamla
     {
         public string ErdoHozzaadas()
         {
@@ -27,5 +27,7 @@ namespace Forest_Register.modell
         {
             return "DELETE FROM `erdok`";
         }
+
+
     }
 }

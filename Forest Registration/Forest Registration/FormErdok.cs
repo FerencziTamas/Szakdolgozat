@@ -18,7 +18,7 @@ namespace Forest_Register
         /// <summary>
         /// Erdőket tartalmazó adattábla
         /// </summary>
-        private DataTable erdokDt = new DataTable();
+        private DataTable erdoDt = new DataTable();
 
         bool adatFelvetel = false;
 
@@ -46,18 +46,18 @@ namespace Forest_Register
 
         private void dataGridViewErdokBeallit()
         {
-            erdokDt.Columns[0].ColumnName = "Erdészeti azonosító";
-            erdokDt.Columns[0].Caption = "Erdő erdészeti azonosító";
-            erdokDt.Columns[1].ColumnName = "Helyrajzi szám";
-            erdokDt.Columns[1].Caption = "Erdő helyrajzi szám";
-            erdokDt.Columns[2].ColumnName = "Kor";
-            erdokDt.Columns[2].Caption = "Erdő kor";
-            erdokDt.Columns[3].ColumnName = "Terület";
-            erdokDt.Columns[3].Caption = "Erdő terület";
-            erdokDt.Columns[4].ColumnName = "Fahasználat";
-            erdokDt.Columns[4].Caption = "Erdő fahasználat";
-            erdokDt.Columns[5].ColumnName = "Erdőgazdálkodó";
-            erdokDt.Columns[5].Caption = "Erdő erdőgazdálkodó";
+            erdoDt.Columns[0].ColumnName = "Erdészeti azonosító";
+            erdoDt.Columns[0].Caption = "Erdő erdészeti azonosító";
+            erdoDt.Columns[1].ColumnName = "Helyrajzi szám";
+            erdoDt.Columns[1].Caption = "Erdő helyrajzi szám";
+            erdoDt.Columns[2].ColumnName = "Kor";
+            erdoDt.Columns[2].Caption = "Erdő kor";
+            erdoDt.Columns[3].ColumnName = "Terület";
+            erdoDt.Columns[3].Caption = "Erdő terület";
+            erdoDt.Columns[4].ColumnName = "Fahasználat";
+            erdoDt.Columns[4].Caption = "Erdő fahasználat";
+            erdoDt.Columns[5].ColumnName = "Erdőgazdálkodó";
+            erdoDt.Columns[5].Caption = "Erdő erdőgazdálkodó";
 
             dataGridViewErdok.SelectionMode =
                 DataGridViewSelectionMode.FullRowSelect;
@@ -85,6 +85,8 @@ namespace Forest_Register
                 metroTextBoxTerulet.Text = dataGridViewErdok.SelectedRows[0].Cells[3].Value.ToString();
                 metroTextBoxErdogazNev.Text = dataGridViewErdok.SelectedRows[0].Cells[4].Value.ToString();
                 metroTextBoxFahasznalatModja.Text = dataGridViewErdok.SelectedRows[0].Cells[5].Value.ToString();
+                
+
             }
         }
 
@@ -174,7 +176,7 @@ namespace Forest_Register
             ErrorProviderekTorleseErdo();
             try
             {
-                Erdo modosult = new Erdo(
+                Szamla modosult = new Szamla(
                     metroTextBoxErdeszetiAzon.Text,
                     metroTextBoxHelyrajziSzam.Text,
                     Convert.ToInt32(numericUpDownErdoKor.Value),
@@ -231,7 +233,7 @@ namespace Forest_Register
             ErrorProviderekTorleseErdo();
             try
             {
-                Erdo ujErdo = new Erdo(
+                Szamla ujErdo = new Szamla(
                     metroTextBoxErdeszetiAzon.Text,
                     metroTextBoxHelyrajziSzam.Text,
                     Convert.ToInt32(numericUpDownErdoKor.Value),

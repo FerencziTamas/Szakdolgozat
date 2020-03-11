@@ -102,5 +102,7 @@ namespace Forest_Register.repository
                 throw new RepositoryException("Sikertelen beszúrás az adatbázisba.");
             }
         }
+
+
     }
 }

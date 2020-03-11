@@ -63,11 +63,12 @@ namespace Forest_Register
 
         private void DataGridViewFrissitese()
         {
-            erdokDt = repo.ErdoAdatokListabol();
+            erdoDt = repo.ErdoAdatokListabol();
             erdogazdalkodokDt = repo.ErdogazdalkodoAdatokListabol();
+            szamlaDt = repo.SzamlaAdatokListabol();
         }
 
-        private void metroButton6_Click(object sender, EventArgs e)
+        private void metroPanelSzamla_Paint(object sender, PaintEventArgs e)
         {
 
         }
