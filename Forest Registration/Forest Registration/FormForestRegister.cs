@@ -66,11 +66,14 @@ namespace Forest_Register
             erdoDt = repo.ErdoAdatokListabol();
             erdogazdalkodokDt = repo.ErdogazdalkodoAdatokListabol();
             szamlaDt = repo.SzamlaAdatokListabol();
+            vevokDt = repo.VevoAdatokListabol();
         }
 
         private void metroPanelSzamla_Paint(object sender, PaintEventArgs e)
         {
 
         }
+
+
     }
 }

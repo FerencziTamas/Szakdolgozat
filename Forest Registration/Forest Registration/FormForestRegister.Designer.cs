@@ -135,7 +135,7 @@
             this.metroLabel21 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel20 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel19 = new MetroFramework.Controls.MetroLabel();
-            this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.metroPanelVevoTorolModosit = new MetroFramework.Controls.MetroPanel();
             this.metroButtonVevokModosit = new MetroFramework.Controls.MetroButton();
             this.metroButtonVevokTorol = new MetroFramework.Controls.MetroButton();
             this.metroButtonVevokBetolt = new MetroFramework.Controls.MetroButton();
@@ -169,6 +169,7 @@
             this.errorProviderKor = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderErGazKod = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderSzamlaszam = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderAdoszam = new System.Windows.Forms.ErrorProvider(this.components);
             this.menuStrip1.SuspendLayout();
             this.metroTabPageErdok.SuspendLayout();
             this.metroPanelTerMod.SuspendLayout();
@@ -187,7 +188,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSzamlak)).BeginInit();
             this.metroTabPageVevok.SuspendLayout();
             this.metroPanelVevo.SuspendLayout();
-            this.metroPanel1.SuspendLayout();
+            this.metroPanelVevoTorolModosit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVevok)).BeginInit();
             this.metroTabPageProgram.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderHelyrajziSzam)).BeginInit();
@@ -214,6 +215,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderKor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderErGazKod)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderSzamlaszam)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderAdoszam)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -710,7 +712,7 @@
             this.metroTabControlErdok.Location = new System.Drawing.Point(20, 87);
             this.metroTabControlErdok.Multiline = true;
             this.metroTabControlErdok.Name = "metroTabControlErdok";
-            this.metroTabControlErdok.SelectedIndex = 2;
+            this.metroTabControlErdok.SelectedIndex = 3;
             this.metroTabControlErdok.Size = new System.Drawing.Size(1101, 553);
             this.metroTabControlErdok.Style = MetroFramework.MetroColorStyle.Green;
             this.metroTabControlErdok.TabIndex = 1;
@@ -1214,7 +1216,7 @@
             // metroDateTimeKifizetesNapja
             // 
             this.metroDateTimeKifizetesNapja.Location = new System.Drawing.Point(152, 280);
-            this.metroDateTimeKifizetesNapja.MinimumSize = new System.Drawing.Size(0, 29);
+            this.metroDateTimeKifizetesNapja.MinimumSize = new System.Drawing.Size(4, 29);
             this.metroDateTimeKifizetesNapja.Name = "metroDateTimeKifizetesNapja";
             this.metroDateTimeKifizetesNapja.Size = new System.Drawing.Size(228, 29);
             this.metroDateTimeKifizetesNapja.TabIndex = 21;
@@ -1231,7 +1233,7 @@
             // metroDateTimeSzamlaKel
             // 
             this.metroDateTimeSzamlaKel.Location = new System.Drawing.Point(152, 242);
-            this.metroDateTimeSzamlaKel.MinimumSize = new System.Drawing.Size(0, 29);
+            this.metroDateTimeSzamlaKel.MinimumSize = new System.Drawing.Size(4, 29);
             this.metroDateTimeSzamlaKel.Name = "metroDateTimeSzamlaKel";
             this.metroDateTimeSzamlaKel.Size = new System.Drawing.Size(228, 29);
             this.metroDateTimeSzamlaKel.TabIndex = 19;
@@ -1248,7 +1250,7 @@
             // metroDateTimeTeljesitesNap
             // 
             this.metroDateTimeTeljesitesNap.Location = new System.Drawing.Point(152, 204);
-            this.metroDateTimeTeljesitesNap.MinimumSize = new System.Drawing.Size(0, 29);
+            this.metroDateTimeTeljesitesNap.MinimumSize = new System.Drawing.Size(4, 29);
             this.metroDateTimeTeljesitesNap.Name = "metroDateTimeTeljesitesNap";
             this.metroDateTimeTeljesitesNap.Size = new System.Drawing.Size(228, 29);
             this.metroDateTimeTeljesitesNap.TabIndex = 17;
@@ -1554,7 +1556,7 @@
             // 
             this.metroTabPageVevok.Controls.Add(this.metroButtonVevoFelvetel);
             this.metroTabPageVevok.Controls.Add(this.metroPanelVevo);
-            this.metroTabPageVevok.Controls.Add(this.metroPanel1);
+            this.metroTabPageVevok.Controls.Add(this.metroPanelVevoTorolModosit);
             this.metroTabPageVevok.Controls.Add(this.metroButtonVevokBetolt);
             this.metroTabPageVevok.Controls.Add(this.dataGridViewVevok);
             this.metroTabPageVevok.HorizontalScrollbarBarColor = true;
@@ -1821,21 +1823,21 @@
             this.metroLabel19.TabIndex = 2;
             this.metroLabel19.Text = "Vevő neve:";
             // 
-            // metroPanel1
+            // metroPanelVevoTorolModosit
             // 
-            this.metroPanel1.Controls.Add(this.metroButtonVevokModosit);
-            this.metroPanel1.Controls.Add(this.metroButtonVevokTorol);
-            this.metroPanel1.HorizontalScrollbarBarColor = true;
-            this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel1.HorizontalScrollbarSize = 10;
-            this.metroPanel1.Location = new System.Drawing.Point(649, 9);
-            this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(211, 31);
-            this.metroPanel1.TabIndex = 6;
-            this.metroPanel1.VerticalScrollbarBarColor = true;
-            this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel1.VerticalScrollbarSize = 10;
-            this.metroPanel1.Visible = false;
+            this.metroPanelVevoTorolModosit.Controls.Add(this.metroButtonVevokModosit);
+            this.metroPanelVevoTorolModosit.Controls.Add(this.metroButtonVevokTorol);
+            this.metroPanelVevoTorolModosit.HorizontalScrollbarBarColor = true;
+            this.metroPanelVevoTorolModosit.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanelVevoTorolModosit.HorizontalScrollbarSize = 10;
+            this.metroPanelVevoTorolModosit.Location = new System.Drawing.Point(649, 9);
+            this.metroPanelVevoTorolModosit.Name = "metroPanelVevoTorolModosit";
+            this.metroPanelVevoTorolModosit.Size = new System.Drawing.Size(211, 31);
+            this.metroPanelVevoTorolModosit.TabIndex = 6;
+            this.metroPanelVevoTorolModosit.VerticalScrollbarBarColor = true;
+            this.metroPanelVevoTorolModosit.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanelVevoTorolModosit.VerticalScrollbarSize = 10;
+            this.metroPanelVevoTorolModosit.Visible = false;
             // 
             // metroButtonVevokModosit
             // 
@@ -1865,6 +1867,7 @@
             this.metroButtonVevokBetolt.TabIndex = 3;
             this.metroButtonVevokBetolt.Text = "Vevők betöltése";
             this.metroButtonVevokBetolt.UseSelectable = true;
+            this.metroButtonVevokBetolt.Click += new System.EventHandler(this.metroButtonVevokBetolt_Click);
             // 
             // dataGridViewVevok
             // 
@@ -1873,6 +1876,7 @@
             this.dataGridViewVevok.Name = "dataGridViewVevok";
             this.dataGridViewVevok.Size = new System.Drawing.Size(488, 504);
             this.dataGridViewVevok.TabIndex = 2;
+            this.dataGridViewVevok.SelectionChanged += new System.EventHandler(this.dataGridViewVevok_SelectionChanged);
             // 
             // metroTabPageProgram
             // 
@@ -2027,6 +2031,10 @@
             // 
             this.errorProviderSzamlaszam.ContainerControl = this;
             // 
+            // errorProviderAdoszam
+            // 
+            this.errorProviderAdoszam.ContainerControl = this;
+            // 
             // FormForestRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2063,7 +2071,7 @@
             this.metroTabPageVevok.ResumeLayout(false);
             this.metroPanelVevo.ResumeLayout(false);
             this.metroPanelVevo.PerformLayout();
-            this.metroPanel1.ResumeLayout(false);
+            this.metroPanelVevoTorolModosit.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVevok)).EndInit();
             this.metroTabPageProgram.ResumeLayout(false);
             this.metroTabPageProgram.PerformLayout();
@@ -2092,6 +2100,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderKor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderErGazKod)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderSzamlaszam)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderAdoszam)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2203,7 +2212,7 @@
         private MetroFramework.Controls.MetroLabel metroLabel21;
         private MetroFramework.Controls.MetroLabel metroLabel20;
         private MetroFramework.Controls.MetroLabel metroLabel19;
-        private MetroFramework.Controls.MetroPanel metroPanel1;
+        private MetroFramework.Controls.MetroPanel metroPanelVevoTorolModosit;
         private MetroFramework.Controls.MetroButton metroButtonVevokModosit;
         private MetroFramework.Controls.MetroButton metroButtonVevokTorol;
         private MetroFramework.Controls.MetroButton metroButtonVevokBetolt;
@@ -2238,5 +2247,6 @@
         private System.Windows.Forms.ErrorProvider errorProviderKor;
         private System.Windows.Forms.ErrorProvider errorProviderErGazKod;
         private System.Windows.Forms.ErrorProvider errorProviderSzamlaszam;
+        private System.Windows.Forms.ErrorProvider errorProviderAdoszam;
     }
 }

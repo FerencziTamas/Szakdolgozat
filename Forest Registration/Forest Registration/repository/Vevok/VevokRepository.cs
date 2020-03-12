@@ -32,6 +32,19 @@ namespace Forest_Register.repository
             return vevokNev;
         }
 
-
+        public DataTable VevoAdatokListabol()
+        {
+            DataTable vevokDt = new DataTable();
+            vevokDt.Columns.Add("vevoId", typeof(int));
+            vevokDt.Columns.Add("nev", typeof(string));
+            vevokDt.Columns.Add("cim", typeof(string));
+            vevokDt.Columns.Add("technikai_azonosito", typeof(string));
+            vevokDt.Columns.Add("adoszam", typeof(string));
+            foreach (Vevo v in vevok)
+            {
+                vevokDt.Rows.Add(v.getVevoId(), v.getVevoNev(), v.getVevoCim(), v.getTechnikaiAzonosito(), v.getAdoszam());
+            }
+            return vevokDt;
+        }
     }
 }
