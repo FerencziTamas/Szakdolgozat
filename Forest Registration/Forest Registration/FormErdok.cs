@@ -176,7 +176,7 @@ namespace Forest_Register
             ErrorProviderekTorleseErdo();
             try
             {
-                Szamla modosult = new Szamla(
+                Erdo modosult = new Erdo(
                     metroTextBoxErdeszetiAzon.Text,
                     metroTextBoxHelyrajziSzam.Text,
                     Convert.ToInt32(numericUpDownErdoKor.Value),
@@ -233,7 +233,7 @@ namespace Forest_Register
             ErrorProviderekTorleseErdo();
             try
             {
-                Szamla ujErdo = new Szamla(
+                Erdo ujErdo = new Erdo(
                     metroTextBoxErdeszetiAzon.Text,
                     metroTextBoxHelyrajziSzam.Text,
                     Convert.ToInt32(numericUpDownErdoKor.Value),

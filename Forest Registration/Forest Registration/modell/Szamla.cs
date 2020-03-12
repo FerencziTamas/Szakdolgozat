@@ -181,5 +181,22 @@ namespace Forest_Register.modell
         {
             return szallitojegySorszam;
         }
+
+        public void modosit(Szamla modosult)
+        {
+            this.fafaj = modosult.getFafaj();
+            this.vevonev = modosult.getVevoNev();
+            this.mennyiseg = modosult.getMennyiseg();
+            this.felhasznalasModja = modosult.getFelhasznalasModja();
+            this.bruttoar = modosult.getBruttoAr();
+            this.nettoar = modosult.getNettoAr();
+            this.teljesitesNapja = modosult.getTeljesitesNapja();
+            this.szamlaKeletkezese = modosult.getSzamlaKeletkezese();
+            this.kifizetesNapja = modosult.getKifizetesNapja();
+            this.lerakodasiHely = modosult.getLerakodasiHely();
+            this.felrakasiHely = modosult.getFelrakasiHely();
+            this.muveletiLapSorszam = modosult.getMuveletiLapSorszam();
+            this.szallitojegySorszam = modosult.getSzallitojegySorszam();
+        }
     }
 }

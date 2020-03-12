@@ -56,5 +56,26 @@ namespace Forest_Register.repository
                 throw new RepositoryExceptionNemTudTorolni("A számlát nem lehetett törölni.");
         }
 
+        public void SzamlaModositasaListaban(string szamlaszam, Szamla modosult)
+        {
+            Szamla sz = szamlak.Find(x => x.getSzamlaSzam() == szamlaszam);
+            if (sz != null)
+                sz.modosit(modosult);
+            else
+                throw new RepositoryExceptionNemTudModositani("A számla módosítása nem sikerült");
+        }
+
+        public void SzamlaHozzaadasaListahoz(Szamla ujSzamla)
+        {
+            try
+            {
+                szamlak.Add(ujSzamla);
+            }
+            catch (Exception e)
+            {
+                throw new RepositoryExceptionNemTudHozzaadni("A számla hozzáadása nem sikerült");
+            }
+
+        }
     }
 }

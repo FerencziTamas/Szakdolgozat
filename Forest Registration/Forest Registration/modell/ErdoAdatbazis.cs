@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Forest_Register.modell
 {
-    partial class Szamla
+    partial class Erdo
     {
         public string ErdoHozzaadas()
         {

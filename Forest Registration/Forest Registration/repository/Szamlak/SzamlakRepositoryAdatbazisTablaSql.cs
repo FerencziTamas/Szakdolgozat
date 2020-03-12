@@ -72,8 +72,8 @@ namespace Forest_Register.repository
             {
                 connection.Open();
                 string query1 = "DELETE FROM `szamlak` WHERE `szamlaszam`= " + szamlaszam;
-                MySqlCommand cmd1 = new MySqlCommand(query1, connection);
                 string query2 = "DELETE FROM `szamlatetelek` WHERE szamlaszam = " + szamlaszam;
+                MySqlCommand cmd1 = new MySqlCommand(query1, connection);
                 MySqlCommand cmd2 = new MySqlCommand(query2, connection);
                 cmd1.ExecuteNonQuery();
                 cmd2.ExecuteNonQuery();
@@ -116,16 +116,19 @@ namespace Forest_Register.repository
             try
             {
                 connection.Open();
-                string query = ujSzamla.SzamlaHozzaadasEgy();
-                MySqlCommand cmd = new MySqlCommand(query, connection);
-                cmd.ExecuteNonQuery();
+                string query1 = ujSzamla.SzamlaHozzaadasEgy();
+                string query2 = ujSzamla.SzamlaHozzaadasKetto();
+                MySqlCommand cmd1 = new MySqlCommand(query1, connection);
+                MySqlCommand cmd2 = new MySqlCommand(query2, connection);
+                cmd1.ExecuteNonQuery();
+                cmd2.ExecuteNonQuery();
                 connection.Close();
             }
             catch (Exception e)
             {
                 connection.Close();
                 Debug.WriteLine(e.Message);
-                Debug.WriteLine(ujSzamla + " erdő beszúrása adatbázisba nem sikerült.");
+                Debug.WriteLine(ujSzamla + " számla beszúrása adatbázisba nem sikerült.");
                 throw new RepositoryException("Sikertelen beszúrás az adatbázisba.");
             }
         }

@@ -10,14 +10,14 @@ namespace Forest_Register.repository
 {
     partial class Repository
     {
-        List<Szamla> erdok;
+        List<Erdo> erdok;
 
-        public void setErdok(List<Szamla> erdok)
+        public void setErdok(List<Erdo> erdok)
         {
             this.erdok = erdok;
         }
 
-        public List<Szamla> getErdok()
+        public List<Erdo> getErdok()
         {
             return erdok;
         }
@@ -31,7 +31,7 @@ namespace Forest_Register.repository
             erdoDt.Columns.Add("terulet", typeof(int));
             erdoDt.Columns.Add("hasznalatId", typeof(int));
             erdoDt.Columns.Add("egKod", typeof(string));
-            foreach (Szamla e in erdok)
+            foreach (Erdo e in erdok)
             {
                 erdoDt.Rows.Add(e.getErdeszetiAzon(), e.getHelyrajziSzam(), e.getKor(), e.getTerulet(), e.getFahasznalat(), e.getErdogazdalkodo());
             }
@@ -48,30 +48,30 @@ namespace Forest_Register.repository
                 int terulet = Convert.ToInt32(row[3]);
                 string fahasznalat = row[4].ToString();
                 string erdogazdalkodo = row[5].ToString();
-                Szamla e = new Szamla(erdeszetiAzon,helyrajziSzam,kor,terulet,fahasznalat,erdogazdalkodo);
+                Erdo e = new Erdo(erdeszetiAzon,helyrajziSzam,kor,terulet,fahasznalat,erdogazdalkodo);
                 erdok.Add(e);
             }
         }
 
         public void erdoTorleseListabol(string erdeszetiAzon)
         {
-            Szamla e = erdok.Find(x => x.getErdeszetiAzon()==erdeszetiAzon);
+            Erdo e = erdok.Find(x => x.getErdeszetiAzon()==erdeszetiAzon);
             if (e != null)
                 erdok.Remove(e);
             else
                 throw new RepositoryExceptionNemTudTorolni("Az erdőt nem lehetett törölni.");
         }
 
-        public void erdoModositasaListaban(string erdeszetiAzon, Szamla modosult)
+        public void erdoModositasaListaban(string erdeszetiAzon, Erdo modosult)
         {
-            Szamla e = erdok.Find(x => x.getErdeszetiAzon() == erdeszetiAzon);
+            Erdo e = erdok.Find(x => x.getErdeszetiAzon() == erdeszetiAzon);
             if (e != null)
                 e.modosit(modosult);
             else
                 throw new RepositoryExceptionNemTudModositani("Az erdő módosítása nem sikerült");
         }
 
-        public void erdoHozzaadasaListahoz(Szamla ujErdo)
+        public void erdoHozzaadasaListahoz(Erdo ujErdo)
         {
             try
             {
@@ -83,7 +83,7 @@ namespace Forest_Register.repository
             }
         }
 
-        public Szamla getErdo(string erdeszetiAzon)
+        public Erdo getErdo(string erdeszetiAzon)
         {
             return erdok.Find(x => x.getErdeszetiAzon()==erdeszetiAzon);
         }

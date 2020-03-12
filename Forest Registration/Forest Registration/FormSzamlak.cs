@@ -1,4 +1,5 @@
-﻿using Forest_Register.repository;
+﻿using Forest_Register.modell;
+using Forest_Register.repository;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -112,6 +113,7 @@ namespace Forest_Register
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Exclamation) == DialogResult.Yes)
             {
+                //Törlés listából
                 try
                 {
                     repo.SzamlaTorleseListabol(szamlaszam);
@@ -122,29 +124,141 @@ namespace Forest_Register
                     Debug.WriteLine("Az erdő törlése nem sikerült, nincs a listába!");
                 }
 
+                //Törlés adatbázisban
                 SzamlakRepositoryAdatbazisTabla szrat = new SzamlakRepositoryAdatbazisTabla();
                 try
                 {
                     szrat.SzamlaTorleseAdatbazisbol(szamlaszam);
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-
-                    throw;
+                    HibaUzenetKiirasa(ex.Message);
                 }
+
+                //DataGridView frissítése
+                DataGridViewFrissitese();
+                DataGridViewSzamlakBeallit();
             }
         }
 
         private void metroButtonSzamlaModosit_Click(object sender, EventArgs e)
         {
+            HibauzenetTorlese();
+            ErrorProviderekTorleseSzamla();
+            try
+            {
+                Szamla modosult = new Szamla(
+                    metroTextBoxSzamlaSzam.Text,
+                    metroComboBoxFafaj.Text,
+                    metroTextBoxSzamlaVevoNev.Text,
+                    Convert.ToInt32(metroTextBoxMennyiseg.Text),
+                    metroTextBoxFahasznalatModja.Text,
+                    Convert.ToInt32(metroTextBoxBruttoAr.Text),
+                    Convert.ToInt32(metroTextBoxNettoAr.Text),
+                    metroDateTimeTeljesitesNap.Text,
+                    metroDateTimeSzamlaKel.Text,
+                    metroDateTimeTeljesitesNap.Text,
+                    metroTextBoxLerakodasiHely.Text,
+                    metroTextBoxFelrakasiHely.Text,
+                    metroTextBoxMuvLapSzam.Text,
+                    metroTextBoxSzallitojegySorszam.Text
+                    );
 
+                string szamlaszam = metroTextBoxSzamlaSzam.Text;
+
+                //Módosítás listában
+                try
+                {
+                    repo.SzamlaModositasaListaban(szamlaszam, modosult);
+                }
+                catch (Exception ex)
+                {
+                    HibaUzenetKiirasa(ex.Message);
+                    return;
+                }
+
+                //Módosítás adatbázisban
+                SzamlakRepositoryAdatbazisTabla szrat = new SzamlakRepositoryAdatbazisTabla();
+                try
+                {
+                    szrat.SzamlaTorleseAdatbazisbol(szamlaszam);
+                }
+                catch (Exception ex)
+                {
+                    HibaUzenetKiirasa(ex.Message);
+                }
+
+                //DataGridView frissítése
+                DataGridViewFrissitese();
+            }
+            catch (RepositoryExceptionNemTudModositani rentm)
+            {
+                HibaUzenetKiirasa(rentm.Message);
+                Debug.WriteLine("A módosítás nem sikerült, a számla nincs a listában!");
+            }
+            catch (Exception)
+            {
+
+            }
         }
 
         private void metroButtonSzamlaHozzaad_Click(object sender, EventArgs e)
         {
+            HibauzenetTorlese();
+            ErrorProviderekTorleseSzamla();
+            try
+            {
+                Szamla ujSzamla = new Szamla(
+                    metroTextBoxSzamlaSzam.Text,
+                    metroComboBoxFafaj.Text,
+                    metroTextBoxSzamlaVevoNev.Text,
+                    Convert.ToInt32(metroTextBoxMennyiseg.Text),
+                    metroTextBoxFahasznalatModja.Text,
+                    Convert.ToInt32(metroTextBoxBruttoAr.Text),
+                    Convert.ToInt32(metroTextBoxNettoAr.Text),
+                    metroDateTimeTeljesitesNap.Text,
+                    metroDateTimeSzamlaKel.Text,
+                    metroDateTimeTeljesitesNap.Text,
+                    metroTextBoxLerakodasiHely.Text,
+                    metroTextBoxFelrakasiHely.Text,
+                    metroTextBoxMuvLapSzam.Text,
+                    metroTextBoxSzallitojegySorszam.Text
+                    );
 
+                string szamlaszam = metroTextBoxSzamlaSzam.Text;
+
+                //Hozzáadás listához
+                try
+                {
+                    repo.SzamlaHozzaadasaListahoz(ujSzamla);
+                }
+                catch (Exception ex)
+                {
+                    HibaUzenetKiirasa(ex.Message);
+                }
+
+                //Hozzáadás adatbázishoz
+                SzamlakRepositoryAdatbazisTabla szrat = new SzamlakRepositoryAdatbazisTabla();
+                try
+                {
+                    szrat.SzamlaAdatbazisbaIllesztese(ujSzamla);
+                }
+                catch (Exception ex)
+                {
+                    HibaUzenetKiirasa(ex.Message);
+                }
+
+                //DataGridView frissítése
+                if (dataGridViewSzamlak.SelectedRows.Count == 1)
+                {
+                    DataGridViewSzamlakBeallit();
+                }
+            }
+            catch (Exception)
+            {
+
+            }
         }
-
         private void metroButtonSzamlaMegse_Click(object sender, EventArgs e)
         {
             metroTextBoxSzamlaSzam.Text = string.Empty;
