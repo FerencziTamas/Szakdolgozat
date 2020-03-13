@@ -52,7 +52,7 @@ namespace Forest_Register.repository
             return vevok;
         }
 
-        public void vevoTorleseAdatbazisbol(string vevoId)
+        public void vevoTorleseAdatbazisbol(int vevoId)
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
             try
@@ -72,7 +72,7 @@ namespace Forest_Register.repository
             }
         }
 
-        public void VevoModositasaAdatbazisban(string vevoId, Vevo modified)
+        public void VevoModositasaAdatbazisban(int vevoId, Vevo modified)
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
             try

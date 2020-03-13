@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -124,13 +125,18 @@ namespace Forest_Register
                 {
                     vrat.VevoAdatbazisbaIllesztese(ujVevo);
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
+                    HibaUzenetKiirasa(ex.Message);
+                }
 
-                    throw;
+                //DataGridView frissítése
+                if (dataGridViewVevok.SelectedRows.Count == 1)
+                {
+                    DataGridViewVevokBeallit();
                 }
             }
-            catch
+            catch (Exception)
             {
 
             }
@@ -138,12 +144,94 @@ namespace Forest_Register
 
         private void metroButtonVevokTorol_Click(object sender, EventArgs e)
         {
+            HibauzenetTorlese();
+            if ((dataGridViewVevok.Rows == null) || (dataGridViewVevok.Rows.Count == 0))
+                return;
 
+            int vevoId = Convert.ToInt32(dataGridViewVevok.SelectedRows[0].Index.ToString());
+            if (MessageBox.Show(
+                "Valóban törölni akarja a sort?",
+                "Törlés",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Exclamation) == DialogResult.Yes)
+            {
+                //Törlés listából
+                try
+                {
+                    repo.VevoTorleseListabol(vevoId);
+                }
+                catch (RepositoryExceptionNemTudTorolni rennt)
+                {
+                    HibaUzenetKiirasa(rennt.Message);
+                    Debug.WriteLine("A vevő törlése nem sikerült, nincs a listába!");
+                }
+
+                //Törlés adatbázisból
+                VevokRepositoryAdatbazisTabla vrat = new VevokRepositoryAdatbazisTabla();
+                try
+                {
+                    vrat.vevoTorleseAdatbazisbol(vevoId);
+                }
+                catch (Exception ex)
+                {
+                    HibaUzenetKiirasa(ex.Message);
+                }
+
+                //DataGridView frissítése
+                DataGridViewFrissitese();
+                DataGridViewVevokBeallit();
+            }
         }
 
         private void metroButtonVevokModosit_Click(object sender, EventArgs e)
         {
+            HibauzenetTorlese();
+            ErrorProviderekTorleseVevo();
+            try
+            {
+                Vevo modosult = new Vevo(
+                    Convert.ToInt32(metroTextBoxVevoAzon.Text),
+                    metroTextBoxVevoNev.Text,
+                    metroTextBoxVevoCim.Text,
+                    metroTextBoxVevoTechAzon.Text,
+                    Convert.ToInt32(metroTextBoxVevoAdoszam)
+                    );
+                int vevoId = Convert.ToInt32(metroTextBoxVevoAzon.Text);
 
+                //Módosítás listában
+                try
+                {
+                    repo.VevoModositasaListaban(vevoId, modosult);
+                }
+                catch (Exception ex)
+                {
+                    HibaUzenetKiirasa(ex.Message);
+                    return;
+                }
+
+                //Módosítás adatbázisban
+                VevokRepositoryAdatbazisTabla vrat = new VevokRepositoryAdatbazisTabla();
+                try
+                {
+                    vrat.VevoModositasaAdatbazisban(vevoId, modosult);
+                }
+                catch (Exception ex)
+                {
+                    HibaUzenetKiirasa(ex.Message);
+                }
+
+                //DataGridView frissítése
+                DataGridViewFrissitese();
+            }
+            catch (RepositoryExceptionNemTudModositani rentm)
+            {
+                HibaUzenetKiirasa(rentm.Message);
+                Debug.WriteLine("A módosítás nem sikerült, a vevő nincs a listában!");
+            }
+            catch (Exception)
+            {
+
+            }
         }
 
         private void metroButtonUjVevo_Click(object sender, EventArgs e)

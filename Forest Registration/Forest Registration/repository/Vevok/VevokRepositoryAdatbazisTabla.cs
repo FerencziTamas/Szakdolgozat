@@ -20,9 +20,5 @@ namespace Forest_Register.repository
             connectionString = cs.getConnectionString();
         }
 
-        internal void VevoAdatbazisbaIllesztese(Vevo ujVevo)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

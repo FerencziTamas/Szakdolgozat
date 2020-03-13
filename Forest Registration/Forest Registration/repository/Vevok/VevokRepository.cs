@@ -58,5 +58,23 @@ namespace Forest_Register.repository
                 throw new RepositoryExceptionNemTudHozzaadni("A vevő hozzáadása nem sikerült");
             }
         }
+
+        public void VevoModositasaListaban(int vevoId, Vevo modosult)
+        {
+            Vevo v = vevok.Find(x => x.getVevoId() == vevoId);
+            if (v != null)
+                v.modosit(modosult);
+            else
+                throw new RepositoryExceptionNemTudModositani("A vevő módosítása nem sikerült");
+        }
+
+        public void VevoTorleseListabol(int vevoId)
+        {
+            Vevo v = vevok.Find(x => x.getVevoId() == vevoId);
+            if (v != null)
+                vevok.Remove(v);
+            else
+                throw new RepositoryExceptionNemTudTorolni("A vevőt nem lehetett törölni.");
+        }
     }
 }

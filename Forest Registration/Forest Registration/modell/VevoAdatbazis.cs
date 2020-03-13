@@ -18,7 +18,7 @@ namespace Forest_Register.modell
             return "DELETE FROM `vevok`";
         }
 
-        internal string VevoModositas(string vevoId)
+        internal string VevoModositas(int vevoId)
         {
             return "UPDATE `vevok` SET `nev`='"+getVevoNev()+"',`cim`='"+getVevoCim()+"',`technikai_azonosito`='"+getTechnikaiAzonosito()+"',`adoszam`='"+getAdoszam()+"' WHERE `vevoId`="+vevoId;
         }
@@ -27,5 +27,7 @@ namespace Forest_Register.modell
         {
             return "INSERT INTO `vevok`(`vevoId`, `nev`, `cim`, `technikai_azonosito`, `adoszam`) VALUES ('"+vevoId+"', '"+getVevoNev()+"', '"+getVevoCim()+"', '"+getTechnikaiAzonosito()+"', '"+getAdoszam()+"')";
         }
+
+
     }
 }

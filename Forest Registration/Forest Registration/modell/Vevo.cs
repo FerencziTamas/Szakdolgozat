@@ -125,5 +125,14 @@ namespace Forest_Register.modell
         {
             return adoszam;
         }
+
+        public void modosit(Vevo modosult)
+        {
+            this.vevoId = modosult.getVevoId();
+            this.vevoNev = modosult.getVevoNev();
+            this.vevoCim = modosult.getVevoCim();
+            this.technikaiAzonosito = modosult.getTechnikaiAzonosito();
+            this.adoszam = modosult.getAdoszam();
+        }
     }
 }
