@@ -31,7 +31,7 @@ namespace Forest_Register
             {
                 GombokBeallitasaKattintaskorVevo();
             }
-            else
+            if (dataGridViewVevok.SelectedRows.Count == 1)
             {
                 metroPanelVevoTorolModosit.Visible = true;
                 metroPanelVevo.Visible = true;

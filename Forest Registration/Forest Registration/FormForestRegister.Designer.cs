@@ -981,7 +981,6 @@
             this.metroTabPageSzamlak.VerticalScrollbarBarColor = true;
             this.metroTabPageSzamlak.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPageSzamlak.VerticalScrollbarSize = 10;
-            this.metroTabPageSzamlak.Click += new System.EventHandler(this.metroTabPageSzamlak_Click);
             // 
             // metroButtonSzamlaMegse
             // 
@@ -1045,7 +1044,6 @@
             this.metroPanelSzamla.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanelSzamla.VerticalScrollbarSize = 10;
             this.metroPanelSzamla.Visible = false;
-            this.metroPanelSzamla.Paint += new System.Windows.Forms.PaintEventHandler(this.metroPanelSzamla_Paint);
             // 
             // metroComboBoxFafaj
             // 

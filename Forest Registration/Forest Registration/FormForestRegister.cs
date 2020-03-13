@@ -19,11 +19,6 @@ namespace Forest_Register
             InitializeComponent();
         }
 
-        private void metroTabPageSzamlak_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void erdőkKiírtatásaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             metroTabControlErdok.SelectTab("metroTabPageErdok");
@@ -68,12 +63,6 @@ namespace Forest_Register
             szamlaDt = repo.SzamlaAdatokListabol();
             vevokDt = repo.VevoAdatokListabol();
         }
-
-        private void metroPanelSzamla_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
 
     }
 }
