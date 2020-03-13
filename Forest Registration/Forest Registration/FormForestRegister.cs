@@ -67,5 +67,9 @@ namespace Forest_Register
             vevokDt = repo.VevoAdatokListabol();
         }
 
+        private void metroButtonKilepes_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
