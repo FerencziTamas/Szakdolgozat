@@ -14,6 +14,9 @@ namespace Forest_Register
     public partial class FormForestRegister : MetroFramework.Forms.MetroForm
     {
         Repository repo = new Repository();
+
+        bool adatFelvetel = false;
+
         public FormForestRegister()
         {
             InitializeComponent();
@@ -58,9 +61,9 @@ namespace Forest_Register
 
         private void DataGridViewFrissitese()
         {
-            erdoDt = repo.ErdoAdatokListabol();
+            erdokDt = repo.ErdoAdatokListabol();
             erdogazdalkodokDt = repo.ErdogazdalkodoAdatokListabol();
-            szamlaDt = repo.SzamlaAdatokListabol();
+            szamlakDt = repo.SzamlaAdatokListabol();
             vevokDt = repo.VevoAdatokListabol();
         }
 

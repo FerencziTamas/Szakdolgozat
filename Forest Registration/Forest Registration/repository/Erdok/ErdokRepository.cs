@@ -53,7 +53,7 @@ namespace Forest_Register.repository
             }
         }
 
-        public void erdoTorleseListabol(string erdeszetiAzon)
+        public void ErdoTorleseListabol(string erdeszetiAzon)
         {
             Erdo e = erdok.Find(x => x.getErdeszetiAzon()==erdeszetiAzon);
             if (e != null)

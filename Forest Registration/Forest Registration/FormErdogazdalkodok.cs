@@ -90,48 +90,12 @@ namespace Forest_Register
 
         private void metroButtonUjErGazFelvetele_Click(object sender, EventArgs e)
         {
-            HibauzenetTorlese();
-            ErrorProviderekTorleseErdogazdalkodok();
-            try
-            {
-                Erdogazdalkodo ujErdogazdalkodo = new Erdogazdalkodo(
-                    metroTextBoxErGazKod.Text,
-                    metroTextBoxErGazNev.Text,
-                    metroTextBoxErGazCim.Text
-                    );
-                string kod = metroTextBoxErGazKod.Text;
-
-                //Hozzáadás listához
-                try
-                {
-                    repo.erdogazdalkodoHozzadasaListahoz(ujErdogazdalkodo);
-                }
-                catch (Exception ex)
-                {
-                    HibaUzenetKiirasa(ex.Message);
-                }
-
-                //Hozzáadás adatbázishoz
-                ErdogazdalkodokRepositoryAdatbazisTabla egrat = new ErdogazdalkodokRepositoryAdatbazisTabla();
-                try
-                {
-                    egrat.ErdogazdalkodoAdatbazisbaIllesztese(ujErdogazdalkodo);
-                }
-                catch (Exception ex)
-                {
-                    HibaUzenetKiirasa(ex.Message);
-                }
-
-                //DataGridView frissítése
-                if (dataGridViewErdogazdalkodok.SelectedRows.Count == 1)
-                {
-                    dataGridViewErdogazdalkodokBeallit();
-                }
-            }
-            catch (Exception)
-            {
-                
-            }
+            adatFelvetel = true;
+            metroPanelErdoGazTorolModosit.Visible = true;
+            metroPanelErGaz.Visible = true;
+            metroTextBoxErGazKod.Text = string.Empty;
+            metroTextBoxErGazNev.Text = string.Empty;
+            metroTextBoxErGazCim.Text = string.Empty;
         }
 
         private void metroButtonEdGazTorol_Click(object sender, EventArgs e)

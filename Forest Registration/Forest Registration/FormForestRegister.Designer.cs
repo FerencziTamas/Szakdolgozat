@@ -904,6 +904,7 @@
             this.metroButtonUjErGazFelvetele.TabIndex = 6;
             this.metroButtonUjErGazFelvetele.Text = "Új erdőgazdálkodó felvétele";
             this.metroButtonUjErGazFelvetele.UseSelectable = true;
+            this.metroButtonUjErGazFelvetele.Visible = false;
             this.metroButtonUjErGazFelvetele.Click += new System.EventHandler(this.metroButtonUjErGazFelvetele_Click);
             // 
             // metroPanelErdoGazTorolModosit
@@ -990,6 +991,7 @@
             this.metroButtonSzamlaMegse.TabIndex = 10;
             this.metroButtonSzamlaMegse.Text = "Mégse";
             this.metroButtonSzamlaMegse.UseSelectable = true;
+            this.metroButtonSzamlaMegse.Visible = false;
             this.metroButtonSzamlaMegse.Click += new System.EventHandler(this.metroButtonSzamlaMegse_Click);
             // 
             // metroButtonSzamlaHozzaad
@@ -1214,7 +1216,7 @@
             // metroDateTimeKifizetesNapja
             // 
             this.metroDateTimeKifizetesNapja.Location = new System.Drawing.Point(152, 280);
-            this.metroDateTimeKifizetesNapja.MinimumSize = new System.Drawing.Size(4, 29);
+            this.metroDateTimeKifizetesNapja.MinimumSize = new System.Drawing.Size(0, 29);
             this.metroDateTimeKifizetesNapja.Name = "metroDateTimeKifizetesNapja";
             this.metroDateTimeKifizetesNapja.Size = new System.Drawing.Size(228, 29);
             this.metroDateTimeKifizetesNapja.TabIndex = 21;
@@ -1231,7 +1233,7 @@
             // metroDateTimeSzamlaKel
             // 
             this.metroDateTimeSzamlaKel.Location = new System.Drawing.Point(152, 242);
-            this.metroDateTimeSzamlaKel.MinimumSize = new System.Drawing.Size(4, 29);
+            this.metroDateTimeSzamlaKel.MinimumSize = new System.Drawing.Size(0, 29);
             this.metroDateTimeSzamlaKel.Name = "metroDateTimeSzamlaKel";
             this.metroDateTimeSzamlaKel.Size = new System.Drawing.Size(228, 29);
             this.metroDateTimeSzamlaKel.TabIndex = 19;
@@ -1248,7 +1250,7 @@
             // metroDateTimeTeljesitesNap
             // 
             this.metroDateTimeTeljesitesNap.Location = new System.Drawing.Point(152, 204);
-            this.metroDateTimeTeljesitesNap.MinimumSize = new System.Drawing.Size(4, 29);
+            this.metroDateTimeTeljesitesNap.MinimumSize = new System.Drawing.Size(0, 29);
             this.metroDateTimeTeljesitesNap.Name = "metroDateTimeTeljesitesNap";
             this.metroDateTimeTeljesitesNap.Size = new System.Drawing.Size(228, 29);
             this.metroDateTimeTeljesitesNap.TabIndex = 17;
@@ -1493,6 +1495,7 @@
             this.metroButtonUjSzamlaFelvetele.TabIndex = 7;
             this.metroButtonUjSzamlaFelvetele.Text = "Új felvétele";
             this.metroButtonUjSzamlaFelvetele.UseSelectable = true;
+            this.metroButtonUjSzamlaFelvetele.Visible = false;
             this.metroButtonUjSzamlaFelvetele.Click += new System.EventHandler(this.metroButtonUjSzamlaFelvetele_Click);
             // 
             // metroButtonSzamlakBetolt
@@ -1577,6 +1580,7 @@
             this.metroButtonVevoFelvetel.TabIndex = 8;
             this.metroButtonVevoFelvetel.Text = "Új vevő felvétele";
             this.metroButtonVevoFelvetel.UseSelectable = true;
+            this.metroButtonVevoFelvetel.Visible = false;
             this.metroButtonVevoFelvetel.Click += new System.EventHandler(this.metroButtonVevoFelvetel_Click);
             // 
             // metroPanelVevo

@@ -15,6 +15,9 @@ namespace Forest_Register
 {
     public partial class FormForestRegister : MetroFramework.Forms.MetroForm
     {
+        /// <summary>
+        /// Vevőket tartalmazó adattábla
+        /// </summary>
         private DataTable vevokDt = new DataTable();
 
         private void metroButtonVevokBetolt_Click(object sender, EventArgs e)
@@ -65,11 +68,11 @@ namespace Forest_Register
             metroPanelVevoTorolModosit.Visible = false;
             if(dataGridViewVevok.SelectedRows.Count > 0)
             {
-                metroButtonUjVevo.Visible = false;
+                metroButtonVevoFelvetel.Visible = false;
             }
             else
             {
-                metroButtonUjVevo.Visible = true;
+                metroButtonVevoFelvetel.Visible = true;
             }
         }
 
@@ -96,50 +99,16 @@ namespace Forest_Register
 
         private void metroButtonVevoFelvetel_Click(object sender, EventArgs e)
         {
-            HibauzenetTorlese();
-            ErrorProviderekTorleseVevo();
-            try
-            {
-                Vevo ujVevo = new Vevo(
-                    Convert.ToInt32(metroTextBoxVevoAzon.Text),
-                    metroTextBoxVevoNev.Text,
-                    metroTextBoxVevoCim.Text,
-                    metroTextBoxVevoTechAzon.Text,
-                    Convert.ToInt32(metroTextBoxVevoAdoszam)
-                    );
-                int azonosito = Convert.ToInt32(metroTextBoxVevoAzon.Text);
+            adatFelvetel = true;
+            metroPanelVevo.Visible = true;
+            metroPanelVevoTorolModosit.Visible = true;
+            metroTextBoxVevoAzon.Text = string.Empty;
+            metroTextBoxVevoNev.Text = string.Empty;
+            metroTextBoxVevoCim.Text = string.Empty;
+            metroTextBoxVevoTechAzon.Text = string.Empty;
+            metroTextBoxVevoAdoszam.Text = string.Empty;
 
-                //Hozzáadás listához
-                try
-                {
-                    repo.VevoHozzaadasaListahoz(ujVevo);
-                }
-                catch (Exception ex)
-                {
-                    HibaUzenetKiirasa(ex.Message);
-                }
-
-                //Hozzáadás adatbázishoz
-                VevokRepositoryAdatbazisTabla vrat = new VevokRepositoryAdatbazisTabla();
-                try
-                {
-                    vrat.VevoAdatbazisbaIllesztese(ujVevo);
-                }
-                catch (Exception ex)
-                {
-                    HibaUzenetKiirasa(ex.Message);
-                }
-
-                //DataGridView frissítése
-                if (dataGridViewVevok.SelectedRows.Count == 1)
-                {
-                    DataGridViewVevokBeallit();
-                }
-            }
-            catch (Exception)
-            {
-
-            }
+            
         }
 
         private void metroButtonVevokTorol_Click(object sender, EventArgs e)
@@ -236,14 +205,50 @@ namespace Forest_Register
 
         private void metroButtonUjVevo_Click(object sender, EventArgs e)
         {
-            adatFelvetel = true;
-            metroPanelVevo.Visible = true;
-            metroPanelVevoTorolModosit.Visible = true;
-            metroTextBoxVevoAzon.Text = string.Empty;
-            metroTextBoxVevoNev.Text = string.Empty;
-            metroTextBoxVevoCim.Text = string.Empty;
-            metroTextBoxVevoTechAzon.Text = string.Empty;
-            metroTextBoxVevoAdoszam.Text = string.Empty;
+            HibauzenetTorlese();
+            ErrorProviderekTorleseVevo();
+            try
+            {
+                Vevo ujVevo = new Vevo(
+                    Convert.ToInt32(metroTextBoxVevoAzon.Text),
+                    metroTextBoxVevoNev.Text,
+                    metroTextBoxVevoCim.Text,
+                    metroTextBoxVevoTechAzon.Text,
+                    Convert.ToInt32(metroTextBoxVevoAdoszam)
+                    );
+                int azonosito = Convert.ToInt32(metroTextBoxVevoAzon.Text);
+
+                //Hozzáadás listához
+                try
+                {
+                    repo.VevoHozzaadasaListahoz(ujVevo);
+                }
+                catch (Exception ex)
+                {
+                    HibaUzenetKiirasa(ex.Message);
+                }
+
+                //Hozzáadás adatbázishoz
+                VevokRepositoryAdatbazisTabla vrat = new VevokRepositoryAdatbazisTabla();
+                try
+                {
+                    vrat.VevoAdatbazisbaIllesztese(ujVevo);
+                }
+                catch (Exception ex)
+                {
+                    HibaUzenetKiirasa(ex.Message);
+                }
+
+                //DataGridView frissítése
+                if (dataGridViewVevok.SelectedRows.Count == 1)
+                {
+                    DataGridViewVevokBeallit();
+                }
+            }
+            catch (Exception)
+            {
+
+            }
         }
 
         private void metroButtonVevoMegse_Click(object sender, EventArgs e)

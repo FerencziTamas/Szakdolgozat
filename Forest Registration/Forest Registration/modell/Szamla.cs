@@ -20,7 +20,6 @@ namespace Forest_Register.modell
         private string kifizetesNapja;
         private string lerakodasiHely;
         private string felrakasiHely;
-        private string erdogazdalkodo;
         private string muveletiLapSorszam;
         private string szallitojegySorszam;
 

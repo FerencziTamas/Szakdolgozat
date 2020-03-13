@@ -15,7 +15,10 @@ namespace Forest_Register
 {
     public partial class FormForestRegister : MetroFramework.Forms.MetroForm
     {
-        private DataTable szamlaDt = new DataTable();
+        /// <summary>
+        /// Számlákat tartalmazó adattábla
+        /// </summary>
+        private DataTable szamlakDt = new DataTable();
 
         private void metroButtonSzamlakBetolt_Click(object sender, EventArgs e)
         {
@@ -31,44 +34,44 @@ namespace Forest_Register
             metroPanelSzamlaTorolModosit.Visible = false;
             if(dataGridViewSzamlak.SelectedRows.Count > 0)
             {
-                metroButtonUjSzamlaFelvetele.Visible = true;
+                metroButtonUjSzamlaFelvetele.Visible = false;
             }
             else
             {
-                metroButtonUjSzamlaFelvetele.Visible = false;
+                metroButtonUjSzamlaFelvetele.Visible = true;
             }
         }
 
         private void DataGridViewSzamlakBeallit()
         {
-            szamlaDt.Columns[0].ColumnName = "Számlaszám";
-            szamlaDt.Columns[0].Caption = "Számla számlaszám";
-            szamlaDt.Columns[1].ColumnName="Fafaj";
-            szamlaDt.Columns[1].Caption = "Számla fafaj";
-            szamlaDt.Columns[2].ColumnName = "Vevő név";
-            szamlaDt.Columns[2].Caption = "Számla vevő név";
-            szamlaDt.Columns[3].ColumnName = "Mennyiség";
-            szamlaDt.Columns[3].Caption = "Számla mennyiség";
-            szamlaDt.Columns[4].ColumnName = "Felhasználás módja";
-            szamlaDt.Columns[4].Caption = "Számla felhasználás módja";
-            szamlaDt.Columns[5].ColumnName = "Bruttó ár";
-            szamlaDt.Columns[5].Caption = "Számla bruttó ár";
-            szamlaDt.Columns[6].ColumnName = "Nettó ár";
-            szamlaDt.Columns[6].Caption = "Számla nettó ár";
-            szamlaDt.Columns[7].ColumnName = "Teljesítés napja";
-            szamlaDt.Columns[7].Caption = "Számla teljesítés napja";
-            szamlaDt.Columns[8].ColumnName = "Számla keletkezése";
-            szamlaDt.Columns[8].Caption = "Számla számla keletkezése";
-            szamlaDt.Columns[9].ColumnName = "Kifizetés napja";
-            szamlaDt.Columns[9].Caption = "Számla kifizetés napja";
-            szamlaDt.Columns[10].ColumnName = "Lerakodási hely";
-            szamlaDt.Columns[10].Caption = "Számla lerakodási hely";
-            szamlaDt.Columns[11].ColumnName = "Felrakási hely";
-            szamlaDt.Columns[11].Caption = "Számla felrakási hely";
-            szamlaDt.Columns[12].ColumnName = "Műveleti lap sorszám";
-            szamlaDt.Columns[12].Caption = "Számla műveleti lap sorszám";
-            szamlaDt.Columns[13].ColumnName = "Szállítójegy sorszám";
-            szamlaDt.Columns[13].Caption = "Számla szállítójegy sorszám";
+            szamlakDt.Columns[0].ColumnName = "Számlaszám";
+            szamlakDt.Columns[0].Caption = "Számla számlaszám";
+            szamlakDt.Columns[1].ColumnName="Fafaj";
+            szamlakDt.Columns[1].Caption = "Számla fafaj";
+            szamlakDt.Columns[2].ColumnName = "Vevő név";
+            szamlakDt.Columns[2].Caption = "Számla vevő név";
+            szamlakDt.Columns[3].ColumnName = "Mennyiség";
+            szamlakDt.Columns[3].Caption = "Számla mennyiség";
+            szamlakDt.Columns[4].ColumnName = "Felhasználás módja";
+            szamlakDt.Columns[4].Caption = "Számla felhasználás módja";
+            szamlakDt.Columns[5].ColumnName = "Bruttó ár";
+            szamlakDt.Columns[5].Caption = "Számla bruttó ár";
+            szamlakDt.Columns[6].ColumnName = "Nettó ár";
+            szamlakDt.Columns[6].Caption = "Számla nettó ár";
+            szamlakDt.Columns[7].ColumnName = "Teljesítés napja";
+            szamlakDt.Columns[7].Caption = "Számla teljesítés napja";
+            szamlakDt.Columns[8].ColumnName = "Számla keletkezése";
+            szamlakDt.Columns[8].Caption = "Számla számla keletkezése";
+            szamlakDt.Columns[9].ColumnName = "Kifizetés napja";
+            szamlakDt.Columns[9].Caption = "Számla kifizetés napja";
+            szamlakDt.Columns[10].ColumnName = "Lerakodási hely";
+            szamlakDt.Columns[10].Caption = "Számla lerakodási hely";
+            szamlakDt.Columns[11].ColumnName = "Felrakási hely";
+            szamlakDt.Columns[11].Caption = "Számla felrakási hely";
+            szamlakDt.Columns[12].ColumnName = "Műveleti lap sorszám";
+            szamlakDt.Columns[12].Caption = "Számla műveleti lap sorszám";
+            szamlakDt.Columns[13].ColumnName = "Szállítójegy sorszám";
+            szamlakDt.Columns[13].Caption = "Számla szállítójegy sorszám";
 
             dataGridViewSzamlak.SelectionMode =
                 DataGridViewSelectionMode.FullRowSelect;
@@ -83,6 +86,7 @@ namespace Forest_Register
             adatFelvetel = true;
             metroPanelSzamla.Visible = true;
             metroPanelSzamlaTorolModosit.Visible = true;
+            metroButtonSzamlaMegse.Visible = true;
             metroTextBoxSzamlaSzam.Text = string.Empty;
             metroComboBoxFafaj.Text = string.Empty;
             metroTextBoxSzamlaVevoNev.Text = string.Empty;
