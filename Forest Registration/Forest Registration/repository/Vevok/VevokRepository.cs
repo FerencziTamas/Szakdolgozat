@@ -46,5 +46,17 @@ namespace Forest_Register.repository
             }
             return vevokDt;
         }
+
+        public void VevoHozzaadasaListahoz(Vevo ujVevo)
+        {
+            try
+            {
+                vevok.Add(ujVevo);
+            }
+            catch (Exception e)
+            {
+                throw new RepositoryExceptionNemTudHozzaadni("A vevő hozzáadása nem sikerült");
+            }
+        }
     }
 }

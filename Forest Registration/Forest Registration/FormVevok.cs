@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Forest_Register.modell;
+using Forest_Register.repository.Vevok;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -93,7 +95,45 @@ namespace Forest_Register
 
         private void metroButtonVevoFelvetel_Click(object sender, EventArgs e)
         {
+            HibauzenetTorlese();
+            ErrorProviderekTorleseVevo();
+            try
+            {
+                Vevo ujVevo = new Vevo(
+                    Convert.ToInt32(metroTextBoxVevoAzon.Text),
+                    metroTextBoxVevoNev.Text,
+                    metroTextBoxVevoCim.Text,
+                    metroTextBoxVevoTechAzon.Text,
+                    Convert.ToInt32(metroTextBoxVevoAdoszam)
+                    );
+                int azonosito = Convert.ToInt32(metroTextBoxVevoAzon.Text);
 
+                //Hozzáadás listához
+                try
+                {
+                    repo.VevoHozzaadasaListahoz(ujVevo);
+                }
+                catch (Exception ex)
+                {
+                    HibaUzenetKiirasa(ex.Message);
+                }
+
+                //Hozzáadás adatbázishoz
+                VevokRepositoryAdatbazisTabla vrat = new VevokRepositoryAdatbazisTabla();
+                try
+                {
+                    vrat.VevoAdatbazisbaIllesztese(ujVevo);
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+            catch
+            {
+
+            }
         }
 
         private void metroButtonVevokTorol_Click(object sender, EventArgs e)
@@ -108,7 +148,14 @@ namespace Forest_Register
 
         private void metroButtonUjVevo_Click(object sender, EventArgs e)
         {
-
+            adatFelvetel = true;
+            metroPanelVevo.Visible = true;
+            metroPanelVevoTorolModosit.Visible = true;
+            metroTextBoxVevoAzon.Text = string.Empty;
+            metroTextBoxVevoNev.Text = string.Empty;
+            metroTextBoxVevoCim.Text = string.Empty;
+            metroTextBoxVevoTechAzon.Text = string.Empty;
+            metroTextBoxVevoAdoszam.Text = string.Empty;
         }
 
         private void metroButtonVevoMegse_Click(object sender, EventArgs e)

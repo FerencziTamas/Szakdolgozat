@@ -19,5 +19,7 @@ namespace Forest_Register.repository
             szamlak = new List<Szamla>();
             vevok = new List<Vevo>();
         }
+
+
     }
 }

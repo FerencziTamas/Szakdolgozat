@@ -103,6 +103,8 @@
     <Compile Include="repository\Szamlak\SzamlakRepositoryAdatbazisTablaSql.cs" />
     <Compile Include="repository\Vevok\VevokRepository.cs" />
     <Compile Include="repository\Szamlak\SzamlakRepositoryAdatbazisTabla.cs" />
+    <Compile Include="repository\Vevok\VevokRepositoryAdatbazisTabla.cs" />
+    <Compile Include="repository\Vevok\VevokRepositoryAdatbazisTablaSql.cs" />
     <EmbeddedResource Include="FormForestRegister.resx">
       <DependentUpon>FormForestRegister.cs</DependentUpon>
     </EmbeddedResource>
