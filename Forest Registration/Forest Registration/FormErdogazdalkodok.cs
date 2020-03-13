@@ -60,7 +60,7 @@ namespace Forest_Register
         {
             adatFelvetel = false;
             metroButtonUjErGazFelvetele.Visible = false;
-            metroPanelErdoGazTorolModosit.Visible = false;
+            metroPanelErdoGazTorolModosit.Visible = true;
             ErrorProviderekTorleseErdogazdalkodok();
         }
 

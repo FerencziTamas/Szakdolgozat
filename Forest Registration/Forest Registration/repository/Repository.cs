@@ -16,7 +16,7 @@ namespace Forest_Register.repository
         {
             erdok = new List<Erdo>();
             erdogazdalkodok = new List<Erdogazdalkodo>();
-            szamlak = new List<Erdo>();
+            szamlak = new List<Szamla>();
             vevok = new List<Vevo>();
         }
     }

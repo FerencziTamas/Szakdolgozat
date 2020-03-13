@@ -18,7 +18,7 @@ namespace Forest_Register
         {
             DataGridViewFrissitese();
             DataGridViewVevokBeallit();
-            GombokBealitasaVevo();
+            GombokBeallitasaVevo();
             dataGridViewVevok.SelectionChanged += dataGridViewVevok_SelectionChanged;
         }
 
@@ -44,7 +44,7 @@ namespace Forest_Register
         {
             adatFelvetel = false;
             metroButtonUjVevo.Visible = false;
-            metroPanelVevoTorolModosit.Visible = false;
+            metroPanelVevoTorolModosit.Visible = true;
             ErrorProviderekTorleseVevo();
         }
 
@@ -56,7 +56,7 @@ namespace Forest_Register
             errorProviderAdoszam.Clear();
         }
 
-        private void GombokBealitasaVevo()
+        private void GombokBeallitasaVevo()
         {
             metroPanelVevo.Visible = false;
             metroPanelVevoTorolModosit.Visible = false;
@@ -83,12 +83,12 @@ namespace Forest_Register
             vevokDt.Columns[4].ColumnName = "Adószám";
             vevokDt.Columns[4].Caption = "Vevő adószám";
 
-            dataGridViewErdok.SelectionMode =
+            dataGridViewVevok.SelectionMode =
                 DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewErdok.ReadOnly = true;
-            dataGridViewErdok.AllowUserToDeleteRows = false;
-            dataGridViewErdok.AllowUserToAddRows = false;
-            dataGridViewErdok.MultiSelect = false;
+            dataGridViewVevok.ReadOnly = true;
+            dataGridViewVevok.AllowUserToDeleteRows = false;
+            dataGridViewVevok.AllowUserToAddRows = false;
+            dataGridViewVevok.MultiSelect = false;
         }
 
         private void metroButtonVevoFelvetel_Click(object sender, EventArgs e)
@@ -113,7 +113,11 @@ namespace Forest_Register
 
         private void metroButtonVevoMegse_Click(object sender, EventArgs e)
         {
-
+            metroTextBoxVevoAzon.Text = string.Empty;
+            metroTextBoxVevoNev.Text = string.Empty;
+            metroTextBoxVevoCim.Text = string.Empty;
+            metroTextBoxVevoTechAzon.Text = string.Empty;
+            metroTextBoxVevoAdoszam.Text = string.Empty;
         }
     }
 }
