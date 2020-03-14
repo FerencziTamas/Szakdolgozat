@@ -71,5 +71,10 @@ namespace Forest_Register
         {
             this.Close();
         }
+
+        private void metroPanelVevo_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

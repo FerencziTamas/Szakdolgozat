@@ -39,7 +39,7 @@ namespace Forest_Register.repository
             vevokDt.Columns.Add("nev", typeof(string));
             vevokDt.Columns.Add("cim", typeof(string));
             vevokDt.Columns.Add("technikai_azonosito", typeof(string));
-            vevokDt.Columns.Add("adoszam", typeof(string));
+            vevokDt.Columns.Add("adoszam", typeof(int));
             foreach (Vevo v in vevok)
             {
                 vevokDt.Rows.Add(v.getVevoId(), v.getVevoNev(), v.getVevoCim(), v.getTechnikaiAzonosito(), v.getAdoszam());
@@ -75,6 +75,14 @@ namespace Forest_Register.repository
                 vevok.Remove(v);
             else
                 throw new RepositoryExceptionNemTudTorolni("A vevőt nem lehetett törölni.");
+        }
+
+        public int getKovVevoId()
+        {
+            if (vevok.Count == 0)
+                return 1;
+            else
+                return vevok.Max(x => x.getVevoId()) + 1;
         }
     }
 }

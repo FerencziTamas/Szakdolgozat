@@ -101,14 +101,13 @@ namespace Forest_Register
         {
             adatFelvetel = true;
             metroPanelVevo.Visible = true;
+            int ujVevoId = repo.getKovVevoId();
             metroPanelVevoTorolModosit.Visible = true;
-            metroTextBoxVevoAzon.Text = string.Empty;
+            metroTextBoxVevoAzon.Text = ujVevoId.ToString();
             metroTextBoxVevoNev.Text = string.Empty;
             metroTextBoxVevoCim.Text = string.Empty;
             metroTextBoxVevoTechAzon.Text = string.Empty;
-            metroTextBoxVevoAdoszam.Text = string.Empty;
-
-            
+            metroTextBoxVevoAdoszam.Text = string.Empty; 
         }
 
         private void metroButtonVevokTorol_Click(object sender, EventArgs e)

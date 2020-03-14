@@ -87,5 +87,7 @@ namespace Forest_Register.repository
         {
             return erdok.Find(x => x.getErdeszetiAzon()==erdeszetiAzon);
         }
+
+        
     }
 }
