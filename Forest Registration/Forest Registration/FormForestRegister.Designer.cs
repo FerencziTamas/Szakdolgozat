@@ -641,7 +641,7 @@
             this.metroTabControlErdok.Location = new System.Drawing.Point(20, 87);
             this.metroTabControlErdok.Multiline = true;
             this.metroTabControlErdok.Name = "metroTabControlErdok";
-            this.metroTabControlErdok.SelectedIndex = 3;
+            this.metroTabControlErdok.SelectedIndex = 0;
             this.metroTabControlErdok.Size = new System.Drawing.Size(1101, 553);
             this.metroTabControlErdok.Style = MetroFramework.MetroColorStyle.Green;
             this.metroTabControlErdok.TabIndex = 1;
@@ -714,7 +714,7 @@
             // 
             // 
             this.metroTextBoxErGazKod.CustomButton.Image = null;
-            this.metroTextBoxErGazKod.CustomButton.Location = new System.Drawing.Point(266, 1);
+            this.metroTextBoxErGazKod.CustomButton.Location = new System.Drawing.Point(234, 1);
             this.metroTextBoxErGazKod.CustomButton.Name = "";
             this.metroTextBoxErGazKod.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.metroTextBoxErGazKod.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -732,7 +732,7 @@
             this.metroTextBoxErGazKod.SelectionLength = 0;
             this.metroTextBoxErGazKod.SelectionStart = 0;
             this.metroTextBoxErGazKod.ShortcutsEnabled = true;
-            this.metroTextBoxErGazKod.Size = new System.Drawing.Size(288, 23);
+            this.metroTextBoxErGazKod.Size = new System.Drawing.Size(256, 23);
             this.metroTextBoxErGazKod.TabIndex = 7;
             this.metroTextBoxErGazKod.UseSelectable = true;
             this.metroTextBoxErGazKod.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -753,7 +753,7 @@
             // 
             // 
             this.metroTextBoxErGazCim.CustomButton.Image = null;
-            this.metroTextBoxErGazCim.CustomButton.Location = new System.Drawing.Point(266, 1);
+            this.metroTextBoxErGazCim.CustomButton.Location = new System.Drawing.Point(234, 1);
             this.metroTextBoxErGazCim.CustomButton.Name = "";
             this.metroTextBoxErGazCim.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.metroTextBoxErGazCim.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -771,7 +771,7 @@
             this.metroTextBoxErGazCim.SelectionLength = 0;
             this.metroTextBoxErGazCim.SelectionStart = 0;
             this.metroTextBoxErGazCim.ShortcutsEnabled = true;
-            this.metroTextBoxErGazCim.Size = new System.Drawing.Size(288, 23);
+            this.metroTextBoxErGazCim.Size = new System.Drawing.Size(256, 23);
             this.metroTextBoxErGazCim.TabIndex = 5;
             this.metroTextBoxErGazCim.UseSelectable = true;
             this.metroTextBoxErGazCim.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -792,7 +792,7 @@
             // 
             // 
             this.metroTextBoxErGazNev.CustomButton.Image = null;
-            this.metroTextBoxErGazNev.CustomButton.Location = new System.Drawing.Point(266, 1);
+            this.metroTextBoxErGazNev.CustomButton.Location = new System.Drawing.Point(234, 1);
             this.metroTextBoxErGazNev.CustomButton.Name = "";
             this.metroTextBoxErGazNev.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.metroTextBoxErGazNev.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -810,7 +810,7 @@
             this.metroTextBoxErGazNev.SelectionLength = 0;
             this.metroTextBoxErGazNev.SelectionStart = 0;
             this.metroTextBoxErGazNev.ShortcutsEnabled = true;
-            this.metroTextBoxErGazNev.Size = new System.Drawing.Size(288, 23);
+            this.metroTextBoxErGazNev.Size = new System.Drawing.Size(256, 23);
             this.metroTextBoxErGazNev.TabIndex = 3;
             this.metroTextBoxErGazNev.UseSelectable = true;
             this.metroTextBoxErGazNev.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));

@@ -1,5 +1,6 @@
 ﻿using Forest_Register.modell;
 using Forest_Register.repository;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -86,6 +87,7 @@ namespace Forest_Register
             adatFelvetel = true;
             metroPanelSzamla.Visible = true;
             metroPanelSzamlaTorolModosit.Visible = true;
+            metroButtonSzamlaHozzaad.Visible = true;
             metroButtonSzamlaMegse.Visible = true;
             metroTextBoxSzamlaSzam.Text = string.Empty;
             metroComboBoxFafaj.Text = string.Empty;

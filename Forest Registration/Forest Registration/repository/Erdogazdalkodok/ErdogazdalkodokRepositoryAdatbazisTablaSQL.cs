@@ -25,8 +25,8 @@ namespace Forest_Register.repository
                 while (dr.Read())
                 {
                     string kod = dr["egKod"].ToString();
-                    string nev = dr["helyrajzi_szam"].ToString();
-                    string cim = dr["hasznalatId"].ToString();
+                    string nev = dr["nev"].ToString();
+                    string cim = dr["cim"].ToString();
 
                     Erdogazdalkodo eg = new Erdogazdalkodo(kod, nev, cim);
                     erdogazdalkodok.Add(eg);

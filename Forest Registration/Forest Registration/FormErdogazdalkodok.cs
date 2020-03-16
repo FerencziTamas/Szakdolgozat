@@ -183,6 +183,14 @@ namespace Forest_Register
                 HibaUzenetKiirasa(rentm.Message);
                 Debug.WriteLine("A módosítás nem sikerült, az erdőgazdálkodó nincs a listában!");
             }
+            catch (HibasErGazNevException hegne)
+            {
+                errorProviderErgazNev.SetError(metroTextBoxErGazNev, hegne.Message);
+            }
+            catch (HibasErGazCimException hegce)
+            {
+                errorProviderErgazCim.SetError(metroTextBoxErGazCim, hegce.Message);
+            }
             catch (Exception)
             {
 
@@ -227,9 +235,17 @@ namespace Forest_Register
                     dataGridViewErdogazdalkodokBeallit();
                 }
             }
-            catch (Exception)
+            catch (HibasErGazNevException hegne)
             {
-                
+                errorProviderErgazNev.SetError(metroTextBoxErGazNev, hegne.Message);
+            }
+            catch (HibasErGazCimException hegce)
+            {
+                errorProviderErgazCim.SetError(metroTextBoxErGazCim, hegce.Message);
+            }
+            catch (Exception ex)
+            {
+
             }
         }
 

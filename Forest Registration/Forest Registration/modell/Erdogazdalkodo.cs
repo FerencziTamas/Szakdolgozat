@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Forest_Register.modell
 {
     /// <summary>
-    /// Erdőgazdálkodók osztály
+    /// Erdőgazdálkodó osztály
     /// </summary>
     partial class Erdogazdalkodo
     {
@@ -24,10 +24,19 @@ namespace Forest_Register.modell
         public Erdogazdalkodo(string kod, string erdogazNev, string erdogazCim)
         {
             this.kod = kod;
+            if (!nevEllenorzes(erdogazNev))
+            {
+                throw new HibasErGazNevException("A név nem megfelelő");
+            }
+            if (!CimHelyes(erdogazCim))
+            {
+                throw new HibasErGazCimException("A cím nem megfelelő");
+            }
             this.erdogazNev = erdogazNev;
             this.erdogazCim = erdogazCim;
         }
 
+        //Ellenőrzi a nevet hogy helyes-e
         public bool nevEllenorzes(string erdogazNev)
         {
             if (erdogazNev == string.Empty)
@@ -47,6 +56,18 @@ namespace Forest_Register.modell
                     return false;
                 }
             }
+            return true;
+        }
+
+        private bool CimHelyes(string erdogazCim)
+        {
+            if (erdogazCim == string.Empty)
+                return false;
+            if (!char.IsUpper(erdogazCim.ElementAt(0)))
+                return false;
+            for (int i = 1; i < erdogazCim.Length; i = i + 1)
+                if (!char.IsLetter(erdogazCim[i]))
+                    return false;
             return true;
         }
 

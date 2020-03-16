@@ -213,7 +213,7 @@ namespace Forest_Register
                     metroTextBoxVevoNev.Text,
                     metroTextBoxVevoCim.Text,
                     metroTextBoxVevoTechAzon.Text,
-                    Convert.ToInt32(metroTextBoxVevoAdoszam)
+                    Convert.ToInt32(metroTextBoxVevoAdoszam.Text)
                     );
                 int azonosito = Convert.ToInt32(metroTextBoxVevoAzon.Text);
 
@@ -244,9 +244,13 @@ namespace Forest_Register
                     DataGridViewVevokBeallit();
                 }
             }
-            catch (Exception)
+            catch (HibasVevoNevException hvne)
             {
-
+                errorProviderVevoNev.SetError(metroTextBoxVevoNev, hvne.Message);
+            }
+            catch (HibasVevoCimException hvce)
+            {
+                errorProviderVevoCim.SetError(metroTextBoxVevoCim, hvce.Message);
             }
         }
 

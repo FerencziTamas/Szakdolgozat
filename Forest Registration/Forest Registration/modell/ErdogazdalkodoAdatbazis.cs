@@ -11,22 +11,22 @@ namespace Forest_Register.modell
 
         public static string OsszesErdogazdalkodo()
         {
-            return "SELECT * FROM `erdok`";
+            return "SELECT * FROM `erdogazdalkodok`";
         }
 
         public static string TorolErdogazdalkodok()
         {
-            return "DELETE FROM `erdok`";
+            return "DELETE FROM `erdogazdalkodok`";
         }
 
         public string ErdogazdalkodoModositas(string kod)
         {
-            return "UPDATE `erdogazdalkodok` SET `nev`='" + getErdogazNev() + "',`cim`='" + getErdogazCim() + "' WHERE egKod = " + getKod();
+            return "UPDATE `erdogazdalkodok` SET `nev`='" + getErdogazNev() + "',`cim`='" + getErdogazCim() + "' WHERE egKod = " + kod;
         }
 
         public string ErdogazdalkodoHozzaadas()
         {
-            return "INSERT INTO `erdogazdalkodok`(`egKod`, `nev`, `cim`) VALUES ('"+getKod()+"', '"+getErdogazNev()+"', '"+getErdogazCim()+"');";
+            return "INSERT INTO `erdogazdalkodok`(`egKod`, `nev`, `cim`) VALUES ('"+kod+"', '"+getErdogazNev()+"', '"+getErdogazCim()+"');";
         }
 
 

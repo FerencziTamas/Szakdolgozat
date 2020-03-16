@@ -28,13 +28,17 @@ namespace Forest_Register.modell
         public Vevo(int vevoId, string vevoNev, string vevoCim, string technikaiAzonosito, int adoszam)
         {
             this.vevoId = vevoId;
-            this.vevoNev = vevoNev;
+
             if (!HelyesNev(vevoNev))
             {
                 throw new HibasVevoNevException("A név nem megfelelő");
             }
 
             if(!HelyesCim(vevoCim))
+            {
+                throw new HibasVevoCimException("A cím nem megfelelő");
+            }
+            this.vevoNev = vevoNev;
             this.vevoCim = vevoCim;
             this.technikaiAzonosito = technikaiAzonosito;
             this.adoszam = adoszam;

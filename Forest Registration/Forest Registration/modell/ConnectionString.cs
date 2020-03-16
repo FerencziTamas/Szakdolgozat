@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Forest_Register.modell
 {
-    class ConnectionString
+    public class ConnectionString
     {
         public string getConnectionString()
         {

@@ -60,7 +60,7 @@ namespace Forest_Register.repository
             {
                 connection.Close();
                 Debug.WriteLine(e.Message);
-                throw new RepositoryException("Az számla adatainak beolvasása az adatbázisból nem sikerült!");
+                throw new RepositoryException("A számla adatainak beolvasása az adatbázisból nem sikerült!");
             }
             return szamlak;
         }
@@ -130,6 +130,24 @@ namespace Forest_Register.repository
                 Debug.WriteLine(e.Message);
                 Debug.WriteLine(ujSzamla + " számla beszúrása adatbázisba nem sikerült.");
                 throw new RepositoryException("Sikertelen beszúrás az adatbázisba.");
+            }
+        }
+
+        public void fafajokComboboxba()
+        {
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            try
+            {
+                connection.Open();
+                string query = "SELECT megnevezes FROM `fafajok`";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch
+            {
+                connection.Close();
+                throw new RepositoryException("Sikertelen kiolvasás az adatbázisból.");
             }
         }
     }
