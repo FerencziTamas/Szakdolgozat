@@ -96,7 +96,7 @@
             this.metroTextBoxJelszo.Location = new System.Drawing.Point(387, 108);
             this.metroTextBoxJelszo.MaxLength = 32767;
             this.metroTextBoxJelszo.Name = "metroTextBoxJelszo";
-            this.metroTextBoxJelszo.PasswordChar = '\0';
+            this.metroTextBoxJelszo.PasswordChar = '●';
             this.metroTextBoxJelszo.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.metroTextBoxJelszo.SelectedText = "";
             this.metroTextBoxJelszo.SelectionLength = 0;

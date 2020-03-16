@@ -157,9 +157,9 @@
     <Folder Include="diagram\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="images\img_377091.png" />
     <None Include="images\regisztracio.png" />
     <None Include="images\bejelentkezes.png" />
+    <Content Include="images\img_377091.png" />
     <Content Include="sql\erdoSql.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
