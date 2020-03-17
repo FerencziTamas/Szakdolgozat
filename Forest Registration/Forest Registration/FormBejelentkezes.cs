@@ -1,5 +1,6 @@
 ﻿using Forest_Register;
 using Forest_Register.modell;
+using Forest_Registration.repository;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,8 @@ namespace Forest_Registration
     public partial class FormBejelentkezes : MetroFramework.Forms.MetroForm
     {
         private readonly string connectionString;
+
+        AdatbazisRepository ar = new AdatbazisRepository();
 
         public FormBejelentkezes()
         {
@@ -42,6 +45,8 @@ namespace Forest_Registration
             {
                 MessageBox.Show("Hibás e-mail cím vagy jelszó!");
             }
+
+            ar.adatbazisLetrehozas();
         }
 
         private void metroButtonReg_Click(object sender, EventArgs e)
