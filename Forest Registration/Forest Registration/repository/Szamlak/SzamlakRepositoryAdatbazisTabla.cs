@@ -76,6 +76,28 @@ namespace Forest_Register.repository
             }            
         }
 
+        public void SzamlaTablaFeltoltTesztAdattal()
+        {
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            try
+            {
+                connection.Open();
+                string query = "INSERT INTO `erdogazdalkodok` (`egKod`, `nev`, `cim`) VALUES ('DASISTKOD', 'Erdész Péter', 'Szeged Nem utca -2.'), " +
+                    "('Én24141442', 'Ferenczi Tamás', 'Ásotthalom Királyhalmi utca. 56.'), " +
+                    "('FAVAGO134252', 'Favágó János', 'Szeged Favágó utca 50.'), " +
+                    "('Hello There!', 'General Kenobi!', 'Halálcsillag utca 66.'); ";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception e)
+            {
+                connection.Close();
+                Debug.WriteLine(e.Message);
+                throw new RepositoryException("Sikertelen teszt adat feltöltés.");
+            }
+        }
+
         public void SzamlaTablakTorles()
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
