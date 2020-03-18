@@ -10,7 +10,12 @@ namespace Forest_Register.modell
     {
         public static string TorolSzamlak()
         {
-            return "DELETE FROM `szamlak`" + "DELETE FROM `szamlatetelek`";
+            return "DELETE FROM `szamlak`";
+        }
+
+        public static string TorolSzamlaTetelek()
+        {
+            return "DELETE FROM `szamlatetelek`";
         }
 
         public static string OsszesSzamla()

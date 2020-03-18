@@ -46,7 +46,7 @@ namespace Forest_Registration
                 MessageBox.Show("Hibás e-mail cím vagy jelszó!");
             }
 
-            ar.adatbazisLetrehozas();
+            ar.AdatbazisLetrehozas();
         }
 
         private void metroButtonReg_Click(object sender, EventArgs e)

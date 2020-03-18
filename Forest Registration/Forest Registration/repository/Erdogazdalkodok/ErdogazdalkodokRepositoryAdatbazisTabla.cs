@@ -70,7 +70,7 @@ namespace Forest_Register.repository
             }
         }
 
-        public void AdatTorlesTablabol()
+        public void ErGazAdatTorlesTablabol()
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
             try
@@ -85,8 +85,8 @@ namespace Forest_Register.repository
             {
                 connection.Close();
                 Debug.WriteLine(e.Message);
-                throw new RepositoryException("Sikertelen törlés az adatbázisba.");
+                throw new RepositoryException("Sikertelen adat törlés.");
             }
-        }
+        }        
     }
 }
