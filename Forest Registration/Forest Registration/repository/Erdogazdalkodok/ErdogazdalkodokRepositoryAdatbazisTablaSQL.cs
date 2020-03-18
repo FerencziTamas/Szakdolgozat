@@ -103,35 +103,6 @@ namespace Forest_Register.repository
             }
         }
 
-        public void ErGazTablaLetrehozas()
-        {
-            MySqlConnection connection = new MySqlConnection(connectionString);
-            try
-            {
-                connection.Open();
-                string use = "USE erdo_adatbazis";
-                string query = "CREATE TABLE IF NOT EXISTS `erdogazdalkodok` (" +
-                    " `egKod` varchar(20) COLLATE utf8_hungarian_ci NOT NULL," +
-                    " `nev` varchar(20) COLLATE utf8_hungarian_ci NOT NULL, " +
-                    "`cim` varchar(20) COLLATE utf8_hungarian_ci NOT NULL, PRIMARY KEY(`egKod`)" +
-                    ") ENGINE = InnoDB DEFAULT CHARSET = utf8 COLLATE = utf8_hungarian_ci; ";
-                MySqlCommand cmdUse = new MySqlCommand(use, connection);
-                MySqlCommand cmdQuery = new MySqlCommand(query, connection);
-                cmdUse.ExecuteNonQuery();
-                cmdQuery.ExecuteNonQuery();
-                connection.Close();
-            }
-            catch (Exception e)
-            {
-                connection.Close();
-                Debug.WriteLine(e.Message);
-                throw new RepositoryException("Sikertelen beszúrás az adatbázisba.");
-            }
-        }
-
-        public void ErGazTablaTorles()
-        {
-
-        }
+        
     }
 }
