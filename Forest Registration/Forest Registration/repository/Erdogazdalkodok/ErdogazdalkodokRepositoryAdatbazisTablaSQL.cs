@@ -30,7 +30,6 @@ namespace Forest_Register.repository
 
                     Erdogazdalkodo eg = new Erdogazdalkodo(kod, nev, cim);
                     erdogazdalkodok.Add(eg);
-
                 }
                 connection.Close();
             }
@@ -102,7 +101,5 @@ namespace Forest_Register.repository
                 throw new RepositoryException("Sikertelen beszúrás az adatbázisba.");
             }
         }
-
-        
     }
 }

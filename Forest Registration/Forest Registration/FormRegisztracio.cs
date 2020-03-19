@@ -57,7 +57,6 @@ namespace Forest_Registration
 
                 }
             }
-            
             else
             {
                 connection.Close();

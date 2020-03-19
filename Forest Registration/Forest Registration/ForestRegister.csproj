@@ -156,9 +156,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="diagram\" />
-    <Folder Include="sql\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="sql\erdo_adatbazis.sql" />
     <None Include="images\regisztracio.png" />
     <None Include="images\bejelentkezes.png" />
     <Content Include="images\img_377091.png" />

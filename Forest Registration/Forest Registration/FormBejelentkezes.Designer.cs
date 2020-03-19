@@ -172,6 +172,7 @@
             this.Name = "FormBejelentkezes";
             this.Style = MetroFramework.MetroColorStyle.Green;
             this.Text = "Bejelentkezés";
+            this.Load += new System.EventHandler(this.FormBejelentkezes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

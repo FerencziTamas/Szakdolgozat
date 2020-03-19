@@ -22,9 +22,9 @@ namespace Forest_Register.repository
             connectionString = cs.getConnectionString();
         }
 
-        public void ErdoTablaLetrehozas()
+        public void ErdokTablaLetrehozas()
         {
-            MySqlConnection connection = new MySqlConnection();
+            MySqlConnection connection = new MySqlConnection(connectionString);
             try
             {
                 connection.Open();
@@ -63,7 +63,7 @@ namespace Forest_Register.repository
 
         public void ErdoTablaTorlese()
         {
-            MySqlConnection connection = new MySqlConnection();
+            MySqlConnection connection = new MySqlConnection(connectionString);
             try
             {
                 connection.Open();
@@ -83,9 +83,32 @@ namespace Forest_Register.repository
             }
         }
 
+        public void ErdoTesztAdatokFeltoltes()
+        {
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            try
+            {
+                connection.Open();
+                string query = "INSERT INTO `erdok` (`erdeszeti_azonosito`, `helyrajzi_szam`, `kor`, `terulet`, `hasznalatId`, `egKod`) VALUES " +
+                    "('DASISTERDO422', 'LISSZABON3', 40, 5000, 4, 'Én24141442'), " +
+                    "('ERDO555/', 'ÁSOTTALOM22-T', 40, 1000, 1, 'DASISTKOD'), " +
+                    "('ERDO9', 'SZEGED54-K', 10, 870, 2, 'FAVAGO134252'), " +
+                    "('valamiErdo', 'ZALA203', 21, 5000, 3, 'Hello There!'); ";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception e)
+            {
+                connection.Close();
+                Debug.WriteLine(e.Message);
+                throw new RepositoryException("Sikertelen teszt adat feltöltés.");
+            }
+        }
+
         public void ErdoAdatTorlesTablabol()
         {
-            MySqlConnection connection = new MySqlConnection();
+            MySqlConnection connection = new MySqlConnection(connectionString);
             try 
             {
                 connection.Open();

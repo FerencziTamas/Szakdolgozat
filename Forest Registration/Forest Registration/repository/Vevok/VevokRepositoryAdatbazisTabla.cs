@@ -51,6 +51,29 @@ namespace Forest_Register.repository
             }
         }
 
+        public void VevokTesztAdatokFeltoltese()
+        {
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            try
+            {
+                connection.Open();
+                string query = "INSERT INTO `vevok` (`vevoId`, `nev`, `cim`, `technikai azonosító`, `adoszam`) VALUES " +
+                    "(1, 'Nem én', 'Nem az enyém', 'TECH665hwwr', 55444545), " +
+                    "(2, 'Kertész Erik', 'Erik utcája 57', 'ERIK77777', 242442), " +
+                    "(3, 'Erdő Benő', 'Helyi utca 565', 'TECH5555552', 5252526), " +
+                    "(4, 'Valami', 'Valami valami utca 6', '2424242REKT', 25252525);";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception e)
+            {
+                connection.Close();
+                Debug.WriteLine(e.Message);
+                throw new RepositoryException("Sikertelen teszt adat feltöltés.");
+            }
+        }
+
         public void VevokTablaTorles()
         {
             MySqlConnection connection = new MySqlConnection(connectionString);

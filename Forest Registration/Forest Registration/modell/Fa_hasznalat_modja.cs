@@ -10,11 +10,13 @@ namespace Forest_Register.modell
     {
         private int hasznalatId;
         private string megnevezes;
+        private string rovidites;
 
-        public Fa_hasznalat_modja(int hasznalatId, string megnevezes)
+        public Fa_hasznalat_modja(int hasznalatId, string megnevezes, string rovidites)
         {
             this.hasznalatId = hasznalatId;
             this.megnevezes = megnevezes;
+            this.rovidites = rovidites;
         }
 
         public void setHasznalatId(int hasznalatId)
@@ -27,6 +29,11 @@ namespace Forest_Register.modell
             this.megnevezes = megnevezes;
         }
 
+        public void setRovidites(string rovidites)
+        {
+            this.rovidites = rovidites;
+        }
+
         public int getHasznalatId()
         {
             return hasznalatId;
@@ -35,6 +42,11 @@ namespace Forest_Register.modell
         public string getMegnevezes()
         {
             return megnevezes;
+        }
+
+        public string getRovidites()
+        {
+            return rovidites;
         }
     }
 }

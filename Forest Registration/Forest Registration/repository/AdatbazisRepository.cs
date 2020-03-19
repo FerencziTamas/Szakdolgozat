@@ -22,7 +22,7 @@ namespace Forest_Registration.repository
 
         public void AdatbazisLetrehozas()
         {
-            MySqlConnection connection = new MySqlConnection();
+            MySqlConnection connection = new MySqlConnection(connectionString);
             try
             {
                 string query = "CREATE DATABASE IF NOT EXISTS erdo_adatbazis DEFAULT CHARACTER SET utf8 COLLATE utf8_hungarian_ci";
@@ -39,9 +39,11 @@ namespace Forest_Registration.repository
             }
         }
 
+        
+
         public void FelhasznalokTablaLetrehozas()
         {
-            MySqlConnection connection = new MySqlConnection();
+            MySqlConnection connection = new MySqlConnection(connectionString);
             try
             {
                 string use = "USE erdo_adatbazis";
@@ -67,9 +69,31 @@ namespace Forest_Registration.repository
             }
         }
 
+        public void FelhasznalokTesztAdatokFeltoltese()
+        {
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            try
+            {
+                connection.Open();
+                string query = "INSERT INTO `felhasznalok` (`felhasznaloId`, `nev`, `cim`, `email`, `jelszo`) VALUES " +
+                    "(5, 'Ferenczi Tamás', '', 'darius.517.ft@gmail.com', 'Jelszo1'), " +
+                    "(6, 'Favágó Jani', '', 'favagojani@cim.hu', 'Jelszo2'), " +
+                    "(9, 'Bükki Jenő', '', 'bukki.jeno@citromail.hu', 'jelszo3');";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception e)
+            {
+                connection.Close();
+                Debug.WriteLine(e.Message);
+                throw new RepositoryException("Sikertelen teszt adat feltöltés.");
+            }
+        }
+
         public void FelhasznalokTablaTorles()
         {
-            MySqlConnection connection = new MySqlConnection();
+            MySqlConnection connection = new MySqlConnection(connectionString);
             try
             {
                 string use = "USE erdo_adatbazis";
@@ -90,7 +114,7 @@ namespace Forest_Registration.repository
 
         public void FelhasznalokAdatTorlesTablabol()
         {
-            MySqlConnection connection = new MySqlConnection();
+            MySqlConnection connection = new MySqlConnection(connectionString);
             try
             {
                 connection.Open();
@@ -109,7 +133,7 @@ namespace Forest_Registration.repository
 
         public void FafajokTablaLetrehozas()
         {
-            MySqlConnection connection = new MySqlConnection();
+            MySqlConnection connection = new MySqlConnection(connectionString);
             try
             {
                 connection.Open();
@@ -141,7 +165,7 @@ namespace Forest_Registration.repository
 
         public void FafajokTablaTorlese()
         {
-            MySqlConnection connection = new MySqlConnection();
+            MySqlConnection connection = new MySqlConnection(connectionString);
             try
             {
                 connection.Open();
@@ -161,9 +185,38 @@ namespace Forest_Registration.repository
             }
         }
 
+        public void FafajokTesztAdatokFeltoltese()
+        {
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            try
+            {
+                connection.Open();
+                string query = "INSERT INTO `fafajok` (`fafajId`, `megnevezes`) VALUES " +
+                    "(1, 'Bükk'), " +
+                    "(2, 'Fűz fa'), " +
+                    "(3, 'Galagonya'), " +
+                    "(4, 'Gyertyán'), " +
+                    "(5, 'Hárs'), " +
+                    "(6, 'Jegenye fenyő'), " +
+                    "(7, 'Juhar'), " +
+                    "(8, 'Kecskerágó'), " +
+                    "(9, 'Közönséges boroka'), " +
+                    "(10, 'Éger');";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception e)
+            {
+                connection.Close();
+                Debug.WriteLine(e.Message);
+                throw new RepositoryException("Sikertelen teszt adat feltöltés.");
+            }
+        }
+
         public void FafajokAdatokTorlese()
         {
-            MySqlConnection connection = new MySqlConnection();
+            MySqlConnection connection = new MySqlConnection(connectionString);
             try
             {
                 connection.Open();
@@ -182,7 +235,7 @@ namespace Forest_Registration.repository
 
         public void FakTablaLetrehozasa()
         {
-            MySqlConnection connection = new MySqlConnection();
+            MySqlConnection connection = new MySqlConnection(connectionString);
             try
             {
                 connection.Open();
@@ -214,9 +267,32 @@ namespace Forest_Registration.repository
             }
         }
 
+        public void FakTesztAdatokFeltoltese()
+        {
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            try
+            {
+                connection.Open();
+                string query = "INSERT INTO `fak` (`fafajId`, `mennyiseg`, `erdeszeti_azonosito`) VALUES " +
+                    "(3, 400, 'DASISTERDO422'), " +
+                    "(2, 20, 'ERDO555/'), " +
+                    "(4, 200, 'ERDO9'), " +
+                    "(9, 111, 'valamiErdo');";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception e)
+            {
+                connection.Close();
+                Debug.WriteLine(e.Message);
+                throw new RepositoryException("Sikertelen teszt adat feltöltés.");
+            }
+        }
+
         public void FakTablaTorlese()
         {
-            MySqlConnection connection = new MySqlConnection();
+            MySqlConnection connection = new MySqlConnection(connectionString);
             try
             {
                 connection.Open();
@@ -238,7 +314,7 @@ namespace Forest_Registration.repository
 
         public void FakAdatokTorlese()
         {
-            MySqlConnection connection = new MySqlConnection();
+            MySqlConnection connection = new MySqlConnection(connectionString);
             try
             {
                 connection.Open();
@@ -257,7 +333,7 @@ namespace Forest_Registration.repository
 
         public void FahaszModTablaLetrehozas()
         {
-            MySqlConnection connection = new MySqlConnection();
+            MySqlConnection connection = new MySqlConnection(connectionString);
             try
             {
                 connection.Open();
@@ -281,10 +357,33 @@ namespace Forest_Registration.repository
                 throw new RepositoryException("Sikertelen tábla létrehozás.");
             }
         }
-        
+
+        public void FaHaszModTesztAdatokFeltoltese()
+        {
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            try
+            {
+                connection.Open();
+                string query = "INSERT INTO `fa_hasznalat_modjai` (`hasznalatId`, `megnevezes`, `rovidites`) VALUES " +
+                    "(1, 'Tarvágás', 'TRV'), " +
+                    "(2, 'Tisztítás', 'Ti'), " +
+                    "(3, 'Egészségügyi Termelés', 'EÜ'), " +
+                    "(4, 'Törzskiválaszó gyérítés', 'TKGY');";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception e)
+            {
+                connection.Close();
+                Debug.WriteLine(e.Message);
+                throw new RepositoryException("Sikertelen teszt adat feltöltés.");
+            }
+        }
+
         public void FaHaszModTablaTorles()
         {
-            MySqlConnection connection = new MySqlConnection();
+            MySqlConnection connection = new MySqlConnection(connectionString);
             try
             {
                 connection.Open();
@@ -306,7 +405,7 @@ namespace Forest_Registration.repository
 
         public void FaHaszModAdatTorles()
         {
-            MySqlConnection connection = new MySqlConnection();
+            MySqlConnection connection = new MySqlConnection(connectionString);
             try
             {
                 connection.Open();

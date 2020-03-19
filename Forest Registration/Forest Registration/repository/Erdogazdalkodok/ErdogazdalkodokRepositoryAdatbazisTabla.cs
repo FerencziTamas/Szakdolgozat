@@ -22,7 +22,7 @@ namespace Forest_Register.repository
             connectionString = cs.getConnectionString();
         }
 
-        public void ErGazTablaLetrehozas()
+        public void ErGazokTablaLetrehozas()
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
             try
@@ -48,7 +48,7 @@ namespace Forest_Register.repository
             }
         }
 
-        public void ErGazTablaFeltolttesztAdatokkal()
+        public void ErGazTesztAdatokFeltoltes()
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
             try

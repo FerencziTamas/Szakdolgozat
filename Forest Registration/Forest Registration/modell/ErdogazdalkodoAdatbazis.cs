@@ -11,7 +11,7 @@ namespace Forest_Register.modell
 
         public static string OsszesErdogazdalkodo()
         {
-            return "SELECT * FROM `erdogazdalkodok`";
+            return "SELECT * FROM erdogazdalkodok";
         }
 
         public static string TorolErdogazdalkodok()

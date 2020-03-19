@@ -1,5 +1,6 @@
 ﻿using Forest_Register;
 using Forest_Register.modell;
+using Forest_Register.repository;
 using Forest_Registration.repository;
 using MySql.Data.MySqlClient;
 using System;
@@ -16,9 +17,13 @@ namespace Forest_Registration
 {
     public partial class FormBejelentkezes : MetroFramework.Forms.MetroForm
     {
-        private readonly string connectionString;
-
+        ErdokRepositoryAdatbazisTabla erat = new ErdokRepositoryAdatbazisTabla();
+        ErdogazdalkodokRepositoryAdatbazisTabla egrat = new ErdogazdalkodokRepositoryAdatbazisTabla();
+        SzamlakRepositoryAdatbazisTabla szrat = new SzamlakRepositoryAdatbazisTabla();
+        VevokRepositoryAdatbazisTabla vrat = new VevokRepositoryAdatbazisTabla();
         AdatbazisRepository ar = new AdatbazisRepository();
+
+        private readonly string connectionString;
 
         public FormBejelentkezes()
         {
@@ -26,6 +31,63 @@ namespace Forest_Registration
 
             ConnectionString cs = new ConnectionString();
             connectionString = cs.getConnectionString();
+        }
+
+        //Ellenőrzi hogy létezik-e az adatbázis
+        public bool EllenorizAdatbazisLetezikE(string dataBase)
+        {
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            string cmdText = "SELECT COUNT(*) FROM information_schema.schemata WHERE SCHEMA_NAME = '"+dataBase+"'";
+            bool isExist = false;
+            using (connection)
+            {
+                connection.Open();
+                using (MySqlCommand cmd = new MySqlCommand(cmdText, connection))
+                {
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        isExist = reader.HasRows;
+                    }
+                }
+                connection.Close();
+            }
+            return isExist;
+        }
+
+        private void FormBejelentkezes_Load(object sender, EventArgs e)
+        {
+            if (!EllenorizAdatbazisLetezikE("erdo_adatbazis"))
+            {
+                ar.AdatbazisLetrehozas();
+
+                //Táblák létrehozása
+                erat.ErdokTablaLetrehozas();
+                egrat.ErGazokTablaLetrehozas();
+                szrat.SzamlakTablaLetrehozas();
+                vrat.VevokTablaLetrehozas();
+                ar.FelhasznalokTablaLetrehozas();
+                ar.FafajokTablaLetrehozas();
+                ar.FahaszModTablaLetrehozas();
+                ar.FakTablaLetrehozasa();
+
+                //Táblák feltöltése
+                erat.ErdoTesztAdatokFeltoltes();
+                egrat.ErGazTesztAdatokFeltoltes();
+                szrat.SzamlaTesztAdatokFeltoltese();
+                vrat.VevokTesztAdatokFeltoltese();
+                ar.FelhasznalokTesztAdatokFeltoltese();
+                ar.FafajokTesztAdatokFeltoltese();
+                ar.FaHaszModTesztAdatokFeltoltese();
+                ar.FakTesztAdatokFeltoltese();
+            }
+            else
+            {
+                //Adatok lekérdezése adatbázisból
+                erat.getErdokAdatbazisbol();
+                egrat.getErdogazdalkodokAdatbazisbol();
+                szrat.getSzamlakAdatbazisbol();
+                vrat.getVevokAdatbazisbol();
+            }
         }
 
         private void metroButtonBejelentkezes_Click(object sender, EventArgs e)
@@ -46,7 +108,7 @@ namespace Forest_Registration
                 MessageBox.Show("Hibás e-mail cím vagy jelszó!");
             }
 
-            ar.AdatbazisLetrehozas();
+            
         }
 
         private void metroButtonReg_Click(object sender, EventArgs e)
@@ -55,5 +117,7 @@ namespace Forest_Registration
             this.Hide();
             regisztracio.Show();
         }
+
+       
     }
 }
