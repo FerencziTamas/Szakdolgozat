@@ -38,6 +38,16 @@ namespace Forest_Register.repository
             return erdoDt;
         }
 
+        public List<string> getErdogazdalkodokNeve()
+        {
+            List<string> erdogazdalkodoNev = new List<string>();
+            foreach (Erdogazdalkodo eg in erdogazdalkodok)
+            {
+                erdogazdalkodoNev.Add(eg.getErdogazNev());
+            }
+            return erdogazdalkodoNev;
+        }
+
         private void ErdoListaFeltolteseAdatbazisbol(DataTable erdokDt)
         {
             foreach (DataRow row in erdokDt.Rows)

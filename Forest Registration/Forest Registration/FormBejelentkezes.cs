@@ -34,7 +34,7 @@ namespace Forest_Registration
         }
 
         //Ellenőrzi hogy létezik-e az adatbázis
-        public bool EllenorizAdatbazisLetezikE(string dataBase)
+        /*public bool EllenorizAdatbazisLetezikE(string dataBase)
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
             string cmdText = "SELECT COUNT(*) FROM information_schema.schemata WHERE SCHEMA_NAME = '"+dataBase+"'";
@@ -52,42 +52,37 @@ namespace Forest_Registration
                 connection.Close();
             }
             return isExist;
-        }
+        }*/
 
         private void FormBejelentkezes_Load(object sender, EventArgs e)
         {
-            if (!EllenorizAdatbazisLetezikE("erdo_adatbazis"))
-            {
-                ar.AdatbazisLetrehozas();
+            ar.AdatbazisLetrehozas();
 
-                //Táblák létrehozása
-                erat.ErdokTablaLetrehozas();
-                egrat.ErGazokTablaLetrehozas();
-                szrat.SzamlakTablaLetrehozas();
-                vrat.VevokTablaLetrehozas();
-                ar.FelhasznalokTablaLetrehozas();
-                ar.FafajokTablaLetrehozas();
-                ar.FahaszModTablaLetrehozas();
-                ar.FakTablaLetrehozasa();
+            //Táblák létrehozása
+            erat.ErdokTablaLetrehozas();
+            egrat.ErGazokTablaLetrehozas();
+            szrat.SzamlakTablaLetrehozas();
+            vrat.VevokTablaLetrehozas();
+            ar.FelhasznalokTablaLetrehozas();
+            ar.FafajokTablaLetrehozas();
+            ar.FahaszModTablaLetrehozas();
+            ar.FakTablaLetrehozasa();
 
-                //Táblák feltöltése
-                erat.ErdoTesztAdatokFeltoltes();
-                egrat.ErGazTesztAdatokFeltoltes();
-                szrat.SzamlaTesztAdatokFeltoltese();
-                vrat.VevokTesztAdatokFeltoltese();
-                ar.FelhasznalokTesztAdatokFeltoltese();
-                ar.FafajokTesztAdatokFeltoltese();
-                ar.FaHaszModTesztAdatokFeltoltese();
-                ar.FakTesztAdatokFeltoltese();
-            }
-            else
-            {
-                //Adatok lekérdezése adatbázisból
-                erat.getErdokAdatbazisbol();
-                egrat.getErdogazdalkodokAdatbazisbol();
-                szrat.getSzamlakAdatbazisbol();
-                vrat.getVevokAdatbazisbol();
-            }
+            //Táblák feltöltése
+            erat.ErdoTesztAdatokFeltoltes();
+            egrat.ErGazTesztAdatokFeltoltes();
+            szrat.SzamlaTesztAdatokFeltoltese();
+            vrat.VevokTesztAdatokFeltoltese();
+            ar.FelhasznalokTesztAdatokFeltoltese();
+            ar.FafajokTesztAdatokFeltoltese();
+            ar.FaHaszModTesztAdatokFeltoltese();
+            ar.FakTesztAdatokFeltoltese();
+
+            //Adatok lekérdezése adatbázisból
+            erat.getErdokAdatbazisbol();
+            //egrat.getErdogazdalkodokAdatbazisbol();
+            szrat.getSzamlakAdatbazisbol();
+            //vrat.getVevokAdatbazisbol();
         }
 
         private void metroButtonBejelentkezes_Click(object sender, EventArgs e)

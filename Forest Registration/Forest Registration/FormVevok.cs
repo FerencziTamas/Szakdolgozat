@@ -97,6 +97,15 @@ namespace Forest_Register
             dataGridViewVevok.MultiSelect = false;
         }
 
+        private void metroTextBoxVevoAdoszam_TextChanged(object sender, EventArgs e)
+        {
+            string text = metroTextBoxVevoAdoszam.Text;
+            if (System.Text.RegularExpressions.Regex.IsMatch(metroTextBoxVevoAdoszam.Text, "[^0-9]") && (text.Length>12))
+            {
+                metroTextBoxVevoAdoszam.Text = metroTextBoxVevoAdoszam.Text.Remove(metroTextBoxVevoAdoszam.Text.Length - 1);
+            }
+        }
+
         private void metroButtonVevoFelvetel_Click(object sender, EventArgs e)
         {
             adatFelvetel = true;

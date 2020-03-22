@@ -24,9 +24,9 @@ namespace Forest_Register.repository
                 dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
-                    string vevoNev = dr["nev"].ToString();
-                    string vevoCim = dr["cim"].ToString();
-                    string technikaiAzonosito = dr["technikai_azonosito"].ToString();
+                    string nev = dr["nev"].ToString();
+                    string cim = dr["cim"].ToString();
+                    string technikai_azonosito = dr["technikai_azonosito"].ToString();
                     bool joEredmeny = false;
                     int vevoId = -1;
                     joEredmeny = int.TryParse(dr["vevoId"].ToString(), out vevoId);
@@ -36,7 +36,7 @@ namespace Forest_Register.repository
                         joEredmeny = int.TryParse(dr["adoszam"].ToString(), out adoszam);
                         if (joEredmeny)
                         {
-                            Vevo v = new Vevo(vevoId, vevoNev, vevoCim, technikaiAzonosito, adoszam);
+                            Vevo v = new Vevo(vevoId, nev, cim, technikai_azonosito, adoszam);
                             vevok.Add(v);
                         }
                     }
@@ -47,7 +47,7 @@ namespace Forest_Register.repository
             {
                 connection.Close();
                 Debug.WriteLine(e.Message);
-                throw new RepositoryException("A vevő adatainak beolvasása az adatbázisból nem sikerült!");
+                throw new RepositoryException("A vevők adatainak beolvasása az adatbázisból nem sikerült!");
             }
             return vevok;
         }

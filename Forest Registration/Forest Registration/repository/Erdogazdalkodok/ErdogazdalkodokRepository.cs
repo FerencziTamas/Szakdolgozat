@@ -26,8 +26,8 @@ namespace Forest_Register.repository
         {
             DataTable erdogazdalkodoDt = new DataTable();
             erdogazdalkodoDt.Columns.Add("egKod", typeof(string));
-            erdogazdalkodoDt.Columns.Add("nev", typeof(string));
-            erdogazdalkodoDt.Columns.Add("cim", typeof(string));
+            erdogazdalkodoDt.Columns.Add("erdogazNev", typeof(string));
+            erdogazdalkodoDt.Columns.Add("erdogazCim", typeof(string));
             foreach (Erdogazdalkodo eg in erdogazdalkodok)
             {
                 erdogazdalkodoDt.Rows.Add(eg.getKod(), eg.getErdogazNev(), eg.getErdogazCim());

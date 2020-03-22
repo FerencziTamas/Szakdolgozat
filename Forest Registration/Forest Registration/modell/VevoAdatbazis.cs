@@ -10,7 +10,7 @@ namespace Forest_Register.modell
     {
         public static string OsszesVevo()
         {
-            return "SELECT * FROM `vevok`";
+            return "SELECT * FROM vevok";
         }
 
         public static string TorolVevok()

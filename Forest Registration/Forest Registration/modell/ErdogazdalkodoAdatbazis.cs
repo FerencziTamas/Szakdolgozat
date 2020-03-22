@@ -26,7 +26,7 @@ namespace Forest_Register.modell
 
         public string ErdogazdalkodoHozzaadas()
         {
-            return "INSERT INTO `erdogazdalkodok`(`egKod`, `nev`, `cim`) VALUES ('"+kod+"', '"+getErdogazNev()+"', '"+getErdogazCim()+"');";
+            return "INSERT INTO `erdogazdalkodok`(`egKod`, `nev`, `cim`) VALUES ('"+egKod+"', '"+getErdogazNev()+"', '"+getErdogazCim()+"');";
         }
 
 

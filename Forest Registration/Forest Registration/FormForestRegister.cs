@@ -1,4 +1,5 @@
 ﻿using Forest_Register.repository;
+using Forest_Registration.repository;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,7 @@ namespace Forest_Register
     public partial class FormForestRegister : MetroFramework.Forms.MetroForm
     {
         Repository repo = new Repository();
+        AdatbazisRepository ar = new AdatbazisRepository();
 
         bool adatFelvetel = false;
 
@@ -65,16 +67,33 @@ namespace Forest_Register
             erdogazdalkodokDt = repo.ErdogazdalkodoAdatokListabol();
             szamlakDt = repo.SzamlaAdatokListabol();
             vevokDt = repo.VevoAdatokListabol();
+
+            dataGridViewErdok.DataSource = null;
+            dataGridViewErdok.DataSource = erdokDt;
+            dataGridViewErdogazdalkodok.DataSource = null;
+            dataGridViewErdogazdalkodok.DataSource = erdogazdalkodokDt;
+            dataGridViewSzamlak.DataSource = null;
+            dataGridViewSzamlak.DataSource = szamlakDt;
+            dataGridViewVevok.DataSource = null;
+            dataGridViewVevok.DataSource = vevokDt;
         }
 
-        private void metroButtonKilepes_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+        
 
         private void metroPanelVevo_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void metroTabControlErdok_Selected(object sender, TabControlEventArgs e)
+        {
+            //Az erdők tabpage comboboxába betölti az erdőgazdálkodók nevét
+            ErdogazdalkodokFeltoltese();
+        }
+
+        private void FormForestRegister_Leave(object sender, EventArgs e)
+        {
+            ar.AdatbazisTorles();
         }
     }
 }

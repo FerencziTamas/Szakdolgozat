@@ -11,19 +11,20 @@ namespace Forest_Register.modell
     /// </summary>
     partial class Erdogazdalkodo
     {
-        private string kod;
+        private string egKod;
         private string erdogazNev;
         private string erdogazCim;
 
         /// <summary>
         /// Konstruktor
         /// </summary>
-        /// <param name="kod"></param>
+        /// <param name="egKod"></param>
         /// <param name="erdogazNev"></param>
         /// <param name="erdogazCim"></param>
-        public Erdogazdalkodo(string kod, string erdogazNev, string erdogazCim)
+        public Erdogazdalkodo(string egKod, string erdogazNev, string erdogazCim)
         {
-            this.kod = kod;
+            this.egKod = egKod;
+            this.erdogazNev = erdogazNev;
             if (!nevEllenorzes(erdogazNev))
             {
                 throw new HibasErGazNevException("A név nem megfelelő");
@@ -32,7 +33,7 @@ namespace Forest_Register.modell
             {
                 throw new HibasErGazCimException("A cím nem megfelelő");
             }
-            this.erdogazNev = erdogazNev;
+            
             this.erdogazCim = erdogazCim;
         }
 
@@ -65,8 +66,8 @@ namespace Forest_Register.modell
                 return false;
             if (!char.IsUpper(erdogazCim.ElementAt(0)))
                 return false;
-            for (int i = 1; i < erdogazCim.Length; i = i + 1)
-                if (!char.IsLetter(erdogazCim[i]))
+            for (int i = 1; i < erdogazCim.Length; i++)
+                if ((!char.IsLetter(erdogazCim[i])) && (!char.IsWhiteSpace(erdogazNev.ElementAt(i))))
                     return false;
             return true;
         }
@@ -74,10 +75,10 @@ namespace Forest_Register.modell
         /// <summary>
         /// kod, nev, cim adatoknak értékadás
         /// </summary>
-        /// <param name="kod"></param>
-        public void setKod(string kod)
+        /// <param name="egKod"></param>
+        public void setKod(string egKod)
         {
-            this.kod = kod;
+            this.egKod = egKod;
         }
 
         /// <param name="erdogazNev"></param>
@@ -98,7 +99,7 @@ namespace Forest_Register.modell
         /// <returns>kod, nev, cim</returns>
         public string getKod()
         {
-            return kod;
+            return egKod;
         }
 
         public string getErdogazNev()
@@ -113,7 +114,7 @@ namespace Forest_Register.modell
 
         public void modosit(Erdogazdalkodo modify)
         {
-            this.kod = modify.getKod();
+            this.egKod = modify.getKod();
             this.erdogazNev = modify.getErdogazNev();
             this.erdogazCim = modify.getErdogazCim();
         }

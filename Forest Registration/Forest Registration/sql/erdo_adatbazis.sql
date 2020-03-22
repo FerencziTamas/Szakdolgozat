@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2020. Már 19. 18:39
+-- Létrehozás ideje: 2020. Már 22. 22:22
 -- Kiszolgáló verziója: 10.4.11-MariaDB
 -- PHP verzió: 7.4.3
 
@@ -32,8 +32,8 @@ USE `erdo_adatbazis`;
 
 CREATE TABLE IF NOT EXISTS `erdogazdalkodok` (
   `egKod` varchar(20) COLLATE utf8_hungarian_ci NOT NULL,
-  `nev` varchar(20) COLLATE utf8_hungarian_ci NOT NULL,
-  `cim` varchar(50) COLLATE utf8_hungarian_ci NOT NULL,
+  `erdogazNev` varchar(20) COLLATE utf8_hungarian_ci NOT NULL,
+  `erdogazCim` varchar(50) COLLATE utf8_hungarian_ci NOT NULL,
   PRIMARY KEY (`egKod`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `erdogazdalkodok` (
 -- A tábla adatainak kiíratása `erdogazdalkodok`
 --
 
-INSERT INTO `erdogazdalkodok` (`egKod`, `nev`, `cim`) VALUES
+INSERT INTO `erdogazdalkodok` (`egKod`, `erdogazNev`, `erdogazCim`) VALUES
 ('DASISTKOD', 'Erdész Péter', 'Szeged Nem utca -2.'),
 ('Én24141442', 'Ferenczi Tamás', 'Ásotthalom Királyhalmi utca. 56.'),
 ('FAVAGO134252', 'Favágó János', 'Szeged Favágó utca 50.'),
@@ -241,7 +241,7 @@ CREATE TABLE IF NOT EXISTS `vevok` (
   `vevoId` int(11) NOT NULL AUTO_INCREMENT,
   `nev` varchar(20) COLLATE utf8_hungarian_ci NOT NULL,
   `cim` varchar(20) COLLATE utf8_hungarian_ci NOT NULL,
-  `technikai azonosító` varchar(20) COLLATE utf8_hungarian_ci NOT NULL,
+  `technikai_azonosito` varchar(20) COLLATE utf8_hungarian_ci NOT NULL,
   `adoszam` int(11) NOT NULL,
   PRIMARY KEY (`vevoId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
@@ -250,8 +250,8 @@ CREATE TABLE IF NOT EXISTS `vevok` (
 -- A tábla adatainak kiíratása `vevok`
 --
 
-INSERT INTO `vevok` (`vevoId`, `nev`, `cim`, `technikai azonosító`, `adoszam`) VALUES
-(1, 'Nem én', 'Nem az enyém', 'TECH665hwwr', 55444545),
+INSERT INTO `vevok` (`vevoId`, `nev`, `cim`, `technikai_azonosito`, `adoszam`) VALUES
+(1, 'Nem én', 'Nem az enyém 22', 'TECH665hwwr', 55444545),
 (2, 'Kertész Erik', 'Erik utcája 57', 'ERIK77777', 242442),
 (3, 'Erdő Benő', 'Helyi utca 565', 'TECH5555552', 5252526),
 (4, 'Valami', 'Valami valami utca 6', '2424242REKT', 25252525);

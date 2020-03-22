@@ -34,7 +34,7 @@ namespace Forest_Register.repository
                     "`helyrajzi_szam` varchar(30) COLLATE utf8_hungarian_ci NOT NULL, " +
                     "`kor` int(11) NOT NULL, " +
                     "`terület` int(11) NOT NULL COMMENT 'Négyzetkilóméterben', " +
-                    " `hasznalatId` int(11) NOT NULL, " +
+                    "`hasznalatId` int(11) NOT NULL, " +
                     "`egKod` varchar(20) COLLATE utf8_hungarian_ci NOT NULL, " +
                     "PRIMARY KEY(`erdeszeti_azonosito`), " +
                     "KEY `egKod` (`egKod`), " +

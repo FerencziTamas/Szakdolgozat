@@ -24,11 +24,11 @@ namespace Forest_Register.repository
                 dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
-                    string kod = dr["egKod"].ToString();
-                    string nev = dr["nev"].ToString();
-                    string cim = dr["cim"].ToString();
+                    string egKod = dr["egKod"].ToString();
+                    string erdogazNev = dr["erdogazNev"].ToString();
+                    string erdogazCim = dr["erdogazCim"].ToString();
 
-                    Erdogazdalkodo eg = new Erdogazdalkodo(kod, nev, cim);
+                    Erdogazdalkodo eg = new Erdogazdalkodo(egKod, erdogazNev, erdogazCim);
                     erdogazdalkodok.Add(eg);
                 }
                 connection.Close();
@@ -42,13 +42,13 @@ namespace Forest_Register.repository
             return erdogazdalkodok;
         }
 
-        public void erdogazdalkodoTorleseAdatbazisbol(string kod)
+        public void erdogazdalkodoTorleseAdatbazisbol(string egKod)
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
             try
             {
                 connection.Open();
-                string query = "DELETE FROM `erdogazdalkodok` WHERE `egKod` = " + kod;
+                string query = "DELETE FROM `erdogazdalkodok` WHERE `egKod` = " + egKod;
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
                 connection.Close();
@@ -57,18 +57,18 @@ namespace Forest_Register.repository
             {
                 connection.Close();
                 Debug.WriteLine(e.Message);
-                Debug.WriteLine(kod + " kodú erdőgazdálkodó törlése nem sikerült.");
+                Debug.WriteLine(egKod + " kodú erdőgazdálkodó törlése nem sikerült.");
                 throw new RepositoryException("Sikertelen törlés az adatbázisból.");
             }
         }
 
-        public void ErdogazdalkodoModositasaAdatbazisban(string kod, Erdogazdalkodo modified)
+        public void ErdogazdalkodoModositasaAdatbazisban(string egKod, Erdogazdalkodo modified)
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
             try
             {
                 connection.Open();
-                string query = modified.ErdogazdalkodoModositas(kod);
+                string query = modified.ErdogazdalkodoModositas(egKod);
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
                 connection.Close();
@@ -77,7 +77,7 @@ namespace Forest_Register.repository
             {
                 connection.Close();
                 Debug.WriteLine(e.Message);
-                Debug.WriteLine(kod + " kodú erdőgazdalkodó módosítása nem sikerült.");
+                Debug.WriteLine(egKod + " kodú erdőgazdalkodó módosítása nem sikerült.");
                 throw new RepositoryException("Sikertelen módosítás az adatbázisból.");
             }
         }

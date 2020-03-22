@@ -39,7 +39,24 @@ namespace Forest_Registration.repository
             }
         }
 
-        
+        public void AdatbazisTorles()
+        {
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            try
+            {
+                string query = "DROP DATABASE `erdo_adatbazis`";
+                connection.Open();
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception e)
+            {
+                connection.Close();
+                Debug.WriteLine(e.Message);
+                throw new RepositoryException("Az adatbázis törlése nem sikerült!");
+            }
+        }
 
         public void FelhasznalokTablaLetrehozas()
         {
@@ -421,5 +438,7 @@ namespace Forest_Registration.repository
                 throw new RepositoryException("Sikertelen adat törlés");
             }
         }
+
+        
     }
 }

@@ -12,9 +12,9 @@ namespace Forest_Register.modell
     partial class Vevo
     {
         private int vevoId;
-        private string vevoNev;
-        private string vevoCim;
-        private string technikaiAzonosito;
+        private string nev;
+        private string cim;
+        private string technikai_azonosito;
         private int adoszam;
 
         /// <summary>
@@ -23,9 +23,9 @@ namespace Forest_Register.modell
         /// <param name="vevoId"></param>
         /// <param name="vevoNev"></param>
         /// <param name="vevoCim"></param>
-        /// <param name="technikaiAzonosito"></param>
+        /// <param name="technikai_azonosito"></param>
         /// <param name="adoszam"></param>
-        public Vevo(int vevoId, string vevoNev, string vevoCim, string technikaiAzonosito, int adoszam)
+        public Vevo(int vevoId, string vevoNev, string vevoCim, string technikai_azonosito, int adoszam)
         {
             this.vevoId = vevoId;
 
@@ -38,9 +38,9 @@ namespace Forest_Register.modell
             {
                 throw new HibasVevoCimException("A cím nem megfelelő");
             }
-            this.vevoNev = vevoNev;
-            this.vevoCim = vevoCim;
-            this.technikaiAzonosito = technikaiAzonosito;
+            this.nev = vevoNev;
+            this.cim = vevoCim;
+            this.technikai_azonosito = technikai_azonosito;
             this.adoszam = adoszam;
         }
 
@@ -51,7 +51,7 @@ namespace Forest_Register.modell
             if (!char.IsUpper(vevoNev.ElementAt(0)))
                 return false;
             for (int i = 1; i < vevoNev.Length; i = i + 1)
-                if (!char.IsLetter(vevoNev.ElementAt(i)))
+                if ((!char.IsLetter(vevoNev.ElementAt(i))) && (!char.IsWhiteSpace(vevoNev.ElementAt(i))))
                     return false;
             return true;
         }
@@ -63,13 +63,13 @@ namespace Forest_Register.modell
             if (!char.IsUpper(vevoCim.ElementAt(0)))
                 return false;
             for (int i = 1; i < vevoCim.Length; i = i + 1)
-                if (!char.IsLetter(vevoCim[i]))
+                if ((!char.IsLetter(vevoCim[i])) && (!char.IsWhiteSpace(vevoCim.ElementAt(i))))
                     return false;
             return true;
         }
 
         /// <summary>
-        /// vevoId, vevoNev, vevoCim, technikaiAzonosito és adoszam adatoknak értékadás
+        /// vevoId, vevoNev, vevoCim, technikai_azonosito és adoszam adatoknak értékadás
         /// </summary>
         /// <param name="vevoId"></param>
         public void setVevoId(int vevoId)
@@ -80,19 +80,19 @@ namespace Forest_Register.modell
         /// <param name="vevoNev"></param>
         public void setVevoNev(string vevoNev)
         {
-            this.vevoNev = vevoNev;
+            this.nev = vevoNev;
         }
 
         /// <param name="vevoCim"></param>
         public void setVevoCim(string vevoCim)
         {
-            this.vevoCim = vevoCim;
+            this.cim = vevoCim;
         }
 
-        /// <param name="technikaiAzonosito"></param>
-        public void setTechnikaiAzonosito(string technikaiAzonosito)
+        /// <param name="technikai_azonosito"></param>
+        public void setTechnikaiAzonosito(string technikai_azonosito)
         {
-            this.technikaiAzonosito = technikaiAzonosito;
+            this.technikai_azonosito = technikai_azonosito;
         }
 
         /// <param name="adoszam"></param>
@@ -112,17 +112,17 @@ namespace Forest_Register.modell
 
         public string getVevoNev()
         {
-            return vevoNev;
+            return nev;
         }
 
         public string getVevoCim()
         {
-            return vevoCim;
+            return cim;
         }
 
         public string getTechnikaiAzonosito()
         {
-            return technikaiAzonosito;
+            return technikai_azonosito;
         }
 
         public int getAdoszam()
@@ -133,9 +133,9 @@ namespace Forest_Register.modell
         public void modosit(Vevo modosult)
         {
             this.vevoId = modosult.getVevoId();
-            this.vevoNev = modosult.getVevoNev();
-            this.vevoCim = modosult.getVevoCim();
-            this.technikaiAzonosito = modosult.getTechnikaiAzonosito();
+            this.nev = modosult.getVevoNev();
+            this.cim = modosult.getVevoCim();
+            this.technikai_azonosito = modosult.getTechnikaiAzonosito();
             this.adoszam = modosult.getAdoszam();
         }
     }

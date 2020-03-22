@@ -28,6 +28,16 @@ namespace Forest_Register
             dataGridViewErdok.SelectionChanged += dataGridViewErdok_SelectionChanged;
         }
 
+        private void metroButtonKilepes_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void ErdogazdalkodokFeltoltese()
+        {
+            metroComboBoxErdokErgaz.DataSource = repo.getErdogazdalkodoNev();
+        }
+
         private void GombokBealitasaErdo()
         {
             metroPanelErdo.Visible = false;
@@ -81,7 +91,7 @@ namespace Forest_Register
                 metroTextBoxHelyrajziSzam.Text = dataGridViewErdok.SelectedRows[0].Cells[1].Value.ToString();
                 numericUpDownErdoKor.Value = Convert.ToInt32(dataGridViewErdok.SelectedRows[0].Cells[2].Value);
                 metroTextBoxTerulet.Text = dataGridViewErdok.SelectedRows[0].Cells[3].Value.ToString();
-                metroTextBoxErdogazNev.Text = dataGridViewErdok.SelectedRows[0].Cells[4].Value.ToString();
+                metroComboBoxErdokErgaz.Text = dataGridViewErdok.SelectedRows[0].Cells[4].Value.ToString();
                 metroTextBoxFahasznalatModja.Text = dataGridViewErdok.SelectedRows[0].Cells[5].Value.ToString();
             }
         }
@@ -110,7 +120,7 @@ namespace Forest_Register
             metroTextBoxHelyrajziSzam.Text = string.Empty;
             numericUpDownErdoKor.Value = 0;
             metroTextBoxTerulet.Text = string.Empty;
-            metroTextBoxErdogazNev.Text = string.Empty;
+            metroComboBoxErdokErgaz.Text = string.Empty;
             metroTextBoxFahasznalatModja.Text = string.Empty;
         }
 
@@ -177,7 +187,7 @@ namespace Forest_Register
                     metroTextBoxHelyrajziSzam.Text,
                     Convert.ToInt32(numericUpDownErdoKor.Value),
                     Convert.ToInt32(metroTextBoxTerulet.Text),
-                    metroTextBoxErdogazNev.Text,
+                    metroComboBoxErdokErgaz.Text,
                     metroTextBoxFahasznalatModja.Text
                     );
                 string erdeszetiAzon = metroTextBoxErdeszetiAzon.Text;
@@ -234,7 +244,7 @@ namespace Forest_Register
                     metroTextBoxHelyrajziSzam.Text,
                     Convert.ToInt32(numericUpDownErdoKor.Value),
                     Convert.ToInt32(metroTextBoxTerulet.Text),
-                    metroTextBoxErdogazNev.Text,
+                    metroComboBoxErdokErgaz.Text,
                     metroTextBoxFahasznalatModja.Text
                     );
                 string azonosito = metroTextBoxErdeszetiAzon.Text;
@@ -283,7 +293,7 @@ namespace Forest_Register
             metroTextBoxHelyrajziSzam.Text = string.Empty;
             numericUpDownErdoKor.Value = 0;
             metroTextBoxTerulet.Text = string.Empty;
-            metroTextBoxErdogazNev.Text = string.Empty;
+            metroComboBoxErdokErgaz.Text = string.Empty;
             metroTextBoxFahasznalatModja.Text = string.Empty;
         }
 
