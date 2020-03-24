@@ -30,10 +30,11 @@ namespace Forest_Register.repository
                 connection.Open();
                 string use = "USE erdo_adatbazis";
                 string query = "CREATE TABLE IF NOT EXISTS `erdogazdalkodok` (" +
-                    " `egKod` varchar(20) COLLATE utf8_hungarian_ci NOT NULL," +
-                    " `nev` varchar(20) COLLATE utf8_hungarian_ci NOT NULL, " +
-                    "`cim` varchar(20) COLLATE utf8_hungarian_ci NOT NULL, PRIMARY KEY(`egKod`)" +
-                    ") ENGINE = InnoDB DEFAULT CHARSET = utf8 COLLATE = utf8_hungarian_ci; ";
+                    "`egKod` varchar(20) COLLATE utf8_hungarian_ci NOT NULL, " +
+                    "`erdogazNev` varchar(20) COLLATE utf8_hungarian_ci NOT NULL, " +
+                    "`erdogazCim` varchar(50) COLLATE utf8_hungarian_ci NOT NULL, " +
+                    "PRIMARY KEY(`egKod`))" +
+                    " ENGINE = InnoDB DEFAULT CHARSET = utf8 COLLATE = utf8_hungarian_ci; ";
                 MySqlCommand cmdUse = new MySqlCommand(use, connection);
                 MySqlCommand cmdQuery = new MySqlCommand(query, connection);
                 cmdUse.ExecuteNonQuery();
@@ -54,7 +55,7 @@ namespace Forest_Register.repository
             try
             {
                 connection.Open();
-                string query = "INSERT INTO `erdogazdalkodok` (`egKod`, `nev`, `cim`) VALUES ('DASISTKOD', 'Erdész Péter', 'Szeged Nem utca -2.'), " +
+                string query = "INSERT INTO `erdogazdalkodok` (`egKod`, `erdogazNev`, `erdogazCim`) VALUES ('DASISTKOD', 'Erdész Péter', 'Szeged Nem utca -2.'), " +
                     "('Én24141442', 'Ferenczi Tamás', 'Ásotthalom Királyhalmi utca. 56.'), " +
                     "('FAVAGO134252', 'Favágó János', 'Szeged Favágó utca 50.'), " +
                     "('Hello There!', 'General Kenobi!', 'Halálcsillag utca 66.'); ";

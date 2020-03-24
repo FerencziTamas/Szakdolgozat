@@ -13,16 +13,18 @@ namespace Forest_Registration.repository
     class AdatbazisRepository
     {
         private readonly string connectionString;
+        private readonly string connectionStringTest;
 
         public AdatbazisRepository()
         {
             ConnectionString cs = new ConnectionString();
             connectionString = cs.getConnectionString();
+            connectionStringTest = cs.getCreateString();
         }
 
         public void AdatbazisLetrehozas()
         {
-            MySqlConnection connection = new MySqlConnection(connectionString);
+            MySqlConnection connection = new MySqlConnection(connectionStringTest);
             try
             {
                 string query = "CREATE DATABASE IF NOT EXISTS erdo_adatbazis DEFAULT CHARACTER SET utf8 COLLATE utf8_hungarian_ci";
@@ -44,7 +46,7 @@ namespace Forest_Registration.repository
             MySqlConnection connection = new MySqlConnection(connectionString);
             try
             {
-                string query = "DROP DATABASE `erdo_adatbazis`";
+                string query = "DROP DATABASE `erdo_adatbazis`.`erdo_adatbazis`";
                 connection.Open();
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
@@ -61,9 +63,7 @@ namespace Forest_Registration.repository
         public void FelhasznalokTablaLetrehozas()
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
-            try
-            {
-                string use = "USE erdo_adatbazis";
+            string use = "USE erdo_adatbazis";
                 string query = "CREATE TABLE IF NOT EXISTS `felhasznalok` ( " +
                     "`felhasznaloId` int(11) NOT NULL AUTO_INCREMENT, " +
                     "`nev` varchar(20) COLLATE utf8_hungarian_ci NOT NULL, " +
@@ -72,6 +72,9 @@ namespace Forest_Registration.repository
                     " `jelszo` varchar(20) COLLATE utf8_hungarian_ci NOT NULL, " +
                     "PRIMARY KEY(`felhasznaloId`))" +
                     " ENGINE = InnoDB AUTO_INCREMENT = 3 DEFAULT CHARSET = utf8 COLLATE = utf8_hungarian_ci; ";
+            try
+            {
+                connection.Open();
                 MySqlCommand cmdUse = new MySqlCommand(use, connection);
                 MySqlCommand cmdQuery = new MySqlCommand(query, connection);
                 cmdUse.ExecuteNonQuery();
@@ -92,10 +95,10 @@ namespace Forest_Registration.repository
             try
             {
                 connection.Open();
-                string query = "INSERT INTO `felhasznalok` (`felhasznaloId`, `nev`, `cim`, `email`, `jelszo`) VALUES " +
-                    "(5, 'Ferenczi Tamás', '', 'darius.517.ft@gmail.com', 'Jelszo1'), " +
-                    "(6, 'Favágó Jani', '', 'favagojani@cim.hu', 'Jelszo2'), " +
-                    "(9, 'Bükki Jenő', '', 'bukki.jeno@citromail.hu', 'jelszo3');";
+                string query = "INSERT INTO `erdo_adatbazis`.`felhasznalok` (`nev`, `cim`, `email`, `jelszo`) VALUES " +
+                    "('Ferenczi Tamás', '', 'darius.517.ft@gmail.com', 'Jelszo1'), " +
+                    "('Favágó Jani', '', 'favagojani@cim.hu', 'Jelszo2'), " +
+                    "('Bükki Jenő', '', 'bukki.jeno@citromail.hu', 'jelszo3');";
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
                 connection.Close();
@@ -155,17 +158,11 @@ namespace Forest_Registration.repository
             {
                 connection.Open();
                 string use = "USE erdo_adatbazis";
-                string query = "CREATE TABLE IF NOT EXISTS `fafajok` (" +
+                string query = "CREATE TABLE IF NOT EXISTS `fafajok` ( " +
                     "`fafajId` int(11) NOT NULL AUTO_INCREMENT, " +
                     "`megnevezes` varchar(20) COLLATE utf8_hungarian_ci NOT NULL, " +
-                    "`elterjedes` varchar(20) COLLATE utf8_hungarian_ci NOT NULL, " +
-                    "`alaki_jellemzo` text COLLATE utf8_hungarian_ci NOT NULL, " +
-                    "`fatest` text COLLATE utf8_hungarian_ci NOT NULL, " +
-                    "`tartossag` text COLLATE utf8_hungarian_ci NOT NULL, " +
-                    "`megmunkalhatosag` text COLLATE utf8_hungarian_ci NOT NULL, " +
-                    "`felhasznalas` text COLLATE utf8_hungarian_ci NOT NULL, " +
                     "PRIMARY KEY(`fafajId`))" +
-                    " ENGINE = InnoDB DEFAULT CHARSET = utf8 COLLATE = utf8_hungarian_ci; ";
+                    " ENGINE = InnoDB AUTO_INCREMENT = 11 DEFAULT CHARSET = utf8 COLLATE = utf8_hungarian_ci; ";
                 MySqlCommand cmdUse = new MySqlCommand(use, connection);
                 MySqlCommand cmdQuery = new MySqlCommand(query, connection);
                 cmdUse.ExecuteNonQuery();
@@ -208,7 +205,7 @@ namespace Forest_Registration.repository
             try
             {
                 connection.Open();
-                string query = "INSERT INTO `fafajok` (`fafajId`, `megnevezes`) VALUES " +
+                string query = "INSERT INTO `erdo_adatbazis`.`fafajok` (`fafajId`, `megnevezes`) VALUES " +
                     "(1, 'Bükk'), " +
                     "(2, 'Fűz fa'), " +
                     "(3, 'Galagonya'), " +
@@ -264,15 +261,10 @@ namespace Forest_Registration.repository
                     "KEY `fafajId` (`fafajId`), " +
                     "KEY `erdeszeti_azonosito` (`erdeszeti_azonosito`))" +
                     " ENGINE = InnoDB DEFAULT CHARSET = utf8 COLLATE = utf8_hungarian_ci; ";
-                string queryKeys = "ALTER TABLE `fak` " +
-                    "ADD CONSTRAINT `fak_ibfk_1` FOREIGN KEY(`fafajId`) REFERENCES `fafajok` (`fafajId`), " +
-                    "ADD CONSTRAINT `fak_ibfk_2` FOREIGN KEY(`erdeszeti_azonosito`) REFERENCES `erdok` (`erdeszeti_azonosito`); ";
                 MySqlCommand cmdUse = new MySqlCommand(use, connection);
                 MySqlCommand cmdQuery = new MySqlCommand(query, connection);
-                MySqlCommand cmdKeys = new MySqlCommand(queryKeys, connection);
                 cmdUse.ExecuteNonQuery();
                 cmdQuery.ExecuteNonQuery();
-                cmdKeys.ExecuteNonQuery();
                 connection.Close();
 
             }
@@ -284,17 +276,39 @@ namespace Forest_Registration.repository
             }
         }
 
+        public void FakIdegenKulcsok()
+        {
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            try
+            {
+                connection.Open();
+                string queryKeys = "ALTER TABLE `fak` " +
+                    "ADD CONSTRAINT `fak_ibfk_1` FOREIGN KEY IF NOT EXISTS (`fafajId`) REFERENCES `fafajok` (`fafajId`), " +
+                    "ADD CONSTRAINT `fak_ibfk_2` FOREIGN KEY IF NOT EXISTS (`erdeszeti_azonosito`) REFERENCES `erdok` (`erdeszeti_azonosito`); ";
+                MySqlCommand cmdKeys = new MySqlCommand(queryKeys, connection);
+                cmdKeys.ExecuteNonQuery();
+                connection.Close();
+
+            }
+            catch (Exception e)
+            {
+                connection.Close();
+                Debug.WriteLine(e.Message);
+                throw new RepositoryException("Sikertelen idegen kulcsok létrehozása.");
+            }
+        }
+
         public void FakTesztAdatokFeltoltese()
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
             try
             {
                 connection.Open();
-                string query = "INSERT INTO `fak` (`fafajId`, `mennyiseg`, `erdeszeti_azonosito`) VALUES " +
-                    "(3, 400, 'DASISTERDO422'), " +
-                    "(2, 20, 'ERDO555/'), " +
-                    "(4, 200, 'ERDO9'), " +
-                    "(9, 111, 'valamiErdo');";
+                string query = "INSERT INTO `erdo_adatbazis`.`fak` (`fafajId`, `mennyiseg`, `erdeszeti_azonosito`) VALUES " +
+                    " (3, 400, 'DASISTERDO422')," +
+                    " (2, 20, 'ERDO555/')," +
+                    " (4, 200, 'ERDO9'), " +
+                    " (9, 111, 'valamiErdo');";
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
                 connection.Close();
@@ -356,10 +370,10 @@ namespace Forest_Registration.repository
                 connection.Open();
                 string use = "USE erdo_adatbazis";
                 string query = "CREATE TABLE IF NOT EXISTS `fa_hasznalat_modjai` (" +
-                "`hasznalatId` int(11) NOT NULL AUTO_INCREMENT, " +
-                "`megnevezes` varchar(20) COLLATE utf8_hungarian_ci NOT NULL, " +
-                "PRIMARY KEY(`hasznalatId`))" +
-                " ENGINE = InnoDB DEFAULT CHARSET = utf8 COLLATE = utf8_hungarian_ci;";
+                    "`hasznalatId` int(11) NOT NULL AUTO_INCREMENT, " +
+                    "`megnevezes` varchar(50) COLLATE utf8_hungarian_ci NOT NULL, " +
+                    "`rovidites` varchar(10) COLLATE utf8_hungarian_ci NOT NULL, PRIMARY KEY(`hasznalatId`))" +
+                    " ENGINE = InnoDB AUTO_INCREMENT = 5 DEFAULT CHARSET = utf8 COLLATE = utf8_hungarian_ci; ";
                 MySqlCommand cmdUse = new MySqlCommand(use, connection);
                 MySqlCommand cmdQuery = new MySqlCommand(query, connection);
                 cmdUse.ExecuteNonQuery();
@@ -381,11 +395,11 @@ namespace Forest_Registration.repository
             try
             {
                 connection.Open();
-                string query = "INSERT INTO `fa_hasznalat_modjai` (`hasznalatId`, `megnevezes`, `rovidites`) VALUES " +
+                string query = "INSERT INTO `erdo_adatbazis`.`fa_hasznalat_modjai` (`hasznalatId`, `megnevezes`, `rovidites`) VALUES " +
                     "(1, 'Tarvágás', 'TRV'), " +
                     "(2, 'Tisztítás', 'Ti'), " +
                     "(3, 'Egészségügyi Termelés', 'EÜ'), " +
-                    "(4, 'Törzskiválaszó gyérítés', 'TKGY');";
+                    "(4, 'Törzskiválaszó gyérítés', 'TKGY'); ";
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
                 connection.Close();

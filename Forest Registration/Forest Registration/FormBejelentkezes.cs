@@ -33,27 +33,6 @@ namespace Forest_Registration
             connectionString = cs.getConnectionString();
         }
 
-        //Ellenőrzi hogy létezik-e az adatbázis
-        /*public bool EllenorizAdatbazisLetezikE(string dataBase)
-        {
-            MySqlConnection connection = new MySqlConnection(connectionString);
-            string cmdText = "SELECT COUNT(*) FROM information_schema.schemata WHERE SCHEMA_NAME = '"+dataBase+"'";
-            bool isExist = false;
-            using (connection)
-            {
-                connection.Open();
-                using (MySqlCommand cmd = new MySqlCommand(cmdText, connection))
-                {
-                    using (MySqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        isExist = reader.HasRows;
-                    }
-                }
-                connection.Close();
-            }
-            return isExist;
-        }*/
-
         private void FormBejelentkezes_Load(object sender, EventArgs e)
         {
             ar.AdatbazisLetrehozas();
@@ -68,27 +47,34 @@ namespace Forest_Registration
             ar.FahaszModTablaLetrehozas();
             ar.FakTablaLetrehozasa();
 
+            //Idegen kulcsok beállítása
+            erat.ErdokIdegenKulcsok();
+            szrat.SzamlakIdegenKulcsok();
+            ar.FakIdegenKulcsok();
+
             //Táblák feltöltése
-            erat.ErdoTesztAdatokFeltoltes();
-            egrat.ErGazTesztAdatokFeltoltes();
-            szrat.SzamlaTesztAdatokFeltoltese();
-            vrat.VevokTesztAdatokFeltoltese();
             ar.FelhasznalokTesztAdatokFeltoltese();
-            ar.FafajokTesztAdatokFeltoltese();
+            egrat.ErGazTesztAdatokFeltoltes();
             ar.FaHaszModTesztAdatokFeltoltese();
+            erat.ErdoTesztAdatokFeltoltes();
+            ar.FafajokTesztAdatokFeltoltese();
             ar.FakTesztAdatokFeltoltese();
+            vrat.VevokTesztAdatokFeltoltese();
+            szrat.SzamlaTesztAdatokFeltoltese();
+            
 
             //Adatok lekérdezése adatbázisból
             erat.getErdokAdatbazisbol();
             //egrat.getErdogazdalkodokAdatbazisbol();
             szrat.getSzamlakAdatbazisbol();
             //vrat.getVevokAdatbazisbol();
+
         }
 
         private void metroButtonBejelentkezes_Click(object sender, EventArgs e)
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
-            string query = "SELECT * FROM `felhasznalok` WHERE email = '"+metroTextBoxEmail.Text.Trim()+"' AND jelszo = '"+metroTextBoxJelszo.Text.Trim()+"'";
+            string query = "SELECT * FROM `erdo_adatbazis`.`felhasznalok` WHERE email = '"+metroTextBoxEmail.Text.Trim()+"' AND jelszo = '"+metroTextBoxJelszo.Text.Trim()+"'";
             MySqlDataAdapter msda = new MySqlDataAdapter(query, connection);
             DataTable dt = new DataTable();
             msda.Fill(dt);
@@ -102,8 +88,6 @@ namespace Forest_Registration
             {
                 MessageBox.Show("Hibás e-mail cím vagy jelszó!");
             }
-
-            
         }
 
         private void metroButtonReg_Click(object sender, EventArgs e)
@@ -112,7 +96,5 @@ namespace Forest_Registration
             this.Hide();
             regisztracio.Show();
         }
-
-       
     }
 }

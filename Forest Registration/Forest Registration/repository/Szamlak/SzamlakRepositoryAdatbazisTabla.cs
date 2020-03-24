@@ -42,7 +42,6 @@ namespace Forest_Register.repository
                     "PRIMARY KEY(`szamlaszam`), " +
                     "KEY `vevoId` (`vevoId`))" +
                     " ENGINE = InnoDB DEFAULT CHARSET = utf8 COLLATE = utf8_hungarian_ci;";
-                string queryKeys1 = "ALTER TABLE `szamlak` ADD CONSTRAINT `szamlak_ibfk_1` FOREIGN KEY(`vevoId`) REFERENCES `vevok` (`vevoId`); ";
                 string query2 = "CREATE TABLE IF NOT EXISTS `szamlatetelek` (" +
                     "`fafajId` int(11) NOT NULL, " +
                     "`szamlaszam` varchar(17) COLLATE utf8_hungarian_ci NOT NULL, " +
@@ -53,19 +52,12 @@ namespace Forest_Register.repository
                     "KEY `fafajId` (`fafajId`), " +
                     "KEY `szamlaszam` (`szamlaszam`))" +
                     " ENGINE = InnoDB DEFAULT CHARSET = utf8 COLLATE = utf8_hungarian_ci; ";
-                string queryKeys2 = "ALTER TABLE `szamlatetelek`" +
-                    " ADD CONSTRAINT `szamlatetelek_ibfk_1` FOREIGN KEY(`fafajId`) REFERENCES `fafajok` (`fafajId`)," +
-                    " ADD CONSTRAINT `szamlatetelek_ibfk_2` FOREIGN KEY(`szamlaszam`) REFERENCES `szamlak` (`szamlaszam`); ";
                 MySqlCommand cmdUse = new MySqlCommand(use, connection);
                 MySqlCommand cmdQuery1 = new MySqlCommand(query1, connection);
                 MySqlCommand cmdQuery2 = new MySqlCommand(query2, connection);
-                MySqlCommand cmdQueryKeys1 = new MySqlCommand(queryKeys1, connection);
-                MySqlCommand cmdQueryKeys2 = new MySqlCommand(queryKeys2, connection);
                 cmdUse.ExecuteNonQuery();
                 cmdQuery1.ExecuteNonQuery();
                 cmdQuery2.ExecuteNonQuery();
-                cmdQueryKeys1.ExecuteNonQuery();
-                cmdQueryKeys2.ExecuteNonQuery();
                 connection.Close();
             }
             catch (Exception e)
@@ -76,18 +68,51 @@ namespace Forest_Register.repository
             }            
         }
 
+        public void SzamlakIdegenKulcsok()
+        {
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            try
+            {
+                connection.Open();
+                string queryKeys1 = "ALTER TABLE `szamlak` ADD CONSTRAINT `szamlak_ibfk_1` FOREIGN KEY IF NOT EXISTS (`vevoId`) REFERENCES `vevok` (`vevoId`); ";
+                string queryKeys2 = "ALTER TABLE `szamlatetelek`" +
+                    " ADD CONSTRAINT `szamlatetelek_ibfk_1` FOREIGN KEY IF NOT EXISTS (`fafajId`) REFERENCES `fafajok` (`fafajId`)," +
+                    " ADD CONSTRAINT `szamlatetelek_ibfk_2` FOREIGN KEY IF NOT EXISTS (`szamlaszam`) REFERENCES `szamlak` (`szamlaszam`); ";
+                MySqlCommand cmdQueryKeys1 = new MySqlCommand(queryKeys1, connection);
+                MySqlCommand cmdQueryKeys2 = new MySqlCommand(queryKeys2, connection);
+                cmdQueryKeys1.ExecuteNonQuery();
+                cmdQueryKeys2.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception e)
+            {
+                connection.Close();
+                Debug.WriteLine(e.Message);
+                throw new RepositoryException("Sikertelen idegen kulcsok létrehozása.");
+            }
+        }
+
         public void SzamlaTesztAdatokFeltoltese()
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
             try
             {
                 connection.Open();
-                string query = "INSERT INTO `erdogazdalkodok` (`egKod`, `nev`, `cim`) VALUES ('DASISTKOD', 'Erdész Péter', 'Szeged Nem utca -2.'), " +
-                    "('Én24141442', 'Ferenczi Tamás', 'Ásotthalom Királyhalmi utca. 56.'), " +
-                    "('FAVAGO134252', 'Favágó János', 'Szeged Favágó utca 50.'), " +
-                    "('Hello There!', 'General Kenobi!', 'Halálcsillag utca 66.'); ";
-                MySqlCommand cmd = new MySqlCommand(query, connection);
-                cmd.ExecuteNonQuery();
+                string querySzamlak = "INSERT INTO `szamlak` (`szamlaszam`, `vevoId`, `teljesites_napja`, `szamla_keletkezes`, `kifizetes_napja`, `lerakodasi_hely`, `felrakasi_hely`, `muveleti_lap_sorszam`, `szallitojegy_sorszam`) VALUES " +
+                    "('02021144-02021313', 1, '2020-03-18', '2020-03-18', '2020-03-20', 'Zala', 'Ásotthalom', 'MUV4255', 'SZAL14414'), " +
+                    "('28271111-11111111', 3, '2020-03-10', '2020-03-10', '2020-03-10', 'Nem Szeged', 'Nem Ásotthalom', 'MUV4255', 'SZALL1T'), " +
+                    "('77777777-77777777', 4, '2020-03-05', '2020-03-06', '2020-03-07', 'LERAKOHELY', 'FELRAKOHELY', 'lap222', 'szam555'), " +
+                    "('99999999-88888888', 2, '2020-03-09', '2020-03-09', '2020-03-09', 'Szeged', 'Tompa', 'MUV42525', 'SZALLITO53'); ";
+
+                string queryTetelek = "INSERT INTO `szamlatetelek` (`fafajId`, `szamlaszam`, `mennyiseg`, `felhasznalas_modja`, `brutto_ar`, `netto_ar`) VALUES " +
+                    "(1, '02021144-02021313', 100, 'Rönk', 2000000, 1000000), " +
+                    "(2, '28271111-11111111', 20, 'Tűzifa', 700000, 650000), " +
+                    "(5, '77777777-77777777', 43, 'Apríték', 400000, 370000), " +
+                    "(7, '99999999-88888888', 50, 'Tüzifa', 3000000, 2800000); ";
+                MySqlCommand cmd1 = new MySqlCommand(querySzamlak, connection);
+                cmd1.ExecuteNonQuery();
+                MySqlCommand cmd2 = new MySqlCommand(queryTetelek, connection);
+                cmd2.ExecuteNonQuery();
                 connection.Close();
             }
             catch (Exception e)

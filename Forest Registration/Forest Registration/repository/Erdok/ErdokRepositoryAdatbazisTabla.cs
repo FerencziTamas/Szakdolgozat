@@ -33,23 +33,17 @@ namespace Forest_Register.repository
                     "`erdeszeti_azonosito` varchar(20) COLLATE utf8_hungarian_ci NOT NULL, " +
                     "`helyrajzi_szam` varchar(30) COLLATE utf8_hungarian_ci NOT NULL, " +
                     "`kor` int(11) NOT NULL, " +
-                    "`terület` int(11) NOT NULL COMMENT 'Négyzetkilóméterben', " +
+                    "`terulet` int(11) NOT NULL COMMENT 'Négyzetkilóméterben', " +
                     "`hasznalatId` int(11) NOT NULL, " +
                     "`egKod` varchar(20) COLLATE utf8_hungarian_ci NOT NULL, " +
                     "PRIMARY KEY(`erdeszeti_azonosito`), " +
                     "KEY `egKod` (`egKod`), " +
                     "KEY `hasznalatId` (`hasznalatId`)) " +
                     "ENGINE = InnoDB DEFAULT CHARSET = utf8 COLLATE = utf8_hungarian_ci;";
-                string queryKeys = "ALTER TABLE `erdok` " +
-                    "ADD CONSTRAINT `erdok_ibfk_1` FOREIGN KEY(`egKod`) REFERENCES `erdogazdalkodok` (`egKod`), " +
-                    "ADD CONSTRAINT `erdok_ibfk_2` FOREIGN KEY(`egKod`) REFERENCES `erdogazdalkodok` (`egKod`), " +
-                    "ADD CONSTRAINT `erdok_ibfk_3` FOREIGN KEY(`hasznalatId`) REFERENCES `fa_hasznalat_modjai` (`hasznalatId`); ";
                 MySqlCommand cmdUse = new MySqlCommand(use, connection);
                 MySqlCommand cmdQuery = new MySqlCommand(query, connection);
-                MySqlCommand cmdQueryKeys = new MySqlCommand(queryKeys, connection);
                 cmdUse.ExecuteNonQuery();
                 cmdQuery.ExecuteNonQuery();
-                cmdQueryKeys.ExecuteNonQuery();
                 connection.Close();
             }
             catch (Exception e)
@@ -59,6 +53,28 @@ namespace Forest_Register.repository
                 throw new RepositoryException("Sikertelen tábla létrehozás.");
             }
 
+        }
+
+        public void ErdokIdegenKulcsok()
+        {
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            try
+            {
+                connection.Open();
+                string queryKeys = "ALTER TABLE `erdok` " +
+                    "ADD CONSTRAINT `erdok_ibfk_1` FOREIGN KEY IF NOT EXISTS (`egKod`) REFERENCES `erdogazdalkodok` (`egKod`), " +
+                    //"ADD CONSTRAINT `erdok_ibfk_2` FOREIGN KEY(`egKod`) REFERENCES `erdogazdalkodok` (`egKod`), " +
+                    "ADD CONSTRAINT `erdok_ibfk_3` FOREIGN KEY IF NOT EXISTS (`hasznalatId`) REFERENCES `fa_hasznalat_modjai` (`hasznalatId`); ";
+                MySqlCommand cmdQueryKeys = new MySqlCommand(queryKeys, connection);
+                cmdQueryKeys.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception e)
+            {
+                connection.Close();
+                Debug.WriteLine(e.Message);
+                throw new RepositoryException("Sikertelen idegen kulcsok beállítása.");
+            }
         }
 
         public void ErdoTablaTorlese()
@@ -89,11 +105,11 @@ namespace Forest_Register.repository
             try
             {
                 connection.Open();
-                string query = "INSERT INTO `erdok` (`erdeszeti_azonosito`, `helyrajzi_szam`, `kor`, `terulet`, `hasznalatId`, `egKod`) VALUES " +
+                string query = "INSERT INTO `erdo_adatbazis`.`erdok` (`erdeszeti_azonosito`, `helyrajzi_szam`, `kor`, `terulet`, `hasznalatId`, `egKod`) VALUES " +
                     "('DASISTERDO422', 'LISSZABON3', 40, 5000, 4, 'Én24141442'), " +
                     "('ERDO555/', 'ÁSOTTALOM22-T', 40, 1000, 1, 'DASISTKOD'), " +
                     "('ERDO9', 'SZEGED54-K', 10, 870, 2, 'FAVAGO134252'), " +
-                    "('valamiErdo', 'ZALA203', 21, 5000, 3, 'Hello There!'); ";
+                    "('valamiErdo', 'ZALA203', 21, 5000, 3, 'Hello There!');";
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
                 connection.Close();
