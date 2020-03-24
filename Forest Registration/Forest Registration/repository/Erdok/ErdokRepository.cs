@@ -56,7 +56,7 @@ namespace Forest_Register.repository
                 string helyrajziSzam = row[1].ToString();
                 int kor = Convert.ToInt32(row[2]);
                 int terulet = Convert.ToInt32(row[3]);
-                string fahasznalat = row[4].ToString();
+                int fahasznalat = Convert.ToInt32(row[4].ToString());
                 string erdogazdalkodo = row[5].ToString();
                 Erdo e = new Erdo(erdeszetiAzon,helyrajziSzam,kor,terulet,fahasznalat,erdogazdalkodo);
                 erdok.Add(e);

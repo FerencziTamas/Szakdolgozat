@@ -1,4 +1,5 @@
 ﻿using Forest_Register.modell;
+using Forest_Registration.repository;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,7 @@ namespace Forest_Registration
     public partial class FormRegisztracio : MetroFramework.Forms.MetroForm
     {
         private readonly string connectionString;
+        AdatbazisRepository ar = new AdatbazisRepository();
 
         public FormRegisztracio()
         {
@@ -62,6 +64,11 @@ namespace Forest_Registration
                 connection.Close();
                 MessageBox.Show("Sikertelen regisztráció!");
             }
+        }
+
+        private void FormRegisztracio_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            ar.AdatbazisTorles();
         }
     }
 }

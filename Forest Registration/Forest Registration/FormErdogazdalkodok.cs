@@ -19,7 +19,7 @@ namespace Forest_Register
 
         private void metroButtonErdogazBetolt_Click(object sender, EventArgs e)
         {
-            DataGridViewFrissitese();
+            DataGridViewFrissiteseErGaz();
             dataGridViewErdogazdalkodokBeallit();
             GombokBealitasaErdogazdalkodok();
             dataGridViewErdogazdalkodok.SelectionChanged += dataGridViewErdogazdalkodok_SelectionChanged;
@@ -134,7 +134,7 @@ namespace Forest_Register
                 }
 
                 //DataGridView frissítése
-                DataGridViewFrissitese();
+                DataGridViewFrissiteseErGaz();
                 dataGridViewErdogazdalkodokBeallit();
             }
         }
@@ -176,7 +176,7 @@ namespace Forest_Register
                 }
 
                 //DataGridView frissítése
-                DataGridViewFrissitese();
+                DataGridViewFrissiteseErGaz();
             }
             catch (RepositoryExceptionNemTudModositani rentm)
             {

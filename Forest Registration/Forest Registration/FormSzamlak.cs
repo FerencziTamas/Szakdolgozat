@@ -23,7 +23,7 @@ namespace Forest_Register
 
         private void metroButtonSzamlakBetolt_Click(object sender, EventArgs e)
         {
-            DataGridViewFrissitese();
+            DataGridViewFrissiteseSzamla();
             DataGridViewSzamlakBeallit();
             GombokBeallitasaSzamla();
             dataGridViewSzamlak.SelectionChanged += dataGridViewSzamlak_SelectionChanged;
@@ -142,7 +142,7 @@ namespace Forest_Register
                 }
 
                 //DataGridView frissítése
-                DataGridViewFrissitese();
+                DataGridViewFrissiteseSzamla();
                 DataGridViewSzamlakBeallit();
             }
         }
@@ -195,7 +195,7 @@ namespace Forest_Register
                 }
 
                 //DataGridView frissítése
-                DataGridViewFrissitese();
+                DataGridViewFrissiteseSzamla();
             }
             catch (RepositoryExceptionNemTudModositani rentm)
             {

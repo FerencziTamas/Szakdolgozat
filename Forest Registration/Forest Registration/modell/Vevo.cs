@@ -28,44 +28,10 @@ namespace Forest_Register.modell
         public Vevo(int vevoId, string vevoNev, string vevoCim, string technikai_azonosito, int adoszam)
         {
             this.vevoId = vevoId;
-
-            if (!HelyesNev(vevoNev))
-            {
-                throw new HibasVevoNevException("A név nem megfelelő");
-            }
-
-            if(!HelyesCim(vevoCim))
-            {
-                throw new HibasVevoCimException("A cím nem megfelelő");
-            }
             this.nev = vevoNev;
             this.cim = vevoCim;
             this.technikai_azonosito = technikai_azonosito;
             this.adoszam = adoszam;
-        }
-
-        private bool HelyesNev(string vevoNev)
-        {
-            if (vevoNev == string.Empty)
-                return false;
-            if (!char.IsUpper(vevoNev.ElementAt(0)))
-                return false;
-            for (int i = 1; i < vevoNev.Length; i = i + 1)
-                if ((!char.IsLetter(vevoNev.ElementAt(i))) && (!char.IsWhiteSpace(vevoNev.ElementAt(i))))
-                    return false;
-            return true;
-        }
-
-        private bool HelyesCim(string vevoCim)
-        {
-            if (vevoCim == string.Empty)
-                return false;
-            if (!char.IsUpper(vevoCim.ElementAt(0)))
-                return false;
-            for (int i = 1; i < vevoCim.Length; i = i + 1)
-                if ((!char.IsLetter(vevoCim[i])) && (!char.IsWhiteSpace(vevoCim.ElementAt(i))))
-                    return false;
-            return true;
         }
 
         /// <summary>

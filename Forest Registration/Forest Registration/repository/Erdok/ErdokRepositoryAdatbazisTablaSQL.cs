@@ -26,7 +26,7 @@ namespace Forest_Register.repository
                 {
                     string erdeszetiAzon = dr["erdeszeti_azonosito"].ToString();
                     string helyrajziSzam = dr["helyrajzi_szam"].ToString();
-                    string fahasznalat = dr["hasznalatId"].ToString();
+                    dr["hasznalatId"].ToString();
                     string erdogazdalkodo = dr["egKod"].ToString();
                     bool joEredmeny = false;
                     int kor = -1;
@@ -37,8 +37,13 @@ namespace Forest_Register.repository
                         joEredmeny = int.TryParse(dr["terulet"].ToString(), out terulet);
                         if (joEredmeny)
                         {
-                            Erdo e = new Erdo(erdeszetiAzon, helyrajziSzam, kor, terulet, fahasznalat, erdogazdalkodo);
-                            erdok.Add(e);
+                            int fahasznalat = -1;
+                            joEredmeny = int.TryParse(dr["hasznalatId"].ToString(), out terulet);
+                            if(joEredmeny)
+                            {
+                                Erdo e = new Erdo(erdeszetiAzon, helyrajziSzam, kor, terulet, fahasznalat, erdogazdalkodo);
+                                erdok.Add(e);
+                            }
                         }
                     }
                 }

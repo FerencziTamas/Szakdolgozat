@@ -33,7 +33,7 @@ namespace Forest_Register.repository
                     "`vevoId` int(11) NOT NULL AUTO_INCREMENT, " +
                     "`nev` varchar(20) COLLATE utf8_hungarian_ci NOT NULL, " +
                     "`cim` varchar(20) COLLATE utf8_hungarian_ci NOT NULL, " +
-                    "`technikai azonosító` varchar(20) COLLATE utf8_hungarian_ci NOT NULL," +
+                    "`technikai_azonosito` varchar(20) COLLATE utf8_hungarian_ci NOT NULL," +
                     " `adoszam` int(11) NOT NULL," +
                     " PRIMARY KEY(`vevoId`))" +
                     " ENGINE = InnoDB DEFAULT CHARSET = utf8 COLLATE = utf8_hungarian_ci; ";
@@ -57,7 +57,7 @@ namespace Forest_Register.repository
             try
             {
                 connection.Open();
-                string query = "INSERT INTO `erdo_adatbazis`.`vevok` (`vevoId`, `nev`, `cim`, `technikai azonosító`, `adoszam`) VALUES " +
+                string query = "INSERT INTO `erdo_adatbazis`.`vevok` (`vevoId`, `nev`, `cim`, `technikai_azonosito`, `adoszam`) VALUES " +
                     "(1, 'Nem én', 'Nem az enyém', 'TECH665hwwr', 55444545), " +
                     "(2, 'Kertész Erik', 'Erik utcája 57', 'ERIK77777', 242442), " +
                     "(3, 'Erdő Benő', 'Helyi utca 565', 'TECH5555552', 5252526), " +

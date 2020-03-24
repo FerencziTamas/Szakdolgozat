@@ -1961,7 +1961,8 @@
             this.Name = "FormForestRegister";
             this.Style = MetroFramework.MetroColorStyle.Green;
             this.Text = "Forest Register";
-            this.Leave += new System.EventHandler(this.FormForestRegister_Leave);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormForestRegister_FormClosed);
+            this.Load += new System.EventHandler(this.FormForestRegister_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.metroTabPageErdok.ResumeLayout(false);

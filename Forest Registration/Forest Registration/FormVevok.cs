@@ -22,7 +22,7 @@ namespace Forest_Register
 
         private void metroButtonVevokBetolt_Click(object sender, EventArgs e)
         {
-            DataGridViewFrissitese();
+            DataGridViewFrissiteseVevo();
             DataGridViewVevokBeallit();
             GombokBeallitasaVevo();
             dataGridViewVevok.SelectionChanged += dataGridViewVevok_SelectionChanged;
@@ -155,7 +155,7 @@ namespace Forest_Register
                 }
 
                 //DataGridView frissítése
-                DataGridViewFrissitese();
+                DataGridViewFrissiteseVevo();
                 DataGridViewVevokBeallit();
             }
         }
@@ -198,7 +198,7 @@ namespace Forest_Register
                 }
 
                 //DataGridView frissítése
-                DataGridViewFrissitese();
+                DataGridViewFrissiteseVevo();
             }
             catch (RepositoryExceptionNemTudModositani rentm)
             {

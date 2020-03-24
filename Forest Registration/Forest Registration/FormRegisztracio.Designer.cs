@@ -256,9 +256,11 @@
             this.Controls.Add(this.metroTextBoxFelhasznaloNev);
             this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.pictureBox1);
+            this.Font = new System.Drawing.Font("Monotype Corsiva", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FormRegisztracio";
             this.Style = MetroFramework.MetroColorStyle.Green;
             this.Text = "Regisztráció";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormRegisztracio_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

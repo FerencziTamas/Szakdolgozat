@@ -135,6 +135,7 @@
             this.metroButtonKilepes.TabIndex = 5;
             this.metroButtonKilepes.Text = "Kilépés";
             this.metroButtonKilepes.UseSelectable = true;
+            this.metroButtonKilepes.Click += new System.EventHandler(this.metroButtonKilepes_Click);
             // 
             // metroButtonReg
             // 
@@ -172,6 +173,8 @@
             this.Name = "FormBejelentkezes";
             this.Style = MetroFramework.MetroColorStyle.Green;
             this.Text = "Bejelentkezés";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormBejelentkezes_FormClosed);
+            this.Load += new System.EventHandler(this.FormBejelentkezes_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

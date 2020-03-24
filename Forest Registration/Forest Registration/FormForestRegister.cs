@@ -16,12 +16,24 @@ namespace Forest_Register
     {
         Repository repo = new Repository();
         AdatbazisRepository ar = new AdatbazisRepository();
+        ErdokRepositoryAdatbazisTabla erat = new ErdokRepositoryAdatbazisTabla();
+        ErdogazdalkodokRepositoryAdatbazisTabla egrat = new ErdogazdalkodokRepositoryAdatbazisTabla();
+        SzamlakRepositoryAdatbazisTabla szrat = new SzamlakRepositoryAdatbazisTabla();
+        VevokRepositoryAdatbazisTabla vrat = new VevokRepositoryAdatbazisTabla();
 
         bool adatFelvetel = false;
 
         public FormForestRegister()
         {
             InitializeComponent();
+        }
+
+        private void FormForestRegister_Load(object sender, EventArgs e)
+        {
+            repo.setErdok(erat.getErdokAdatbazisbol());
+            repo.setErdogazdalkodok(egrat.getErdogazdalkodokAdatbazisbol());
+            repo.setSzamlak(szrat.getSzamlakAdatbazisbol());
+            repo.setVevok(vrat.getVevokAdatbazisbol());
         }
 
         private void erdőkKiírtatásaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -61,24 +73,36 @@ namespace Forest_Register
             
         }
 
-        private void DataGridViewFrissitese()
+        private void DataGridViewFrissiteseErdo()
         {
+            metroButtonUjErdo.Visible = true;
             erdokDt = repo.ErdoAdatokListabol();
-            erdogazdalkodokDt = repo.ErdogazdalkodoAdatokListabol();
-            szamlakDt = repo.SzamlaAdatokListabol();
-            vevokDt = repo.VevoAdatokListabol();
-
             dataGridViewErdok.DataSource = null;
             dataGridViewErdok.DataSource = erdokDt;
+            
+        }
+
+        private void DataGridViewFrissiteseErGaz()
+        {
+            erdogazdalkodokDt = repo.ErdogazdalkodoAdatokListabol();
             dataGridViewErdogazdalkodok.DataSource = null;
             dataGridViewErdogazdalkodok.DataSource = erdogazdalkodokDt;
-            dataGridViewSzamlak.DataSource = null;
-            dataGridViewSzamlak.DataSource = szamlakDt;
+            metroButtonUjErdo.Visible = true;
+        }
+
+        private void DataGridViewFrissiteseVevo()
+        {
+            vevokDt = repo.VevoAdatokListabol();
             dataGridViewVevok.DataSource = null;
             dataGridViewVevok.DataSource = vevokDt;
         }
 
-        
+        private void DataGridViewFrissiteseSzamla()
+        {
+            szamlakDt = repo.SzamlaAdatokListabol();
+            dataGridViewSzamlak.DataSource = null;
+            dataGridViewSzamlak.DataSource = szamlakDt;
+        }
 
         private void metroPanelVevo_Paint(object sender, PaintEventArgs e)
         {
@@ -91,9 +115,11 @@ namespace Forest_Register
             ErdogazdalkodokFeltoltese();
         }
 
-        private void FormForestRegister_Leave(object sender, EventArgs e)
+        private void FormForestRegister_FormClosed(object sender, FormClosedEventArgs e)
         {
             ar.AdatbazisTorles();
         }
+
+
     }
 }

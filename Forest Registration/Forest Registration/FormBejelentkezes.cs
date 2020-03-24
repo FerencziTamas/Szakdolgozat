@@ -33,7 +33,33 @@ namespace Forest_Registration
             connectionString = cs.getConnectionString();
         }
 
-        private void FormBejelentkezes_Load(object sender, EventArgs e)
+        private void metroButtonBejelentkezes_Click(object sender, EventArgs e)
+        {
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            string query = "SELECT * FROM `erdo_adatbazis`.`felhasznalok` WHERE email = '"+metroTextBoxEmail.Text.Trim()+"' AND jelszo = '"+metroTextBoxJelszo.Text.Trim()+"'";
+            MySqlDataAdapter msda = new MySqlDataAdapter(query, connection);
+            DataTable dt = new DataTable();
+            msda.Fill(dt);
+            if (dt.Rows.Count == 1)
+            {
+                FormForestRegister mainForm = new FormForestRegister();
+                this.Hide();
+                mainForm.Show();
+            }
+            else
+            {
+                MessageBox.Show("Hibás e-mail cím vagy jelszó!");
+            }
+        }
+
+        private void metroButtonReg_Click(object sender, EventArgs e)
+        {
+            FormRegisztracio regisztracio = new FormRegisztracio();
+            this.Hide();
+            regisztracio.Show();
+        }
+
+        private void FormBejelentkezes_Load_1(object sender, EventArgs e)
         {
             ar.AdatbazisLetrehozas();
 
@@ -61,40 +87,24 @@ namespace Forest_Registration
             ar.FakTesztAdatokFeltoltese();
             vrat.VevokTesztAdatokFeltoltese();
             szrat.SzamlaTesztAdatokFeltoltese();
-            
+
 
             //Adatok lekérdezése adatbázisból
+            
             erat.getErdokAdatbazisbol();
             //egrat.getErdogazdalkodokAdatbazisbol();
             szrat.getSzamlakAdatbazisbol();
             //vrat.getVevokAdatbazisbol();
-
         }
 
-        private void metroButtonBejelentkezes_Click(object sender, EventArgs e)
+        private void FormBejelentkezes_FormClosed(object sender, FormClosedEventArgs e)
         {
-            MySqlConnection connection = new MySqlConnection(connectionString);
-            string query = "SELECT * FROM `erdo_adatbazis`.`felhasznalok` WHERE email = '"+metroTextBoxEmail.Text.Trim()+"' AND jelszo = '"+metroTextBoxJelszo.Text.Trim()+"'";
-            MySqlDataAdapter msda = new MySqlDataAdapter(query, connection);
-            DataTable dt = new DataTable();
-            msda.Fill(dt);
-            if (dt.Rows.Count == 1)
-            {
-                FormForestRegister mainForm = new FormForestRegister();
-                this.Hide();
-                mainForm.Show();
-            }
-            else
-            {
-                MessageBox.Show("Hibás e-mail cím vagy jelszó!");
-            }
+            ar.AdatbazisTorles();
         }
 
-        private void metroButtonReg_Click(object sender, EventArgs e)
+        private void metroButtonKilepes_Click(object sender, EventArgs e)
         {
-            FormRegisztracio regisztracio = new FormRegisztracio();
-            this.Hide();
-            regisztracio.Show();
+            this.Close();
         }
     }
 }

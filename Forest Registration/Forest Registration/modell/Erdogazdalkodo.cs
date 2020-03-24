@@ -25,52 +25,11 @@ namespace Forest_Register.modell
         {
             this.egKod = egKod;
             this.erdogazNev = erdogazNev;
-            if (!nevEllenorzes(erdogazNev))
-            {
-                throw new HibasErGazNevException("A név nem megfelelő");
-            }
-            if (!CimHelyes(erdogazCim))
-            {
-                throw new HibasErGazCimException("A cím nem megfelelő");
-            }
-            
             this.erdogazCim = erdogazCim;
         }
 
         //Ellenőrzi a nevet hogy helyes-e
-        public bool nevEllenorzes(string erdogazNev)
-        {
-            if (erdogazNev == string.Empty)
-            {
-                return false;
-            }
-
-            if (!char.IsUpper(erdogazNev.ElementAt(0)))
-            {
-                return false;
-            }
-
-            for (int i = 1; i < erdogazNev.Length; i++)
-            {
-                if ((!char.IsLetter(erdogazNev.ElementAt(i))) && (!char.IsWhiteSpace(erdogazNev.ElementAt(i))))
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        private bool CimHelyes(string erdogazCim)
-        {
-            if (erdogazCim == string.Empty)
-                return false;
-            if (!char.IsUpper(erdogazCim.ElementAt(0)))
-                return false;
-            for (int i = 1; i < erdogazCim.Length; i++)
-                if ((!char.IsLetter(erdogazCim[i])) && (!char.IsWhiteSpace(erdogazNev.ElementAt(i))))
-                    return false;
-            return true;
-        }
+       
 
         /// <summary>
         /// kod, nev, cim adatoknak értékadás

@@ -12,11 +12,11 @@ namespace Forest_Register.modell
         private string helyrajziSzam;
         private int kor;
         private int terulet;
-        private string fahasznalat;
+        private int fahasznalat;
         private string erdogazdalkodo;
 
 
-        public Erdo(string erdeszetiAzon, string helyrajziSzam, int kor, int terulet, string fahasznalat, string erdogazdalkodo)
+        public Erdo(string erdeszetiAzon, string helyrajziSzam, int kor, int terulet, int fahasznalat, string erdogazdalkodo)
         {
             this.erdeszetiAzon = erdeszetiAzon;
             this.helyrajziSzam = helyrajziSzam;
@@ -46,7 +46,7 @@ namespace Forest_Register.modell
         {
             this.terulet = terulet;
         }
-        public void setFahasznalat(string fahasznalat) 
+        public void setFahasznalat(int fahasznalat) 
         {
             this.fahasznalat = fahasznalat;
         }
@@ -75,7 +75,7 @@ namespace Forest_Register.modell
         {
             return terulet;
         }
-        public string getFahasznalat()
+        public int getFahasznalat()
         {
             return fahasznalat;
         }

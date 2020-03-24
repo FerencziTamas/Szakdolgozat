@@ -46,8 +46,8 @@ namespace Forest_Registration.repository
             MySqlConnection connection = new MySqlConnection(connectionString);
             try
             {
-                string query = "DROP DATABASE `erdo_adatbazis`.`erdo_adatbazis`";
                 connection.Open();
+                string query = "DROP DATABASE `erdo_adatbazis`";
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
                 connection.Close();

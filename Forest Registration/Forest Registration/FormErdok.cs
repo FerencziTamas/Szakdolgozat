@@ -22,10 +22,19 @@ namespace Forest_Register
 
         private void metroButtonBetoltErdok_Click(object sender, EventArgs e)
         {
-            DataGridViewFrissitese();
+            UjErdoGombLathato();
+            DataGridViewFrissiteseErdo();
             dataGridViewErdokBeallit();
             GombokBealitasaErdo();
             dataGridViewErdok.SelectionChanged += dataGridViewErdok_SelectionChanged;
+        }
+
+        public void UjErdoGombLathato()
+        {
+            if (metroButtonUjErdo.Visible == false)
+            {
+                metroButtonUjErdo.Visible = true;
+            }
         }
 
         private void metroButtonKilepes_Click(object sender, EventArgs e)
@@ -35,6 +44,7 @@ namespace Forest_Register
 
         private void ErdogazdalkodokFeltoltese()
         {
+            metroComboBoxErdokErgaz.DataSource = null;
             metroComboBoxErdokErgaz.DataSource = repo.getErdogazdalkodoNev();
         }
 
@@ -166,7 +176,7 @@ namespace Forest_Register
                 }
 
                 //DataGridView frissítése
-                DataGridViewFrissitese();
+                DataGridViewFrissiteseErdo();
                 dataGridViewErdokBeallit();
             }
         }
@@ -187,7 +197,7 @@ namespace Forest_Register
                     metroTextBoxHelyrajziSzam.Text,
                     Convert.ToInt32(numericUpDownErdoKor.Value),
                     Convert.ToInt32(metroTextBoxTerulet.Text),
-                    metroComboBoxErdokErgaz.Text,
+                    Convert.ToInt32(metroComboBoxErdokErgaz.Text),
                     metroTextBoxFahasznalatModja.Text
                     );
                 string erdeszetiAzon = metroTextBoxErdeszetiAzon.Text;
@@ -215,7 +225,7 @@ namespace Forest_Register
                 }
 
                 //DataGridView frissítése
-                DataGridViewFrissitese();
+                DataGridViewFrissiteseErdo();
             }
             catch (RepositoryExceptionNemTudModositani rentm)
             {
@@ -244,7 +254,7 @@ namespace Forest_Register
                     metroTextBoxHelyrajziSzam.Text,
                     Convert.ToInt32(numericUpDownErdoKor.Value),
                     Convert.ToInt32(metroTextBoxTerulet.Text),
-                    metroComboBoxErdokErgaz.Text,
+                    Convert.ToInt32(metroComboBoxErdokErgaz.Text),
                     metroTextBoxFahasznalatModja.Text
                     );
                 string azonosito = metroTextBoxErdeszetiAzon.Text;
