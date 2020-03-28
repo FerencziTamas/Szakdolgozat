@@ -36,6 +36,7 @@ namespace Forest_Register
             }
             if (dataGridViewVevok.SelectedRows.Count == 1)
             {
+                metroTextBoxVevoAzon.ReadOnly = true;
                 metroPanelVevoTorolModosit.Visible = true;
                 metroPanelVevo.Visible = true;
                 metroTextBoxVevoAzon.Text = dataGridViewVevok.SelectedRows[0].Cells[0].Value.ToString();
@@ -88,6 +89,8 @@ namespace Forest_Register
             vevokDt.Columns[3].Caption = "Vevő technikai azonosító";
             vevokDt.Columns[4].ColumnName = "Adószám";
             vevokDt.Columns[4].Caption = "Vevő adószám";
+            
+            dataGridViewVevok.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 
             dataGridViewVevok.SelectionMode =
                 DataGridViewSelectionMode.FullRowSelect;
@@ -97,12 +100,17 @@ namespace Forest_Register
             dataGridViewVevok.MultiSelect = false;
         }
 
-        private void metroTextBoxVevoAdoszam_TextChanged(object sender, EventArgs e)
+        private void metroTextBoxVevoAdoszam_KeyPress(object sender, KeyPressEventArgs e)
         {
             string text = metroTextBoxVevoAdoszam.Text;
-            if (System.Text.RegularExpressions.Regex.IsMatch(metroTextBoxVevoAdoszam.Text, "[^0-9]") && (text.Length>12))
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
             {
-                metroTextBoxVevoAdoszam.Text = metroTextBoxVevoAdoszam.Text.Remove(metroTextBoxVevoAdoszam.Text.Length - 1);
+                e.Handled = true;
+            }
+
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
             }
         }
 
@@ -111,6 +119,7 @@ namespace Forest_Register
             adatFelvetel = true;
             metroPanelVevo.Visible = true;
             int ujVevoId = repo.getKovVevoId();
+            metroTextBoxVevoAzon.ReadOnly = true;
             metroPanelVevoTorolModosit.Visible = true;
             metroTextBoxVevoAzon.Text = ujVevoId.ToString();
             metroTextBoxVevoNev.Text = string.Empty;
@@ -125,7 +134,11 @@ namespace Forest_Register
             if ((dataGridViewVevok.Rows == null) || (dataGridViewVevok.Rows.Count == 0))
                 return;
 
-            int vevoId = Convert.ToInt32(dataGridViewVevok.SelectedRows[0].Index.ToString());
+            int vevoId = Convert.ToInt32(dataGridViewVevok.SelectedRows[0].Cells[0].Value.ToString());
+            if (!int.TryParse(
+                         dataGridViewVevok.SelectedRows[0].Cells[0].Value.ToString(),
+                         out vevoId))
+                return;
             if (MessageBox.Show(
                 "Valóban törölni akarja a sort?",
                 "Törlés",
@@ -260,6 +273,10 @@ namespace Forest_Register
             catch (HibasVevoCimException hvce)
             {
                 errorProviderVevoCim.SetError(metroTextBoxVevoCim, hvce.Message);
+            }
+            catch(Exception ex)
+            {
+
             }
         }
 

@@ -22,19 +22,10 @@ namespace Forest_Register
 
         private void metroButtonBetoltErdok_Click(object sender, EventArgs e)
         {
-            UjErdoGombLathato();
             DataGridViewFrissiteseErdo();
             dataGridViewErdokBeallit();
             GombokBealitasaErdo();
             dataGridViewErdok.SelectionChanged += dataGridViewErdok_SelectionChanged;
-        }
-
-        public void UjErdoGombLathato()
-        {
-            if (metroButtonUjErdo.Visible == false)
-            {
-                metroButtonUjErdo.Visible = true;
-            }
         }
 
         private void metroButtonKilepes_Click(object sender, EventArgs e)
@@ -48,17 +39,32 @@ namespace Forest_Register
             metroComboBoxErdokErgaz.DataSource = repo.getErdogazdalkodoNev();
         }
 
+        private void FaHaszModFeltoltese()
+        {
+            metroComboBoxFahaszMod.DataSource = null;
+            metroComboBoxFahaszMod.DataSource = repo.getFahaszModRoviditesek();
+        }
+
         private void GombokBealitasaErdo()
         {
             metroPanelErdo.Visible = false;
             metroPanelErdoTorlesModositas.Visible = false;
-            if (dataGridViewErdok.SelectedRows.Count > 0)
-            {
-                metroButtonUjErdo.Visible = false;
-            }
-            else
+            if (dataGridViewErdok.SelectedRows.Count == 1)
             {
                 metroButtonUjErdo.Visible = true;
+            }
+        }
+
+        private void metroTextBoxTerulet_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
             }
         }
 
@@ -76,6 +82,8 @@ namespace Forest_Register
             erdokDt.Columns[4].Caption = "Erdő fahasználat";
             erdokDt.Columns[5].ColumnName = "Erdőgazdálkodó";
             erdokDt.Columns[5].Caption = "Erdő erdőgazdálkodó";
+
+            dataGridViewErdok.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 
             dataGridViewErdok.SelectionMode =
                 DataGridViewSelectionMode.FullRowSelect;
@@ -95,6 +103,7 @@ namespace Forest_Register
             }
             if (dataGridViewErdok.SelectedRows.Count == 1)
             {
+                metroTextBoxErdeszetiAzon.ReadOnly = true;
                 metroPanelErdoTorlesModositas.Visible = true;
                 metroPanelErdo.Visible = true;
                 metroTextBoxErdeszetiAzon.Text = dataGridViewErdok.SelectedRows[0].Cells[0].Value.ToString();
@@ -102,14 +111,13 @@ namespace Forest_Register
                 numericUpDownErdoKor.Value = Convert.ToInt32(dataGridViewErdok.SelectedRows[0].Cells[2].Value);
                 metroTextBoxTerulet.Text = dataGridViewErdok.SelectedRows[0].Cells[3].Value.ToString();
                 metroComboBoxErdokErgaz.Text = dataGridViewErdok.SelectedRows[0].Cells[4].Value.ToString();
-                metroTextBoxFahasznalatModja.Text = dataGridViewErdok.SelectedRows[0].Cells[5].Value.ToString();
+                metroComboBoxFahaszMod.Text = dataGridViewErdok.SelectedRows[0].Cells[5].Value.ToString();
             }
         }
 
         private void GombokBeallitasaKattintaskorErdo()
         {
             adatFelvetel = false;
-            metroButtonUjErdo.Visible = false;
             metroPanelErdoTorlesModositas.Visible = true;
             ErrorProviderekTorleseErdo();
         }
@@ -131,7 +139,7 @@ namespace Forest_Register
             numericUpDownErdoKor.Value = 0;
             metroTextBoxTerulet.Text = string.Empty;
             metroComboBoxErdokErgaz.Text = string.Empty;
-            metroTextBoxFahasznalatModja.Text = string.Empty;
+            metroComboBoxFahaszMod.Text = string.Empty;
         }
 
         /// <summary>
@@ -145,7 +153,7 @@ namespace Forest_Register
             if ((dataGridViewErdok.Rows == null) || (dataGridViewErdok.Rows.Count == 0))
                 return;
 
-            string erdeszetiAzon = dataGridViewErdok.SelectedRows[0].Index.ToString();
+            string erdeszetiAzon = dataGridViewErdok.SelectedRows[0].Cells[0].Value.ToString();
             if (MessageBox.Show(
                 "Valóban törölni akarja a sort?",
                 "Törlés",
@@ -198,7 +206,7 @@ namespace Forest_Register
                     Convert.ToInt32(numericUpDownErdoKor.Value),
                     Convert.ToInt32(metroTextBoxTerulet.Text),
                     Convert.ToInt32(metroComboBoxErdokErgaz.Text),
-                    metroTextBoxFahasznalatModja.Text
+                    metroComboBoxFahaszMod.Text
                     );
                 string erdeszetiAzon = metroTextBoxErdeszetiAzon.Text;
 
@@ -255,7 +263,7 @@ namespace Forest_Register
                     Convert.ToInt32(numericUpDownErdoKor.Value),
                     Convert.ToInt32(metroTextBoxTerulet.Text),
                     Convert.ToInt32(metroComboBoxErdokErgaz.Text),
-                    metroTextBoxFahasznalatModja.Text
+                    metroComboBoxFahaszMod.Text
                     );
                 string azonosito = metroTextBoxErdeszetiAzon.Text;
 
@@ -304,7 +312,7 @@ namespace Forest_Register
             numericUpDownErdoKor.Value = 0;
             metroTextBoxTerulet.Text = string.Empty;
             metroComboBoxErdokErgaz.Text = string.Empty;
-            metroTextBoxFahasznalatModja.Text = string.Empty;
+            metroComboBoxFahaszMod.Text = string.Empty;
         }
 
         private void ErrorProviderekTorleseErdo()

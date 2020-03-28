@@ -22,6 +22,11 @@ namespace Forest_Register.repository
             return erdok;
         }
 
+        public List<Fa_hasznalat_modja> getFaHaszModjai()
+        {
+            return faHaszModjai;
+        }
+
         public DataTable ErdoAdatokListabol()
         {
             DataTable erdoDt = new DataTable();

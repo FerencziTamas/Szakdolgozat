@@ -59,6 +59,7 @@ namespace Forest_Register.repository
                 connection.Open();
                 string query = "INSERT INTO `erdo_adatbazis`.`vevok` (`vevoId`, `nev`, `cim`, `technikai_azonosito`, `adoszam`) VALUES " +
                     "(1, 'Nem én', 'Nem az enyém', 'TECH665hwwr', 55444545), " +
+                    "(5, 'Eminem', 'Nem ez az utca', 'TECH667hwwr', 21), " +
                     "(2, 'Kertész Erik', 'Erik utcája 57', 'ERIK77777', 242442), " +
                     "(3, 'Erdő Benő', 'Helyi utca 565', 'TECH5555552', 5252526), " +
                     "(4, 'Valami', 'Valami valami utca 6', '2424242REKT', 25252525);";

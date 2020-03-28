@@ -38,7 +38,7 @@ namespace Forest_Register.repository
                         if (joEredmeny)
                         {
                             int fahasznalat = -1;
-                            joEredmeny = int.TryParse(dr["hasznalatId"].ToString(), out terulet);
+                            joEredmeny = int.TryParse(dr["hasznalatId"].ToString(), out fahasznalat);
                             if(joEredmeny)
                             {
                                 Erdo e = new Erdo(erdeszetiAzon, helyrajziSzam, kor, terulet, fahasznalat, erdogazdalkodo);
@@ -64,7 +64,7 @@ namespace Forest_Register.repository
             try
             {
                 connection.Open();
-                string query = "DELETE FROM `erdok` WHERE `erdeszeti_azonosito` = " + erdeszetiAzon;
+                string query = "DELETE FROM `erdok` WHERE `erdeszeti_azonosito` = \"" + erdeszetiAzon+"\"";
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
                 connection.Close();

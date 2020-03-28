@@ -110,6 +110,8 @@
     <Compile Include="repository\Erdok\ErdokRepository.cs" />
     <Compile Include="repository\Erdok\ErdokRepositoryAdatbazisTabla.cs" />
     <Compile Include="repository\Erdok\ErdokRepositoryAdatbazisTablaSQL.cs" />
+    <Compile Include="repository\FafajokRepositoryAdatbazisTabla.cs" />
+    <Compile Include="repository\FaHaszModRepositoryAdatbazisTabla.cs" />
     <Compile Include="repository\RepositoryException.cs" />
     <Compile Include="repository\RepositoryExceptionNemTudHozzaadni.cs" />
     <Compile Include="repository\RepositoryExceptionNemTudModositani.cs" />

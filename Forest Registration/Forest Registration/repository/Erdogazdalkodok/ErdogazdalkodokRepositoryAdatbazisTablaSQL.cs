@@ -48,7 +48,7 @@ namespace Forest_Register.repository
             try
             {
                 connection.Open();
-                string query = "DELETE FROM `erdogazdalkodok` WHERE `egKod` = " + egKod;
+                string query = "DELETE FROM `erdogazdalkodok` WHERE `egKod` = \"" + egKod+ "\"";
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
                 connection.Close();
@@ -58,7 +58,7 @@ namespace Forest_Register.repository
                 connection.Close();
                 Debug.WriteLine(e.Message);
                 Debug.WriteLine(egKod + " kodú erdőgazdálkodó törlése nem sikerült.");
-                throw new RepositoryException("Sikertelen törlés az adatbázisból.");
+                throw new RepositoryException("Sikertelen törlés az adatbázisból. Egyik erdő tartalmazza az erdőgazdálkodót!");
             }
         }
 

@@ -63,7 +63,7 @@ namespace Forest_Register.repository
                 connection.Open();
                 string queryKeys = "ALTER TABLE `erdok` " +
                     "ADD CONSTRAINT `erdok_ibfk_1` FOREIGN KEY IF NOT EXISTS (`egKod`) REFERENCES `erdogazdalkodok` (`egKod`), " +
-                    //"ADD CONSTRAINT `erdok_ibfk_2` FOREIGN KEY(`egKod`) REFERENCES `erdogazdalkodok` (`egKod`), " +
+                    "ADD CONSTRAINT `erdok_ibfk_2` FOREIGN KEY IF NOT EXISTS (`egKod`) REFERENCES `erdogazdalkodok` (`egKod`), " +
                     "ADD CONSTRAINT `erdok_ibfk_3` FOREIGN KEY IF NOT EXISTS (`hasznalatId`) REFERENCES `fa_hasznalat_modjai` (`hasznalatId`); ";
                 MySqlCommand cmdQueryKeys = new MySqlCommand(queryKeys, connection);
                 cmdQueryKeys.ExecuteNonQuery();
@@ -106,6 +106,10 @@ namespace Forest_Register.repository
             {
                 connection.Open();
                 string query = "INSERT INTO `erdo_adatbazis`.`erdok` (`erdeszeti_azonosito`, `helyrajzi_szam`, `kor`, `terulet`, `hasznalatId`, `egKod`) VALUES " +
+                    "('DASISTERDO420', 'LISSZABON3', 40, 5000, 4, 'Én24141442'), " +
+                    "('DASISTERDO421', 'LISSZABON3', 40, 5000, 4, 'Én24141442'), " +
+                    "('DASISTERDO44', 'LISSZABON4', 40, 5000, 4, 'Kod2'), " +
+                    "('DASISTERDO423', 'LISSZABON3', 40, 5000, 4, 'Én24141442'), " +
                     "('DASISTERDO422', 'LISSZABON3', 40, 5000, 4, 'Én24141442'), " +
                     "('ERDO555/', 'ÁSOTTALOM22-T', 40, 1000, 1, 'DASISTKOD'), " +
                     "('ERDO9', 'SZEGED54-K', 10, 870, 2, 'FAVAGO134252'), " +

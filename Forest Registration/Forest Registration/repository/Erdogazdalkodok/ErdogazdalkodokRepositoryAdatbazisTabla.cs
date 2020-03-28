@@ -55,7 +55,11 @@ namespace Forest_Register.repository
             try
             {
                 connection.Open();
-                string query = "INSERT INTO `erdogazdalkodok` (`egKod`, `erdogazNev`, `erdogazCim`) VALUES ('DASISTKOD', 'Erdész Péter', 'Szeged Nem utca -2.'), " +
+                string query = "INSERT INTO `erdogazdalkodok` (`egKod`, `erdogazNev`, `erdogazCim`) VALUES " +
+                    "('Kod1', 'Erdész Miki', 'Szeged Nem utca -3.'), " +
+                    "('Kod2', 'Erdész Elek', 'Szeged Nem utca -4.'), " +
+                    "('Kod3', 'Erdész Tibi', 'Szeged Nem utca -5.'), " +
+                    "('DASISTKOD', 'Erdész Péter', 'Szeged Nem utca -2.'), " +
                     "('Én24141442', 'Ferenczi Tamás', 'Ásotthalom Királyhalmi utca. 56.'), " +
                     "('FAVAGO134252', 'Favágó János', 'Szeged Favágó utca 50.'), " +
                     "('Hello There!', 'General Kenobi!', 'Halálcsillag utca 66.'); ";

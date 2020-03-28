@@ -21,12 +21,12 @@ namespace Forest_Register.modell
 
         public string ErdogazdalkodoModositas(string kod)
         {
-            return "UPDATE `erdogazdalkodok` SET `nev`='" + getErdogazNev() + "',`cim`='" + getErdogazCim() + "' WHERE egKod = " + kod;
+            return "UPDATE `erdogazdalkodok` SET `erdogazNev`='" + getErdogazNev() + "', `erdogazCim`='" + getErdogazCim() + "' WHERE `erdogazdalkodok`.`egKod` = \"" + kod+ "\"";
         }
 
         public string ErdogazdalkodoHozzaadas()
         {
-            return "INSERT INTO `erdogazdalkodok`(`egKod`, `nev`, `cim`) VALUES ('"+egKod+"', '"+getErdogazNev()+"', '"+getErdogazCim()+"');";
+            return "INSERT INTO `erdogazdalkodok`(`egKod`, `nev`, `cim`) VALUES ('\"" + egKod+ "\"', '" + getErdogazNev()+"', '"+getErdogazCim()+"');";
         }
 
 

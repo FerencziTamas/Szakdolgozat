@@ -25,12 +25,12 @@ namespace Forest_Register.modell
 
         public string SzamlaModositasEgy(string szamlaszam)
         {
-            return "UPDATE `szamlak` SET `vevoId`= '"+getVevoNev()+"',`teljesites_napja`='"+getTeljesitesNapja()+"',`szamla_keletkezes`='"+getSzamlaKeletkezese()+"',`kifizetes_napja`='"+getKifizetesNapja()+"',`lerakodasi_hely`='"+getLerakodasiHely()+"',`felrakasi_hely`='"+getFelrakasiHely()+"',`muveleti_lap_sorszam`='"+getMuveletiLapSorszam()+"',`szallitojegy_sorszam`='"+getSzallitojegySorszam()+"' WHERE `szamlaszam`='"+szamlaszam;
+            return "UPDATE `szamlak` SET `vevoId`= '"+getVevoNev()+"',`teljesites_napja`='"+getTeljesitesNapja()+"',`szamla_keletkezes`='"+getSzamlaKeletkezese()+"',`kifizetes_napja`='"+getKifizetesNapja()+"',`lerakodasi_hely`='"+getLerakodasiHely()+"',`felrakasi_hely`='"+getFelrakasiHely()+"',`muveleti_lap_sorszam`='"+getMuveletiLapSorszam()+"',`szallitojegy_sorszam`='"+getSzallitojegySorszam()+ "' WHERE `szamlaszam`= \"" + szamlaszam+ "\"";
         }
 
         public string SzamlaModositasKetto(string szamlaszam)
         {
-            return "UPDATE `szamlatetelek` SET `fafajId`='"+getFafaj()+"',`mennyiseg`='"+getMennyiseg()+"',`felhasznalas_modja`='"+getFelhasznalasModja()+"',`brutto_ar`='"+getBruttoAr()+"',`netto_ar`='"+getNettoAr()+"' WHERE `szamlaszam`= "+szamlaszam;
+            return "UPDATE `szamlatetelek` SET `fafajId`='"+getFafaj()+"',`mennyiseg`='"+getMennyiseg()+"',`felhasznalas_modja`='"+getFelhasznalasModja()+"',`brutto_ar`='"+getBruttoAr()+"',`netto_ar`='"+getNettoAr()+ "' WHERE `szamlaszam`= \"" + szamlaszam+ "\"";
         }
 
         public string SzamlaHozzaadasEgy()
@@ -40,7 +40,7 @@ namespace Forest_Register.modell
 
         public string SzamlaHozzaadasKetto()
         {
-            return "INSERT INTO `szamlatetelek`(`fafajId`, `szamlaszam`, `mennyiseg`, `felhasznalas_modja`, `brutto_ar`, `netto_ar`) VALUES ('" + getFafaj() + "', '" + szamlaszam + "', '" + getMennyiseg() + "', '" + getFelhasznalasModja() + "', '" + getBruttoAr() + "', '" + getNettoAr() + "')";
+            return "INSERT INTO `szamlatetelek`(`fafajId`, `szamlaszam`, `mennyiseg`, `felhasznalas_modja`, `brutto_ar`, `netto_ar`) VALUES ('" + getFafaj() + "', '\"" + szamlaszam + "\"', '" + getMennyiseg() + "', '" + getFelhasznalasModja() + "', '" + getBruttoAr() + "', '" + getNettoAr() + "')";
         }
 
 

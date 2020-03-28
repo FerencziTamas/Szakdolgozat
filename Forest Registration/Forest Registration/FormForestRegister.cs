@@ -20,6 +20,7 @@ namespace Forest_Register
         ErdogazdalkodokRepositoryAdatbazisTabla egrat = new ErdogazdalkodokRepositoryAdatbazisTabla();
         SzamlakRepositoryAdatbazisTabla szrat = new SzamlakRepositoryAdatbazisTabla();
         VevokRepositoryAdatbazisTabla vrat = new VevokRepositoryAdatbazisTabla();
+        FafajokRepositoryAdatbazisTabla frat = new FafajokRepositoryAdatbazisTabla();
 
         bool adatFelvetel = false;
 
@@ -34,6 +35,12 @@ namespace Forest_Register
             repo.setErdogazdalkodok(egrat.getErdogazdalkodokAdatbazisbol());
             repo.setSzamlak(szrat.getSzamlakAdatbazisbol());
             repo.setVevok(vrat.getVevokAdatbazisbol());
+            repo.setFafajok(frat.getFafajokAdatbazisbol());
+
+            //comboboxok betöltése
+            ErdogazdalkodokFeltoltese();
+            FafajokFeltoltese();
+            FaHaszModFeltoltese();
         }
 
         private void erdőkKiírtatásaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -79,7 +86,6 @@ namespace Forest_Register
             erdokDt = repo.ErdoAdatokListabol();
             dataGridViewErdok.DataSource = null;
             dataGridViewErdok.DataSource = erdokDt;
-            
         }
 
         private void DataGridViewFrissiteseErGaz()
@@ -102,6 +108,9 @@ namespace Forest_Register
             szamlakDt = repo.SzamlaAdatokListabol();
             dataGridViewSzamlak.DataSource = null;
             dataGridViewSzamlak.DataSource = szamlakDt;
+            dataGridViewSzamlak.Columns[7].DefaultCellStyle.Format = "MM/dd/yyyy";
+            dataGridViewSzamlak.Columns[8].DefaultCellStyle.Format = "MM/dd/yyyy";
+            dataGridViewSzamlak.Columns[9].DefaultCellStyle.Format = "MM/dd/yyyy";
         }
 
         private void metroPanelVevo_Paint(object sender, PaintEventArgs e)
@@ -109,17 +118,11 @@ namespace Forest_Register
 
         }
 
-        private void metroTabControlErdok_Selected(object sender, TabControlEventArgs e)
-        {
-            //Az erdők tabpage comboboxába betölti az erdőgazdálkodók nevét
-            ErdogazdalkodokFeltoltese();
-        }
-
         private void FormForestRegister_FormClosed(object sender, FormClosedEventArgs e)
         {
             ar.AdatbazisTorles();
         }
 
-
+        
     }
 }

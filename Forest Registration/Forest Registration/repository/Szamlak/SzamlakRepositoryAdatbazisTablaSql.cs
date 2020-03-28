@@ -71,8 +71,8 @@ namespace Forest_Register.repository
             try
             {
                 connection.Open();
-                string query1 = "DELETE FROM `szamlak` WHERE `szamlaszam`= " + szamlaszam;
-                string query2 = "DELETE FROM `szamlatetelek` WHERE szamlaszam = " + szamlaszam;
+                string query1 = "DELETE FROM `szamlak` WHERE `szamlaszam`= \"" + szamlaszam+ "\"";
+                string query2 = "DELETE FROM `szamlatetelek` WHERE szamlaszam = \"" + szamlaszam+ "\"";
                 MySqlCommand cmd1 = new MySqlCommand(query1, connection);
                 MySqlCommand cmd2 = new MySqlCommand(query2, connection);
                 cmd1.ExecuteNonQuery();

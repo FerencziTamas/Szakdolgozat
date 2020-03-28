@@ -10,12 +10,12 @@ namespace Forest_Register.modell
     {
         public string ErdoHozzaadas()
         {
-            return "INSERT INTO `erdok`(`erdeszeti_azonosito`, `helyrajzi_szam`, `kor`, `terület`, `hasznalatId`, `egKod`) VALUES('"+ erdeszetiAzon + "', '"+getHelyrajziSzam()+"', '"+getKor()+"', '"+getTerulet()+"', '"+getFahasznalat()+"', '"+getErdogazdalkodo()+"');";
+            return "INSERT INTO `erdok`(`erdeszeti_azonosito`, `helyrajzi_szam`, `kor`, `terület`, `hasznalatId`, `egKod`) VALUES('\"" + erdeszetiAzon + "\"', '" + getHelyrajziSzam()+"', '"+getKor()+"', '"+getTerulet()+"', '"+getFahasznalat()+"', '"+getErdogazdalkodo()+"');";
         }
 
         public string ErdoModositas(string erdeszetiAzon)
         {
-            return "UPDATE `erdok` SET `helyrajzi_szam`= '"+ getHelyrajziSzam() + "',`kor`= '"+ getKor() + "',`terület`= "+ getTerulet() + " ,`hasznalatId`= '"+ getFahasznalat() + "',`egKod`='"+ getErdogazdalkodo() + "' WHERE `erdeszeti_azonosito`= " + erdeszetiAzon;
+            return "UPDATE `erdok` SET `helyrajzi_szam`= '"+ getHelyrajziSzam() + "',`kor`= '"+ getKor() + "',`terület`= "+ getTerulet() + " ,`hasznalatId`= '"+ getFahasznalat() + "',`egKod`='"+ getErdogazdalkodo() + "' WHERE `erdeszeti_azonosito`= \"" + erdeszetiAzon+ "\"";
         }
 
         public static string OsszesErdo()
@@ -27,7 +27,5 @@ namespace Forest_Register.modell
         {
             return "DELETE FROM `erdok`";
         }
-
-
     }
 }

@@ -98,7 +98,6 @@ namespace Forest_Register.modell
 
         public void modosit(Vevo modosult)
         {
-            this.vevoId = modosult.getVevoId();
             this.nev = modosult.getVevoNev();
             this.cim = modosult.getVevoCim();
             this.technikai_azonosito = modosult.getTechnikaiAzonosito();

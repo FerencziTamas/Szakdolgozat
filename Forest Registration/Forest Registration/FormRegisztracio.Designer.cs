@@ -39,7 +39,6 @@
             this.metroTextBoxMegerosit = new MetroFramework.Controls.MetroTextBox();
             this.metroButtonRegisztracio = new MetroFramework.Controls.MetroButton();
             this.metroButton2 = new MetroFramework.Controls.MetroButton();
-            this.metroButtonBej = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -211,11 +210,11 @@
             // 
             // metroButtonRegisztracio
             // 
-            this.metroButtonRegisztracio.Location = new System.Drawing.Point(227, 491);
+            this.metroButtonRegisztracio.Location = new System.Drawing.Point(190, 491);
             this.metroButtonRegisztracio.Name = "metroButtonRegisztracio";
-            this.metroButtonRegisztracio.Size = new System.Drawing.Size(113, 23);
+            this.metroButtonRegisztracio.Size = new System.Drawing.Size(150, 23);
             this.metroButtonRegisztracio.TabIndex = 9;
-            this.metroButtonRegisztracio.Text = "Regisztráció";
+            this.metroButtonRegisztracio.Text = "Regisztráció és belépés";
             this.metroButtonRegisztracio.UseSelectable = true;
             this.metroButtonRegisztracio.Click += new System.EventHandler(this.metroButtonRegisztracio_Click);
             // 
@@ -229,22 +228,11 @@
             this.metroButton2.UseSelectable = true;
             this.metroButton2.Click += new System.EventHandler(this.metroButton2_Click);
             // 
-            // metroButtonBej
-            // 
-            this.metroButtonBej.Location = new System.Drawing.Point(45, 491);
-            this.metroButtonBej.Name = "metroButtonBej";
-            this.metroButtonBej.Size = new System.Drawing.Size(99, 23);
-            this.metroButtonBej.TabIndex = 11;
-            this.metroButtonBej.Text = "Bejelentkezés";
-            this.metroButtonBej.UseSelectable = true;
-            this.metroButtonBej.Click += new System.EventHandler(this.metroButtonBej_Click);
-            // 
             // FormRegisztracio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(385, 583);
-            this.Controls.Add(this.metroButtonBej);
             this.Controls.Add(this.metroButton2);
             this.Controls.Add(this.metroButtonRegisztracio);
             this.Controls.Add(this.metroTextBoxMegerosit);
@@ -280,6 +268,5 @@
         private MetroFramework.Controls.MetroTextBox metroTextBoxMegerosit;
         private MetroFramework.Controls.MetroButton metroButtonRegisztracio;
         private MetroFramework.Controls.MetroButton metroButton2;
-        private MetroFramework.Controls.MetroButton metroButtonBej;
     }
 }

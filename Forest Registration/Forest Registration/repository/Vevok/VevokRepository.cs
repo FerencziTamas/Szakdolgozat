@@ -47,6 +47,8 @@ namespace Forest_Register.repository
             return vevokDt;
         }
 
+
+
         public void VevoHozzaadasaListahoz(Vevo ujVevo)
         {
             try

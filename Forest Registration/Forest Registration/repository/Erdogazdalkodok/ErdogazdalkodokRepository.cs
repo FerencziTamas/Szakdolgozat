@@ -11,7 +11,6 @@ namespace Forest_Register.repository
     partial class Repository
     {
         List<Erdogazdalkodo> erdogazdalkodok;
-
         public void setErdogazdalkodok(List<Erdogazdalkodo> erdogazdalkodok)
         {
             this.erdogazdalkodok = erdogazdalkodok;

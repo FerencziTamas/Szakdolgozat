@@ -47,6 +47,7 @@ namespace Forest_Register
             }
             if (dataGridViewErdogazdalkodok.SelectedRows.Count == 1)
             {
+                metroTextBoxErGazKod.ReadOnly = true;
                 metroPanelErdoGazTorolModosit.Visible = true;
                 metroPanelErGaz.Visible = true;
                 metroButtonUjErGazFelvetele.Visible = true;
@@ -80,6 +81,8 @@ namespace Forest_Register
             erdogazdalkodokDt.Columns[2].ColumnName = "Cím";
             erdogazdalkodokDt.Columns[2].Caption = "Erdőgazdálkodó cím";
 
+            dataGridViewErdogazdalkodok.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+
             dataGridViewErdogazdalkodok.SelectionMode =
                 DataGridViewSelectionMode.FullRowSelect;
             dataGridViewErdogazdalkodok.ReadOnly = true;
@@ -104,7 +107,7 @@ namespace Forest_Register
             if ((dataGridViewErdogazdalkodok.Rows == null) || (dataGridViewErdogazdalkodok.Rows.Count == 0))
                 return;
 
-            string kod = dataGridViewErdogazdalkodok.SelectedRows[0].Index.ToString();
+            string kod = dataGridViewErdogazdalkodok.SelectedRows[0].Cells[0].Value.ToString();
             if (MessageBox.Show(
                 "Valóban törölni akarja a sort?",
                 "Törlés",
@@ -146,7 +149,7 @@ namespace Forest_Register
             try
             {
                 Erdogazdalkodo modosult = new Erdogazdalkodo(
-                    metroTextBoxErGazNev.Text,
+                    metroTextBoxErGazKod.Text,
                     metroTextBoxErGazNev.Text,
                     metroTextBoxErGazCim.Text
                     );

@@ -100,15 +100,17 @@ namespace Forest_Register.repository
                 connection.Open();
                 string querySzamlak = "INSERT INTO `szamlak` (`szamlaszam`, `vevoId`, `teljesites_napja`, `szamla_keletkezes`, `kifizetes_napja`, `lerakodasi_hely`, `felrakasi_hely`, `muveleti_lap_sorszam`, `szallitojegy_sorszam`) VALUES " +
                     "('02021144-02021313', 1, '2020-03-18', '2020-03-18', '2020-03-20', 'Zala', 'Ásotthalom', 'MUV4255', 'SZAL14414'), " +
+                    "('02021144-02021314', 5, '2020-03-18', '2020-03-18', '2020-03-20', 'Zala', 'Ásotthalom', 'MUV4255', 'SZAL14414'), " +
                     "('28271111-11111111', 3, '2020-03-10', '2020-03-10', '2020-03-10', 'Nem Szeged', 'Nem Ásotthalom', 'MUV4255', 'SZALL1T'), " +
                     "('77777777-77777777', 4, '2020-03-05', '2020-03-06', '2020-03-07', 'LERAKOHELY', 'FELRAKOHELY', 'lap222', 'szam555'), " +
                     "('99999999-88888888', 2, '2020-03-09', '2020-03-09', '2020-03-09', 'Szeged', 'Tompa', 'MUV42525', 'SZALLITO53'); ";
 
                 string queryTetelek = "INSERT INTO `szamlatetelek` (`fafajId`, `szamlaszam`, `mennyiseg`, `felhasznalas_modja`, `brutto_ar`, `netto_ar`) VALUES " +
-                    "(1, '02021144-02021313', 100, 'Rönk', 2000000, 1000000), " +
-                    "(2, '28271111-11111111', 20, 'Tűzifa', 700000, 650000), " +
-                    "(5, '77777777-77777777', 43, 'Apríték', 400000, 370000), " +
-                    "(7, '99999999-88888888', 50, 'Tüzifa', 3000000, 2800000); ";
+                    "(1, '02021144-02021313', 1000, 'Rönk', 2000000, 1000000), " +
+                    "(1, '02021144-02021314', 20000, 'Rönk', 2000000, 1000000), " +
+                    "(2, '28271111-11111111', 2000, 'Tűzifa', 700000, 650000), " +
+                    "(5, '77777777-77777777', 4300, 'Apríték', 400000, 370000), " +
+                    "(7, '99999999-88888888', 5000, 'Tüzifa', 3000000, 2800000); ";
                 MySqlCommand cmd1 = new MySqlCommand(querySzamlak, connection);
                 cmd1.ExecuteNonQuery();
                 MySqlCommand cmd2 = new MySqlCommand(queryTetelek, connection);

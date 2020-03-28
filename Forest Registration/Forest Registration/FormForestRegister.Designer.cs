@@ -41,10 +41,10 @@
             this.aProgramInformációiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.metroTabPageErdok = new MetroFramework.Controls.MetroTabPage();
             this.metroPanelErdo = new MetroFramework.Controls.MetroPanel();
+            this.metroComboBoxFahaszMod = new MetroFramework.Controls.MetroComboBox();
             this.metroComboBoxErdokErgaz = new MetroFramework.Controls.MetroComboBox();
             this.metroButtonErdoMegse = new MetroFramework.Controls.MetroButton();
             this.metroButtonErdoHozzaad = new MetroFramework.Controls.MetroButton();
-            this.metroTextBoxFahasznalatModja = new MetroFramework.Controls.MetroTextBox();
             this.metroTextBoxTerulet = new MetroFramework.Controls.MetroTextBox();
             this.numericUpDownErdoKor = new System.Windows.Forms.NumericUpDown();
             this.metroTextBoxHelyrajziSzam = new MetroFramework.Controls.MetroTextBox();
@@ -82,6 +82,7 @@
             this.metroButtonSzamlaMegse = new MetroFramework.Controls.MetroButton();
             this.metroButtonSzamlaHozzaad = new MetroFramework.Controls.MetroButton();
             this.metroPanelSzamla = new MetroFramework.Controls.MetroPanel();
+            this.metroComboBoxSzamlaVevo = new MetroFramework.Controls.MetroComboBox();
             this.metroComboBoxFafaj = new MetroFramework.Controls.MetroComboBox();
             this.metroTextBoxSzallitojegySorszam = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel18 = new MetroFramework.Controls.MetroLabel();
@@ -97,7 +98,6 @@
             this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
             this.metroDateTimeTeljesitesNap = new MetroFramework.Controls.MetroDateTime();
             this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
-            this.metroTextBoxSzamlaVevoNev = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
             this.metroTextBoxNettoAr = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
@@ -308,10 +308,10 @@
             // 
             // metroPanelErdo
             // 
+            this.metroPanelErdo.Controls.Add(this.metroComboBoxFahaszMod);
             this.metroPanelErdo.Controls.Add(this.metroComboBoxErdokErgaz);
             this.metroPanelErdo.Controls.Add(this.metroButtonErdoMegse);
             this.metroPanelErdo.Controls.Add(this.metroButtonErdoHozzaad);
-            this.metroPanelErdo.Controls.Add(this.metroTextBoxFahasznalatModja);
             this.metroPanelErdo.Controls.Add(this.metroTextBoxTerulet);
             this.metroPanelErdo.Controls.Add(this.numericUpDownErdoKor);
             this.metroPanelErdo.Controls.Add(this.metroTextBoxHelyrajziSzam);
@@ -333,6 +333,16 @@
             this.metroPanelErdo.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanelErdo.VerticalScrollbarSize = 10;
             this.metroPanelErdo.Visible = false;
+            // 
+            // metroComboBoxFahaszMod
+            // 
+            this.metroComboBoxFahaszMod.FormattingEnabled = true;
+            this.metroComboBoxFahaszMod.ItemHeight = 23;
+            this.metroComboBoxFahaszMod.Location = new System.Drawing.Point(170, 199);
+            this.metroComboBoxFahaszMod.Name = "metroComboBoxFahaszMod";
+            this.metroComboBoxFahaszMod.Size = new System.Drawing.Size(229, 29);
+            this.metroComboBoxFahaszMod.TabIndex = 17;
+            this.metroComboBoxFahaszMod.UseSelectable = true;
             // 
             // metroComboBoxErdokErgaz
             // 
@@ -364,36 +374,6 @@
             this.metroButtonErdoHozzaad.UseSelectable = true;
             this.metroButtonErdoHozzaad.Click += new System.EventHandler(this.metroButtonHozzaad_Click);
             // 
-            // metroTextBoxFahasznalatModja
-            // 
-            // 
-            // 
-            // 
-            this.metroTextBoxFahasznalatModja.CustomButton.Image = null;
-            this.metroTextBoxFahasznalatModja.CustomButton.Location = new System.Drawing.Point(207, 1);
-            this.metroTextBoxFahasznalatModja.CustomButton.Name = "";
-            this.metroTextBoxFahasznalatModja.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.metroTextBoxFahasznalatModja.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroTextBoxFahasznalatModja.CustomButton.TabIndex = 1;
-            this.metroTextBoxFahasznalatModja.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.metroTextBoxFahasznalatModja.CustomButton.UseSelectable = true;
-            this.metroTextBoxFahasznalatModja.CustomButton.Visible = false;
-            this.metroTextBoxFahasznalatModja.Lines = new string[0];
-            this.metroTextBoxFahasznalatModja.Location = new System.Drawing.Point(170, 205);
-            this.metroTextBoxFahasznalatModja.MaxLength = 32767;
-            this.metroTextBoxFahasznalatModja.Name = "metroTextBoxFahasznalatModja";
-            this.metroTextBoxFahasznalatModja.PasswordChar = '\0';
-            this.metroTextBoxFahasznalatModja.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.metroTextBoxFahasznalatModja.SelectedText = "";
-            this.metroTextBoxFahasznalatModja.SelectionLength = 0;
-            this.metroTextBoxFahasznalatModja.SelectionStart = 0;
-            this.metroTextBoxFahasznalatModja.ShortcutsEnabled = true;
-            this.metroTextBoxFahasznalatModja.Size = new System.Drawing.Size(229, 23);
-            this.metroTextBoxFahasznalatModja.TabIndex = 13;
-            this.metroTextBoxFahasznalatModja.UseSelectable = true;
-            this.metroTextBoxFahasznalatModja.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.metroTextBoxFahasznalatModja.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
             // metroTextBoxTerulet
             // 
             // 
@@ -423,6 +403,7 @@
             this.metroTextBoxTerulet.UseSelectable = true;
             this.metroTextBoxTerulet.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.metroTextBoxTerulet.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.metroTextBoxTerulet.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.metroTextBoxTerulet_KeyPress);
             // 
             // numericUpDownErdoKor
             // 
@@ -553,7 +534,6 @@
             this.metroButtonUjErdo.TabIndex = 5;
             this.metroButtonUjErdo.Text = "Új erdő felvétele";
             this.metroButtonUjErdo.UseSelectable = true;
-            this.metroButtonUjErdo.Visible = false;
             this.metroButtonUjErdo.Click += new System.EventHandler(this.metroButtonUjErdo_Click);
             // 
             // metroPanelErdoTorlesModositas
@@ -626,7 +606,6 @@
             this.metroTabControlErdok.Style = MetroFramework.MetroColorStyle.Green;
             this.metroTabControlErdok.TabIndex = 1;
             this.metroTabControlErdok.UseSelectable = true;
-            this.metroTabControlErdok.Selected += new System.Windows.Forms.TabControlEventHandler(this.metroTabControlErdok_Selected);
             // 
             // metroTabPageErGaz
             // 
@@ -814,7 +793,6 @@
             this.metroButtonUjErGazFelvetele.TabIndex = 6;
             this.metroButtonUjErGazFelvetele.Text = "Új erdőgazdálkodó felvétele";
             this.metroButtonUjErGazFelvetele.UseSelectable = true;
-            this.metroButtonUjErGazFelvetele.Visible = false;
             this.metroButtonUjErGazFelvetele.Click += new System.EventHandler(this.metroButtonUjErGazFelvetele_Click);
             // 
             // metroPanelErdoGazTorolModosit
@@ -917,6 +895,7 @@
             // 
             // metroPanelSzamla
             // 
+            this.metroPanelSzamla.Controls.Add(this.metroComboBoxSzamlaVevo);
             this.metroPanelSzamla.Controls.Add(this.metroComboBoxFafaj);
             this.metroPanelSzamla.Controls.Add(this.metroTextBoxSzallitojegySorszam);
             this.metroPanelSzamla.Controls.Add(this.metroLabel18);
@@ -932,7 +911,6 @@
             this.metroPanelSzamla.Controls.Add(this.metroLabel13);
             this.metroPanelSzamla.Controls.Add(this.metroDateTimeTeljesitesNap);
             this.metroPanelSzamla.Controls.Add(this.metroLabel12);
-            this.metroPanelSzamla.Controls.Add(this.metroTextBoxSzamlaVevoNev);
             this.metroPanelSzamla.Controls.Add(this.metroLabel11);
             this.metroPanelSzamla.Controls.Add(this.metroTextBoxNettoAr);
             this.metroPanelSzamla.Controls.Add(this.metroLabel10);
@@ -957,13 +935,23 @@
             this.metroPanelSzamla.VerticalScrollbarSize = 10;
             this.metroPanelSzamla.Visible = false;
             // 
+            // metroComboBoxSzamlaVevo
+            // 
+            this.metroComboBoxSzamlaVevo.FormattingEnabled = true;
+            this.metroComboBoxSzamlaVevo.ItemHeight = 23;
+            this.metroComboBoxSzamlaVevo.Location = new System.Drawing.Point(115, 69);
+            this.metroComboBoxSzamlaVevo.Name = "metroComboBoxSzamlaVevo";
+            this.metroComboBoxSzamlaVevo.Size = new System.Drawing.Size(240, 29);
+            this.metroComboBoxSzamlaVevo.TabIndex = 31;
+            this.metroComboBoxSzamlaVevo.UseSelectable = true;
+            // 
             // metroComboBoxFafaj
             // 
             this.metroComboBoxFafaj.FormattingEnabled = true;
             this.metroComboBoxFafaj.ItemHeight = 23;
             this.metroComboBoxFafaj.Location = new System.Drawing.Point(115, 33);
             this.metroComboBoxFafaj.Name = "metroComboBoxFafaj";
-            this.metroComboBoxFafaj.Size = new System.Drawing.Size(265, 29);
+            this.metroComboBoxFafaj.Size = new System.Drawing.Size(240, 29);
             this.metroComboBoxFafaj.TabIndex = 30;
             this.metroComboBoxFafaj.UseSelectable = true;
             // 
@@ -973,7 +961,7 @@
             // 
             // 
             this.metroTextBoxSzallitojegySorszam.CustomButton.Image = null;
-            this.metroTextBoxSzallitojegySorszam.CustomButton.Location = new System.Drawing.Point(206, 1);
+            this.metroTextBoxSzallitojegySorszam.CustomButton.Location = new System.Drawing.Point(181, 1);
             this.metroTextBoxSzallitojegySorszam.CustomButton.Name = "";
             this.metroTextBoxSzallitojegySorszam.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.metroTextBoxSzallitojegySorszam.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -991,7 +979,7 @@
             this.metroTextBoxSzallitojegySorszam.SelectionLength = 0;
             this.metroTextBoxSzallitojegySorszam.SelectionStart = 0;
             this.metroTextBoxSzallitojegySorszam.ShortcutsEnabled = true;
-            this.metroTextBoxSzallitojegySorszam.Size = new System.Drawing.Size(228, 23);
+            this.metroTextBoxSzallitojegySorszam.Size = new System.Drawing.Size(203, 23);
             this.metroTextBoxSzallitojegySorszam.TabIndex = 29;
             this.metroTextBoxSzallitojegySorszam.UseSelectable = true;
             this.metroTextBoxSzallitojegySorszam.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -1012,7 +1000,7 @@
             // 
             // 
             this.metroTextBoxMuvLapSzam.CustomButton.Image = null;
-            this.metroTextBoxMuvLapSzam.CustomButton.Location = new System.Drawing.Point(206, 1);
+            this.metroTextBoxMuvLapSzam.CustomButton.Location = new System.Drawing.Point(181, 1);
             this.metroTextBoxMuvLapSzam.CustomButton.Name = "";
             this.metroTextBoxMuvLapSzam.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.metroTextBoxMuvLapSzam.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -1030,7 +1018,7 @@
             this.metroTextBoxMuvLapSzam.SelectionLength = 0;
             this.metroTextBoxMuvLapSzam.SelectionStart = 0;
             this.metroTextBoxMuvLapSzam.ShortcutsEnabled = true;
-            this.metroTextBoxMuvLapSzam.Size = new System.Drawing.Size(228, 23);
+            this.metroTextBoxMuvLapSzam.Size = new System.Drawing.Size(203, 23);
             this.metroTextBoxMuvLapSzam.TabIndex = 27;
             this.metroTextBoxMuvLapSzam.UseSelectable = true;
             this.metroTextBoxMuvLapSzam.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -1051,7 +1039,7 @@
             // 
             // 
             this.metroTextBoxFelrakasiHely.CustomButton.Image = null;
-            this.metroTextBoxFelrakasiHely.CustomButton.Location = new System.Drawing.Point(206, 1);
+            this.metroTextBoxFelrakasiHely.CustomButton.Location = new System.Drawing.Point(181, 1);
             this.metroTextBoxFelrakasiHely.CustomButton.Name = "";
             this.metroTextBoxFelrakasiHely.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.metroTextBoxFelrakasiHely.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -1069,7 +1057,7 @@
             this.metroTextBoxFelrakasiHely.SelectionLength = 0;
             this.metroTextBoxFelrakasiHely.SelectionStart = 0;
             this.metroTextBoxFelrakasiHely.ShortcutsEnabled = true;
-            this.metroTextBoxFelrakasiHely.Size = new System.Drawing.Size(228, 23);
+            this.metroTextBoxFelrakasiHely.Size = new System.Drawing.Size(203, 23);
             this.metroTextBoxFelrakasiHely.TabIndex = 25;
             this.metroTextBoxFelrakasiHely.UseSelectable = true;
             this.metroTextBoxFelrakasiHely.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -1090,7 +1078,7 @@
             // 
             // 
             this.metroTextBoxLerakodasiHely.CustomButton.Image = null;
-            this.metroTextBoxLerakodasiHely.CustomButton.Location = new System.Drawing.Point(206, 1);
+            this.metroTextBoxLerakodasiHely.CustomButton.Location = new System.Drawing.Point(181, 1);
             this.metroTextBoxLerakodasiHely.CustomButton.Name = "";
             this.metroTextBoxLerakodasiHely.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.metroTextBoxLerakodasiHely.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -1108,7 +1096,7 @@
             this.metroTextBoxLerakodasiHely.SelectionLength = 0;
             this.metroTextBoxLerakodasiHely.SelectionStart = 0;
             this.metroTextBoxLerakodasiHely.ShortcutsEnabled = true;
-            this.metroTextBoxLerakodasiHely.Size = new System.Drawing.Size(228, 23);
+            this.metroTextBoxLerakodasiHely.Size = new System.Drawing.Size(203, 23);
             this.metroTextBoxLerakodasiHely.TabIndex = 23;
             this.metroTextBoxLerakodasiHely.UseSelectable = true;
             this.metroTextBoxLerakodasiHely.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -1126,9 +1114,9 @@
             // metroDateTimeKifizetesNapja
             // 
             this.metroDateTimeKifizetesNapja.Location = new System.Drawing.Point(152, 280);
-            this.metroDateTimeKifizetesNapja.MinimumSize = new System.Drawing.Size(4, 29);
+            this.metroDateTimeKifizetesNapja.MinimumSize = new System.Drawing.Size(0, 29);
             this.metroDateTimeKifizetesNapja.Name = "metroDateTimeKifizetesNapja";
-            this.metroDateTimeKifizetesNapja.Size = new System.Drawing.Size(228, 29);
+            this.metroDateTimeKifizetesNapja.Size = new System.Drawing.Size(203, 29);
             this.metroDateTimeKifizetesNapja.TabIndex = 21;
             // 
             // metroLabel14
@@ -1143,9 +1131,9 @@
             // metroDateTimeSzamlaKel
             // 
             this.metroDateTimeSzamlaKel.Location = new System.Drawing.Point(152, 242);
-            this.metroDateTimeSzamlaKel.MinimumSize = new System.Drawing.Size(4, 29);
+            this.metroDateTimeSzamlaKel.MinimumSize = new System.Drawing.Size(0, 29);
             this.metroDateTimeSzamlaKel.Name = "metroDateTimeSzamlaKel";
-            this.metroDateTimeSzamlaKel.Size = new System.Drawing.Size(228, 29);
+            this.metroDateTimeSzamlaKel.Size = new System.Drawing.Size(203, 29);
             this.metroDateTimeSzamlaKel.TabIndex = 19;
             // 
             // metroLabel13
@@ -1160,9 +1148,9 @@
             // metroDateTimeTeljesitesNap
             // 
             this.metroDateTimeTeljesitesNap.Location = new System.Drawing.Point(152, 204);
-            this.metroDateTimeTeljesitesNap.MinimumSize = new System.Drawing.Size(4, 29);
+            this.metroDateTimeTeljesitesNap.MinimumSize = new System.Drawing.Size(0, 29);
             this.metroDateTimeTeljesitesNap.Name = "metroDateTimeTeljesitesNap";
-            this.metroDateTimeTeljesitesNap.Size = new System.Drawing.Size(228, 29);
+            this.metroDateTimeTeljesitesNap.Size = new System.Drawing.Size(203, 29);
             this.metroDateTimeTeljesitesNap.TabIndex = 17;
             // 
             // metroLabel12
@@ -1173,36 +1161,6 @@
             this.metroLabel12.Size = new System.Drawing.Size(97, 19);
             this.metroLabel12.TabIndex = 16;
             this.metroLabel12.Text = "Teljesítés napja:";
-            // 
-            // metroTextBoxSzamlaVevoNev
-            // 
-            // 
-            // 
-            // 
-            this.metroTextBoxSzamlaVevoNev.CustomButton.Image = null;
-            this.metroTextBoxSzamlaVevoNev.CustomButton.Location = new System.Drawing.Point(243, 1);
-            this.metroTextBoxSzamlaVevoNev.CustomButton.Name = "";
-            this.metroTextBoxSzamlaVevoNev.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.metroTextBoxSzamlaVevoNev.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroTextBoxSzamlaVevoNev.CustomButton.TabIndex = 1;
-            this.metroTextBoxSzamlaVevoNev.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.metroTextBoxSzamlaVevoNev.CustomButton.UseSelectable = true;
-            this.metroTextBoxSzamlaVevoNev.CustomButton.Visible = false;
-            this.metroTextBoxSzamlaVevoNev.Lines = new string[0];
-            this.metroTextBoxSzamlaVevoNev.Location = new System.Drawing.Point(115, 71);
-            this.metroTextBoxSzamlaVevoNev.MaxLength = 32767;
-            this.metroTextBoxSzamlaVevoNev.Name = "metroTextBoxSzamlaVevoNev";
-            this.metroTextBoxSzamlaVevoNev.PasswordChar = '\0';
-            this.metroTextBoxSzamlaVevoNev.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.metroTextBoxSzamlaVevoNev.SelectedText = "";
-            this.metroTextBoxSzamlaVevoNev.SelectionLength = 0;
-            this.metroTextBoxSzamlaVevoNev.SelectionStart = 0;
-            this.metroTextBoxSzamlaVevoNev.ShortcutsEnabled = true;
-            this.metroTextBoxSzamlaVevoNev.Size = new System.Drawing.Size(265, 23);
-            this.metroTextBoxSzamlaVevoNev.TabIndex = 15;
-            this.metroTextBoxSzamlaVevoNev.UseSelectable = true;
-            this.metroTextBoxSzamlaVevoNev.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.metroTextBoxSzamlaVevoNev.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // metroLabel11
             // 
@@ -1219,7 +1177,7 @@
             // 
             // 
             this.metroTextBoxNettoAr.CustomButton.Image = null;
-            this.metroTextBoxNettoAr.CustomButton.Location = new System.Drawing.Point(95, 1);
+            this.metroTextBoxNettoAr.CustomButton.Location = new System.Drawing.Point(70, 1);
             this.metroTextBoxNettoAr.CustomButton.Name = "";
             this.metroTextBoxNettoAr.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.metroTextBoxNettoAr.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -1237,11 +1195,12 @@
             this.metroTextBoxNettoAr.SelectionLength = 0;
             this.metroTextBoxNettoAr.SelectionStart = 0;
             this.metroTextBoxNettoAr.ShortcutsEnabled = true;
-            this.metroTextBoxNettoAr.Size = new System.Drawing.Size(117, 23);
+            this.metroTextBoxNettoAr.Size = new System.Drawing.Size(92, 23);
             this.metroTextBoxNettoAr.TabIndex = 13;
             this.metroTextBoxNettoAr.UseSelectable = true;
             this.metroTextBoxNettoAr.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.metroTextBoxNettoAr.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.metroTextBoxNettoAr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.metroTextBoxNettoAr_KeyPress);
             // 
             // metroLabel10
             // 
@@ -1281,6 +1240,7 @@
             this.metroTextBoxBruttoAr.UseSelectable = true;
             this.metroTextBoxBruttoAr.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.metroTextBoxBruttoAr.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.metroTextBoxBruttoAr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.metroTextBoxBruttoAr_KeyPress);
             // 
             // metroLabel9
             // 
@@ -1295,9 +1255,12 @@
             // 
             this.metroComboBoxFelhaszMod.FormattingEnabled = true;
             this.metroComboBoxFelhaszMod.ItemHeight = 23;
+            this.metroComboBoxFelhaszMod.Items.AddRange(new object[] {
+            "Rönk",
+            "Tüzifa"});
             this.metroComboBoxFelhaszMod.Location = new System.Drawing.Point(152, 134);
             this.metroComboBoxFelhaszMod.Name = "metroComboBoxFelhaszMod";
-            this.metroComboBoxFelhaszMod.Size = new System.Drawing.Size(228, 29);
+            this.metroComboBoxFelhaszMod.Size = new System.Drawing.Size(203, 29);
             this.metroComboBoxFelhaszMod.TabIndex = 9;
             this.metroComboBoxFelhaszMod.UseSelectable = true;
             // 
@@ -1316,7 +1279,7 @@
             // 
             // 
             this.metroTextBoxMennyiseg.CustomButton.Image = null;
-            this.metroTextBoxMennyiseg.CustomButton.Location = new System.Drawing.Point(243, 1);
+            this.metroTextBoxMennyiseg.CustomButton.Location = new System.Drawing.Point(218, 1);
             this.metroTextBoxMennyiseg.CustomButton.Name = "";
             this.metroTextBoxMennyiseg.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.metroTextBoxMennyiseg.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -1334,11 +1297,12 @@
             this.metroTextBoxMennyiseg.SelectionLength = 0;
             this.metroTextBoxMennyiseg.SelectionStart = 0;
             this.metroTextBoxMennyiseg.ShortcutsEnabled = true;
-            this.metroTextBoxMennyiseg.Size = new System.Drawing.Size(265, 23);
+            this.metroTextBoxMennyiseg.Size = new System.Drawing.Size(240, 23);
             this.metroTextBoxMennyiseg.TabIndex = 7;
             this.metroTextBoxMennyiseg.UseSelectable = true;
             this.metroTextBoxMennyiseg.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.metroTextBoxMennyiseg.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.metroTextBoxMennyiseg.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.metroTextBoxMennyiseg_KeyPress);
             // 
             // metroLabel8
             // 
@@ -1364,7 +1328,7 @@
             // 
             // 
             this.metroTextBoxSzamlaSzam.CustomButton.Image = null;
-            this.metroTextBoxSzamlaSzam.CustomButton.Location = new System.Drawing.Point(243, 1);
+            this.metroTextBoxSzamlaSzam.CustomButton.Location = new System.Drawing.Point(218, 1);
             this.metroTextBoxSzamlaSzam.CustomButton.Name = "";
             this.metroTextBoxSzamlaSzam.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.metroTextBoxSzamlaSzam.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -1377,12 +1341,13 @@
             this.metroTextBoxSzamlaSzam.MaxLength = 32767;
             this.metroTextBoxSzamlaSzam.Name = "metroTextBoxSzamlaSzam";
             this.metroTextBoxSzamlaSzam.PasswordChar = '\0';
+            this.metroTextBoxSzamlaSzam.ReadOnly = true;
             this.metroTextBoxSzamlaSzam.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.metroTextBoxSzamlaSzam.SelectedText = "";
             this.metroTextBoxSzamlaSzam.SelectionLength = 0;
             this.metroTextBoxSzamlaSzam.SelectionStart = 0;
             this.metroTextBoxSzamlaSzam.ShortcutsEnabled = true;
-            this.metroTextBoxSzamlaSzam.Size = new System.Drawing.Size(265, 23);
+            this.metroTextBoxSzamlaSzam.Size = new System.Drawing.Size(240, 23);
             this.metroTextBoxSzamlaSzam.TabIndex = 3;
             this.metroTextBoxSzamlaSzam.UseSelectable = true;
             this.metroTextBoxSzamlaSzam.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -1405,7 +1370,6 @@
             this.metroButtonUjSzamlaFelvetele.TabIndex = 7;
             this.metroButtonUjSzamlaFelvetele.Text = "Új felvétele";
             this.metroButtonUjSzamlaFelvetele.UseSelectable = true;
-            this.metroButtonUjSzamlaFelvetele.Visible = false;
             this.metroButtonUjSzamlaFelvetele.Click += new System.EventHandler(this.metroButtonUjSzamlaFelvetele_Click);
             // 
             // metroButtonSzamlakBetolt
@@ -1427,7 +1391,7 @@
             this.metroPanelSzamlaTorolModosit.HorizontalScrollbarSize = 10;
             this.metroPanelSzamlaTorolModosit.Location = new System.Drawing.Point(875, 3);
             this.metroPanelSzamlaTorolModosit.Name = "metroPanelSzamlaTorolModosit";
-            this.metroPanelSzamlaTorolModosit.Size = new System.Drawing.Size(211, 31);
+            this.metroPanelSzamlaTorolModosit.Size = new System.Drawing.Size(218, 31);
             this.metroPanelSzamlaTorolModosit.TabIndex = 5;
             this.metroPanelSzamlaTorolModosit.VerticalScrollbarBarColor = true;
             this.metroPanelSzamlaTorolModosit.VerticalScrollbarHighlightOnWheel = false;
@@ -1436,7 +1400,7 @@
             // 
             // metroButtonSzamlaModosit
             // 
-            this.metroButtonSzamlaModosit.Location = new System.Drawing.Point(127, 5);
+            this.metroButtonSzamlaModosit.Location = new System.Drawing.Point(140, 5);
             this.metroButtonSzamlaModosit.Name = "metroButtonSzamlaModosit";
             this.metroButtonSzamlaModosit.Size = new System.Drawing.Size(75, 23);
             this.metroButtonSzamlaModosit.TabIndex = 3;
@@ -1490,7 +1454,6 @@
             this.metroButtonVevoFelvetel.TabIndex = 8;
             this.metroButtonVevoFelvetel.Text = "Új vevő felvétele";
             this.metroButtonVevoFelvetel.UseSelectable = true;
-            this.metroButtonVevoFelvetel.Visible = false;
             this.metroButtonVevoFelvetel.Click += new System.EventHandler(this.metroButtonVevoFelvetel_Click);
             // 
             // metroPanelVevo
@@ -1586,7 +1549,7 @@
             this.metroTextBoxVevoAdoszam.CustomButton.Visible = false;
             this.metroTextBoxVevoAdoszam.Lines = new string[0];
             this.metroTextBoxVevoAdoszam.Location = new System.Drawing.Point(183, 160);
-            this.metroTextBoxVevoAdoszam.MaxLength = 32767;
+            this.metroTextBoxVevoAdoszam.MaxLength = 11;
             this.metroTextBoxVevoAdoszam.Name = "metroTextBoxVevoAdoszam";
             this.metroTextBoxVevoAdoszam.PasswordChar = '\0';
             this.metroTextBoxVevoAdoszam.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -1599,7 +1562,7 @@
             this.metroTextBoxVevoAdoszam.UseSelectable = true;
             this.metroTextBoxVevoAdoszam.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.metroTextBoxVevoAdoszam.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.metroTextBoxVevoAdoszam.TextChanged += new System.EventHandler(this.metroTextBoxVevoAdoszam_TextChanged);
+            this.metroTextBoxVevoAdoszam.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.metroTextBoxVevoAdoszam_KeyPress);
             // 
             // metroTextBoxVevoCim
             // 
@@ -2046,7 +2009,6 @@
         private MetroFramework.Controls.MetroLabel metroLabelTer;
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroLabel metroLabel2;
-        private MetroFramework.Controls.MetroTextBox metroTextBoxFahasznalatModja;
         private MetroFramework.Controls.MetroTextBox metroTextBoxTerulet;
         private System.Windows.Forms.NumericUpDown numericUpDownErdoKor;
         private MetroFramework.Controls.MetroTextBox metroTextBoxHelyrajziSzam;
@@ -2073,7 +2035,6 @@
         private MetroFramework.Controls.MetroPanel metroPanelSzamla;
         private MetroFramework.Controls.MetroDateTime metroDateTimeTeljesitesNap;
         private MetroFramework.Controls.MetroLabel metroLabel12;
-        private MetroFramework.Controls.MetroTextBox metroTextBoxSzamlaVevoNev;
         private MetroFramework.Controls.MetroLabel metroLabel11;
         private MetroFramework.Controls.MetroTextBox metroTextBoxNettoAr;
         private MetroFramework.Controls.MetroLabel metroLabel10;
@@ -2158,5 +2119,7 @@
         private System.Windows.Forms.ErrorProvider errorProviderAdoszam;
         private MetroFramework.Controls.MetroComboBox metroComboBoxErdokErgaz;
         private MetroFramework.Controls.MetroTextBox metroTextBoxVevoAdoszam;
+        private MetroFramework.Controls.MetroComboBox metroComboBoxFahaszMod;
+        private MetroFramework.Controls.MetroComboBox metroComboBoxSzamlaVevo;
     }
 }

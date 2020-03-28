@@ -43,6 +43,51 @@ namespace Forest_Register
             }
         }
 
+        public void FafajokFeltoltese()
+        {
+            metroComboBoxFafaj.DataSource = null;
+            metroComboBoxFafaj.DataSource = repo.getFafajokMegnevezes();
+        }
+
+        private void metroTextBoxMennyiseg_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void metroTextBoxBruttoAr_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void metroTextBoxNettoAr_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
         private void DataGridViewSzamlakBeallit()
         {
             szamlakDt.Columns[0].ColumnName = "Számlaszám";
@@ -74,6 +119,8 @@ namespace Forest_Register
             szamlakDt.Columns[13].ColumnName = "Szállítójegy sorszám";
             szamlakDt.Columns[13].Caption = "Számla szállítójegy sorszám";
 
+            dataGridViewSzamlak.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+
             dataGridViewSzamlak.SelectionMode =
                 DataGridViewSelectionMode.FullRowSelect;
             dataGridViewSzamlak.ReadOnly = true;
@@ -89,11 +136,12 @@ namespace Forest_Register
             metroPanelSzamlaTorolModosit.Visible = true;
             metroButtonSzamlaHozzaad.Visible = true;
             metroButtonSzamlaMegse.Visible = true;
+            metroTextBoxSzamlaSzam.ReadOnly = false;
             metroTextBoxSzamlaSzam.Text = string.Empty;
             metroComboBoxFafaj.Text = string.Empty;
-            metroTextBoxSzamlaVevoNev.Text = string.Empty;
+            metroComboBoxSzamlaVevo.Text = string.Empty;
             metroTextBoxMennyiseg.Text = string.Empty;
-            metroTextBoxFahasznalatModja.Text = string.Empty;
+            metroComboBoxFelhaszMod.Text = string.Empty;
             metroTextBoxBruttoAr.Text = string.Empty;
             metroTextBoxNettoAr.Text = string.Empty;
             metroDateTimeTeljesitesNap.Text = string.Empty;
@@ -112,7 +160,7 @@ namespace Forest_Register
             if ((dataGridViewSzamlak.SelectedRows.Count == 0) || dataGridViewSzamlak.Rows == null)
                 return;
 
-            string szamlaszam = dataGridViewSzamlak.SelectedRows[0].Index.ToString();
+            string szamlaszam = dataGridViewSzamlak.SelectedRows[0].Cells[0].Value.ToString();
             if (MessageBox.Show(
                 "Valóban törölni akarja a sort?",
                 "Törlés",
@@ -156,9 +204,9 @@ namespace Forest_Register
                 Szamla modosult = new Szamla(
                     metroTextBoxSzamlaSzam.Text,
                     metroComboBoxFafaj.Text,
-                    metroTextBoxSzamlaVevoNev.Text,
+                    metroComboBoxSzamlaVevo.Text,
                     Convert.ToInt32(metroTextBoxMennyiseg.Text),
-                    metroTextBoxFahasznalatModja.Text,
+                    metroComboBoxFelhaszMod.Text,
                     Convert.ToInt32(metroTextBoxBruttoAr.Text),
                     Convert.ToInt32(metroTextBoxNettoAr.Text),
                     metroDateTimeTeljesitesNap.Text,
@@ -187,7 +235,7 @@ namespace Forest_Register
                 SzamlakRepositoryAdatbazisTabla szrat = new SzamlakRepositoryAdatbazisTabla();
                 try
                 {
-                    szrat.SzamlaTorleseAdatbazisbol(szamlaszam);
+                    szrat.SzamlaModositasaAdatbazisban(szamlaszam, modosult);
                 }
                 catch (Exception ex)
                 {
@@ -217,9 +265,9 @@ namespace Forest_Register
                 Szamla ujSzamla = new Szamla(
                     metroTextBoxSzamlaSzam.Text,
                     metroComboBoxFafaj.Text,
-                    metroTextBoxSzamlaVevoNev.Text,
+                    metroComboBoxSzamlaVevo.Text,
                     Convert.ToInt32(metroTextBoxMennyiseg.Text),
-                    metroTextBoxFahasznalatModja.Text,
+                    metroComboBoxFelhaszMod.Text,
                     Convert.ToInt32(metroTextBoxBruttoAr.Text),
                     Convert.ToInt32(metroTextBoxNettoAr.Text),
                     metroDateTimeTeljesitesNap.Text,
@@ -260,7 +308,7 @@ namespace Forest_Register
                     DataGridViewSzamlakBeallit();
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
             }
@@ -269,9 +317,8 @@ namespace Forest_Register
         {
             metroTextBoxSzamlaSzam.Text = string.Empty;
             metroComboBoxFafaj.Text = string.Empty;
-            metroTextBoxSzamlaVevoNev.Text = string.Empty;
             metroTextBoxMennyiseg.Text = string.Empty;
-            metroTextBoxFahasznalatModja.Text = string.Empty;
+            metroComboBoxFelhaszMod.Text = string.Empty;
             metroTextBoxBruttoAr.Text = string.Empty;
             metroTextBoxNettoAr.Text = string.Empty;
             metroDateTimeTeljesitesNap.Text = string.Empty;
@@ -291,13 +338,14 @@ namespace Forest_Register
             }
             if(dataGridViewSzamlak.SelectedRows.Count==1)
             {
+                metroTextBoxSzamlaSzam.ReadOnly = true;
                 metroPanelSzamlaTorolModosit.Visible = true;
                 metroPanelSzamla.Visible = true;
                 metroTextBoxSzamlaSzam.Text = dataGridViewSzamlak.SelectedRows[0].Cells[0].Value.ToString();
                 metroComboBoxFafaj.Text = dataGridViewSzamlak.SelectedRows[0].Cells[1].Value.ToString();
-                metroTextBoxSzamlaVevoNev.Text = dataGridViewSzamlak.SelectedRows[0].Cells[2].ToString();
-                metroTextBoxMennyiseg.Text = dataGridViewSzamlak.SelectedRows[0].Cells[3].ToString();
-                metroComboBoxFelhaszMod.Text = dataGridViewSzamlak.SelectedRows[0].Cells[4].ToString();
+                metroComboBoxSzamlaVevo.Text = dataGridViewSzamlak.SelectedRows[0].Cells[2].Value.ToString();
+                metroTextBoxMennyiseg.Text = dataGridViewSzamlak.SelectedRows[0].Cells[3].Value.ToString();
+                metroComboBoxFelhaszMod.Text = dataGridViewSzamlak.SelectedRows[0].Cells[4].Value.ToString();
                 metroTextBoxBruttoAr.Text = dataGridViewSzamlak.SelectedRows[0].Cells[5].Value.ToString();
                 metroTextBoxNettoAr.Text = dataGridViewSzamlak.SelectedRows[0].Cells[6].Value.ToString();
                 metroDateTimeTeljesitesNap.Text = dataGridViewSzamlak.SelectedRows[0].Cells[7].Value.ToString();
