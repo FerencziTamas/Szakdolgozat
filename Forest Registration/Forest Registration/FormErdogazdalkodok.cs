@@ -96,6 +96,7 @@ namespace Forest_Register
             adatFelvetel = true;
             metroPanelErdoGazTorolModosit.Visible = true;
             metroPanelErGaz.Visible = true;
+            metroTextBoxErGazKod.ReadOnly = false;
             metroTextBoxErGazKod.Text = string.Empty;
             metroTextBoxErGazNev.Text = string.Empty;
             metroTextBoxErGazCim.Text = string.Empty;
@@ -233,6 +234,7 @@ namespace Forest_Register
                 }
 
                 //DataGridView Frissítése
+                DataGridViewFrissiteseErGaz();
                 if (dataGridViewErdogazdalkodok.SelectedRows.Count == 1)
                 {
                     dataGridViewErdogazdalkodokBeallit();

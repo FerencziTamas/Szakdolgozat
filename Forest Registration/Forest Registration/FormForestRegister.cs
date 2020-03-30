@@ -21,6 +21,7 @@ namespace Forest_Register
         SzamlakRepositoryAdatbazisTabla szrat = new SzamlakRepositoryAdatbazisTabla();
         VevokRepositoryAdatbazisTabla vrat = new VevokRepositoryAdatbazisTabla();
         FafajokRepositoryAdatbazisTabla frat = new FafajokRepositoryAdatbazisTabla();
+        FaHaszModRepositoryAdatbazisTabla fhmrat = new FaHaszModRepositoryAdatbazisTabla();
 
         bool adatFelvetel = false;
 
@@ -36,12 +37,16 @@ namespace Forest_Register
             repo.setSzamlak(szrat.getSzamlakAdatbazisbol());
             repo.setVevok(vrat.getVevokAdatbazisbol());
             repo.setFafajok(frat.getFafajokAdatbazisbol());
+            repo.setFaHaszModjai(fhmrat.getFaHaszModAdatbazisbol());
 
             //comboboxok betöltése
             ErdogazdalkodokFeltoltese();
             FafajokFeltoltese();
             FaHaszModFeltoltese();
+            VevokFeltoltese();
         }
+
+
 
         private void erdőkKiírtatásaToolStripMenuItem_Click(object sender, EventArgs e)
         {

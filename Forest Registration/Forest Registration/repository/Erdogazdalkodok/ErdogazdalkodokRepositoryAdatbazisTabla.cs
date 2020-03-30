@@ -55,7 +55,7 @@ namespace Forest_Register.repository
             try
             {
                 connection.Open();
-                string query = "INSERT INTO `erdogazdalkodok` (`egKod`, `erdogazNev`, `erdogazCim`) VALUES " +
+                string query = "INSERT IGNORE INTO `erdogazdalkodok` (`egKod`, `erdogazNev`, `erdogazCim`) VALUES " +
                     "('Kod1', 'Erdész Miki', 'Szeged Nem utca -3.'), " +
                     "('Kod2', 'Erdész Elek', 'Szeged Nem utca -4.'), " +
                     "('Kod3', 'Erdész Tibi', 'Szeged Nem utca -5.'), " +

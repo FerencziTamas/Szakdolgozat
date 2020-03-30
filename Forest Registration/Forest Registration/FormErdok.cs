@@ -28,11 +28,6 @@ namespace Forest_Register
             dataGridViewErdok.SelectionChanged += dataGridViewErdok_SelectionChanged;
         }
 
-        private void metroButtonKilepes_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void ErdogazdalkodokFeltoltese()
         {
             metroComboBoxErdokErgaz.DataSource = null;
@@ -135,6 +130,7 @@ namespace Forest_Register
             metroPanelErdo.Visible = true;
             metroPanelErdoTorlesModositas.Visible = true;
             metroTextBoxErdeszetiAzon.Text = string.Empty;
+            metroTextBoxErdeszetiAzon.ReadOnly = false;
             metroTextBoxHelyrajziSzam.Text = string.Empty;
             numericUpDownErdoKor.Value = 0;
             metroTextBoxTerulet.Text = string.Empty;
@@ -289,6 +285,7 @@ namespace Forest_Register
                 }
 
                 //DataGridView frissítése
+                DataGridViewFrissiteseErdo();
                 if (dataGridViewErdok.SelectedRows.Count==1)
                 {
                     dataGridViewErdokBeallit();

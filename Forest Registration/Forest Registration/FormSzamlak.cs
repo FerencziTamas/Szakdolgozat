@@ -49,6 +49,12 @@ namespace Forest_Register
             metroComboBoxFafaj.DataSource = repo.getFafajokMegnevezes();
         }
 
+        private void VevokFeltoltese()
+        {
+            metroComboBoxSzamlaVevo.DataSource = null;
+            metroComboBoxSzamlaVevo.DataSource = repo.getVevokNeve();
+        }
+
         private void metroTextBoxMennyiseg_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
@@ -203,15 +209,15 @@ namespace Forest_Register
             {
                 Szamla modosult = new Szamla(
                     metroTextBoxSzamlaSzam.Text,
-                    metroComboBoxFafaj.Text,
-                    metroComboBoxSzamlaVevo.Text,
+                    repo.KeresIdNevAlapjanSzamla(metroComboBoxFafaj.Text),
+                    repo.KeresIdVevoAlapjanSzamla(metroComboBoxSzamlaVevo.Text),
                     Convert.ToInt32(metroTextBoxMennyiseg.Text),
                     metroComboBoxFelhaszMod.Text,
                     Convert.ToInt32(metroTextBoxBruttoAr.Text),
                     Convert.ToInt32(metroTextBoxNettoAr.Text),
                     metroDateTimeTeljesitesNap.Text,
                     metroDateTimeSzamlaKel.Text,
-                    metroDateTimeTeljesitesNap.Text,
+                    metroDateTimeKifizetesNapja.Text,
                     metroTextBoxLerakodasiHely.Text,
                     metroTextBoxFelrakasiHely.Text,
                     metroTextBoxMuvLapSzam.Text,
@@ -241,8 +247,8 @@ namespace Forest_Register
                 {
                     HibaUzenetKiirasa(ex.Message);
                 }
-
                 //DataGridView frissítése
+                DataGridViewSzamlakBeallit();
                 DataGridViewFrissiteseSzamla();
             }
             catch (RepositoryExceptionNemTudModositani rentm)
@@ -256,6 +262,7 @@ namespace Forest_Register
             }
         }
 
+
         private void metroButtonSzamlaHozzaad_Click(object sender, EventArgs e)
         {
             HibauzenetTorlese();
@@ -264,8 +271,8 @@ namespace Forest_Register
             {
                 Szamla ujSzamla = new Szamla(
                     metroTextBoxSzamlaSzam.Text,
-                    metroComboBoxFafaj.Text,
-                    metroComboBoxSzamlaVevo.Text,
+                    repo.KeresIdNevAlapjanSzamla(metroComboBoxFafaj.Text),
+                    repo.KeresIdVevoAlapjanSzamla(metroComboBoxSzamlaVevo.Text),
                     Convert.ToInt32(metroTextBoxMennyiseg.Text),
                     metroComboBoxFelhaszMod.Text,
                     Convert.ToInt32(metroTextBoxBruttoAr.Text),
@@ -303,6 +310,7 @@ namespace Forest_Register
                 }
 
                 //DataGridView frissítése
+                DataGridViewFrissiteseSzamla();
                 if (dataGridViewSzamlak.SelectedRows.Count == 1)
                 {
                     DataGridViewSzamlakBeallit();
@@ -313,6 +321,8 @@ namespace Forest_Register
 
             }
         }
+
+        
         private void metroButtonSzamlaMegse_Click(object sender, EventArgs e)
         {
             metroTextBoxSzamlaSzam.Text = string.Empty;
@@ -341,6 +351,7 @@ namespace Forest_Register
                 metroTextBoxSzamlaSzam.ReadOnly = true;
                 metroPanelSzamlaTorolModosit.Visible = true;
                 metroPanelSzamla.Visible = true;
+                metroButtonUjSzamlaFelvetele.Visible = true;
                 metroTextBoxSzamlaSzam.Text = dataGridViewSzamlak.SelectedRows[0].Cells[0].Value.ToString();
                 metroComboBoxFafaj.Text = dataGridViewSzamlak.SelectedRows[0].Cells[1].Value.ToString();
                 metroComboBoxSzamlaVevo.Text = dataGridViewSzamlak.SelectedRows[0].Cells[2].Value.ToString();

@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -37,13 +38,14 @@ namespace Forest_Register
             if (dataGridViewVevok.SelectedRows.Count == 1)
             {
                 metroTextBoxVevoAzon.ReadOnly = true;
+                metroButtonVevoFelvetel.Visible = true;
                 metroPanelVevoTorolModosit.Visible = true;
                 metroPanelVevo.Visible = true;
                 metroTextBoxVevoAzon.Text = dataGridViewVevok.SelectedRows[0].Cells[0].Value.ToString();
                 metroTextBoxVevoNev.Text = dataGridViewVevok.SelectedRows[0].Cells[1].Value.ToString();
                 metroTextBoxVevoCim.Text = dataGridViewVevok.SelectedRows[0].Cells[2].Value.ToString();
-                metroTextBoxVevoTechAzon.Text = dataGridViewVevok.SelectedRows[0].Cells[0].Value.ToString();
-                metroTextBoxVevoAdoszam.Text = dataGridViewVevok.SelectedRows[0].Cells[0].Value.ToString();
+                metroTextBoxVevoTechAzon.Text = dataGridViewVevok.SelectedRows[0].Cells[3].Value.ToString();
+                metroTextBoxVevoAdoszam.Text = dataGridViewVevok.SelectedRows[0].Cells[4].Value.ToString();
             }
         }
 
@@ -102,7 +104,6 @@ namespace Forest_Register
 
         private void metroTextBoxVevoAdoszam_KeyPress(object sender, KeyPressEventArgs e)
         {
-            string text = metroTextBoxVevoAdoszam.Text;
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
             {
                 e.Handled = true;
@@ -112,6 +113,7 @@ namespace Forest_Register
             {
                 e.Handled = true;
             }
+
         }
 
         private void metroButtonVevoFelvetel_Click(object sender, EventArgs e)
@@ -261,6 +263,7 @@ namespace Forest_Register
                 }
 
                 //DataGridView frissítése
+                DataGridViewFrissiteseVevo();
                 if (dataGridViewVevok.SelectedRows.Count == 1)
                 {
                     DataGridViewVevokBeallit();

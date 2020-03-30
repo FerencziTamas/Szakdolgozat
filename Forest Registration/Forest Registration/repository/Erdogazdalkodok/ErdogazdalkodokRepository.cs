@@ -50,7 +50,7 @@ namespace Forest_Register.repository
             {
                 erdogazdalkodok.Add(ujErdogazdalkodo);
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
                 throw new RepositoryExceptionNemTudHozzaadni("Az erdőgazdálkodó hozzáadása nem sikerült");
             }

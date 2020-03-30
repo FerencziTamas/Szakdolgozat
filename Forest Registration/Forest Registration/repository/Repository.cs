@@ -55,5 +55,15 @@ namespace Forest_Register.repository
             }
             return fahaszmodRoviditesek;
         }
+
+        public List<string> getVevokNeve()
+        {
+            List<string> vevokNeve = new List<string>();
+            foreach (Vevo v in vevok)
+            {
+                vevokNeve.Add(v.getVevoNev());
+            }
+            return vevokNeve;
+        }
     }
 }

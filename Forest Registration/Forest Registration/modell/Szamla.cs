@@ -9,8 +9,8 @@ namespace Forest_Register.modell
     partial class Szamla
     {
         private string szamlaszam;
-        private string fafaj; 
-        private string vevonev;
+        private int fafaj; 
+        private int vevoId;
         private int nettoar;
         private int bruttoar;
         private int mennyiseg;
@@ -23,11 +23,11 @@ namespace Forest_Register.modell
         private string muveletiLapSorszam;
         private string szallitojegySorszam;
 
-        public Szamla(string szamlaszam, string fafaj, string vevonev, int mennyiseg, string felhasznalasModja, int nettoar, int bruttoar,  string teljesitesNapja, string szamlaKeletkezese, string kifizetesNapja, string lerakodasiHely, string felrakasiHely, string muveletiLapSorszam, string szallitojegySorszam)
+        public Szamla(string szamlaszam, int fafaj, int vevoId, int mennyiseg, string felhasznalasModja, int nettoar, int bruttoar,  string teljesitesNapja, string szamlaKeletkezese, string kifizetesNapja, string lerakodasiHely, string felrakasiHely, string muveletiLapSorszam, string szallitojegySorszam)
         {
             this.szamlaszam = szamlaszam;
             this.fafaj = fafaj;
-            this.vevonev = vevonev;
+            this.vevoId = vevoId;
             this.nettoar = nettoar;
             this.bruttoar = bruttoar;
             this.mennyiseg = mennyiseg;
@@ -46,14 +46,14 @@ namespace Forest_Register.modell
             this.szamlaszam = szamlaszam;
         }
 
-        public void setFafaj(string fafaj)
+        public void setFafaj(int fafaj)
         {
             this.fafaj = fafaj;
         }
 
-        public void setVevoNev(string vevonev)
+        public void setVevoNev(int vevoId)
         {
-            this.vevonev = vevonev;
+            this.vevoId = vevoId;
         }
 
         public void setNettoAr(int nettoar)
@@ -116,14 +116,14 @@ namespace Forest_Register.modell
             return szamlaszam;
         }
 
-        public string getFafaj()
+        public int getFafaj()
         {
             return fafaj;
         }
 
-        public string getVevoNev()
+        public int getVevoID()
         {
-            return vevonev;
+            return vevoId;
         }
 
         public int getNettoAr()
@@ -184,7 +184,7 @@ namespace Forest_Register.modell
         public void modosit(Szamla modosult)
         {
             this.fafaj = modosult.getFafaj();
-            this.vevonev = modosult.getVevoNev();
+            this.vevoId = modosult.getVevoID();
             this.mennyiseg = modosult.getMennyiseg();
             this.felhasznalasModja = modosult.getFelhasznalasModja();
             this.bruttoar = modosult.getBruttoAr();

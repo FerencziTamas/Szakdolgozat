@@ -74,10 +74,10 @@ namespace Forest_Register.repository
             try
             {
                 connection.Open();
-                string queryKeys1 = "ALTER TABLE `szamlak` ADD CONSTRAINT `szamlak_ibfk_1` FOREIGN KEY IF NOT EXISTS (`vevoId`) REFERENCES `vevok` (`vevoId`); ";
+                string queryKeys1 = "ALTER TABLE `szamlak` ADD CONSTRAINT `szamlak_ibfk_1` FOREIGN KEY IF NOT EXISTS (`vevoId`) REFERENCES `vevok` (`vevoId`) ON DELETE CASCADE ON UPDATE CASCADE; ";
                 string queryKeys2 = "ALTER TABLE `szamlatetelek`" +
-                    " ADD CONSTRAINT `szamlatetelek_ibfk_1` FOREIGN KEY IF NOT EXISTS (`fafajId`) REFERENCES `fafajok` (`fafajId`)," +
-                    " ADD CONSTRAINT `szamlatetelek_ibfk_2` FOREIGN KEY IF NOT EXISTS (`szamlaszam`) REFERENCES `szamlak` (`szamlaszam`); ";
+                    " ADD CONSTRAINT `szamlatetelek_ibfk_1` FOREIGN KEY IF NOT EXISTS (`fafajId`) REFERENCES `fafajok` (`fafajId`) ON DELETE CASCADE ON UPDATE CASCADE," +
+                    " ADD CONSTRAINT `szamlatetelek_ibfk_2` FOREIGN KEY IF NOT EXISTS (`szamlaszam`) REFERENCES `szamlak` (`szamlaszam`) ON DELETE CASCADE ON UPDATE CASCADE; ";
                 MySqlCommand cmdQueryKeys1 = new MySqlCommand(queryKeys1, connection);
                 MySqlCommand cmdQueryKeys2 = new MySqlCommand(queryKeys2, connection);
                 cmdQueryKeys1.ExecuteNonQuery();
@@ -98,14 +98,14 @@ namespace Forest_Register.repository
             try
             {
                 connection.Open();
-                string querySzamlak = "INSERT INTO `szamlak` (`szamlaszam`, `vevoId`, `teljesites_napja`, `szamla_keletkezes`, `kifizetes_napja`, `lerakodasi_hely`, `felrakasi_hely`, `muveleti_lap_sorszam`, `szallitojegy_sorszam`) VALUES " +
+                string querySzamlak = "INSERT IGNORE INTO `szamlak` (`szamlaszam`, `vevoId`, `teljesites_napja`, `szamla_keletkezes`, `kifizetes_napja`, `lerakodasi_hely`, `felrakasi_hely`, `muveleti_lap_sorszam`, `szallitojegy_sorszam`) VALUES " +
                     "('02021144-02021313', 1, '2020-03-18', '2020-03-18', '2020-03-20', 'Zala', 'Ásotthalom', 'MUV4255', 'SZAL14414'), " +
                     "('02021144-02021314', 5, '2020-03-18', '2020-03-18', '2020-03-20', 'Zala', 'Ásotthalom', 'MUV4255', 'SZAL14414'), " +
                     "('28271111-11111111', 3, '2020-03-10', '2020-03-10', '2020-03-10', 'Nem Szeged', 'Nem Ásotthalom', 'MUV4255', 'SZALL1T'), " +
                     "('77777777-77777777', 4, '2020-03-05', '2020-03-06', '2020-03-07', 'LERAKOHELY', 'FELRAKOHELY', 'lap222', 'szam555'), " +
                     "('99999999-88888888', 2, '2020-03-09', '2020-03-09', '2020-03-09', 'Szeged', 'Tompa', 'MUV42525', 'SZALLITO53'); ";
 
-                string queryTetelek = "INSERT INTO `szamlatetelek` (`fafajId`, `szamlaszam`, `mennyiseg`, `felhasznalas_modja`, `brutto_ar`, `netto_ar`) VALUES " +
+                string queryTetelek = "INSERT IGNORE INTO `szamlatetelek` (`fafajId`, `szamlaszam`, `mennyiseg`, `felhasznalas_modja`, `brutto_ar`, `netto_ar`) VALUES " +
                     "(1, '02021144-02021313', 1000, 'Rönk', 2000000, 1000000), " +
                     "(1, '02021144-02021314', 20000, 'Rönk', 2000000, 1000000), " +
                     "(2, '28271111-11111111', 2000, 'Tűzifa', 700000, 650000), " +

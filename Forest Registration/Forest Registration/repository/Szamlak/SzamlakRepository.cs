@@ -42,7 +42,7 @@ namespace Forest_Register.repository
             szamlaDt.Columns.Add("szallitojegy_sorszam", typeof(string));
             foreach (Szamla sz in szamlak)
             {
-                szamlaDt.Rows.Add(sz.getSzamlaSzam(), sz.getFafaj(), sz.getVevoNev(), sz.getMennyiseg(), sz.getFelhasznalasModja(), sz.getBruttoAr(), sz.getNettoAr(), sz.getTeljesitesNapja(), sz.getSzamlaKeletkezese(), sz.getKifizetesNapja(), sz.getLerakodasiHely(), sz.getFelrakasiHely(), sz.getMuveletiLapSorszam(), sz.getSzallitojegySorszam());
+                szamlaDt.Rows.Add(sz.getSzamlaSzam(), sz.getFafaj(), sz.getVevoID(), sz.getMennyiseg(), sz.getFelhasznalasModja(), sz.getBruttoAr(), sz.getNettoAr(), sz.getTeljesitesNapja(), sz.getSzamlaKeletkezese(), sz.getKifizetesNapja(), sz.getLerakodasiHely(), sz.getFelrakasiHely(), sz.getMuveletiLapSorszam(), sz.getSzallitojegySorszam());
             }
             return szamlaDt;
         }
@@ -77,5 +77,16 @@ namespace Forest_Register.repository
             }
 
         }
+
+        public int KeresIdNevAlapjanSzamla(string input)
+        {
+            return fafajok.Find(x => x.getMegnevezes() == input).getFafajId();
+        }
+
+        public int KeresIdVevoAlapjanSzamla(string input)
+        {
+            return vevok.Find(x => x.getVevoNev() == input).getVevoId();
+        }
+
     }
 }

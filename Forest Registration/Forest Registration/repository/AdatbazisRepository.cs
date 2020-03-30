@@ -95,7 +95,7 @@ namespace Forest_Registration.repository
             try
             {
                 connection.Open();
-                string query = "INSERT INTO `erdo_adatbazis`.`felhasznalok` (`nev`, `cim`, `email`, `jelszo`) VALUES " +
+                string query = "INSERT IGNORE INTO `erdo_adatbazis`.`felhasznalok` (`nev`, `cim`, `email`, `jelszo`) VALUES " +
                     "('Ferenczi Tamás', '', 'darius.517.ft@gmail.com', 'Jelszo1'), " +
                     "('Favágó Jani', '', 'favagojani@cim.hu', 'Jelszo2'), " +
                     "('Bükki Jenő', '', 'bukki.jeno@citromail.hu', 'jelszo3');";
@@ -205,7 +205,7 @@ namespace Forest_Registration.repository
             try
             {
                 connection.Open();
-                string query = "INSERT INTO `erdo_adatbazis`.`fafajok` (`fafajId`, `megnevezes`) VALUES " +
+                string query = "INSERT IGNORE INTO `erdo_adatbazis`.`fafajok` (`fafajId`, `megnevezes`) VALUES " +
                     "(1, 'Bükk'), " +
                     "(2, 'Fűz fa'), " +
                     "(3, 'Galagonya'), " +
@@ -283,8 +283,8 @@ namespace Forest_Registration.repository
             {
                 connection.Open();
                 string queryKeys = "ALTER TABLE `fak` " +
-                    "ADD CONSTRAINT `fak_ibfk_1` FOREIGN KEY IF NOT EXISTS (`fafajId`) REFERENCES `fafajok` (`fafajId`), " +
-                    "ADD CONSTRAINT `fak_ibfk_2` FOREIGN KEY IF NOT EXISTS (`erdeszeti_azonosito`) REFERENCES `erdok` (`erdeszeti_azonosito`); ";
+                    "ADD CONSTRAINT `fak_ibfk_1` FOREIGN KEY IF NOT EXISTS (`fafajId`) REFERENCES `fafajok` (`fafajId`)  ON DELETE CASCADE ON UPDATE CASCADE, " +
+                    "ADD CONSTRAINT `fak_ibfk_2` FOREIGN KEY IF NOT EXISTS (`erdeszeti_azonosito`) REFERENCES `erdok` (`erdeszeti_azonosito`)  ON DELETE CASCADE ON UPDATE CASCADE; ";
                 MySqlCommand cmdKeys = new MySqlCommand(queryKeys, connection);
                 cmdKeys.ExecuteNonQuery();
                 connection.Close();
@@ -304,7 +304,7 @@ namespace Forest_Registration.repository
             try
             {
                 connection.Open();
-                string query = "INSERT INTO `erdo_adatbazis`.`fak` (`fafajId`, `mennyiseg`, `erdeszeti_azonosito`) VALUES " +
+                string query = "INSERT IGNORE INTO `erdo_adatbazis`.`fak` (`fafajId`, `mennyiseg`, `erdeszeti_azonosito`) VALUES " +
                     " (3, 400, 'DASISTERDO422')," +
                     " (2, 20, 'ERDO555/')," +
                     " (4, 200, 'ERDO9'), " +
@@ -395,7 +395,7 @@ namespace Forest_Registration.repository
             try
             {
                 connection.Open();
-                string query = "INSERT INTO `erdo_adatbazis`.`fa_hasznalat_modjai` (`hasznalatId`, `megnevezes`, `rovidites`) VALUES " +
+                string query = "INSERT IGNORE INTO `erdo_adatbazis`.`fa_hasznalat_modjai` (`hasznalatId`, `megnevezes`, `rovidites`) VALUES " +
                     "(1, 'Tarvágás', 'TRV'), " +
                     "(2, 'Tisztítás', 'Ti'), " +
                     "(3, 'Egészségügyi Termelés', 'EÜ'), " +

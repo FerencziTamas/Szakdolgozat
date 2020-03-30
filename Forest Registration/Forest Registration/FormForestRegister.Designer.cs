@@ -601,7 +601,7 @@
             this.metroTabControlErdok.Location = new System.Drawing.Point(20, 87);
             this.metroTabControlErdok.Multiline = true;
             this.metroTabControlErdok.Name = "metroTabControlErdok";
-            this.metroTabControlErdok.SelectedIndex = 0;
+            this.metroTabControlErdok.SelectedIndex = 2;
             this.metroTabControlErdok.Size = new System.Drawing.Size(1101, 553);
             this.metroTabControlErdok.Style = MetroFramework.MetroColorStyle.Green;
             this.metroTabControlErdok.TabIndex = 1;
@@ -1256,8 +1256,12 @@
             this.metroComboBoxFelhaszMod.FormattingEnabled = true;
             this.metroComboBoxFelhaszMod.ItemHeight = 23;
             this.metroComboBoxFelhaszMod.Items.AddRange(new object[] {
+            "",
             "Rönk",
-            "Tüzifa"});
+            "Tüzifa",
+            "Apríték",
+            "Fűrészpor",
+            "Forgács"});
             this.metroComboBoxFelhaszMod.Location = new System.Drawing.Point(152, 134);
             this.metroComboBoxFelhaszMod.Name = "metroComboBoxFelhaszMod";
             this.metroComboBoxFelhaszMod.Size = new System.Drawing.Size(203, 29);

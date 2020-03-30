@@ -23,26 +23,16 @@ namespace Forest_Register.modell
             return "SELECT * FROM `szamlak` INNER JOIN szamlatetelek ON szamlak.szamlaszam=szamlatetelek.szamlaszam";
         }
 
-        public string SzamlaModositasEgy(string szamlaszam)
+        public string SzamlaModositas(string szamlaszam)
         {
-            return "UPDATE `szamlak` SET `vevoId`= '"+getVevoNev()+"',`teljesites_napja`='"+getTeljesitesNapja()+"',`szamla_keletkezes`='"+getSzamlaKeletkezese()+"',`kifizetes_napja`='"+getKifizetesNapja()+"',`lerakodasi_hely`='"+getLerakodasiHely()+"',`felrakasi_hely`='"+getFelrakasiHely()+"',`muveleti_lap_sorszam`='"+getMuveletiLapSorszam()+"',`szallitojegy_sorszam`='"+getSzallitojegySorszam()+ "' WHERE `szamlaszam`= \"" + szamlaszam+ "\"";
+            return "UPDATE `szamlak` SET `vevoId`= " + getVevoID() + ",`teljesites_napja`= '" + getTeljesitesNapja() + "',`szamla_keletkezes`= '" + getSzamlaKeletkezese() + "',`kifizetes_napja`= '" + getKifizetesNapja() + "',`lerakodasi_hely`= '" + getLerakodasiHely() + "',`felrakasi_hely`= '" + getFelrakasiHely() + "',`muveleti_lap_sorszam`= '" + getMuveletiLapSorszam() + "',`szallitojegy_sorszam`= '" + getSzallitojegySorszam() + "' WHERE `szamlaszam`= \"" + szamlaszam + "\";" +
+                "UPDATE `szamlatetelek` SET `fafajId`= " + getFafaj() + ",`mennyiseg`= " + getMennyiseg() + ",`felhasznalas_modja`= '" + getFelhasznalasModja() + "',`brutto_ar`=" + getBruttoAr() + ",`netto_ar`=" + getNettoAr() + " WHERE `szamlaszam`= \"" + szamlaszam + "\"";
         }
 
-        public string SzamlaModositasKetto(string szamlaszam)
+        public string SzamlaHozzaadas()
         {
-            return "UPDATE `szamlatetelek` SET `fafajId`='"+getFafaj()+"',`mennyiseg`='"+getMennyiseg()+"',`felhasznalas_modja`='"+getFelhasznalasModja()+"',`brutto_ar`='"+getBruttoAr()+"',`netto_ar`='"+getNettoAr()+ "' WHERE `szamlaszam`= \"" + szamlaszam+ "\"";
+            return "INSERT INTO `szamlak`(`szamlaszam`, `vevoId`, `teljesites_napja`, `szamla_keletkezes`, `kifizetes_napja`, `lerakodasi_hely`, `felrakasi_hely`, `muveleti_lap_sorszam`, `szallitojegy_sorszam`) VALUES (\"" + szamlaszam + "\", " + getVevoID() + ", \"" + getTeljesitesNapja() + "\", \"" + getSzamlaKeletkezese() + "\", \"" + getKifizetesNapja() + "\", \"" + getLerakodasiHely() + "\", \"" + getFelrakasiHely() + "\", \"" + getMuveletiLapSorszam() + "\", \"" + getSzallitojegySorszam() + "\")" +
+                "INSERT INTO `szamlatetelek`(`fafajId`, `szamlaszam`, `mennyiseg`, `felhasznalas_modja`, `brutto_ar`, `netto_ar`) VALUES (" + getFafaj() + ", '\"" + szamlaszam + "\"', " + getMennyiseg() + ", \"" + getFelhasznalasModja() + "\", " + getBruttoAr() + ", " + getNettoAr() + ")";
         }
-
-        public string SzamlaHozzaadasEgy()
-        {
-            return "INSERT INTO `szamlak`(`szamlaszam`, `vevoId`, `teljesites_napja`, `szamla_keletkezes`, `kifizetes_napja`, `lerakodasi_hely`, `felrakasi_hely`, `muveleti_lap_sorszam`, `szallitojegy_sorszam`) VALUES ('" + szamlaszam + "', '" + getVevoNev() + "', '" + getTeljesitesNapja() + "', '" + getSzamlaKeletkezese() + "', '" + getKifizetesNapja() + "', '" + getLerakodasiHely() + "', '" + getFelrakasiHely() + "', '" + getMuveletiLapSorszam() + "', '" + getSzallitojegySorszam() + "')";
-        }
-
-        public string SzamlaHozzaadasKetto()
-        {
-            return "INSERT INTO `szamlatetelek`(`fafajId`, `szamlaszam`, `mennyiseg`, `felhasznalas_modja`, `brutto_ar`, `netto_ar`) VALUES ('" + getFafaj() + "', '\"" + szamlaszam + "\"', '" + getMennyiseg() + "', '" + getFelhasznalasModja() + "', '" + getBruttoAr() + "', '" + getNettoAr() + "')";
-        }
-
-
     }
 }

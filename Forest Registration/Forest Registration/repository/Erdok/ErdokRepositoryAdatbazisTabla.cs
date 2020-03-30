@@ -35,7 +35,7 @@ namespace Forest_Register.repository
                     "`kor` int(11) NOT NULL, " +
                     "`terulet` int(11) NOT NULL COMMENT 'Négyzetkilóméterben', " +
                     "`hasznalatId` int(11) NOT NULL, " +
-                    "`egKod` varchar(20) COLLATE utf8_hungarian_ci NOT NULL, " +
+                    "`egKod` varchar(20) COLLATE utf8_hungarian_ci NULL, " +
                     "PRIMARY KEY(`erdeszeti_azonosito`), " +
                     "KEY `egKod` (`egKod`), " +
                     "KEY `hasznalatId` (`hasznalatId`)) " +
@@ -62,9 +62,9 @@ namespace Forest_Register.repository
             {
                 connection.Open();
                 string queryKeys = "ALTER TABLE `erdok` " +
-                    "ADD CONSTRAINT `erdok_ibfk_1` FOREIGN KEY IF NOT EXISTS (`egKod`) REFERENCES `erdogazdalkodok` (`egKod`), " +
-                    "ADD CONSTRAINT `erdok_ibfk_2` FOREIGN KEY IF NOT EXISTS (`egKod`) REFERENCES `erdogazdalkodok` (`egKod`), " +
-                    "ADD CONSTRAINT `erdok_ibfk_3` FOREIGN KEY IF NOT EXISTS (`hasznalatId`) REFERENCES `fa_hasznalat_modjai` (`hasznalatId`); ";
+                    "ADD CONSTRAINT `erdok_ibfk_1` FOREIGN KEY IF NOT EXISTS (`egKod`) REFERENCES `erdogazdalkodok` (`egKod`)  ON DELETE CASCADE ON UPDATE CASCADE, " +
+                    "ADD CONSTRAINT `erdok_ibfk_2` FOREIGN KEY IF NOT EXISTS (`egKod`) REFERENCES `erdogazdalkodok` (`egKod`)  ON DELETE CASCADE ON UPDATE CASCADE, " +
+                    "ADD CONSTRAINT `erdok_ibfk_3` FOREIGN KEY IF NOT EXISTS (`hasznalatId`) REFERENCES `fa_hasznalat_modjai` (`hasznalatId`)  ON DELETE CASCADE ON UPDATE CASCADE; ";
                 MySqlCommand cmdQueryKeys = new MySqlCommand(queryKeys, connection);
                 cmdQueryKeys.ExecuteNonQuery();
                 connection.Close();
@@ -105,7 +105,7 @@ namespace Forest_Register.repository
             try
             {
                 connection.Open();
-                string query = "INSERT INTO `erdo_adatbazis`.`erdok` (`erdeszeti_azonosito`, `helyrajzi_szam`, `kor`, `terulet`, `hasznalatId`, `egKod`) VALUES " +
+                string query = "INSERT IGNORE INTO `erdo_adatbazis`.`erdok` (`erdeszeti_azonosito`, `helyrajzi_szam`, `kor`, `terulet`, `hasznalatId`, `egKod`) VALUES " +
                     "('DASISTERDO420', 'LISSZABON3', 40, 5000, 4, 'Én24141442'), " +
                     "('DASISTERDO421', 'LISSZABON3', 40, 5000, 4, 'Én24141442'), " +
                     "('DASISTERDO44', 'LISSZABON4', 40, 5000, 4, 'Kod2'), " +

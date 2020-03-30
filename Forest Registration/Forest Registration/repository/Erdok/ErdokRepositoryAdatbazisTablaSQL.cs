@@ -26,7 +26,6 @@ namespace Forest_Register.repository
                 {
                     string erdeszetiAzon = dr["erdeszeti_azonosito"].ToString();
                     string helyrajziSzam = dr["helyrajzi_szam"].ToString();
-                    dr["hasznalatId"].ToString();
                     string erdogazdalkodo = dr["egKod"].ToString();
                     bool joEredmeny = false;
                     int kor = -1;
