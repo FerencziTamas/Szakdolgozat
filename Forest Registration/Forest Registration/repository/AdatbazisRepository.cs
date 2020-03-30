@@ -95,10 +95,10 @@ namespace Forest_Registration.repository
             try
             {
                 connection.Open();
-                string query = "INSERT IGNORE INTO `erdo_adatbazis`.`felhasznalok` (`nev`, `cim`, `email`, `jelszo`) VALUES " +
-                    "('Ferenczi Tamás', '', 'darius.517.ft@gmail.com', 'Jelszo1'), " +
-                    "('Favágó Jani', '', 'favagojani@cim.hu', 'Jelszo2'), " +
-                    "('Bükki Jenő', '', 'bukki.jeno@citromail.hu', 'jelszo3');";
+                string query = "INSERT IGNORE INTO `erdo_adatbazis`.`felhasznalok` (`felhasznaloId`,`nev`, `cim`, `email`, `jelszo`) VALUES " +
+                    "(1,'Ferenczi Tamás', '', 'darius.517.ft@gmail.com', 'Jelszo1'), " +
+                    "(2,'Favágó Jani', '', 'favagojani@cim.hu', 'Jelszo2'), " +
+                    "(3,'Bükki Jenő', '', 'bukki.jeno@citromail.hu', 'jelszo3');";
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
                 connection.Close();

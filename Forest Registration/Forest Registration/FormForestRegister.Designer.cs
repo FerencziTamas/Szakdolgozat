@@ -166,6 +166,9 @@
             this.errorProviderErGazKod = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderSzamlaszam = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderAdoszam = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider1ErdoEG = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderVevoId = new System.Windows.Forms.ErrorProvider(this.components);
             this.menuStrip1.SuspendLayout();
             this.metroTabPageErdok.SuspendLayout();
             this.metroPanelErdo.SuspendLayout();
@@ -211,6 +214,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderErGazKod)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderSzamlaszam)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderAdoszam)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1ErdoEG)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderVevoId)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -601,7 +607,7 @@
             this.metroTabControlErdok.Location = new System.Drawing.Point(20, 87);
             this.metroTabControlErdok.Multiline = true;
             this.metroTabControlErdok.Name = "metroTabControlErdok";
-            this.metroTabControlErdok.SelectedIndex = 2;
+            this.metroTabControlErdok.SelectedIndex = 3;
             this.metroTabControlErdok.Size = new System.Drawing.Size(1101, 553);
             this.metroTabControlErdok.Style = MetroFramework.MetroColorStyle.Green;
             this.metroTabControlErdok.TabIndex = 1;
@@ -1916,6 +1922,18 @@
             // 
             this.errorProviderAdoszam.ContainerControl = this;
             // 
+            // errorProvider1ErdoEG
+            // 
+            this.errorProvider1ErdoEG.ContainerControl = this;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // errorProviderVevoId
+            // 
+            this.errorProviderVevoId.ContainerControl = this;
+            // 
             // FormForestRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1982,6 +2000,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderErGazKod)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderSzamlaszam)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderAdoszam)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1ErdoEG)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderVevoId)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2125,5 +2146,8 @@
         private MetroFramework.Controls.MetroTextBox metroTextBoxVevoAdoszam;
         private MetroFramework.Controls.MetroComboBox metroComboBoxFahaszMod;
         private MetroFramework.Controls.MetroComboBox metroComboBoxSzamlaVevo;
+        private System.Windows.Forms.ErrorProvider errorProvider1ErdoEG;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ErrorProvider errorProviderVevoId;
     }
 }

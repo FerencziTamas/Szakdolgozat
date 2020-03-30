@@ -228,59 +228,95 @@ namespace Forest_Register
 
         private void metroButtonUjVevo_Click(object sender, EventArgs e)
         {
-            HibauzenetTorlese();
-            ErrorProviderekTorleseVevo();
-            try
+            if(metroTextBoxVevoAzon.Text != string.Empty)
             {
-                Vevo ujVevo = new Vevo(
-                    Convert.ToInt32(metroTextBoxVevoAzon.Text),
-                    metroTextBoxVevoNev.Text,
-                    metroTextBoxVevoCim.Text,
-                    metroTextBoxVevoTechAzon.Text,
-                    Convert.ToInt32(metroTextBoxVevoAdoszam.Text)
-                    );
-                int azonosito = Convert.ToInt32(metroTextBoxVevoAzon.Text);
+                if (metroTextBoxVevoNev.Text != string.Empty)
+                {
+                    if(metroTextBoxVevoCim.Text != string.Empty)
+                    {
+                        if(metroTextBoxVevoTechAzon.Text != string.Empty)
+                        {
+                            if (metroTextBoxVevoAdoszam.Text != string.Empty)
+                            {
+                                HibauzenetTorlese();
+                                ErrorProviderekTorleseVevo();
+                                try
+                                {
+                                    Vevo ujVevo = new Vevo(
+                                        Convert.ToInt32(metroTextBoxVevoAzon.Text),
+                                        metroTextBoxVevoNev.Text,
+                                        metroTextBoxVevoCim.Text,
+                                        metroTextBoxVevoTechAzon.Text,
+                                        Convert.ToInt32(metroTextBoxVevoAdoszam.Text)
+                                        );
+                                    int azonosito = Convert.ToInt32(metroTextBoxVevoAzon.Text);
 
-                //Hozzáadás listához
-                try
-                {
-                    repo.VevoHozzaadasaListahoz(ujVevo);
-                }
-                catch (Exception ex)
-                {
-                    HibaUzenetKiirasa(ex.Message);
-                }
+                                    //Hozzáadás listához
+                                    try
+                                    {
+                                        repo.VevoHozzaadasaListahoz(ujVevo);
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        HibaUzenetKiirasa(ex.Message);
+                                    }
 
-                //Hozzáadás adatbázishoz
-                VevokRepositoryAdatbazisTabla vrat = new VevokRepositoryAdatbazisTabla();
-                try
-                {
-                    vrat.VevoAdatbazisbaIllesztese(ujVevo);
-                }
-                catch (Exception ex)
-                {
-                    HibaUzenetKiirasa(ex.Message);
-                }
+                                    //Hozzáadás adatbázishoz
+                                    VevokRepositoryAdatbazisTabla vrat = new VevokRepositoryAdatbazisTabla();
+                                    try
+                                    {
+                                        vrat.VevoAdatbazisbaIllesztese(ujVevo);
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        HibaUzenetKiirasa(ex.Message);
+                                    }
 
-                //DataGridView frissítése
-                DataGridViewFrissiteseVevo();
-                if (dataGridViewVevok.SelectedRows.Count == 1)
+                                    //DataGridView frissítése
+                                    DataGridViewFrissiteseVevo();
+                                    if (dataGridViewVevok.SelectedRows.Count == 1)
+                                    {
+                                        DataGridViewVevokBeallit();
+                                    }
+                                }
+                                catch (HibasVevoNevException hvne)
+                                {
+                                    errorProviderVevoNev.SetError(metroTextBoxVevoNev, hvne.Message);
+                                }
+                                catch (HibasVevoCimException hvce)
+                                {
+                                    errorProviderVevoCim.SetError(metroTextBoxVevoCim, hvce.Message);
+                                }
+                                catch (Exception ex)
+                                {
+
+                                }
+                            }
+                            else
+                            {
+                                errorProviderAdoszam.SetError(metroTextBoxVevoAdoszam, "Töltse ki a mezőt!");
+                            }
+                        }
+                        else
+                        {
+                            errorProviderTechAzon.SetError(metroTextBoxVevoTechAzon, "Töltse ki a mezőt!");
+                        }
+                    }
+                    else
+                    {
+                        errorProviderVevoCim.SetError(metroTextBoxVevoCim, "Töltse ki a mezőt!");
+                    }
+                }
+                else
                 {
-                    DataGridViewVevokBeallit();
+                    errorProviderVevoNev.SetError(metroTextBoxVevoNev, "Töltse ki a mezőt!");
                 }
             }
-            catch (HibasVevoNevException hvne)
+            else
             {
-                errorProviderVevoNev.SetError(metroTextBoxVevoNev, hvne.Message);
+                errorProviderVevoId.SetError(metroTextBoxVevoAzon, "Töltse ki a mezőt!");
             }
-            catch (HibasVevoCimException hvce)
-            {
-                errorProviderVevoCim.SetError(metroTextBoxVevoCim, hvce.Message);
-            }
-            catch(Exception ex)
-            {
-
-            }
+            
         }
 
         private void metroButtonVevoMegse_Click(object sender, EventArgs e)

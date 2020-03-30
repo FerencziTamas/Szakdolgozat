@@ -265,60 +265,139 @@ namespace Forest_Register
 
         private void metroButtonSzamlaHozzaad_Click(object sender, EventArgs e)
         {
-            HibauzenetTorlese();
-            ErrorProviderekTorleseSzamla();
-            try
+            DateTime today = DateTime.Today;
+
+            if (metroTextBoxSzamlaSzam.Text != string.Empty)
             {
-                Szamla ujSzamla = new Szamla(
-                    metroTextBoxSzamlaSzam.Text,
-                    repo.KeresIdNevAlapjanSzamla(metroComboBoxFafaj.Text),
-                    repo.KeresIdVevoAlapjanSzamla(metroComboBoxSzamlaVevo.Text),
-                    Convert.ToInt32(metroTextBoxMennyiseg.Text),
-                    metroComboBoxFelhaszMod.Text,
-                    Convert.ToInt32(metroTextBoxBruttoAr.Text),
-                    Convert.ToInt32(metroTextBoxNettoAr.Text),
-                    metroDateTimeTeljesitesNap.Text,
-                    metroDateTimeSzamlaKel.Text,
-                    metroDateTimeTeljesitesNap.Text,
-                    metroTextBoxLerakodasiHely.Text,
-                    metroTextBoxFelrakasiHely.Text,
-                    metroTextBoxMuvLapSzam.Text,
-                    metroTextBoxSzallitojegySorszam.Text
-                    );
+                if(metroTextBoxMennyiseg.Text != string.Empty)
+                {
+                    if(metroTextBoxBruttoAr.Text != string.Empty)
+                    {
+                        if (metroTextBoxNettoAr.Text != string.Empty)
+                        {
+                            if (metroDateTimeSzamlaKel.Value < today)
+                            {
+                                if(metroDateTimeTeljesitesNap.Value < today)
+                                {
+                                    if(metroDateTimeKifizetesNapja.Value < today)
+                                    {
+                                        if(metroTextBoxLerakodasiHely.Text != string.Empty)
+                                        {
+                                            if(metroTextBoxFelrakasiHely.Text != string.Empty)
+                                            {
+                                                if(metroTextBoxMuvLapSzam.Text != string.Empty)
+                                                {
+                                                    if(metroTextBoxSzallitojegySorszam.Text != string.Empty)
+                                                    {
+                                                        HibauzenetTorlese();
+                                                        ErrorProviderekTorleseSzamla();
+                                                        try
+                                                        {
+                                                            Szamla ujSzamla = new Szamla(
+                                                                metroTextBoxSzamlaSzam.Text,
+                                                                repo.KeresIdNevAlapjanSzamla(metroComboBoxFafaj.Text),
+                                                                repo.KeresIdVevoAlapjanSzamla(metroComboBoxSzamlaVevo.Text),
+                                                                Convert.ToInt32(metroTextBoxMennyiseg.Text),
+                                                                metroComboBoxFelhaszMod.Text,
+                                                                Convert.ToInt32(metroTextBoxBruttoAr.Text),
+                                                                Convert.ToInt32(metroTextBoxNettoAr.Text),
+                                                                metroDateTimeTeljesitesNap.Text,
+                                                                metroDateTimeSzamlaKel.Text,
+                                                                metroDateTimeKifizetesNapja.Text,
+                                                                metroTextBoxLerakodasiHely.Text,
+                                                                metroTextBoxFelrakasiHely.Text,
+                                                                metroTextBoxMuvLapSzam.Text,
+                                                                metroTextBoxSzallitojegySorszam.Text
+                                                                );
 
-                string szamlaszam = metroTextBoxSzamlaSzam.Text;
+                                                            string szamlaszam = metroTextBoxSzamlaSzam.Text;
 
-                //Hozzáadás listához
-                try
-                {
-                    repo.SzamlaHozzaadasaListahoz(ujSzamla);
-                }
-                catch (Exception ex)
-                {
-                    HibaUzenetKiirasa(ex.Message);
-                }
+                                                            //Hozzáadás listához
+                                                            try
+                                                            {
+                                                                repo.SzamlaHozzaadasaListahoz(ujSzamla);
+                                                            }
+                                                            catch (Exception ex)
+                                                            {
+                                                                HibaUzenetKiirasa(ex.Message);
+                                                            }
 
-                //Hozzáadás adatbázishoz
-                SzamlakRepositoryAdatbazisTabla szrat = new SzamlakRepositoryAdatbazisTabla();
-                try
-                {
-                    szrat.SzamlaAdatbazisbaIllesztese(ujSzamla);
-                }
-                catch (Exception ex)
-                {
-                    HibaUzenetKiirasa(ex.Message);
-                }
+                                                            //Hozzáadás adatbázishoz
+                                                            SzamlakRepositoryAdatbazisTabla szrat = new SzamlakRepositoryAdatbazisTabla();
+                                                            try
+                                                            {
+                                                                szrat.SzamlaAdatbazisbaIllesztese(ujSzamla);
+                                                            }
+                                                            catch (Exception ex)
+                                                            {
+                                                                HibaUzenetKiirasa(ex.Message);
+                                                            }
 
-                //DataGridView frissítése
-                DataGridViewFrissiteseSzamla();
-                if (dataGridViewSzamlak.SelectedRows.Count == 1)
+                                                            //DataGridView frissítése
+                                                            DataGridViewFrissiteseSzamla();
+                                                            if (dataGridViewSzamlak.SelectedRows.Count == 1)
+                                                            {
+                                                                DataGridViewSzamlakBeallit();
+                                                            }
+                                                        }
+                                                        catch (Exception ex)
+                                                        {
+
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        errorProviderSzallitojegySor.SetError(metroTextBoxSzallitojegySorszam, "Töltse ki a mezőt");
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    errorProviderMuvlapSor.SetError(metroTextBoxMuvLapSzam, "Töltse ki a mezőt");
+                                                }
+                                            }
+                                            else
+                                            {
+                                                errorProviderFelrakHely.SetError(metroTextBoxFelrakasiHely, "Töltse ki a mezőt");
+                                            }
+                                        }
+                                        else
+                                        {
+                                            errorProviderLerakHely.SetError(metroTextBoxLerakodasiHely, "Töltse ki a mezőt");
+                                        }
+                                    }
+                                    else
+                                    {
+                                        errorProviderKifNap.SetError(metroDateTimeKifizetesNapja, "Töltse ki a mezőt");
+                                    }
+                                }
+                                else
+                                {
+                                    errorProviderTelNap.SetError(metroDateTimeTeljesitesNap, "Töltse ki a mezőt");
+                                }
+                            }
+                            else
+                            {
+                                errorProviderSzamlaKel.SetError(metroDateTimeSzamlaKel, "Töltse ki a mezőt!");
+                            }
+                        }
+                        else
+                        {
+                            errorProviderNettoAr.SetError(metroTextBoxNettoAr, "Töltse ki a mezőt!");
+                        }
+                    }
+                    else
+                    {
+                        errorProviderBruttoAr.SetError(metroTextBoxBruttoAr, "Töltse ki a mezőt!");
+                    }
+                }
+                else
                 {
-                    DataGridViewSzamlakBeallit();
+                    errorProviderMennyiseg.SetError(metroTextBoxMennyiseg, "Töltse ki a mezőt");
                 }
             }
-            catch (Exception ex)
+            else
             {
-
+                errorProviderSzamlaszam.SetError(metroTextBoxSzamlaSzam, "Töltse ki a mezőt");
             }
         }
 

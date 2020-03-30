@@ -203,54 +203,75 @@ namespace Forest_Register
 
         private void metroButtonUjErGazHozzaad_Click(object sender, EventArgs e)
         {
-            HibauzenetTorlese();
-            ErrorProviderekTorleseErdogazdalkodok();
-            try
+            if (metroTextBoxErGazKod.Text != string.Empty)
             {
-                Erdogazdalkodo ujErdogazdalkodo = new Erdogazdalkodo(
-                    metroTextBoxErGazKod.Text,
-                    metroTextBoxErGazNev.Text,
-                    metroTextBoxErGazCim.Text
-                    );
-                //Hozzáadás a listához
-                try
+                if (metroTextBoxErGazNev.Text != string.Empty)
                 {
-                    repo.erdogazdalkodoHozzadasaListahoz(ujErdogazdalkodo);
-                }
-                catch (Exception ex)
-                {
-                    HibaUzenetKiirasa(ex.Message);
-                }
+                    if (metroTextBoxErGazCim.Text != string.Empty)
+                    {
+                        HibauzenetTorlese();
+                        ErrorProviderekTorleseErdogazdalkodok();
+                        try
+                        {
+                            Erdogazdalkodo ujErdogazdalkodo = new Erdogazdalkodo(
+                                metroTextBoxErGazKod.Text,
+                                metroTextBoxErGazNev.Text,
+                                metroTextBoxErGazCim.Text
+                                );
+                            //Hozzáadás a listához
+                            try
+                            {
+                                repo.erdogazdalkodoHozzadasaListahoz(ujErdogazdalkodo);
+                            }
+                            catch (Exception ex)
+                            {
+                                HibaUzenetKiirasa(ex.Message);
+                            }
 
-                //Hozzáadás adatbázishoz
-                ErdogazdalkodokRepositoryAdatbazisTabla egrat = new ErdogazdalkodokRepositoryAdatbazisTabla();
-                try
-                {
-                    egrat.ErdogazdalkodoAdatbazisbaIllesztese(ujErdogazdalkodo);
-                }
-                catch (Exception ex)
-                {
-                    HibaUzenetKiirasa(ex.Message);
-                }
+                            //Hozzáadás adatbázishoz
+                            ErdogazdalkodokRepositoryAdatbazisTabla egrat = new ErdogazdalkodokRepositoryAdatbazisTabla();
+                            try
+                            {
+                                egrat.ErdogazdalkodoAdatbazisbaIllesztese(ujErdogazdalkodo);
+                            }
+                            catch (Exception ex)
+                            {
+                                HibaUzenetKiirasa(ex.Message);
+                            }
 
-                //DataGridView Frissítése
-                DataGridViewFrissiteseErGaz();
-                if (dataGridViewErdogazdalkodok.SelectedRows.Count == 1)
-                {
-                    dataGridViewErdogazdalkodokBeallit();
-                }
-            }
-            catch (HibasErGazNevException hegne)
-            {
-                errorProviderErgazNev.SetError(metroTextBoxErGazNev, hegne.Message);
-            }
-            catch (HibasErGazCimException hegce)
-            {
-                errorProviderErgazCim.SetError(metroTextBoxErGazCim, hegce.Message);
-            }
-            catch (Exception ex)
-            {
+                            //DataGridView Frissítése
+                            DataGridViewFrissiteseErGaz();
+                            if (dataGridViewErdogazdalkodok.SelectedRows.Count == 1)
+                            {
+                                dataGridViewErdogazdalkodokBeallit();
+                            }
+                        }
+                        catch (HibasErGazNevException hegne)
+                        {
+                            errorProviderErgazNev.SetError(metroTextBoxErGazNev, hegne.Message);
+                        }
+                        catch (HibasErGazCimException hegce)
+                        {
+                            errorProviderErgazCim.SetError(metroTextBoxErGazCim, hegce.Message);
+                        }
+                        catch (Exception ex)
+                        {
 
+                        }
+                    }
+                    else
+                    {
+                        errorProviderErgazCim.SetError(metroTextBoxErGazCim, "Töltse ki a mezőt!");
+                    }
+                }
+                else
+                {
+                    errorProviderErgazNev.SetError(metroTextBoxErGazNev, "Töltse ki a mezőt!");
+                }   
+            }
+            else
+            {
+                errorProviderErGazKod.SetError(metroTextBoxErGazKod, "Töltse ki a mezőt!");
             }
         }
 

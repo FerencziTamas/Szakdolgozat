@@ -201,8 +201,8 @@ namespace Forest_Register
                     metroTextBoxHelyrajziSzam.Text,
                     Convert.ToInt32(numericUpDownErdoKor.Value),
                     Convert.ToInt32(metroTextBoxTerulet.Text),
-                    Convert.ToInt32(metroComboBoxErdokErgaz.Text),
-                    metroComboBoxFahaszMod.Text
+                    Convert.ToInt32(metroComboBoxFahaszMod.Text),
+                    metroComboBoxErdokErgaz.Text
                     );
                 string erdeszetiAzon = metroTextBoxErdeszetiAzon.Text;
 
@@ -249,54 +249,96 @@ namespace Forest_Register
         /// <param name="e"></param>
         private void metroButtonHozzaad_Click(object sender, EventArgs e)
         {
-            HibauzenetTorlese();
-            ErrorProviderekTorleseErdo();
-            try
+            if(metroTextBoxErdeszetiAzon.Text != string.Empty)
             {
-                Erdo ujErdo = new Erdo(
-                    metroTextBoxErdeszetiAzon.Text,
-                    metroTextBoxHelyrajziSzam.Text,
-                    Convert.ToInt32(numericUpDownErdoKor.Value),
-                    Convert.ToInt32(metroTextBoxTerulet.Text),
-                    Convert.ToInt32(metroComboBoxErdokErgaz.Text),
-                    metroComboBoxFahaszMod.Text
-                    );
-                string azonosito = metroTextBoxErdeszetiAzon.Text;
+                if(metroTextBoxHelyrajziSzam.Text != string.Empty)
+                {
+                    if(numericUpDownErdoKor.Value != 0)
+                    {
+                        if(metroTextBoxTerulet.Text != string.Empty)
+                        {
+                            if(metroComboBoxFahaszMod.Text != string.Empty)
+                            {
+                                if(metroComboBoxErdokErgaz.Text != string.Empty)
+                                {
+                                    HibauzenetTorlese();
+                                    ErrorProviderekTorleseErdo();
+                                    try
+                                    {
+                                        Erdo ujErdo = new Erdo(
+                                            metroTextBoxErdeszetiAzon.Text,
+                                            metroTextBoxHelyrajziSzam.Text,
+                                            Convert.ToInt32(numericUpDownErdoKor.Value),
+                                            Convert.ToInt32(metroTextBoxTerulet.Text),
+                                            Convert.ToInt32(metroComboBoxFahaszMod.Text),
+                                            repo.KeresIdNevAlapjanErdo(metroComboBoxErdokErgaz.Text)
+                                            );
+                                        string azonosito = metroTextBoxErdeszetiAzon.Text;
 
-                //Hozzáadás listához
-                try
-                {
-                    repo.erdoHozzaadasaListahoz(ujErdo);
-                }
-                catch (Exception ex)
-                {
-                    HibaUzenetKiirasa(ex.Message);
-                }
+                                        //Hozzáadás listához
+                                        try
+                                        {
+                                            repo.erdoHozzaadasaListahoz(ujErdo);
+                                        }
+                                        catch (Exception ex)
+                                        {
+                                            HibaUzenetKiirasa(ex.Message);
+                                        }
 
-                //Hozzáadás adatbázishoz
-                ErdokRepositoryAdatbazisTabla erat = new ErdokRepositoryAdatbazisTabla();
-                try
-                {
-                    erat.ErdoAdatbazisbaIllesztese(ujErdo);
-                }
-                catch (Exception ex)
-                {
-                    HibaUzenetKiirasa(ex.Message);
-                }
+                                        //Hozzáadás adatbázishoz
+                                        ErdokRepositoryAdatbazisTabla erat = new ErdokRepositoryAdatbazisTabla();
+                                        try
+                                        {
+                                            erat.ErdoAdatbazisbaIllesztese(ujErdo);
+                                        }
+                                        catch (Exception ex)
+                                        {
+                                            HibaUzenetKiirasa(ex.Message);
+                                        }
 
-                //DataGridView frissítése
-                DataGridViewFrissiteseErdo();
-                if (dataGridViewErdok.SelectedRows.Count==1)
+                                        //DataGridView frissítése
+                                        DataGridViewFrissiteseErdo();
+                                        if (dataGridViewErdok.SelectedRows.Count == 1)
+                                        {
+                                            dataGridViewErdokBeallit();
+                                        }
+                                    }
+                                    catch (Exception)
+                                    {
+
+                                    }
+                                }
+                                else
+                                {
+                                    errorProvider1ErdoEG.SetError(metroComboBoxErdokErgaz, "Töltse ki a mezőt!");
+                                }
+                            }
+                            else
+                            {
+                                errorProviderFaHaszMod.SetError(metroComboBoxFahaszMod, "Töltse ki a mezőt!");
+                            }
+                        }
+                        else
+                        {
+                            errorProviderTerulet.SetError(metroTextBoxTerulet, "Töltse ki a mezőt!");
+                        }
+                    }
+                    else
+                    {
+                        errorProviderKor.SetError(numericUpDownErdoKor, "Töltse ki a mezőt!");
+                    }
+                }
+                else
                 {
-                    dataGridViewErdokBeallit();
+                    errorProviderHelyrajziSzam.SetError(metroTextBoxHelyrajziSzam, "Töltse ki a mezőt!");
                 }
             }
-            catch (Exception)
+            else
             {
-
+                errorProviderErdeszetiAzon.SetError(metroTextBoxErdeszetiAzon, "Töltse ki a mezőt!");
             }
         }
-
+        
         /// <summary>
         /// Törli a textboxok, numericUpDown tartalmát
         /// </summary>
