@@ -9,7 +9,7 @@ namespace Forest_Register.modell
     /// <summary>
     /// Vevő osztály
     /// </summary>
-    partial class Vevo
+    public partial class Vevo
     {
         private int vevoId;
         private string nev;
@@ -28,10 +28,36 @@ namespace Forest_Register.modell
         public Vevo(int vevoId, string vevoNev, string vevoCim, string technikai_azonosito, int adoszam)
         {
             this.vevoId = vevoId;
-            this.nev = vevoNev;
+            if (isValid(vevoNev))
+            {
+                this.nev = vevoNev;
+            }
+            
             this.cim = vevoCim;
             this.technikai_azonosito = technikai_azonosito;
             this.adoszam = adoszam;
+        }
+
+        public bool isValid(string vevoNev)
+        {
+            if(isValidNagyBetuvelKezdodik(vevoNev))
+            {
+                throw new HibasVevoNevException("A név nem nagy betűvel kezdődik");
+            }
+            return true;
+        }
+
+        private bool isValidNagyBetuvelKezdodik(string vevoNev)
+        {
+            if(char.IsUpper(vevoNev.ElementAt(0)))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            
         }
 
         /// <summary>

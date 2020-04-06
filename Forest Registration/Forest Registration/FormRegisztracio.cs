@@ -40,6 +40,7 @@ namespace Forest_Registration
             string nev = metroTextBoxFelhasznaloNev.Text;
             string email = metroTextBoxEmail.Text;
             string jelszo = metroTextBoxJelszo.Text;
+            string cim = metroTextBoxCim.Text;
             Regex regexEmail = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
             Regex regexJelszo = new Regex(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{7,}$");
             Match matchEmail = regexEmail.Match(email);
@@ -59,7 +60,7 @@ namespace Forest_Registration
                             {
                                 if (metroTextBoxJelszo.Text == metroTextBoxMegerosit.Text)
                                 {
-                                    string queryReg = "INSERT INTO `felhasznalok`(`nev`, `email`, `jelszo`) VALUES ('" + nev.Trim() + "', '" + email.Trim() + "', '" + jelszo.Trim() + "')";
+                                    string queryReg = "INSERT INTO `felhasznalok`(`nev`, `cim`, `email`, `jelszo`, `rendszergazdaE`) VALUES ("+nev.Trim()+","+cim.Trim()+","+email.Trim()+","+jelszo.Trim()+",0)";
                                     MySqlCommand cmd = new MySqlCommand(queryReg, connection);
                                     cmd.ExecuteNonQuery();
                                     connection.Close();
@@ -121,6 +122,18 @@ namespace Forest_Registration
         private void FormRegisztracio_FormClosed(object sender, FormClosedEventArgs e)
         {
             ar.AdatbazisTorles();
+        }
+
+        private void FormRegisztracio_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+            FormBejelentkezes bejelentkezes = new FormBejelentkezes();
+            this.Hide();
+            bejelentkezes.Show();
         }
     }
 }

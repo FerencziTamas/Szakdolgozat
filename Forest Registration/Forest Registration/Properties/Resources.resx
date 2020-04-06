@@ -121,10 +121,16 @@
   <data name="regisztracio" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\regisztracio.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="img_377091" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\img_377091.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="regisztracio1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\regisztracio.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="bejelentkezes" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\bejelentkezes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="regisztracio2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\regisztracio.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="regisztracio3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\regisztracio.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

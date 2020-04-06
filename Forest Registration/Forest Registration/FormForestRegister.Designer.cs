@@ -607,7 +607,7 @@
             this.metroTabControlErdok.Location = new System.Drawing.Point(20, 87);
             this.metroTabControlErdok.Multiline = true;
             this.metroTabControlErdok.Name = "metroTabControlErdok";
-            this.metroTabControlErdok.SelectedIndex = 3;
+            this.metroTabControlErdok.SelectedIndex = 1;
             this.metroTabControlErdok.Size = new System.Drawing.Size(1101, 553);
             this.metroTabControlErdok.Style = MetroFramework.MetroColorStyle.Green;
             this.metroTabControlErdok.TabIndex = 1;
@@ -690,7 +690,7 @@
             this.metroTextBoxErGazKod.CustomButton.Visible = false;
             this.metroTextBoxErGazKod.Lines = new string[0];
             this.metroTextBoxErGazKod.Location = new System.Drawing.Point(170, 4);
-            this.metroTextBoxErGazKod.MaxLength = 32767;
+            this.metroTextBoxErGazKod.MaxLength = 20;
             this.metroTextBoxErGazKod.Name = "metroTextBoxErGazKod";
             this.metroTextBoxErGazKod.PasswordChar = '\0';
             this.metroTextBoxErGazKod.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -729,7 +729,7 @@
             this.metroTextBoxErGazCim.CustomButton.Visible = false;
             this.metroTextBoxErGazCim.Lines = new string[0];
             this.metroTextBoxErGazCim.Location = new System.Drawing.Point(170, 115);
-            this.metroTextBoxErGazCim.MaxLength = 32767;
+            this.metroTextBoxErGazCim.MaxLength = 50;
             this.metroTextBoxErGazCim.Name = "metroTextBoxErGazCim";
             this.metroTextBoxErGazCim.PasswordChar = '\0';
             this.metroTextBoxErGazCim.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -768,7 +768,7 @@
             this.metroTextBoxErGazNev.CustomButton.Visible = false;
             this.metroTextBoxErGazNev.Lines = new string[0];
             this.metroTextBoxErGazNev.Location = new System.Drawing.Point(170, 55);
-            this.metroTextBoxErGazNev.MaxLength = 32767;
+            this.metroTextBoxErGazNev.MaxLength = 20;
             this.metroTextBoxErGazNev.Name = "metroTextBoxErGazNev";
             this.metroTextBoxErGazNev.PasswordChar = '\0';
             this.metroTextBoxErGazNev.ScrollBars = System.Windows.Forms.ScrollBars.None;

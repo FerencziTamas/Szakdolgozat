@@ -73,9 +73,9 @@ namespace Forest_Registration.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap img_377091 {
+        internal static System.Drawing.Bitmap regisztracio {
             get {
-                object obj = ResourceManager.GetObject("img_377091", resourceCulture);
+                object obj = ResourceManager.GetObject("regisztracio", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,29 @@ namespace Forest_Registration.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap regisztracio {
+        internal static System.Drawing.Bitmap regisztracio1 {
             get {
-                object obj = ResourceManager.GetObject("regisztracio", resourceCulture);
+                object obj = ResourceManager.GetObject("regisztracio1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap regisztracio2 {
+            get {
+                object obj = ResourceManager.GetObject("regisztracio2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap regisztracio3 {
+            get {
+                object obj = ResourceManager.GetObject("regisztracio3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

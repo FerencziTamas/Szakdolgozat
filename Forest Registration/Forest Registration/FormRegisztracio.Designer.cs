@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRegisztracio));
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.metroTextBoxFelhasznaloNev = new MetroFramework.Controls.MetroTextBox();
             this.metroLabelEmail = new MetroFramework.Controls.MetroLabel();
@@ -39,18 +39,12 @@
             this.metroTextBoxMegerosit = new MetroFramework.Controls.MetroTextBox();
             this.metroButtonRegisztracio = new MetroFramework.Controls.MetroButton();
             this.metroButton2 = new MetroFramework.Controls.MetroButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.metroTextBoxCim = new MetroFramework.Controls.MetroTextBox();
+            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Forest_Registration.Properties.Resources.img_377091;
-            this.pictureBox1.Location = new System.Drawing.Point(77, 63);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(242, 252);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // metroLabel1
             // 
@@ -145,7 +139,7 @@
             this.metroTextBoxJelszo.CustomButton.UseSelectable = true;
             this.metroTextBoxJelszo.CustomButton.Visible = false;
             this.metroTextBoxJelszo.Lines = new string[0];
-            this.metroTextBoxJelszo.Location = new System.Drawing.Point(190, 421);
+            this.metroTextBoxJelszo.Location = new System.Drawing.Point(190, 454);
             this.metroTextBoxJelszo.MaxLength = 32767;
             this.metroTextBoxJelszo.Name = "metroTextBoxJelszo";
             this.metroTextBoxJelszo.PasswordChar = '\0';
@@ -163,7 +157,7 @@
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(45, 425);
+            this.metroLabel2.Location = new System.Drawing.Point(45, 454);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(46, 19);
             this.metroLabel2.TabIndex = 6;
@@ -172,7 +166,7 @@
             // metroLabel3
             // 
             this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(45, 462);
+            this.metroLabel3.Location = new System.Drawing.Point(45, 489);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(128, 19);
             this.metroLabel3.TabIndex = 7;
@@ -193,7 +187,7 @@
             this.metroTextBoxMegerosit.CustomButton.UseSelectable = true;
             this.metroTextBoxMegerosit.CustomButton.Visible = false;
             this.metroTextBoxMegerosit.Lines = new string[0];
-            this.metroTextBoxMegerosit.Location = new System.Drawing.Point(190, 462);
+            this.metroTextBoxMegerosit.Location = new System.Drawing.Point(190, 489);
             this.metroTextBoxMegerosit.MaxLength = 32767;
             this.metroTextBoxMegerosit.Name = "metroTextBoxMegerosit";
             this.metroTextBoxMegerosit.PasswordChar = '\0';
@@ -210,17 +204,17 @@
             // 
             // metroButtonRegisztracio
             // 
-            this.metroButtonRegisztracio.Location = new System.Drawing.Point(190, 491);
+            this.metroButtonRegisztracio.Location = new System.Drawing.Point(235, 518);
             this.metroButtonRegisztracio.Name = "metroButtonRegisztracio";
-            this.metroButtonRegisztracio.Size = new System.Drawing.Size(150, 23);
+            this.metroButtonRegisztracio.Size = new System.Drawing.Size(105, 23);
             this.metroButtonRegisztracio.TabIndex = 9;
-            this.metroButtonRegisztracio.Text = "Regisztráció és belépés";
+            this.metroButtonRegisztracio.Text = "Regisztráció";
             this.metroButtonRegisztracio.UseSelectable = true;
             this.metroButtonRegisztracio.Click += new System.EventHandler(this.metroButtonRegisztracio_Click);
             // 
             // metroButton2
             // 
-            this.metroButton2.Location = new System.Drawing.Point(265, 537);
+            this.metroButton2.Location = new System.Drawing.Point(265, 547);
             this.metroButton2.Name = "metroButton2";
             this.metroButton2.Size = new System.Drawing.Size(75, 23);
             this.metroButton2.TabIndex = 10;
@@ -228,11 +222,74 @@
             this.metroButton2.UseSelectable = true;
             this.metroButton2.Click += new System.EventHandler(this.metroButton2_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(68, 64);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(245, 258);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
+            // 
+            // metroButton1
+            // 
+            this.metroButton1.Location = new System.Drawing.Point(45, 518);
+            this.metroButton1.Name = "metroButton1";
+            this.metroButton1.Size = new System.Drawing.Size(75, 23);
+            this.metroButton1.TabIndex = 12;
+            this.metroButton1.Text = "Belépés";
+            this.metroButton1.UseSelectable = true;
+            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
+            // 
+            // metroTextBoxCim
+            // 
+            // 
+            // 
+            // 
+            this.metroTextBoxCim.CustomButton.Image = null;
+            this.metroTextBoxCim.CustomButton.Location = new System.Drawing.Point(128, 1);
+            this.metroTextBoxCim.CustomButton.Name = "";
+            this.metroTextBoxCim.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.metroTextBoxCim.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroTextBoxCim.CustomButton.TabIndex = 1;
+            this.metroTextBoxCim.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroTextBoxCim.CustomButton.UseSelectable = true;
+            this.metroTextBoxCim.CustomButton.Visible = false;
+            this.metroTextBoxCim.Lines = new string[0];
+            this.metroTextBoxCim.Location = new System.Drawing.Point(190, 421);
+            this.metroTextBoxCim.MaxLength = 32767;
+            this.metroTextBoxCim.Name = "metroTextBoxCim";
+            this.metroTextBoxCim.PasswordChar = '\0';
+            this.metroTextBoxCim.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.metroTextBoxCim.SelectedText = "";
+            this.metroTextBoxCim.SelectionLength = 0;
+            this.metroTextBoxCim.SelectionStart = 0;
+            this.metroTextBoxCim.ShortcutsEnabled = true;
+            this.metroTextBoxCim.Size = new System.Drawing.Size(150, 23);
+            this.metroTextBoxCim.TabIndex = 13;
+            this.metroTextBoxCim.UseSelectable = true;
+            this.metroTextBoxCim.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.metroTextBoxCim.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // metroLabel4
+            // 
+            this.metroLabel4.AutoSize = true;
+            this.metroLabel4.Location = new System.Drawing.Point(45, 424);
+            this.metroLabel4.Name = "metroLabel4";
+            this.metroLabel4.Size = new System.Drawing.Size(36, 19);
+            this.metroLabel4.TabIndex = 14;
+            this.metroLabel4.Text = "Cím:";
+            // 
             // FormRegisztracio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(385, 583);
+            this.Controls.Add(this.metroLabel4);
+            this.Controls.Add(this.metroTextBoxCim);
+            this.Controls.Add(this.metroButton1);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.metroButton2);
             this.Controls.Add(this.metroButtonRegisztracio);
             this.Controls.Add(this.metroTextBoxMegerosit);
@@ -243,12 +300,12 @@
             this.Controls.Add(this.metroLabelEmail);
             this.Controls.Add(this.metroTextBoxFelhasznaloNev);
             this.Controls.Add(this.metroLabel1);
-            this.Controls.Add(this.pictureBox1);
             this.Font = new System.Drawing.Font("Monotype Corsiva", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FormRegisztracio";
             this.Style = MetroFramework.MetroColorStyle.Green;
             this.Text = "Regisztráció";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormRegisztracio_FormClosed);
+            this.Load += new System.EventHandler(this.FormRegisztracio_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -256,8 +313,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox pictureBox1;
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroTextBox metroTextBoxFelhasznaloNev;
         private MetroFramework.Controls.MetroLabel metroLabelEmail;
@@ -268,5 +323,9 @@
         private MetroFramework.Controls.MetroTextBox metroTextBoxMegerosit;
         private MetroFramework.Controls.MetroButton metroButtonRegisztracio;
         private MetroFramework.Controls.MetroButton metroButton2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private MetroFramework.Controls.MetroButton metroButton1;
+        private MetroFramework.Controls.MetroTextBox metroTextBoxCim;
+        private MetroFramework.Controls.MetroLabel metroLabel4;
     }
 }
