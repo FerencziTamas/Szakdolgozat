@@ -1120,7 +1120,7 @@
             // metroDateTimeKifizetesNapja
             // 
             this.metroDateTimeKifizetesNapja.Location = new System.Drawing.Point(152, 280);
-            this.metroDateTimeKifizetesNapja.MinimumSize = new System.Drawing.Size(0, 29);
+            this.metroDateTimeKifizetesNapja.MinimumSize = new System.Drawing.Size(4, 29);
             this.metroDateTimeKifizetesNapja.Name = "metroDateTimeKifizetesNapja";
             this.metroDateTimeKifizetesNapja.Size = new System.Drawing.Size(203, 29);
             this.metroDateTimeKifizetesNapja.TabIndex = 21;
@@ -1137,7 +1137,7 @@
             // metroDateTimeSzamlaKel
             // 
             this.metroDateTimeSzamlaKel.Location = new System.Drawing.Point(152, 242);
-            this.metroDateTimeSzamlaKel.MinimumSize = new System.Drawing.Size(0, 29);
+            this.metroDateTimeSzamlaKel.MinimumSize = new System.Drawing.Size(4, 29);
             this.metroDateTimeSzamlaKel.Name = "metroDateTimeSzamlaKel";
             this.metroDateTimeSzamlaKel.Size = new System.Drawing.Size(203, 29);
             this.metroDateTimeSzamlaKel.TabIndex = 19;
@@ -1154,7 +1154,7 @@
             // metroDateTimeTeljesitesNap
             // 
             this.metroDateTimeTeljesitesNap.Location = new System.Drawing.Point(152, 204);
-            this.metroDateTimeTeljesitesNap.MinimumSize = new System.Drawing.Size(0, 29);
+            this.metroDateTimeTeljesitesNap.MinimumSize = new System.Drawing.Size(4, 29);
             this.metroDateTimeTeljesitesNap.Name = "metroDateTimeTeljesitesNap";
             this.metroDateTimeTeljesitesNap.Size = new System.Drawing.Size(203, 29);
             this.metroDateTimeTeljesitesNap.TabIndex = 17;
@@ -1458,7 +1458,7 @@
             // 
             // metroButtonVevoFelvetel
             // 
-            this.metroButtonVevoFelvetel.Location = new System.Drawing.Point(499, 61);
+            this.metroButtonVevoFelvetel.Location = new System.Drawing.Point(643, 48);
             this.metroButtonVevoFelvetel.Name = "metroButtonVevoFelvetel";
             this.metroButtonVevoFelvetel.Size = new System.Drawing.Size(112, 23);
             this.metroButtonVevoFelvetel.TabIndex = 8;
@@ -1483,7 +1483,7 @@
             this.metroPanelVevo.HorizontalScrollbarBarColor = true;
             this.metroPanelVevo.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanelVevo.HorizontalScrollbarSize = 10;
-            this.metroPanelVevo.Location = new System.Drawing.Point(646, 61);
+            this.metroPanelVevo.Location = new System.Drawing.Point(646, 86);
             this.metroPanelVevo.Name = "metroPanelVevo";
             this.metroPanelVevo.Size = new System.Drawing.Size(437, 258);
             this.metroPanelVevo.TabIndex = 7;
@@ -1717,7 +1717,7 @@
             this.metroPanelVevoTorolModosit.HorizontalScrollbarBarColor = true;
             this.metroPanelVevoTorolModosit.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanelVevoTorolModosit.HorizontalScrollbarSize = 10;
-            this.metroPanelVevoTorolModosit.Location = new System.Drawing.Point(649, 9);
+            this.metroPanelVevoTorolModosit.Location = new System.Drawing.Point(872, 9);
             this.metroPanelVevoTorolModosit.Name = "metroPanelVevoTorolModosit";
             this.metroPanelVevoTorolModosit.Size = new System.Drawing.Size(211, 31);
             this.metroPanelVevoTorolModosit.TabIndex = 6;
@@ -1748,7 +1748,7 @@
             // 
             // metroButtonVevokBetolt
             // 
-            this.metroButtonVevokBetolt.Location = new System.Drawing.Point(498, 9);
+            this.metroButtonVevokBetolt.Location = new System.Drawing.Point(643, 9);
             this.metroButtonVevokBetolt.Name = "metroButtonVevokBetolt";
             this.metroButtonVevokBetolt.Size = new System.Drawing.Size(113, 23);
             this.metroButtonVevokBetolt.TabIndex = 3;
@@ -1761,7 +1761,7 @@
             this.dataGridViewVevok.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewVevok.Location = new System.Drawing.Point(4, 4);
             this.dataGridViewVevok.Name = "dataGridViewVevok";
-            this.dataGridViewVevok.Size = new System.Drawing.Size(488, 504);
+            this.dataGridViewVevok.Size = new System.Drawing.Size(602, 504);
             this.dataGridViewVevok.TabIndex = 2;
             this.dataGridViewVevok.SelectionChanged += new System.EventHandler(this.dataGridViewVevok_SelectionChanged);
             // 

@@ -163,7 +163,6 @@
     <Content Include="sql\erdo_adatbazis.sql" />
     <None Include="images\regisztracio.png" />
     <None Include="images\bejelentkezes.png" />
-    <Content Include="images\img_377091.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
