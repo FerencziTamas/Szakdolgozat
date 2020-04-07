@@ -20,8 +20,8 @@ namespace Forest_Register
         ErdogazdalkodokRepositoryAdatbazisTabla egrat = new ErdogazdalkodokRepositoryAdatbazisTabla();
         SzamlakRepositoryAdatbazisTabla szrat = new SzamlakRepositoryAdatbazisTabla();
         VevokRepositoryAdatbazisTabla vrat = new VevokRepositoryAdatbazisTabla();
-        FafajokRepositoryAdatbazisTabla frat = new FafajokRepositoryAdatbazisTabla();
-        FaHaszModRepositoryAdatbazisTabla fhmrat = new FaHaszModRepositoryAdatbazisTabla();
+        FafajokRepositoryAdatbazisTablaSql frat = new FafajokRepositoryAdatbazisTablaSql();
+        FaHaszModRepositoryAdatbazisTablaSql fhmrat = new FaHaszModRepositoryAdatbazisTablaSql();
 
         bool adatFelvetel = false;
 

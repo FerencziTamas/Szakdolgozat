@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Forest_Register.modell
@@ -28,21 +29,34 @@ namespace Forest_Register.modell
         public Vevo(int vevoId, string vevoNev, string vevoCim, string technikai_azonosito, int adoszam)
         {
             this.vevoId = vevoId;
-            /*if (isValid())
-            {
-                
-            }*/
             this.nev = vevoNev;
             this.cim = vevoCim;
             this.technikai_azonosito = technikai_azonosito;
             this.adoszam = adoszam;
         }
 
-        /*public bool isValid()
+        public bool isValid()
         {
-            if(!isValidNagyBetuvelKezdodik())
+            if (!isValidNagyBetuvelKezdodik())
             {
                 throw new HibasVevoNevException("A név nem nagy betűvel kezdődik");
+            }
+            if (!isValidNemUres(nev))
+            {
+                throw new HibasVevoUresException("A név üres");
+            }
+            if (!isValidNagyBetuvelKezdodikCim())
+            {
+                throw new HibasVevoCimException("A cim nem nagy betűvel kezdődik.");
+            }
+            return true;
+        }
+
+        public bool isValidNemUres(string vevoNev)
+        {
+            if(vevoNev==string.Empty)
+            {
+                return false;
             }
             return true;
         }
@@ -58,7 +72,19 @@ namespace Forest_Register.modell
                 return false;
             }
             
-        }*/
+        }
+
+        public bool isValidNagyBetuvelKezdodikCim()
+        {
+            if (char.IsUpper(nev.ElementAt(0)))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
         /// <summary>
         /// vevoId, vevoNev, vevoCim, technikai_azonosito és adoszam adatoknak értékadás

@@ -9,22 +9,22 @@ using System.Threading.Tasks;
 namespace Forest_Register.modell.Tests
 {
     [TestClass()]
-    public class VevoTests
+    public class ErdogazdalkodoTests
     {
         [TestMethod()]
         public void isValidNameNagyBetuvelKezdodikTest()
         {
             try
             {
-                Vevo v = new Vevo(1,"Teszt Feri","Itthon 3", "tech4",78277);
+                Erdogazdalkodo v = new Erdogazdalkodo("Eg", "Teszt Feri", "Itthon 3");
                 if (!v.isValid())
                 {
                     Assert.IsTrue(true);
                 }
             }
-            catch (HibasVevoNevException hvne)
+            catch (HibasErGazNevException hvne)
             {
-                if(hvne.Message != "A név nem nagy betűvel kezdődik")
+                if (hvne.Message != "A név nem nagy betűvel kezdődik")
                 {
                     Assert.Fail("A név nagy betűvel kezdődik, még is hibát dob.");
                 }
@@ -40,13 +40,13 @@ namespace Forest_Register.modell.Tests
         {
             try
             {
-                Vevo v = new Vevo(1, "Teszt Feri", "Itthon 3", "tech4", 78277);
+                Erdogazdalkodo v = new Erdogazdalkodo("Eg", "Teszt Feri", "Itthon 3");
                 if (!v.isValid())
                 {
                     Assert.IsTrue(true);
                 }
             }
-            catch (HibasVevoCimException hvce)
+            catch (HibasErGazCimException hvce)
             {
                 if (hvce.Message != "A cim nem nagy betűvel kezdődik.")
                 {
@@ -59,12 +59,13 @@ namespace Forest_Register.modell.Tests
             }
         }
 
+
         [TestMethod()]
-        public void isValidNemUresTeszt()
+        public void isValidNemUresTest()
         {
             try
             {
-                Vevo v = new Vevo(1, "Teszt Feri", "Itthon 3", "tech4", 78277);
+                Erdogazdalkodo v = new Erdogazdalkodo("EG", "Teszt Feri", "Itthon 3");
                 if (v.isValid())
                 {
 
@@ -75,7 +76,5 @@ namespace Forest_Register.modell.Tests
                 Assert.Fail("Ne hagyja üresen a mezőt");
             }
         }
-
-
     }
 }

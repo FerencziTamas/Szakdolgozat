@@ -10,38 +10,37 @@ using System.Threading.Tasks;
 
 namespace Forest_Registration.repository
 {
-    partial class FaHaszModRepositoryAdatbazisTabla
+    partial class FafajokRepositoryAdatbazisTablaSql
     {
         private readonly string connectionString;
 
-        public FaHaszModRepositoryAdatbazisTabla()
+        public FafajokRepositoryAdatbazisTablaSql()
         {
             ConnectionString cs = new ConnectionString();
             connectionString = cs.getConnectionString();
         }
 
-        public List<Fa_hasznalat_modja> getFaHaszModAdatbazisbol()
+        public List<Fafaj> getFafajokAdatbazisbol()
         {
-            List<Fa_hasznalat_modja> faHaszModjai = new List<Fa_hasznalat_modja>();
+            List<Fafaj> fafajok = new List<Fafaj>();
             MySqlConnection connection = new MySqlConnection(connectionString);
             try
             {
                 connection.Open();
-                string query = "SELECT * FROM `fa_hasznalat_modjai`";
+                string query = "SELECT * FROM `fafajok`";
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 MySqlDataReader dr;
                 dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
                     string megnevezes = dr["megnevezes"].ToString();
-                    string rovidites = dr["rovidites"].ToString();
-                    int hasznalatId = -1;
+                    int fafajId = -1;
                     bool joEredmeny = false;
-                    joEredmeny = int.TryParse(dr["hasznalatId"].ToString(), out hasznalatId);
+                    joEredmeny = int.TryParse(dr["fafajId"].ToString(), out fafajId);
                     if (joEredmeny)
                     {
-                        Fa_hasznalat_modja fhm = new Fa_hasznalat_modja(hasznalatId, megnevezes, rovidites);
-                        faHaszModjai.Add(fhm);
+                        Fafaj f = new Fafaj(fafajId, megnevezes);
+                        fafajok.Add(f);
                     }
                 }
                 connection.Close();
@@ -50,9 +49,9 @@ namespace Forest_Registration.repository
             {
                 connection.Close();
                 Debug.WriteLine(e.Message);
-                throw new RepositoryException("A fahasználat módjainak beolvasása az adatbázisból nem sikerült!");
+                throw new RepositoryException("A fafajok beolvasása az adatbázisból nem sikerült!");
             }
-            return faHaszModjai;
+            return fafajok;
         }
     }
 }

@@ -122,7 +122,7 @@ namespace Forest_Registration.repository
             }
         }
 
-        public void FelhasznalokTablaTorles()
+        /*public void FelhasznalokTablaTorles()
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
             try
@@ -160,7 +160,7 @@ namespace Forest_Registration.repository
                 Debug.WriteLine(e.Message);
                 throw new RepositoryException("Sikertelen adat törlés");
             }
-        }
+        }*/
 
         public void FafajokTablaLetrehozas()
         {
@@ -188,7 +188,7 @@ namespace Forest_Registration.repository
             }
         }
 
-        public void FafajokTablaTorlese()
+        /*public void FafajokTablaTorlese()
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
             try
@@ -208,7 +208,7 @@ namespace Forest_Registration.repository
                 Debug.WriteLine(e.Message);
                 throw new RepositoryException("Sikertelen tábla törlés.");
             }
-        }
+        }*/
 
         public void FafajokTesztAdatokFeltoltese()
         {
@@ -239,7 +239,7 @@ namespace Forest_Registration.repository
             }
         }
 
-        public void FafajokAdatokTorlese()
+        /*public void FafajokAdatokTorlese()
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
             try
@@ -256,7 +256,7 @@ namespace Forest_Registration.repository
                 Debug.WriteLine(e.Message);
                 throw new RepositoryException("Sikertelen adat törlés");
             }
-        }
+        }*/
 
         public void FakTablaLetrehozasa()
         {
@@ -332,7 +332,7 @@ namespace Forest_Registration.repository
             }
         }
 
-        public void FakTablaTorlese()
+        /*public void FakTablaTorlese()
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
             try
@@ -371,7 +371,7 @@ namespace Forest_Registration.repository
                 Debug.WriteLine(e.Message);
                 throw new RepositoryException("Sikertelen adat törlés");
             }
-        }
+        }*/
 
         public void FahaszModTablaLetrehozas()
         {
@@ -423,7 +423,7 @@ namespace Forest_Registration.repository
             }
         }
 
-        public void FaHaszModTablaTorles()
+        /*public void FaHaszModTablaTorles()
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
             try
@@ -462,7 +462,7 @@ namespace Forest_Registration.repository
                 Debug.WriteLine(e.Message);
                 throw new RepositoryException("Sikertelen adat törlés");
             }
-        }
+        }*/
 
         
     }

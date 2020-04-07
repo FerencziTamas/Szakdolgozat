@@ -9,7 +9,7 @@ namespace Forest_Register.modell
     /// <summary>
     /// Erdőgazdálkodó osztály
     /// </summary>
-    partial class Erdogazdalkodo
+    public partial class Erdogazdalkodo
     {
         private string egKod;
         private string erdogazNev;
@@ -28,8 +28,57 @@ namespace Forest_Register.modell
             this.erdogazCim = erdogazCim;
         }
 
-        //Ellenőrzi a nevet hogy helyes-e
-       
+        public bool isValid()
+        {
+            if (!isValidNagyBetuvelKezdodik())
+            {
+                throw new HibasErGazNevException("A név nem nagy betűvel kezdődik");
+            }
+            if (!isValidNemUres(erdogazNev))
+            {
+                throw new HibasErGazUresException("A név üres");
+            }
+            if (!isValidNagyBetuvelKezdodikCim())
+            {
+                throw new HibasErGazCimException("A cim nem nagy betűvel kezdődik.");
+            }
+            return true;
+        }
+
+        public bool isValidNemUres(string erdogazNev)
+        {
+            if (erdogazNev == string.Empty)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public bool isValidNagyBetuvelKezdodik()
+        {
+            if (char.IsUpper(erdogazNev.ElementAt(0)))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+        public bool isValidNagyBetuvelKezdodikCim()
+        {
+            if (char.IsUpper(erdogazNev.ElementAt(0)))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
 
         /// <summary>
         /// kod, nev, cim adatoknak értékadás

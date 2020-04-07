@@ -33,8 +33,6 @@ namespace Forest_Registration
             this.Close();
         }
 
-        
-
         private void metroButtonRegisztracio_Click(object sender, EventArgs e)
         {
             string nev = metroTextBoxFelhasznaloNev.Text;

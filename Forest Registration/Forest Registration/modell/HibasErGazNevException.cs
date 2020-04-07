@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Forest_Register.modell
 {
     [Serializable]
-    internal class HibasErGazNevException : Exception
+    public class HibasErGazNevException : Exception
     {
         public HibasErGazNevException()
         {
