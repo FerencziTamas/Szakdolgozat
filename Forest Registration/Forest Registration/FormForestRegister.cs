@@ -128,6 +128,9 @@ namespace Forest_Register
             ar.AdatbazisTorles();
         }
 
-        
+        private void metroTextBoxNettoAr_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -73,6 +73,11 @@ namespace Forest_Register.repository
             return erdogazdalkodok.Find(x => x.getErdogazNev() == input).getKod();
         }
 
+        public int KeresIdFaHaszNevAlapjanErdo(string input)
+        {
+            return faHaszModjai.Find(x => x.getRovidites() == input).getHasznalatId();
+        }
+
         public void ErdoTorleseListabol(string erdeszetiAzon)
         {
             Erdo e = erdok.Find(x => x.getErdeszetiAzon()==erdeszetiAzon);

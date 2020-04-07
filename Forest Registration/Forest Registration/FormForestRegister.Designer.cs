@@ -344,7 +344,7 @@
             // 
             this.metroComboBoxFahaszMod.FormattingEnabled = true;
             this.metroComboBoxFahaszMod.ItemHeight = 23;
-            this.metroComboBoxFahaszMod.Location = new System.Drawing.Point(170, 199);
+            this.metroComboBoxFahaszMod.Location = new System.Drawing.Point(170, 162);
             this.metroComboBoxFahaszMod.Name = "metroComboBoxFahaszMod";
             this.metroComboBoxFahaszMod.Size = new System.Drawing.Size(229, 29);
             this.metroComboBoxFahaszMod.TabIndex = 17;
@@ -354,7 +354,7 @@
             // 
             this.metroComboBoxErdokErgaz.FormattingEnabled = true;
             this.metroComboBoxErdokErgaz.ItemHeight = 23;
-            this.metroComboBoxErdokErgaz.Location = new System.Drawing.Point(170, 161);
+            this.metroComboBoxErdokErgaz.Location = new System.Drawing.Point(170, 199);
             this.metroComboBoxErdokErgaz.Name = "metroComboBoxErdokErgaz";
             this.metroComboBoxErdokErgaz.Size = new System.Drawing.Size(229, 29);
             this.metroComboBoxErdokErgaz.TabIndex = 16;
@@ -396,7 +396,7 @@
             this.metroTextBoxTerulet.CustomButton.Visible = false;
             this.metroTextBoxTerulet.Lines = new string[0];
             this.metroTextBoxTerulet.Location = new System.Drawing.Point(170, 123);
-            this.metroTextBoxTerulet.MaxLength = 32767;
+            this.metroTextBoxTerulet.MaxLength = 11;
             this.metroTextBoxTerulet.Name = "metroTextBoxTerulet";
             this.metroTextBoxTerulet.PasswordChar = '\0';
             this.metroTextBoxTerulet.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -434,7 +434,7 @@
             this.metroTextBoxHelyrajziSzam.CustomButton.Visible = false;
             this.metroTextBoxHelyrajziSzam.Lines = new string[0];
             this.metroTextBoxHelyrajziSzam.Location = new System.Drawing.Point(170, 48);
-            this.metroTextBoxHelyrajziSzam.MaxLength = 32767;
+            this.metroTextBoxHelyrajziSzam.MaxLength = 30;
             this.metroTextBoxHelyrajziSzam.Name = "metroTextBoxHelyrajziSzam";
             this.metroTextBoxHelyrajziSzam.PasswordChar = '\0';
             this.metroTextBoxHelyrajziSzam.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -464,7 +464,7 @@
             this.metroTextBoxErdeszetiAzon.CustomButton.Visible = false;
             this.metroTextBoxErdeszetiAzon.Lines = new string[0];
             this.metroTextBoxErdeszetiAzon.Location = new System.Drawing.Point(170, 12);
-            this.metroTextBoxErdeszetiAzon.MaxLength = 32767;
+            this.metroTextBoxErdeszetiAzon.MaxLength = 20;
             this.metroTextBoxErdeszetiAzon.Name = "metroTextBoxErdeszetiAzon";
             this.metroTextBoxErdeszetiAzon.PasswordChar = '\0';
             this.metroTextBoxErdeszetiAzon.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -481,7 +481,7 @@
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(4, 205);
+            this.metroLabel2.Location = new System.Drawing.Point(4, 172);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(120, 19);
             this.metroLabel2.TabIndex = 7;
@@ -490,7 +490,7 @@
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(4, 164);
+            this.metroLabel1.Location = new System.Drawing.Point(4, 209);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(140, 19);
             this.metroLabel1.TabIndex = 6;
@@ -607,7 +607,7 @@
             this.metroTabControlErdok.Location = new System.Drawing.Point(20, 87);
             this.metroTabControlErdok.Multiline = true;
             this.metroTabControlErdok.Name = "metroTabControlErdok";
-            this.metroTabControlErdok.SelectedIndex = 1;
+            this.metroTabControlErdok.SelectedIndex = 0;
             this.metroTabControlErdok.Size = new System.Drawing.Size(1101, 553);
             this.metroTabControlErdok.Style = MetroFramework.MetroColorStyle.Green;
             this.metroTabControlErdok.TabIndex = 1;
@@ -793,7 +793,7 @@
             // 
             // metroButtonUjErGazFelvetele
             // 
-            this.metroButtonUjErGazFelvetele.Location = new System.Drawing.Point(435, 99);
+            this.metroButtonUjErGazFelvetele.Location = new System.Drawing.Point(420, 99);
             this.metroButtonUjErGazFelvetele.Name = "metroButtonUjErGazFelvetele";
             this.metroButtonUjErGazFelvetele.Size = new System.Drawing.Size(169, 23);
             this.metroButtonUjErGazFelvetele.TabIndex = 6;
@@ -842,13 +842,13 @@
             this.dataGridViewErdogazdalkodok.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewErdogazdalkodok.Location = new System.Drawing.Point(0, 4);
             this.dataGridViewErdogazdalkodok.Name = "dataGridViewErdogazdalkodok";
-            this.dataGridViewErdogazdalkodok.Size = new System.Drawing.Size(429, 504);
+            this.dataGridViewErdogazdalkodok.Size = new System.Drawing.Size(381, 504);
             this.dataGridViewErdogazdalkodok.TabIndex = 3;
             this.dataGridViewErdogazdalkodok.SelectionChanged += new System.EventHandler(this.dataGridViewErdogazdalkodok_SelectionChanged);
             // 
             // metroButtonErdogazBetolt
             // 
-            this.metroButtonErdogazBetolt.Location = new System.Drawing.Point(435, 4);
+            this.metroButtonErdogazBetolt.Location = new System.Drawing.Point(420, 4);
             this.metroButtonErdogazBetolt.Name = "metroButtonErdogazBetolt";
             this.metroButtonErdogazBetolt.Size = new System.Drawing.Size(169, 23);
             this.metroButtonErdogazBetolt.TabIndex = 2;
@@ -977,7 +977,7 @@
             this.metroTextBoxSzallitojegySorszam.CustomButton.Visible = false;
             this.metroTextBoxSzallitojegySorszam.Lines = new string[0];
             this.metroTextBoxSzallitojegySorszam.Location = new System.Drawing.Point(152, 434);
-            this.metroTextBoxSzallitojegySorszam.MaxLength = 32767;
+            this.metroTextBoxSzallitojegySorszam.MaxLength = 15;
             this.metroTextBoxSzallitojegySorszam.Name = "metroTextBoxSzallitojegySorszam";
             this.metroTextBoxSzallitojegySorszam.PasswordChar = '\0';
             this.metroTextBoxSzallitojegySorszam.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -1016,7 +1016,7 @@
             this.metroTextBoxMuvLapSzam.CustomButton.Visible = false;
             this.metroTextBoxMuvLapSzam.Lines = new string[0];
             this.metroTextBoxMuvLapSzam.Location = new System.Drawing.Point(152, 395);
-            this.metroTextBoxMuvLapSzam.MaxLength = 32767;
+            this.metroTextBoxMuvLapSzam.MaxLength = 15;
             this.metroTextBoxMuvLapSzam.Name = "metroTextBoxMuvLapSzam";
             this.metroTextBoxMuvLapSzam.PasswordChar = '\0';
             this.metroTextBoxMuvLapSzam.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -1055,7 +1055,7 @@
             this.metroTextBoxFelrakasiHely.CustomButton.Visible = false;
             this.metroTextBoxFelrakasiHely.Lines = new string[0];
             this.metroTextBoxFelrakasiHely.Location = new System.Drawing.Point(152, 354);
-            this.metroTextBoxFelrakasiHely.MaxLength = 32767;
+            this.metroTextBoxFelrakasiHely.MaxLength = 20;
             this.metroTextBoxFelrakasiHely.Name = "metroTextBoxFelrakasiHely";
             this.metroTextBoxFelrakasiHely.PasswordChar = '\0';
             this.metroTextBoxFelrakasiHely.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -1094,7 +1094,7 @@
             this.metroTextBoxLerakodasiHely.CustomButton.Visible = false;
             this.metroTextBoxLerakodasiHely.Lines = new string[0];
             this.metroTextBoxLerakodasiHely.Location = new System.Drawing.Point(152, 319);
-            this.metroTextBoxLerakodasiHely.MaxLength = 32767;
+            this.metroTextBoxLerakodasiHely.MaxLength = 20;
             this.metroTextBoxLerakodasiHely.Name = "metroTextBoxLerakodasiHely";
             this.metroTextBoxLerakodasiHely.PasswordChar = '\0';
             this.metroTextBoxLerakodasiHely.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -1120,7 +1120,7 @@
             // metroDateTimeKifizetesNapja
             // 
             this.metroDateTimeKifizetesNapja.Location = new System.Drawing.Point(152, 280);
-            this.metroDateTimeKifizetesNapja.MinimumSize = new System.Drawing.Size(4, 29);
+            this.metroDateTimeKifizetesNapja.MinimumSize = new System.Drawing.Size(0, 29);
             this.metroDateTimeKifizetesNapja.Name = "metroDateTimeKifizetesNapja";
             this.metroDateTimeKifizetesNapja.Size = new System.Drawing.Size(203, 29);
             this.metroDateTimeKifizetesNapja.TabIndex = 21;
@@ -1137,7 +1137,7 @@
             // metroDateTimeSzamlaKel
             // 
             this.metroDateTimeSzamlaKel.Location = new System.Drawing.Point(152, 242);
-            this.metroDateTimeSzamlaKel.MinimumSize = new System.Drawing.Size(4, 29);
+            this.metroDateTimeSzamlaKel.MinimumSize = new System.Drawing.Size(0, 29);
             this.metroDateTimeSzamlaKel.Name = "metroDateTimeSzamlaKel";
             this.metroDateTimeSzamlaKel.Size = new System.Drawing.Size(203, 29);
             this.metroDateTimeSzamlaKel.TabIndex = 19;
@@ -1154,7 +1154,7 @@
             // metroDateTimeTeljesitesNap
             // 
             this.metroDateTimeTeljesitesNap.Location = new System.Drawing.Point(152, 204);
-            this.metroDateTimeTeljesitesNap.MinimumSize = new System.Drawing.Size(4, 29);
+            this.metroDateTimeTeljesitesNap.MinimumSize = new System.Drawing.Size(0, 29);
             this.metroDateTimeTeljesitesNap.Name = "metroDateTimeTeljesitesNap";
             this.metroDateTimeTeljesitesNap.Size = new System.Drawing.Size(203, 29);
             this.metroDateTimeTeljesitesNap.TabIndex = 17;
@@ -1193,7 +1193,7 @@
             this.metroTextBoxNettoAr.CustomButton.Visible = false;
             this.metroTextBoxNettoAr.Lines = new string[0];
             this.metroTextBoxNettoAr.Location = new System.Drawing.Point(263, 175);
-            this.metroTextBoxNettoAr.MaxLength = 32767;
+            this.metroTextBoxNettoAr.MaxLength = 11;
             this.metroTextBoxNettoAr.Name = "metroTextBoxNettoAr";
             this.metroTextBoxNettoAr.PasswordChar = '\0';
             this.metroTextBoxNettoAr.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -1206,6 +1206,7 @@
             this.metroTextBoxNettoAr.UseSelectable = true;
             this.metroTextBoxNettoAr.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.metroTextBoxNettoAr.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.metroTextBoxNettoAr.Click += new System.EventHandler(this.metroTextBoxNettoAr_Click);
             this.metroTextBoxNettoAr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.metroTextBoxNettoAr_KeyPress);
             // 
             // metroLabel10
@@ -1233,7 +1234,7 @@
             this.metroTextBoxBruttoAr.CustomButton.Visible = false;
             this.metroTextBoxBruttoAr.Lines = new string[0];
             this.metroTextBoxBruttoAr.Location = new System.Drawing.Point(75, 175);
-            this.metroTextBoxBruttoAr.MaxLength = 32767;
+            this.metroTextBoxBruttoAr.MaxLength = 11;
             this.metroTextBoxBruttoAr.Name = "metroTextBoxBruttoAr";
             this.metroTextBoxBruttoAr.PasswordChar = '\0';
             this.metroTextBoxBruttoAr.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -1299,7 +1300,7 @@
             this.metroTextBoxMennyiseg.CustomButton.Visible = false;
             this.metroTextBoxMennyiseg.Lines = new string[0];
             this.metroTextBoxMennyiseg.Location = new System.Drawing.Point(115, 104);
-            this.metroTextBoxMennyiseg.MaxLength = 32767;
+            this.metroTextBoxMennyiseg.MaxLength = 11;
             this.metroTextBoxMennyiseg.Name = "metroTextBoxMennyiseg";
             this.metroTextBoxMennyiseg.PasswordChar = '\0';
             this.metroTextBoxMennyiseg.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -1348,7 +1349,7 @@
             this.metroTextBoxSzamlaSzam.CustomButton.Visible = false;
             this.metroTextBoxSzamlaSzam.Lines = new string[0];
             this.metroTextBoxSzamlaSzam.Location = new System.Drawing.Point(115, 4);
-            this.metroTextBoxSzamlaSzam.MaxLength = 32767;
+            this.metroTextBoxSzamlaSzam.MaxLength = 17;
             this.metroTextBoxSzamlaSzam.Name = "metroTextBoxSzamlaSzam";
             this.metroTextBoxSzamlaSzam.PasswordChar = '\0';
             this.metroTextBoxSzamlaSzam.ReadOnly = true;
@@ -1529,7 +1530,7 @@
             this.metroTextBoxVevoTechAzon.CustomButton.Visible = false;
             this.metroTextBoxVevoTechAzon.Lines = new string[0];
             this.metroTextBoxVevoTechAzon.Location = new System.Drawing.Point(183, 122);
-            this.metroTextBoxVevoTechAzon.MaxLength = 32767;
+            this.metroTextBoxVevoTechAzon.MaxLength = 20;
             this.metroTextBoxVevoTechAzon.Name = "metroTextBoxVevoTechAzon";
             this.metroTextBoxVevoTechAzon.PasswordChar = '\0';
             this.metroTextBoxVevoTechAzon.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -1590,7 +1591,7 @@
             this.metroTextBoxVevoCim.CustomButton.Visible = false;
             this.metroTextBoxVevoCim.Lines = new string[0];
             this.metroTextBoxVevoCim.Location = new System.Drawing.Point(183, 81);
-            this.metroTextBoxVevoCim.MaxLength = 32767;
+            this.metroTextBoxVevoCim.MaxLength = 50;
             this.metroTextBoxVevoCim.Name = "metroTextBoxVevoCim";
             this.metroTextBoxVevoCim.PasswordChar = '\0';
             this.metroTextBoxVevoCim.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -1620,7 +1621,7 @@
             this.metroTextBoxVevoNev.CustomButton.Visible = false;
             this.metroTextBoxVevoNev.Lines = new string[0];
             this.metroTextBoxVevoNev.Location = new System.Drawing.Point(183, 43);
-            this.metroTextBoxVevoNev.MaxLength = 32767;
+            this.metroTextBoxVevoNev.MaxLength = 20;
             this.metroTextBoxVevoNev.Name = "metroTextBoxVevoNev";
             this.metroTextBoxVevoNev.PasswordChar = '\0';
             this.metroTextBoxVevoNev.ScrollBars = System.Windows.Forms.ScrollBars.None;

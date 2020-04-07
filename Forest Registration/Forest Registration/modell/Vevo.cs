@@ -28,28 +28,28 @@ namespace Forest_Register.modell
         public Vevo(int vevoId, string vevoNev, string vevoCim, string technikai_azonosito, int adoszam)
         {
             this.vevoId = vevoId;
-            if (isValid(vevoNev))
+            /*if (isValid())
             {
-                this.nev = vevoNev;
-            }
-            
+                
+            }*/
+            this.nev = vevoNev;
             this.cim = vevoCim;
             this.technikai_azonosito = technikai_azonosito;
             this.adoszam = adoszam;
         }
 
-        public bool isValid(string vevoNev)
+        /*public bool isValid()
         {
-            if(isValidNagyBetuvelKezdodik(vevoNev))
+            if(!isValidNagyBetuvelKezdodik())
             {
                 throw new HibasVevoNevException("A név nem nagy betűvel kezdődik");
             }
             return true;
         }
 
-        private bool isValidNagyBetuvelKezdodik(string vevoNev)
+        public bool isValidNagyBetuvelKezdodik()
         {
-            if(char.IsUpper(vevoNev.ElementAt(0)))
+            if(char.IsUpper(nev.ElementAt(0)))
             {
                 return true;
             }
@@ -58,7 +58,7 @@ namespace Forest_Register.modell
                 return false;
             }
             
-        }
+        }*/
 
         /// <summary>
         /// vevoId, vevoNev, vevoCim, technikai_azonosito és adoszam adatoknak értékadás

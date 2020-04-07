@@ -17,7 +17,7 @@ namespace Forest_Register.modell.Tests
             try
             {
                 Vevo v = new Vevo(1,"Teszt Feri","Itthon 3", "tech4",78277);
-                if (v.isValid())
+                if (!v.isValid())
                 {
                     Assert.IsTrue(true);
                 }
@@ -26,12 +26,12 @@ namespace Forest_Register.modell.Tests
             {
                 if(hvne.Message != "A név nem nagy betűvel kezdődik")
                 {
-                    Assert.Fail("A név név nagy betűvel kezdődik, még is hibát dob.");
+                    Assert.Fail("A név nagy betűvel kezdődik, még is hibát dob.");
                 }
             }
             catch (Exception e)
             {
-
+                
             }
         }
     }

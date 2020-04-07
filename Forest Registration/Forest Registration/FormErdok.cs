@@ -201,8 +201,8 @@ namespace Forest_Register
                     metroTextBoxHelyrajziSzam.Text,
                     Convert.ToInt32(numericUpDownErdoKor.Value),
                     Convert.ToInt32(metroTextBoxTerulet.Text),
-                    Convert.ToInt32(metroComboBoxFahaszMod.Text),
-                    metroComboBoxErdokErgaz.Text
+                    repo.KeresIdFaHaszNevAlapjanErdo(metroComboBoxFahaszMod.Text),
+                    repo.KeresIdNevAlapjanErdo(metroComboBoxErdokErgaz.Text)
                     );
                 string erdeszetiAzon = metroTextBoxErdeszetiAzon.Text;
 
@@ -270,7 +270,7 @@ namespace Forest_Register
                                             metroTextBoxHelyrajziSzam.Text,
                                             Convert.ToInt32(numericUpDownErdoKor.Value),
                                             Convert.ToInt32(metroTextBoxTerulet.Text),
-                                            Convert.ToInt32(metroComboBoxFahaszMod.Text),
+                                            repo.KeresIdFaHaszNevAlapjanErdo(metroComboBoxFahaszMod.Text),
                                             repo.KeresIdNevAlapjanErdo(metroComboBoxErdokErgaz.Text)
                                             );
                                         string azonosito = metroTextBoxErdeszetiAzon.Text;

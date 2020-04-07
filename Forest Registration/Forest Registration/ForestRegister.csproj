@@ -105,11 +105,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="repository\AdatbazisRepository.cs" />
     <Compile Include="repository\Erdogazdalkodok\ErdogazdalkodokRepository.cs" />
-    <Compile Include="repository\Erdogazdalkodok\ErdogazdalkodokRepositoryAdatbazisTablaSQL.cs" />
+    <Compile Include="repository\Erdogazdalkodok\ErdogazdalkodokRepositoryAdatbazisTablaSql.cs" />
     <Compile Include="repository\Erdogazdalkodok\ErdogazdalkodokRepositoryAdatbazisTabla.cs" />
     <Compile Include="repository\Erdok\ErdokRepository.cs" />
     <Compile Include="repository\Erdok\ErdokRepositoryAdatbazisTabla.cs" />
-    <Compile Include="repository\Erdok\ErdokRepositoryAdatbazisTablaSQL.cs" />
+    <Compile Include="repository\Erdok\ErdokRepositoryAdatbazisTablaSql.cs" />
     <Compile Include="repository\FafajokRepositoryAdatbazisTabla.cs" />
     <Compile Include="repository\FaHaszModRepositoryAdatbazisTabla.cs" />
     <Compile Include="repository\RepositoryException.cs" />

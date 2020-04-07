@@ -64,14 +64,15 @@ namespace Forest_Registration.repository
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
             string use = "USE erdo_adatbazis";
-                string query = "CREATE TABLE IF NOT EXISTS `felhasznalok` ( " +
-                    "`felhasznaloId` int(11) NOT NULL AUTO_INCREMENT, " +
-                    "`nev` varchar(20) COLLATE utf8_hungarian_ci NOT NULL, " +
-                    "`cim` varchar(50) COLLATE utf8_hungarian_ci NOT NULL, " +
-                    " `email` varchar(50) COLLATE utf8_hungarian_ci NOT NULL, " +
-                    " `jelszo` varchar(20) COLLATE utf8_hungarian_ci NOT NULL, " +
-                    "PRIMARY KEY(`felhasznaloId`))" +
-                    " ENGINE = InnoDB AUTO_INCREMENT = 3 DEFAULT CHARSET = utf8 COLLATE = utf8_hungarian_ci; ";
+                string query = "CREATE TABLE IF NOT EXISTS `felhasznalok` (" +
+                "`felhasznaloId` int(11) NOT NULL AUTO_INCREMENT, " +
+                "`nev` varchar(20) COLLATE utf8_hungarian_ci NOT NULL, " +
+                "`cim` varchar(50) COLLATE utf8_hungarian_ci NOT NULL, " +
+                "`email` varchar(50) COLLATE utf8_hungarian_ci NOT NULL, " +
+                "`jelszo` varchar(20) COLLATE utf8_hungarian_ci NOT NULL, " +
+                "`rendszergazdaE` int(11) NOT NULL, " +
+                "PRIMARY KEY(`felhasznaloId`), UNIQUE KEY `rendszergazdaE` (`felhasznaloId`)) " +
+                "ENGINE = InnoDB AUTO_INCREMENT = 20 DEFAULT CHARSET = utf8 COLLATE = utf8_hungarian_ci;";
             try
             {
                 connection.Open();
@@ -95,10 +96,20 @@ namespace Forest_Registration.repository
             try
             {
                 connection.Open();
-                string query = "INSERT IGNORE INTO `erdo_adatbazis`.`felhasznalok` (`felhasznaloId`,`nev`, `cim`, `email`, `jelszo`) VALUES " +
-                    "(1,'Ferenczi Tamás', '', 'darius.517.ft@gmail.com', 'Jelszo1'), " +
-                    "(2,'Favágó Jani', '', 'favagojani@cim.hu', 'Jelszo2'), " +
-                    "(3,'Bükki Jenő', '', 'bukki.jeno@citromail.hu', 'jelszo3');";
+                string query = "INSERT IGNORE INTO `felhasznalok` (`felhasznaloId`, `nev`, `cim`, `email`, `jelszo`, `rendszergazdaE`) VALUES " +
+                    "(5, 'Ferenczi Tamás', '', 'darius.517.ft@gmail.com', 'Jelszo1', 1), " +
+                    "(6, 'Favágó Jani', '', 'favagojani@cim.hu', 'Jelszo2', 0), " +
+                    "(9, 'Bükki Jenő', '', 'bukki.jeno@citromail.hu', 'jelszo3', 0), " +
+                    "(10, 'Erik', '', 'e@g.com', 'Jelszo8', 0), " +
+                    "(11, 'Márk', '', 'm@g.com', 'Jelszo9', 0), " +
+                    "(12, 'Kecske Tej', '', 'k@g.com', 'Jelszo10', 0), " +
+                    "(13, 'Fa Gergo', '', 'f@g.com', 'Jelszo11', 0), " +
+                    "(14, 'Teszt Elek', '', 't@g.com', 'Jelszo12', 0), " +
+                    "(15, 'Erdősítő Zoltán', '', 'ez@g.com', 'Jelszo13', 0), " +
+                    "(16, 'Erik', '', 'r@g.com', 'Jelszo14', 0), " +
+                    "(17, 'Ákos', '', 'a@g.com', 'Jelszo15', 0), " +
+                    "(18, 'Tomi', '', 't@g.com', 'Jelszo16', 0), " +
+                    "(19, 'Zoli', '', 'z@g.com', 'Jelszo17', 0); ";
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
                 connection.Close();

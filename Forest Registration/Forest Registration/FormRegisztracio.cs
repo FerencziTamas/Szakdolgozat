@@ -60,7 +60,7 @@ namespace Forest_Registration
                             {
                                 if (metroTextBoxJelszo.Text == metroTextBoxMegerosit.Text)
                                 {
-                                    string queryReg = "INSERT INTO `felhasznalok`(`nev`, `cim`, `email`, `jelszo`, `rendszergazdaE`) VALUES ("+nev.Trim()+","+cim.Trim()+","+email.Trim()+","+jelszo.Trim()+",0)";
+                                    string queryReg = "INSERT INTO `felhasznalok`(`nev`, `cim`, `email`, `jelszo`, `rendszergazdaE`) VALUES (\""+nev.Trim()+ "\", \"" + cim.Trim()+ "\", \"" + email.Trim()+ "\", \"" + jelszo.Trim()+ "\", 0)";
                                     MySqlCommand cmd = new MySqlCommand(queryReg, connection);
                                     cmd.ExecuteNonQuery();
                                     connection.Close();
@@ -100,22 +100,6 @@ namespace Forest_Registration
             {
                 connection.Close();
                 MessageBox.Show("Adja meg a nevét!");
-            }
-
-            //Regisztráció után bejelentkezés
-            string query = "SELECT * FROM `erdo_adatbazis`.`felhasznalok` WHERE email = '" + metroTextBoxEmail.Text.Trim() + "' AND jelszo = '" + metroTextBoxJelszo.Text.Trim() + "'";
-            MySqlDataAdapter msda = new MySqlDataAdapter(query, connection);
-            DataTable dt = new DataTable();
-            msda.Fill(dt);
-            if (dt.Rows.Count == 1)
-            {
-                FormForestRegister mainForm = new FormForestRegister();
-                this.Hide();
-                mainForm.Show();
-            }
-            else
-            {
-                MessageBox.Show("Hibás a név, vagy a e-mail cím, vagy a jelszó,  vagy a jelszó megerősítése !");
             }
         }
 

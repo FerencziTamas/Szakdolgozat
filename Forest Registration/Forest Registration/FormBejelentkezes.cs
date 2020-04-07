@@ -90,11 +90,11 @@ namespace Forest_Registration
             szrat.SzamlaTesztAdatokFeltoltese();
 
 
-            /*Adatok lekérdezése adatbázisból
+            //Adatok lekérdezése adatbázisból
             erat.getErdokAdatbazisbol();
             egrat.getErdogazdalkodokAdatbazisbol();
             szrat.getSzamlakAdatbazisbol();
-            vrat.getVevokAdatbazisbol();*/
+            vrat.getVevokAdatbazisbol();
         }
 
         private void FormBejelentkezes_FormClosed(object sender, FormClosedEventArgs e)

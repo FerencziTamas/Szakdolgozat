@@ -10,6 +10,7 @@ namespace Forest_Register.modell
     {
         public string getCreateString()
         {
+            //Azért kell hogy ne ütközzön a program hibába az adatbázis készítése során
             return
                 "SERVER=\"localhost\";"
                 + "DATABASE=\"test\";"
@@ -18,6 +19,7 @@ namespace Forest_Register.modell
                 + "PORT=\"3306\";";
         }
 
+        //Adatbázishoz való csatlakozás
         public string getConnectionString()
         {
             return
