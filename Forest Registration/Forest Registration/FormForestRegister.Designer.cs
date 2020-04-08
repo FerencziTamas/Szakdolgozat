@@ -536,9 +536,9 @@
             // 
             this.metroButtonUjErdo.Location = new System.Drawing.Point(526, 58);
             this.metroButtonUjErdo.Name = "metroButtonUjErdo";
-            this.metroButtonUjErdo.Size = new System.Drawing.Size(95, 23);
+            this.metroButtonUjErdo.Size = new System.Drawing.Size(108, 23);
             this.metroButtonUjErdo.TabIndex = 5;
-            this.metroButtonUjErdo.Text = "Új erdő felvétele";
+            this.metroButtonUjErdo.Text = "Új felvétele";
             this.metroButtonUjErdo.UseSelectable = true;
             this.metroButtonUjErdo.Click += new System.EventHandler(this.metroButtonUjErdo_Click);
             // 
@@ -591,9 +591,9 @@
             // 
             this.metroButtonBetoltErdok.Location = new System.Drawing.Point(526, 11);
             this.metroButtonBetoltErdok.Name = "metroButtonBetoltErdok";
-            this.metroButtonBetoltErdok.Size = new System.Drawing.Size(95, 23);
+            this.metroButtonBetoltErdok.Size = new System.Drawing.Size(108, 23);
             this.metroButtonBetoltErdok.TabIndex = 2;
-            this.metroButtonBetoltErdok.Text = "Erdők betöltése";
+            this.metroButtonBetoltErdok.Text = "Adatok betöltése";
             this.metroButtonBetoltErdok.UseSelectable = true;
             this.metroButtonBetoltErdok.Click += new System.EventHandler(this.metroButtonBetoltErdok_Click);
             // 
@@ -607,7 +607,7 @@
             this.metroTabControlErdok.Location = new System.Drawing.Point(20, 87);
             this.metroTabControlErdok.Multiline = true;
             this.metroTabControlErdok.Name = "metroTabControlErdok";
-            this.metroTabControlErdok.SelectedIndex = 0;
+            this.metroTabControlErdok.SelectedIndex = 2;
             this.metroTabControlErdok.Size = new System.Drawing.Size(1101, 553);
             this.metroTabControlErdok.Style = MetroFramework.MetroColorStyle.Green;
             this.metroTabControlErdok.TabIndex = 1;
@@ -795,9 +795,9 @@
             // 
             this.metroButtonUjErGazFelvetele.Location = new System.Drawing.Point(420, 99);
             this.metroButtonUjErGazFelvetele.Name = "metroButtonUjErGazFelvetele";
-            this.metroButtonUjErGazFelvetele.Size = new System.Drawing.Size(169, 23);
+            this.metroButtonUjErGazFelvetele.Size = new System.Drawing.Size(151, 23);
             this.metroButtonUjErGazFelvetele.TabIndex = 6;
-            this.metroButtonUjErGazFelvetele.Text = "Új erdőgazdálkodó felvétele";
+            this.metroButtonUjErGazFelvetele.Text = "Új felvétele";
             this.metroButtonUjErGazFelvetele.UseSelectable = true;
             this.metroButtonUjErGazFelvetele.Click += new System.EventHandler(this.metroButtonUjErGazFelvetele_Click);
             // 
@@ -850,9 +850,9 @@
             // 
             this.metroButtonErdogazBetolt.Location = new System.Drawing.Point(420, 4);
             this.metroButtonErdogazBetolt.Name = "metroButtonErdogazBetolt";
-            this.metroButtonErdogazBetolt.Size = new System.Drawing.Size(169, 23);
+            this.metroButtonErdogazBetolt.Size = new System.Drawing.Size(151, 23);
             this.metroButtonErdogazBetolt.TabIndex = 2;
-            this.metroButtonErdogazBetolt.Text = "Erdőgazdálkodók betöltése";
+            this.metroButtonErdogazBetolt.Text = "Adatok betöltése";
             this.metroButtonErdogazBetolt.UseSelectable = true;
             this.metroButtonErdogazBetolt.Click += new System.EventHandler(this.metroButtonErdogazBetolt_Click);
             // 
@@ -879,9 +879,9 @@
             // 
             // metroButtonSzamlaMegse
             // 
-            this.metroButtonSzamlaMegse.Location = new System.Drawing.Point(624, 474);
+            this.metroButtonSzamlaMegse.Location = new System.Drawing.Point(615, 474);
             this.metroButtonSzamlaMegse.Name = "metroButtonSzamlaMegse";
-            this.metroButtonSzamlaMegse.Size = new System.Drawing.Size(75, 23);
+            this.metroButtonSzamlaMegse.Size = new System.Drawing.Size(84, 23);
             this.metroButtonSzamlaMegse.TabIndex = 10;
             this.metroButtonSzamlaMegse.Text = "Mégse";
             this.metroButtonSzamlaMegse.UseSelectable = true;
@@ -890,11 +890,11 @@
             // 
             // metroButtonSzamlaHozzaad
             // 
-            this.metroButtonSzamlaHozzaad.Location = new System.Drawing.Point(624, 439);
+            this.metroButtonSzamlaHozzaad.Location = new System.Drawing.Point(615, 439);
             this.metroButtonSzamlaHozzaad.Name = "metroButtonSzamlaHozzaad";
-            this.metroButtonSzamlaHozzaad.Size = new System.Drawing.Size(75, 23);
+            this.metroButtonSzamlaHozzaad.Size = new System.Drawing.Size(84, 23);
             this.metroButtonSzamlaHozzaad.TabIndex = 9;
-            this.metroButtonSzamlaHozzaad.Text = "Hozzáadás";
+            this.metroButtonSzamlaHozzaad.Text = "Új hozzáadás";
             this.metroButtonSzamlaHozzaad.UseSelectable = true;
             this.metroButtonSzamlaHozzaad.Visible = false;
             this.metroButtonSzamlaHozzaad.Click += new System.EventHandler(this.metroButtonSzamlaHozzaad_Click);
@@ -1389,7 +1389,7 @@
             this.metroButtonSzamlakBetolt.Name = "metroButtonSzamlakBetolt";
             this.metroButtonSzamlakBetolt.Size = new System.Drawing.Size(124, 23);
             this.metroButtonSzamlakBetolt.TabIndex = 6;
-            this.metroButtonSzamlakBetolt.Text = "Számlák betöltése";
+            this.metroButtonSzamlakBetolt.Text = "Adatok betöltése";
             this.metroButtonSzamlakBetolt.UseSelectable = true;
             this.metroButtonSzamlakBetolt.Click += new System.EventHandler(this.metroButtonSzamlakBetolt_Click);
             // 
@@ -1463,7 +1463,7 @@
             this.metroButtonVevoFelvetel.Name = "metroButtonVevoFelvetel";
             this.metroButtonVevoFelvetel.Size = new System.Drawing.Size(112, 23);
             this.metroButtonVevoFelvetel.TabIndex = 8;
-            this.metroButtonVevoFelvetel.Text = "Új vevő felvétele";
+            this.metroButtonVevoFelvetel.Text = "Új felvétele";
             this.metroButtonVevoFelvetel.UseSelectable = true;
             this.metroButtonVevoFelvetel.Click += new System.EventHandler(this.metroButtonVevoFelvetel_Click);
             // 
@@ -1753,7 +1753,7 @@
             this.metroButtonVevokBetolt.Name = "metroButtonVevokBetolt";
             this.metroButtonVevokBetolt.Size = new System.Drawing.Size(113, 23);
             this.metroButtonVevokBetolt.TabIndex = 3;
-            this.metroButtonVevokBetolt.Text = "Vevők betöltése";
+            this.metroButtonVevokBetolt.Text = "Adatok betöltése";
             this.metroButtonVevokBetolt.UseSelectable = true;
             this.metroButtonVevokBetolt.Click += new System.EventHandler(this.metroButtonVevokBetolt_Click);
             // 
